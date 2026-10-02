@@ -1,0 +1,6 @@
+.select-control{display:block;flex:1;min-width:0}
+.reference-select.select-field>.select-control{flex:1}
+.concept-course-filter.select-field>.select-control{width:100%}
+.playground-toolbar .select-control{width:220px;flex:0 0 220px}
+.select-field .select-control{display:block;min-width:0}
+@media(max-width:760px){.playground-toolbar .select-control{width:100%;flex:1 1 100%}}
