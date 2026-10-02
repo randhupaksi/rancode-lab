@@ -1,9 +1,16 @@
 @import 'tailwindcss';
+@import './styles/foundation.css';
+@import './styles/learning.css';
+@import './styles/course-details.css';
+@import './styles/course-hub.css';
+@import './styles/select.css';
+@import './styles/select-layout.css';
+@import './styles/home.css';
 
 :root {
   font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
-  color: #f4f4f5;
-  background: #09090b;
+  color: var(--foreground);
+  background: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
