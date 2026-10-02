@@ -1,0 +1,18 @@
+.code-editor { color: var(--foreground); background: var(--surface); overflow: hidden; }
+.code-editor .cm-editor { background: transparent; font-size: 13px; outline: none; }
+.code-editor .cm-editor.cm-focused { outline: 2px solid var(--primary); outline-offset: -2px; }
+.code-editor .cm-scroller { font-family: var(--font-mono, 'Geist Mono Variable', monospace); min-height: var(--editor-min-height, 200px); line-height: 1.85; }
+.code-editor .cm-content { padding: 18px 0; caret-color: var(--primary); }
+.code-editor .cm-line { padding: 0 20px 0 12px; }
+.code-editor .cm-gutters { background: transparent; border: 0; color: var(--muted); padding: 18px 0 18px 10px; font-size: 11px; }
+.code-editor .cm-lineNumbers .cm-gutterElement { min-width: 28px; }
+.code-editor .cm-activeLine, .code-editor .cm-activeLineGutter { background: color-mix(in srgb, var(--foreground) 3%, transparent); }
+.code-editor .cm-concept-highlight { background: color-mix(in srgb, var(--primary) 13%, transparent); box-shadow: inset 3px 0 var(--primary); }
+.code-editor .cm-cursor { border-left-color: var(--primary); }
+.code-editor .cm-selectionBackground, .code-editor .cm-focused .cm-selectionBackground, .code-editor .cm-content ::selection { background: color-mix(in srgb, var(--primary) 22%, transparent) !important; }
+.code-editor .cm-tooltip { border: 1px solid var(--border); background: var(--surface); color: var(--foreground); }
+.code-editor .cm-tooltip-autocomplete > ul > li[aria-selected] { background: var(--primary); color: var(--surface); }
+.code-editor .cm-panels { background: var(--surface); color: var(--foreground); }
+.code-editor .cm-searchMatch { background: color-mix(in srgb, var(--primary) 25%, transparent); }
+.code-editor-hint { display: block; padding: 8px 18px; font-family: var(--font-mono, monospace); font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); }
+@media (max-width: 600px) { .code-editor .cm-editor { font-size: 12px; } .code-editor .cm-line { padding-right: 10px; } }
