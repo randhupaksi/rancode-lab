@@ -1,13 +1,20 @@
-import type { Course, CourseModule } from './types'
+import type { Challenge, Concept, Course, CourseModule, Lesson } from './types'
 import type { Locale } from '../features/locale/LocaleProvider'
+import { localizeLogicLesson } from './logic-lesson-locales'
 
-const courseCopy: Record<string, Pick<Course, 'eyebrow' | 'description' | 'prerequisite'>> = {
+const courseCopy: Record<string, Partial<Pick<Course, 'title' | 'eyebrow' | 'description' | 'prerequisite'>>> = {
+  logic: { title: 'Logika & Pemecahan Masalah', eyebrow: 'Mulai dari cara berpikir', description: 'Uraikan masalah sehari-hari menjadi langkah, keputusan, dan instruksi yang dapat diulang.', prerequisite: 'Belum perlu pengalaman coding' },
+  web: { title: 'Web & Alat Pengembangan', eyebrow: 'Kenali lingkungan belajarmu', description: 'Pahami browser, file, developer tools, dan langkah awal version control.', prerequisite: 'Dasar pemecahan masalah' },
   typescript: { eyebrow: 'Buat maksud JavaScript-mu lebih jelas', description: 'Bangun model mental yang kuat untuk types, data, dan kode aplikasi nyata.', prerequisite: 'Dasar JavaScript' },
   react: { eyebrow: 'Bangun antarmuka dari bagian yang jelas', description: 'Pahami components, state, effects, dan pertimbangan di balik UI yang responsif.', prerequisite: 'Dasar JavaScript dan browser' },
   nextjs: { eyebrow: 'Bangun pengalaman web yang utuh', description: 'Pelajari routes, batas rendering, alur data, dan pengalaman route yang andal.', prerequisite: 'Fondasi React' },
 }
 
 const moduleCopy: Record<string, Pick<CourseModule, 'title' | 'description'>> = {
+  'logic-essentials': { title: 'Dasar Logika & Pemecahan Masalah', description: 'Mulai dengan instruksi, keputusan, pengulangan, dan pemecahan masalah.' },
+  'logic-reasoning': { title: 'Penalaran dan Verifikasi', description: 'Rumuskan masalah, telusuri keputusan, bandingkan pendekatan, dan periksa hasilnya.' },
+  'web-essentials': { title: 'Dasar Web & Alat Pengembangan', description: 'Pahami browser, file, developer tools, dan riwayat versi.' },
+  'web-workflow': { title: 'Alur Kerja Developer', description: 'Kenali request, alat lokal, dokumentasi, dan proses publikasi.' },
   'getting-started': { title: 'Memulai', description: 'Pahami alasan types ada dan tulis kontrak pertamamu.' },
   'type-system': { title: 'Sistem Tipe', description: 'Jelajahi values, inference, koleksi, dan tipe alternatif.' },
   functions: { title: 'Functions', description: 'Hubungkan input, perilaku, dan hasil dengan kontrak yang jelas.' },
@@ -35,4 +42,25 @@ export function localizeCourse(course: Course, locale: Locale): Course {
 
 export function localizeModule(module: CourseModule, locale: Locale): CourseModule {
   return locale === 'id' && moduleCopy[module.id] ? { ...module, ...moduleCopy[module.id] } : module
+}
+
+const lessonTranslations = new WeakMap<Lesson, Lesson>()
+export function localizeLesson(lesson: Lesson, locale: Locale): Lesson {
+  if (locale !== 'id') return lesson
+  const cached = lessonTranslations.get(lesson)
+  if (cached) return cached
+  const localized = localizeLogicLesson(lesson, locale)
+  lessonTranslations.set(lesson, localized)
+  return localized
+}
+
+export function localizeConcept(concept: Concept, lesson: Lesson, locale: Locale): Concept {
+  const localizedLesson = localizeLesson(lesson, locale)
+  if (localizedLesson === lesson) return concept
+  return { ...concept, title: localizedLesson.title, category: localizedLesson.challenge.topic, description: localizedLesson.description, visual: localizedLesson.visual }
+}
+
+export function localizeChallenge(challenge: Challenge, lesson: Lesson, locale: Locale): Challenge {
+  const localizedLesson = localizeLesson(lesson, locale)
+  return localizedLesson === lesson ? challenge : localizedLesson.challenge
 }
