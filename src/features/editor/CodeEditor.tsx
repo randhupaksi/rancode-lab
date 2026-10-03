@@ -97,7 +97,7 @@ export default function CodeEditor({ value, onChange, label = 'TypeScript code e
 
   useEffect(() => { editor.current?.dispatch({ effects: highlightEffect.of(highlightLine) }) }, [highlightLine, value])
 
-  return <div className="code-editor" style={{ '--editor-min-height': `${minHeight}px` } as React.CSSProperties}>
+  return <div className="code-editor" translate="no" style={{ '--editor-min-height': `${minHeight}px` } as React.CSSProperties}>
     <div ref={container} />
     <span className="code-editor-hint" id={descriptionId}>{readOnly ? 'Read-only example.' : 'Tab indents. Press Escape, then Tab to leave the editor.'}</span>
   </div>

@@ -5,9 +5,10 @@ import { useTypeScript } from '../../features/runtime/useTypeScript'
 import { runCode } from '../../features/runtime/runner'
 import { useLocale } from '../../features/locale/LocaleProvider'
 
-export default function LiveLab({ initialCode, symbols = [], title = 'Try it yourself', runnable = true }: { initialCode: string; symbols?: string[]; title?: string; runnable?: boolean }) {
+export default function LiveLab({ initialCode, value, onChange, symbols = [], title = 'Try it yourself', runnable = true }: { initialCode: string; value?: string; onChange?: (code: string) => void; symbols?: string[]; title?: string; runnable?: boolean }) {
   const { locale, t } = useLocale()
-  const [code, setCode] = useState(initialCode)
+  const [localCode, setCode] = useState(initialCode)
+  const code = value ?? localCode
   const [selected, setSelected] = useState(0)
   const [running, setRunning] = useState(false)
   const [output, setOutput] = useState<string[] | null>(null)
@@ -25,13 +26,14 @@ export default function LiveLab({ initialCode, symbols = [], title = 'Try it you
     setRuntimeError('')
     setRunning(false)
     return () => { activeRun.current?.abort(); activeRun.current = null }
-  }, [initialCode])
+  }, [initialCode, value])
 
   const changeCode = (nextCode: string) => {
     activeRun.current?.abort()
     activeRun.current = null
     setRunning(false)
     setCode(nextCode)
+    onChange?.(nextCode)
     setOutput(null)
     setRuntimeError('')
   }

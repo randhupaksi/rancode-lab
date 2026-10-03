@@ -23,7 +23,7 @@ export default function CodeBlock({ code, language = 'typescript' }: { code: str
   }
   return <div className="code-block">
     <div className="code-block-toolbar"><span>{language}</span><button className="icon-button" aria-label={t('code.copy')} onClick={copy}>{status === t('code.copied') ? <Check size={15} /> : <Copy size={15} />}</button></div>
-    <pre><code><HighlightedCode code={code} /></code></pre>
+    <pre translate="no"><code><HighlightedCode code={code} /></code></pre>
     <span className="sr-only" role="status">{status}</span>
   </div>
 }
