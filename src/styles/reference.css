@@ -148,3 +148,6 @@
   .challenge-actions { gap: 6px; }
   .challenge-actions .button { padding-left: 11px; padding-right: 11px; }
 }
+.reference-pagination { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 28px; }
+.reference-pagination > span { color: var(--muted); font-size: 13px; }
+#reference-results { scroll-margin-top: 90px; }

@@ -2,19 +2,39 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Search } from 'lucide-react'
 import MiniSearch from 'minisearch'
 import { useNavigate } from 'react-router-dom'
-import { lessons, concepts, challenges, getCourse, lessonPath } from '../../content'
+import { lessons, concepts, challenges, getCourse, getLesson, getLessonForChallenge, lessonPath } from '../../content'
 import Dialog from '../../components/ui/Dialog'
 import { useLocale } from '../locale/LocaleProvider'
+import { localizeChallenge, localizeConcept, localizeCourse, localizeLesson } from '../../content/localize'
 
 type Entry = { id: string; title: string; description: string; type: string; url: string }
-const entries: Entry[] = [
-  ...lessons.map(item => ({ id: `lesson-${item.id}`, title: item.title, description: item.description, type: `${getCourse(item.courseId)?.title ?? 'Course'} lesson`, url: lessonPath(item) })),
-  ...concepts.map(item => ({ id: `concept-${item.id}`, title: item.title, description: item.description, type: 'Concept', url: `/explore/${item.id}` })),
-  ...challenges.map(item => ({ id: `challenge-${item.id}`, title: item.title, description: item.prompt, type: 'Challenge', url: `/challenges/${item.id}` })),
-  ...concepts.map(item => ({ id: `reference-${item.id}`, title: item.title, description: item.description, type: 'Reference', url: `/cheat-sheet#${item.id}` })),
-]
-const index = new MiniSearch({ fields: ['title', 'description'], storeFields: ['title', 'description', 'type', 'url'], searchOptions: { boost: { title: 3 }, prefix: true, fuzzy: 0.2 } })
-index.addAll(entries)
+
+function makeEntries(locale: 'en' | 'id'): Entry[] {
+  const label = locale === 'id' ? { lesson: 'Pelajaran', concept: 'Konsep', challenge: 'Tantangan', reference: 'Referensi' } : { lesson: 'lesson', concept: 'Concept', challenge: 'Challenge', reference: 'Reference' }
+  const localizedConcepts = concepts.map(concept => {
+    const lesson = getLesson(concept.lessonId)
+    return lesson ? localizeConcept(concept, lesson, locale) : concept
+  })
+  return [
+    ...lessons.map(item => { const lesson = localizeLesson(item, locale); const course = getCourse(item.courseId); return { id: `lesson-${item.id}`, title: lesson.title, description: lesson.description, type: `${course ? localizeCourse(course, locale).title : 'Course'} ${label.lesson}`, url: lessonPath(item) } }),
+    ...localizedConcepts.map(item => ({ id: `concept-${item.id}`, title: item.title, description: item.description, type: label.concept, url: `/explore/${item.id}` })),
+    ...challenges.map(item => { const lesson = getLessonForChallenge(item.id); const challenge = lesson ? localizeChallenge(item, lesson, locale) : item; return { id: `challenge-${item.id}`, title: challenge.title, description: challenge.prompt, type: label.challenge, url: `/challenges/${item.id}` } }),
+    ...localizedConcepts.map(item => ({ id: `reference-${item.id}`, title: item.title, description: item.description, type: label.reference, url: `/cheat-sheet#${item.id}` })),
+  ]
+}
+
+// Curriculum is immutable for the lifetime of a deployment; at most two indexes are retained.
+const indexes = new Map<'en' | 'id', { entries: Entry[]; index: MiniSearch }>()
+function getSearchIndex(locale: 'en' | 'id') {
+  const cached = indexes.get(locale)
+  if (cached) return cached
+  const entries = makeEntries(locale)
+  const index = new MiniSearch({ fields: ['title', 'description'], storeFields: ['title', 'description', 'type', 'url'], searchOptions: { boost: { title: 3 }, prefix: true, fuzzy: 0.2 } })
+  index.addAll(entries)
+  const value = { entries, index }
+  indexes.set(locale, value)
+  return value
+}
 
 export default function SearchDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [query, setQuery] = useState('')
@@ -22,7 +42,8 @@ export default function SearchDialog({ open, onClose }: { open: boolean; onClose
   const navigate = useNavigate()
   const { locale, t } = useLocale()
   const list = useRef<HTMLDivElement>(null)
-  const results = useMemo(() => query.trim() ? index.search(query).slice(0, 12) as unknown as Entry[] : entries.filter(item => item.id.startsWith('lesson-')).slice(0, 6), [query])
+  const { entries, index } = useMemo(() => getSearchIndex(locale), [locale])
+  const results = useMemo(() => query.trim() ? index.search(query).slice(0, 12) as unknown as Entry[] : entries.filter(item => item.id.startsWith('lesson-')).slice(0, 6), [query, entries, index])
   useEffect(() => { if (open) { setQuery(''); setActive(0) } }, [open])
   useEffect(() => { list.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' }) }, [active])
   const go = (entry: Entry) => { onClose(); navigate(entry.url) }

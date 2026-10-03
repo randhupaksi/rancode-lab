@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { ArrowRight, Braces, Search } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { concepts, courses, getCourse, getLesson, lessonPath } from '../content'
@@ -8,17 +8,23 @@ import SelectField from '../components/ui/SelectField'
 import { usePageTitle } from '../hooks/usePageTitle'
 import '../styles/reference.css'
 import { useLocale } from '../features/locale/LocaleProvider'
+import { localizeConcept, localizeCourse, localizeLesson } from '../content/localize'
 
 export default function ExplorePage() {
   const { conceptId } = useParams()
-  const { t } = useLocale()
+  const { locale, t } = useLocale()
   const [query, setQuery] = useState('')
   const [courseId, setCourseId] = useState('all')
-  const filtered = concepts.filter((concept) => (courseId === 'all' || concept.courseId === courseId) && `${concept.title} ${concept.category} ${concept.description}`.toLowerCase().includes(query.toLowerCase().trim()))
-  const requested = concepts.find((concept) => concept.id === conceptId)
+  const localizedConcepts = useMemo(() => concepts.map(concept => {
+    const lesson = getLesson(concept.lessonId)
+    return lesson ? localizeConcept(concept, lesson, locale) : concept
+  }), [locale])
+  const filtered = localizedConcepts.filter((concept) => (courseId === 'all' || concept.courseId === courseId) && `${concept.title} ${concept.category} ${concept.description}`.toLowerCase().includes(query.toLowerCase().trim()))
+  const requested = localizedConcepts.find((concept) => concept.id === conceptId)
   const selected = requested && filtered.some((concept) => concept.id === requested.id) ? requested : !conceptId ? filtered[0] : undefined
   const categories = [...new Set(filtered.map((concept) => concept.category))]
-  const lesson = selected ? getLesson(selected.lessonId) : undefined
+  const sourceLesson = selected ? getLesson(selected.lessonId) : undefined
+  const lesson = sourceLesson ? localizeLesson(sourceLesson, locale) : undefined
   const visual = selected?.visual ?? lesson?.visual
   usePageTitle(selected ? `${selected.title} · Explore` : 'Explore concepts')
 
@@ -35,7 +41,7 @@ export default function ExplorePage() {
         {!filtered.length && <div className="reference-empty"><p>{t('search.empty', { query })}</p><button className="button ghost" onClick={() => setQuery('')}>{t('explore.clear')}</button></div>}
       </aside>
       {selected ? <article className="concept-detail" key={selected.id}>
-        <div className="concept-detail-heading"><span className="eyebrow">{getCourse(selected.courseId)?.title} / {selected.category}</span><span className="reference-mono">{String(concepts.indexOf(selected) + 1).padStart(2, '0')} / {String(concepts.length).padStart(2, '0')}</span></div>
+        <div className="concept-detail-heading"><span className="eyebrow">{getCourse(selected.courseId) ? localizeCourse(getCourse(selected.courseId)!, locale).title : ''} / {selected.category}</span><span className="reference-mono">{String(concepts.findIndex(concept => concept.id === selected.id) + 1).padStart(2, '0')} / {String(concepts.length).padStart(2, '0')}</span></div>
         <h2>{selected.title}</h2><p className="concept-definition">{selected.description}</p>
         <section className="reference-example"><h3 className="section-heading">{t('explore.code')}</h3><CodeBlock code={selected.code} language={selected.language} /></section>
         {visual && <section className="reference-visual"><h3 className="section-heading">{t('explore.mental')}</h3><ConceptCanvas visual={visual} /></section>}

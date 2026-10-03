@@ -6,6 +6,7 @@ import CodeEditor from '../editor/CodeEditor'
 import { gradeFixChallenge } from './gradeFixChallenge'
 import { useProgress } from '../progress/ProgressProvider'
 import { useLocale } from '../locale/LocaleProvider'
+import { useLearningCopy } from '../journey/useLearningCopy'
 import '../../styles/reference.css'
 
 interface Props { challenge: Challenge; onComplete?: () => void }
@@ -18,7 +19,8 @@ export default function ChallengeBlock({ challenge, onComplete }: Props) {
 function ChallengeAttempt({ challenge, onComplete }: Props) {
   const inputId = useId()
   const { completeChallenge } = useProgress()
-  const { t } = useLocale()
+  const { locale, t } = useLocale()
+  const c = useLearningCopy()
   const [answer, setAnswer] = useState('')
   const [code, setCode] = useState(challenge.code)
   const [feedback, setFeedback] = useState<Feedback | null>(null)
@@ -56,20 +58,21 @@ function ChallengeAttempt({ challenge, onComplete }: Props) {
         message = result.message
       } else {
         success = [challenge.answer, ...(challenge.acceptedAnswers ?? [])].some((expected) => answer.trim() === expected.trim())
-        message = success ? challenge.explanation : 'Not quite. Follow the example one step at a time. Open a hint if you need a nudge.'
+        message = success ? challenge.explanation : c('Not quite. Follow the example one step at a time. Open a hint if you need a nudge.', 'Belum tepat. Ikuti contohnya selangkah demi selangkah. Buka petunjuk jika kamu membutuhkannya.')
       }
       if (current !== request.current) return
       setFeedback({ success, message })
       if (success) { completeChallenge(challenge.id); onComplete?.() }
     } catch {
-      if (current === request.current) setFeedback({ success: false, message: 'The TypeScript checker could not finish. Your code is still here. Try checking again.' })
+      if (current === request.current) setFeedback({ success: false, message: c('The TypeScript checker could not finish. Your code is still here. Try checking again.', 'Pemeriksa TypeScript belum bisa menyelesaikan pemeriksaan. Kodemu tetap tersimpan; coba periksa lagi.') })
     } finally { if (current === request.current) setChecking(false) }
   }
 
   const canCheck = challenge.kind === 'fix' ? Boolean(code.trim()) : Boolean(answer.trim())
+  const difficulty = locale === 'id' ? ({ Beginner: 'Pemula', Intermediate: 'Menengah', Advanced: 'Lanjutan' } as const)[challenge.difficulty] : challenge.difficulty
 
   return <section className="challenge-block" aria-label={challenge.title}>
-    <div className="challenge-kind-label"><span>{challenge.kind === 'choice' ? t('challenge.choice') : challenge.kind === 'fill' ? t('challenge.fill') : t('challenge.fix')}</span><span className="badge">{challenge.difficulty}</span></div>
+    <div className="challenge-kind-label"><span>{challenge.kind === 'choice' ? t('challenge.choice') : challenge.kind === 'fill' ? t('challenge.fill') : t('challenge.fix')}</span><span className="badge">{difficulty}</span></div>
     <h3 className="challenge-prompt">{challenge.prompt}</h3>
     {challenge.kind === 'fix' ? <CodeEditor label={t('challenge.editor')} value={code} onChange={editCode} minHeight={220} /> : <CodeBlock code={challenge.code} language={challenge.language} />}
     {challenge.kind === 'choice' && <fieldset className="challenge-options"><legend className="sr-only">{t('challenge.choice')}</legend>{challenge.options?.map((option, index) => <label key={option} className={`challenge-option ${answer === option ? 'is-selected' : ''}`}><input type="radio" name={inputId} value={option} checked={answer === option} onChange={() => editAnswer(option)} /><span className="challenge-option-letter">{String.fromCharCode(65 + index)}</span><code>{option}</code></label>)}</fieldset>}

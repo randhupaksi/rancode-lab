@@ -7,18 +7,20 @@ import { usePageTitle } from '../hooks/usePageTitle'
 import SelectField from '../components/ui/SelectField'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { useLocale } from '../features/locale/LocaleProvider'
+import { localizeCourse, localizeLesson } from '../content/localize'
 
 function PlaygroundWorkspace({ lessonId }: { lessonId?: string }) {
   const c = useLearningCopy()
-  const { t } = useLocale()
+  const { locale, t } = useLocale()
   const requested = getLesson(lessonId)
   const starters = courses.map(course => getCourseLessons(course.id).find(lesson => lesson.lab !== 'read')).filter(lesson => lesson !== undefined)
-  const options = requested ? [requested, ...starters.filter(lesson => lesson.id !== requested.id)] : starters
+  const sourceOptions = requested ? [requested, ...starters.filter(lesson => lesson.id !== requested.id)] : starters
+  const options = sourceOptions.map(lesson => localizeLesson(lesson, locale))
   const [selected, setSelected] = useState(options[0].id)
   const [pending, setPending] = useState<string | null>(null)
   const lesson = options.find(item => item.id === selected) ?? options[0]
   return <div className="page-width playground-page"><header className="playground-header"><div><p className="eyebrow">{t('play.eyebrow')}</p><h1 className="page-heading">{t('play.heading')}</h1><p className="page-lead">{t('play.lead')}</p></div><Link className="text-link" to={lessonPath(lesson)}><ArrowLeft size={15}/>{c('Open the guided lesson', 'Buka pelajaran terpandu')}</Link></header>
-    <div className="playground-toolbar"><SelectField id="playground-example" label={t('play.start')} value={pending ?? selected} onValueChange={value => { if (value !== selected) setPending(value) }} options={options.map(item => ({ value: item.id, label: `${courses.find(course => course.id === item.courseId)?.title} · ${item.title}` }))}/></div>
+    <div className="playground-toolbar"><SelectField id="playground-example" label={t('play.start')} value={pending ?? selected} onValueChange={value => { if (value !== selected) setPending(value) }} options={options.map(item => { const course = courses.find(course => course.id === item.courseId); return { value: item.id, label: `${course ? localizeCourse(course, locale).title : ''} · ${item.title}` } })}/></div>
     {pending && <div className="example-confirm" role="status"><p>{t('play.load', { title: options.find(item => item.id === pending)?.title ?? '' })}</p><button className="button secondary small" onClick={() => { setSelected(pending); setPending(null) }}>{t('play.loadButton')}</button><button className="button ghost small" onClick={() => setPending(null)}>{t('play.keep')}</button></div>}
     {lesson.practice && <p className="playground-practice">{lesson.practice}</p>}
     <LessonLab key={lesson.id} lesson={lesson}/>
