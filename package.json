@@ -4,9 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "content:generate": "node scripts/generate-runtime-data.mjs",
+    "predev": "npm run content:generate",
     "dev": "vite",
+    "prebuild": "npm run content:generate",
+    "perf:check": "node scripts/bundle-report.mjs --check",
     "build": "tsc --noEmit && vite build",
     "lint": "oxlint",
+    "pretest": "npm run content:generate",
     "test": "node --test",
     "preview": "vite preview",
     "check": "npm run lint && npm run build"

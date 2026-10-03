@@ -1,10 +1,8 @@
 import ts from 'typescript-browser'
+import rawLibraries from '../../generated/compiler-libraries'
 import type { AnalysisRequest, AnalysisResponse, AnalysisResult, InferredType } from './types'
 
 // Ship official lib definitions with the worker: inference never needs a CDN or network request.
-const rawLibraries = import.meta.glob('../../../node_modules/typescript-browser/lib/lib.*.d.ts', {
-  query: '?raw', import: 'default', eager: true,
-}) as Record<string, string>
 const libraries = new Map(Object.entries(rawLibraries).map(([path, text]) => [`/${path.split('/').at(-1)}`, text]))
 const sourceCache = new Map<string, ts.SourceFile>()
 const fileName = '/lesson.ts'

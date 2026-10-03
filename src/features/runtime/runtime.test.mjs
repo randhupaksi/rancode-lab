@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict'
-import { readFile, readdir } from 'node:fs/promises'
+import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import ts from 'typescript-browser'
+import { readCompilerLibraries } from '../../../scripts/compiler-libraries.mjs'
 
 async function loadSource(relativePath, transform = (value) => value) {
   const source = transform(await readFile(new URL(relativePath, import.meta.url), 'utf8'))
@@ -10,15 +11,13 @@ async function loadSource(relativePath, transform = (value) => value) {
 }
 
 test('compiler provides real literals, standard library inference, generics, and positioned diagnostics', async () => {
-  const libraryRoot = new URL('../../../node_modules/typescript-browser/lib/', import.meta.url)
-  const entries = await readdir(libraryRoot)
   globalThis.__undercodeTestCompiler = ts
-  globalThis.__undercodeTestLibraries = Object.fromEntries(await Promise.all(entries.filter((name) => /^lib\..*\.d\.ts$/.test(name)).map(async (name) => [name, await readFile(new URL(name, libraryRoot), 'utf8')])))
+  globalThis.__undercodeTestLibraries = Object.fromEntries(await readCompilerLibraries())
   let response
   globalThis.self = { postMessage: (message) => { response = message } }
   await loadSource('./typescript.worker.ts', (source) => source
     .replace("import ts from 'typescript-browser'", 'const ts = globalThis.__undercodeTestCompiler')
-    .replace(/const rawLibraries = import\.meta\.glob\([\s\S]*?as Record<string, string>/, 'const rawLibraries = globalThis.__undercodeTestLibraries'))
+    .replace("import rawLibraries from '../../generated/compiler-libraries'", 'const rawLibraries = globalThis.__undercodeTestLibraries'))
 
   function analyze(code, symbols = []) {
     self.onmessage({ data: { id: 1, code, symbols } })
