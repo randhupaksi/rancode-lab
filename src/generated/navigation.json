@@ -77,547 +77,547 @@
       "id": "web-browser",
       "courseId": "web",
       "title": "How a Web Page Arrives",
-      "titleId": "How a Web Page Arrives"
+      "titleId": "Alur Halaman Web ke Browser"
     },
     {
       "id": "web-files",
       "courseId": "web",
       "title": "Files, Folders, and Paths",
-      "titleId": "Files, Folders, and Paths"
+      "titleId": "File, Folder, dan Path"
     },
     {
       "id": "web-debugging",
       "courseId": "web",
       "title": "Inspect, Observe, Debug",
-      "titleId": "Inspect, Observe, Debug"
+      "titleId": "Amati, Periksa, Temukan Masalah"
     },
     {
       "id": "web-version-control",
       "courseId": "web",
       "title": "Save Meaningful Versions",
-      "titleId": "Save Meaningful Versions"
+      "titleId": "Simpan Perubahan dengan Jelas"
     },
     {
       "id": "web-url-parts",
       "courseId": "web",
       "title": "Read a URL",
-      "titleId": "Read a URL"
+      "titleId": "Bagian-bagian URL"
     },
     {
       "id": "web-http-status",
       "courseId": "web",
       "title": "Understand HTTP Status Codes",
-      "titleId": "Understand HTTP Status Codes"
+      "titleId": "Kode Status HTTP"
     },
     {
       "id": "web-client-server",
       "courseId": "web",
       "title": "Separate Browser and Server Responsibilities",
-      "titleId": "Separate Browser and Server Responsibilities"
+      "titleId": "Tugas Browser dan Server"
     },
     {
       "id": "web-local-server",
       "courseId": "web",
       "title": "Use a Local Development Server",
-      "titleId": "Use a Local Development Server"
+      "titleId": "Jalankan Server Lokal"
     },
     {
       "id": "web-packages",
       "courseId": "web",
       "title": "Packages, Scripts, and Lockfiles",
-      "titleId": "Packages, Scripts, and Lockfiles"
+      "titleId": "Paket, Script, dan Lockfile"
     },
     {
       "id": "web-breakpoints",
       "courseId": "web",
       "title": "Pause at a Debugger Breakpoint",
-      "titleId": "Pause at a Debugger Breakpoint"
+      "titleId": "Berhenti di Breakpoint Debugger"
     },
     {
       "id": "web-read-docs",
       "courseId": "web",
       "title": "Read Documentation with a Question",
-      "titleId": "Read Documentation with a Question"
+      "titleId": "Membaca Dokumentasi dengan Tujuan"
     },
     {
       "id": "web-publishing",
       "courseId": "web",
       "title": "Prepare a Page for Hosting",
-      "titleId": "Prepare a Page for Hosting"
+      "titleId": "Menyiapkan Halaman untuk Dipublikasikan"
     },
     {
       "id": "html-document",
       "courseId": "html",
       "title": "Your First Document",
-      "titleId": "Your First Document"
+      "titleId": "Dokumen HTML Pertamamu"
     },
     {
       "id": "html-semantics",
       "courseId": "html",
       "title": "Meaningful Page Landmarks",
-      "titleId": "Meaningful Page Landmarks"
+      "titleId": "Menandai Bagian Penting Halaman"
     },
     {
       "id": "html-links-images",
       "courseId": "html",
       "title": "Links and Useful Images",
-      "titleId": "Links and Useful Images"
+      "titleId": "Tautan dan Gambar yang Berguna"
     },
     {
       "id": "html-lists",
       "courseId": "html",
       "title": "Lists and Related Content",
-      "titleId": "Lists and Related Content"
+      "titleId": "Daftar dan Konten yang Berkaitan"
     },
     {
       "id": "html-forms",
       "courseId": "html",
       "title": "Labels, Inputs, and Forms",
-      "titleId": "Labels, Inputs, and Forms"
+      "titleId": "Label, Input, dan Form"
     },
     {
       "id": "html-accessibility",
       "courseId": "html",
       "title": "Build for Keyboard Use",
-      "titleId": "Build for Keyboard Use"
+      "titleId": "Membuat Halaman yang Bisa Dipakai dengan Keyboard"
     },
     {
       "id": "html-language-doctype",
       "courseId": "html",
       "title": "Document Mode and Language",
-      "titleId": "Document Mode and Language"
+      "titleId": "Mode Dokumen dan Bahasa"
     },
     {
       "id": "html-head-metadata",
       "courseId": "html",
       "title": "Metadata and Page Identity",
-      "titleId": "Metadata and Page Identity"
+      "titleId": "Metadata dan Identitas Halaman"
     },
     {
       "id": "html-heading-outline",
       "courseId": "html",
       "title": "A Useful Heading Hierarchy",
-      "titleId": "A Useful Heading Hierarchy"
+      "titleId": "Susunan Heading yang Jelas"
     },
     {
       "id": "html-text-emphasis",
       "courseId": "html",
       "title": "Emphasis, Importance, and Small Print",
-      "titleId": "Emphasis, Importance, and Small Print"
+      "titleId": "Penekanan, Informasi Penting, dan Catatan"
     },
     {
       "id": "html-code-whitespace",
       "courseId": "html",
       "title": "Code and Preserved Whitespace",
-      "titleId": "Code and Preserved Whitespace"
+      "titleId": "Kode dan Spasi yang Dipertahankan"
     },
     {
       "id": "html-quotes-citations",
       "courseId": "html",
       "title": "Quotations and Attribution",
-      "titleId": "Quotations and Attribution"
+      "titleId": "Kutipan dan Sumbernya"
     },
     {
       "id": "html-section-article",
       "courseId": "html",
       "title": "Article, Section, or Div?",
-      "titleId": "Article, Section, or Div?"
+      "titleId": "Kapan Memakai Article, Section, atau Div?"
     },
     {
       "id": "html-form-names",
       "courseId": "html",
       "title": "Names Define Submitted Data",
-      "titleId": "Names Define Submitted Data"
+      "titleId": "Nama Field Menentukan Data Form"
     },
     {
       "id": "html-select-options",
       "courseId": "html",
       "title": "Selecting One Known Option",
-      "titleId": "Selecting One Known Option"
+      "titleId": "Memilih Satu Opsi"
     },
     {
       "id": "html-radio-groups",
       "courseId": "html",
       "title": "Radio Buttons for One Choice",
-      "titleId": "Radio Buttons for One Choice"
+      "titleId": "Radio Button untuk Memilih Satu Opsi"
     },
     {
       "id": "html-checkbox-values",
       "courseId": "html",
       "title": "Checkboxes and Multiple Values",
-      "titleId": "Checkboxes and Multiple Values"
+      "titleId": "Checkbox untuk Memilih Beberapa Opsi"
     },
     {
       "id": "html-textarea",
       "courseId": "html",
       "title": "Multiline Input and Helpful Instructions",
-      "titleId": "Multiline Input and Helpful Instructions"
+      "titleId": "Input Multibaris dan Petunjuk yang Jelas"
     },
     {
       "id": "html-native-validation",
       "courseId": "html",
       "title": "Native Constraints and Their Limits",
-      "titleId": "Native Constraints and Their Limits"
+      "titleId": "Validasi Bawaan dan Batasannya"
     },
     {
       "id": "html-fieldset-legend",
       "courseId": "html",
       "title": "Grouping Related Questions",
-      "titleId": "Grouping Related Questions"
+      "titleId": "Mengelompokkan Pertanyaan yang Berkaitan"
     },
     {
       "id": "html-alt-decisions",
       "courseId": "html",
       "title": "Choose Alt Text by Purpose",
-      "titleId": "Choose Alt Text by Purpose"
+      "titleId": "Menentukan Alt Text Sesuai Tujuannya"
     },
     {
       "id": "html-image-dimensions",
       "courseId": "html",
       "title": "Reserve Image Space",
-      "titleId": "Reserve Image Space"
+      "titleId": "Menyiapkan Ruang untuk Gambar"
     },
     {
       "id": "html-responsive-images",
       "courseId": "html",
       "title": "Responsive Sources and Art Direction",
-      "titleId": "Responsive Sources and Art Direction"
+      "titleId": "Gambar untuk Berbagai Ukuran Layar"
     },
     {
       "id": "html-figure-caption",
       "courseId": "html",
       "title": "Self-contained Figures",
-      "titleId": "Self-contained Figures"
+      "titleId": "Figure dan Caption yang Menjelaskan"
     },
     {
       "id": "html-audio-video",
       "courseId": "html",
       "title": "Media Controls and Captions",
-      "titleId": "Media Controls and Captions"
+      "titleId": "Kontrol Media dan Caption"
     },
     {
       "id": "html-iframe-boundaries",
       "courseId": "html",
       "title": "Embedded Pages and Boundaries",
-      "titleId": "Embedded Pages and Boundaries"
+      "titleId": "Halaman Sematan dan Batasannya"
     },
     {
       "id": "html-table-headers",
       "courseId": "html",
       "title": "Tables with Associated Headers",
-      "titleId": "Tables with Associated Headers"
+      "titleId": "Tabel dengan Header yang Terhubung"
     },
     {
       "id": "html-table-groups",
       "courseId": "html",
       "title": "Grouped Table Headings",
-      "titleId": "Grouped Table Headings"
+      "titleId": "Mengelompokkan Heading Tabel"
     },
     {
       "id": "html-details-summary",
       "courseId": "html",
       "title": "Native Disclosures",
-      "titleId": "Native Disclosures"
+      "titleId": "Membuat Konten yang Bisa Dibuka-Tutup"
     },
     {
       "id": "html-dialog",
       "courseId": "html",
       "title": "A Native Modal Dialog",
-      "titleId": "A Native Modal Dialog"
+      "titleId": "Dialog Modal Bawaan Browser"
     },
     {
       "id": "html-data-attributes",
       "courseId": "html",
       "title": "Custom Data Without Invented Attributes",
-      "titleId": "Custom Data Without Invented Attributes"
+      "titleId": "Menyimpan Data Tambahan dengan Atribut yang Tepat"
     },
     {
       "id": "html-progressive-enhancement",
       "courseId": "html",
       "title": "Build a Useful Baseline",
-      "titleId": "Build a Useful Baseline"
+      "titleId": "Mulai dari Halaman yang Tetap Berguna"
     },
     {
       "id": "css-selectors",
       "courseId": "css",
       "title": "Select and Style Elements",
-      "titleId": "Select and Style Elements"
+      "titleId": "Memilih dan Mengatur Tampilan Elemen"
     },
     {
       "id": "css-cascade",
       "courseId": "css",
       "title": "The Cascade and Inheritance",
-      "titleId": "The Cascade and Inheritance"
+      "titleId": "Cascade dan Inheritance"
     },
     {
       "id": "css-box-model",
       "courseId": "css",
       "title": "The Box Model",
-      "titleId": "The Box Model"
+      "titleId": "Box Model"
     },
     {
       "id": "css-flexbox",
       "courseId": "css",
       "title": "Arrange a Row with Flexbox",
-      "titleId": "Arrange a Row with Flexbox"
+      "titleId": "Menyusun Baris dengan Flexbox"
     },
     {
       "id": "css-grid",
       "courseId": "css",
       "title": "Build a Grid",
-      "titleId": "Build a Grid"
+      "titleId": "Menyusun Konten dengan Grid"
     },
     {
       "id": "css-responsive",
       "courseId": "css",
       "title": "Responsive and Readable",
-      "titleId": "Responsive and Readable"
+      "titleId": "Layout Responsif yang Tetap Nyaman Dibaca"
     },
     {
       "id": "css-relative-units",
       "courseId": "css",
       "title": "Relative Units",
-      "titleId": "Relative Units"
+      "titleId": "Unit Ukuran yang Bisa Menyesuaikan"
     },
     {
       "id": "css-line-height",
       "courseId": "css",
       "title": "Readable Line Height and Measure",
-      "titleId": "Readable Line Height and Measure"
+      "titleId": "Jarak Baris dan Lebar Teks yang Nyaman"
     },
     {
       "id": "css-font-stacks",
       "courseId": "css",
       "title": "Font Stacks and Fallbacks",
-      "titleId": "Font Stacks and Fallbacks"
+      "titleId": "Pilihan Font dan Font Pengganti"
     },
     {
       "id": "css-custom-properties",
       "courseId": "css",
       "title": "Custom Properties as Shared Decisions",
-      "titleId": "Custom Properties as Shared Decisions"
+      "titleId": "Custom Properties untuk Nilai Bersama"
     },
     {
       "id": "css-fluid-values",
       "courseId": "css",
       "title": "Fluid Values with Clamp",
-      "titleId": "Fluid Values with Clamp"
+      "titleId": "Ukuran Fleksibel dengan Clamp"
     },
     {
       "id": "css-color-states",
       "courseId": "css",
       "title": "Color with More Than One Signal",
-      "titleId": "Color with More Than One Signal"
+      "titleId": "Membedakan Kondisi dengan Warna"
     },
     {
       "id": "css-normal-flow",
       "courseId": "css",
       "title": "Normal Flow and Display",
-      "titleId": "Normal Flow and Display"
+      "titleId": "Alur Normal dan Display"
     },
     {
       "id": "css-flex-sizing",
       "courseId": "css",
       "title": "Flex Basis, Grow, and Shrink",
-      "titleId": "Flex Basis, Grow, and Shrink"
+      "titleId": "Flex Basis, Grow, dan Shrink"
     },
     {
       "id": "css-flex-axes",
       "courseId": "css",
       "title": "Main and Cross Axes",
-      "titleId": "Main and Cross Axes"
+      "titleId": "Main Axis dan Cross Axis"
     },
     {
       "id": "css-grid-areas",
       "courseId": "css",
       "title": "Named Grid Areas",
-      "titleId": "Named Grid Areas"
+      "titleId": "Menyusun Layout dengan Grid Areas"
     },
     {
       "id": "css-grid-autofit",
       "courseId": "css",
       "title": "Auto-fit and Minimum Card Widths",
-      "titleId": "Auto-fit and Minimum Card Widths"
+      "titleId": "Auto-fit dan Lebar Minimum Kartu"
     },
     {
       "id": "css-overflow-minimums",
       "courseId": "css",
       "title": "Content Minimums and Overflow",
-      "titleId": "Content Minimums and Overflow"
+      "titleId": "Mencegah Konten Meluber"
     },
     {
       "id": "css-combinators",
       "courseId": "css",
       "title": "Relationships Between Elements",
-      "titleId": "Relationships Between Elements"
+      "titleId": "Hubungan Antar-elemen dengan Combinator"
     },
     {
       "id": "css-interaction-pseudos",
       "courseId": "css",
       "title": "Interaction Pseudo-classes",
-      "titleId": "Interaction Pseudo-classes"
+      "titleId": "Pseudo-class untuk Interaksi"
     },
     {
       "id": "css-pseudo-elements",
       "courseId": "css",
       "title": "Decorative Pseudo-elements",
-      "titleId": "Decorative Pseudo-elements"
+      "titleId": "Pseudo-element untuk Dekorasi"
     },
     {
       "id": "css-has-relations",
       "courseId": "css",
       "title": "Style a Parent with Has",
-      "titleId": "Style a Parent with Has"
+      "titleId": "Memilih Elemen Induk dengan :has()"
     },
     {
       "id": "css-cascade-layers",
       "courseId": "css",
       "title": "Cascade Layers",
-      "titleId": "Cascade Layers"
+      "titleId": "Mengatur Prioritas dengan Cascade Layers"
     },
     {
       "id": "css-where-specificity",
       "courseId": "css",
       "title": "Low-specificity Defaults with Where",
-      "titleId": "Low-specificity Defaults with Where"
+      "titleId": "Selector :where() dengan Specificity Rendah"
     },
     {
       "id": "css-media-features",
       "courseId": "css",
       "title": "Media Queries Beyond Width",
-      "titleId": "Media Queries Beyond Width"
+      "titleId": "Media Query untuk Berbagai Kondisi"
     },
     {
       "id": "css-container-queries",
       "courseId": "css",
       "title": "Container Queries",
-      "titleId": "Container Queries"
+      "titleId": "Container Query untuk Komponen"
     },
     {
       "id": "css-logical-properties",
       "courseId": "css",
       "title": "Logical Spacing and Direction",
-      "titleId": "Logical Spacing and Direction"
+      "titleId": "Jarak yang Mengikuti Arah Tulisan"
     },
     {
       "id": "css-intrinsic-layout",
       "courseId": "css",
       "title": "Let Content Wrap Naturally",
-      "titleId": "Let Content Wrap Naturally"
+      "titleId": "Biarkan Konten Menyesuaikan Ruang"
     },
     {
       "id": "css-aspect-object-fit",
       "courseId": "css",
       "title": "Aspect Ratio and Object Fit",
-      "titleId": "Aspect Ratio and Object Fit"
+      "titleId": "Aspect Ratio dan Object Fit"
     },
     {
       "id": "css-positioning",
       "courseId": "css",
       "title": "Relative, Absolute, and Sticky",
-      "titleId": "Relative, Absolute, and Sticky"
+      "titleId": "Position Relative, Absolute, dan Sticky"
     },
     {
       "id": "css-stacking-contexts",
       "courseId": "css",
       "title": "Stacking Contexts",
-      "titleId": "Stacking Contexts"
+      "titleId": "Memahami Stacking Context"
     },
     {
       "id": "css-transitions",
       "courseId": "css",
       "title": "Intentional Transitions",
-      "titleId": "Intentional Transitions"
+      "titleId": "Transisi yang Punya Tujuan"
     },
     {
       "id": "css-keyframes-motion",
       "courseId": "css",
       "title": "Keyframes and Reduced Motion",
-      "titleId": "Keyframes and Reduced Motion"
+      "titleId": "Keyframes dan Animasi yang Menghormati Preferensi Gerak"
     },
     {
       "id": "css-transform-layout",
       "courseId": "css",
       "title": "Transforms and Layout Space",
-      "titleId": "Transforms and Layout Space"
+      "titleId": "Transform dan Ruang Layout"
     },
     {
       "id": "css-focus-states",
       "courseId": "css",
       "title": "Focus That Survives Styling",
-      "titleId": "Focus That Survives Styling"
+      "titleId": "Menjaga Penanda Fokus Tetap Terlihat"
     },
     {
       "id": "css-print-layout",
       "courseId": "css",
       "title": "A Readable Print View",
-      "titleId": "A Readable Print View"
+      "titleId": "Tampilan Cetak yang Nyaman Dibaca"
     },
     {
       "id": "js-values",
       "courseId": "javascript",
       "title": "Values and Variables",
-      "titleId": "Values and Variables"
+      "titleId": "Nilai dan Variabel"
     },
     {
       "id": "js-conditions",
       "courseId": "javascript",
       "title": "Compare and Choose",
-      "titleId": "Compare and Choose"
+      "titleId": "Membandingkan Nilai dan Memilih Tindakan"
     },
     {
       "id": "js-functions",
       "courseId": "javascript",
       "title": "Functions and Return Values",
-      "titleId": "Functions and Return Values"
+      "titleId": "Function dan Nilai yang Dikembalikan"
     },
     {
       "id": "js-arrays",
       "courseId": "javascript",
       "title": "Arrays and Loops",
-      "titleId": "Arrays and Loops"
+      "titleId": "Array dan Loop"
     },
     {
       "id": "js-objects",
       "courseId": "javascript",
       "title": "Objects and Destructuring",
-      "titleId": "Objects and Destructuring"
+      "titleId": "Object dan Destructuring"
     },
     {
       "id": "js-transform",
       "courseId": "javascript",
       "title": "Map, Filter, and Arrow Functions",
-      "titleId": "Map, Filter, and Arrow Functions"
+      "titleId": "Map, Filter, dan Arrow Function"
     },
     {
       "id": "js-modules",
       "courseId": "javascript",
       "title": "Modules and Responsibilities",
-      "titleId": "Modules and Responsibilities"
+      "titleId": "Module dan Pembagian Tanggung Jawab"
     },
     {
       "id": "js-async",
       "courseId": "javascript",
       "title": "Promises, Await, and Errors",
-      "titleId": "Promises, Await, and Errors"
+      "titleId": "Promise, Await, dan Error"
     },
     {
       "id": "js-coercion",
       "courseId": "javascript",
       "title": "Explicit Conversion and Coercion",
-      "titleId": "Explicit Conversion and Coercion"
+      "titleId": "Konversi Nilai Secara Sengaja"
     },
     {
       "id": "js-truthiness",
       "courseId": "javascript",
       "title": "Truthiness Is Not Validation",
-      "titleId": "Truthiness Is Not Validation"
+      "titleId": "Truthy Bukan Berarti Valid"
     },
     {
       "id": "js-nullish-defaults",
       "courseId": "javascript",
       "title": "Nullish Defaults",
-      "titleId": "Nullish Defaults"
+      "titleId": "Nilai Pengganti dengan Nullish Coalescing"
     },
     {
       "id": "js-optional-chaining",
@@ -629,601 +629,601 @@
       "id": "js-lexical-scope",
       "courseId": "javascript",
       "title": "Lexical Scope and Shadowing",
-      "titleId": "Lexical Scope and Shadowing"
+      "titleId": "Lexical Scope dan Shadowing"
     },
     {
       "id": "js-temporal-dead-zone",
       "courseId": "javascript",
       "title": "Initialization and the Temporal Dead Zone",
-      "titleId": "Initialization and the Temporal Dead Zone"
+      "titleId": "Inisialisasi dan Temporal Dead Zone"
     },
     {
       "id": "js-template-strings",
       "courseId": "javascript",
       "title": "Template Literals and Interpolation",
-      "titleId": "Template Literals and Interpolation"
+      "titleId": "Template Literal dan Interpolasi"
     },
     {
       "id": "js-string-methods",
       "courseId": "javascript",
       "title": "Normalize and Search Text",
-      "titleId": "Normalize and Search Text"
+      "titleId": "Menormalkan dan Mencari Teks"
     },
     {
       "id": "js-destructuring-defaults",
       "courseId": "javascript",
       "title": "Destructuring with Defaults",
-      "titleId": "Destructuring with Defaults"
+      "titleId": "Destructuring dengan Nilai Default"
     },
     {
       "id": "js-rest-spread",
       "courseId": "javascript",
       "title": "Rest and Spread",
-      "titleId": "Rest and Spread"
+      "titleId": "Rest dan Spread"
     },
     {
       "id": "js-reference-equality",
       "courseId": "javascript",
       "title": "Identity and Equality",
-      "titleId": "Identity and Equality"
+      "titleId": "Identitas dan Kesetaraan Nilai"
     },
     {
       "id": "js-array-queries",
       "courseId": "javascript",
       "title": "Find, Some, and Every",
-      "titleId": "Find, Some, and Every"
+      "titleId": "Find, Some, dan Every pada Array"
     },
     {
       "id": "js-reduce-accumulators",
       "courseId": "javascript",
       "title": "Reduce with an Explicit Accumulator",
-      "titleId": "Reduce with an Explicit Accumulator"
+      "titleId": "Reduce dengan Accumulator yang Jelas"
     },
     {
       "id": "js-immutable-sort",
       "courseId": "javascript",
       "title": "Sort Without Changing the Source",
-      "titleId": "Sort Without Changing the Source"
+      "titleId": "Mengurutkan Tanpa Mengubah Data Awal"
     },
     {
       "id": "js-map-set",
       "courseId": "javascript",
       "title": "Map and Set",
-      "titleId": "Map and Set"
+      "titleId": "Map dan Set"
     },
     {
       "id": "js-json-boundary",
       "courseId": "javascript",
       "title": "Parse JSON, Then Validate",
-      "titleId": "Parse JSON, Then Validate"
+      "titleId": "Parse JSON, Lalu Validasi Datanya"
     },
     {
       "id": "js-closures",
       "courseId": "javascript",
       "title": "Closures Keep Lexical State",
-      "titleId": "Closures Keep Lexical State"
+      "titleId": "Closure Menyimpan State dari Scope-nya"
     },
     {
       "id": "js-callback-contracts",
       "courseId": "javascript",
       "title": "Callbacks Are Contracts",
-      "titleId": "Callbacks Are Contracts"
+      "titleId": "Callback Punya Kontrak Input dan Hasil"
     },
     {
       "id": "js-pure-functions",
       "courseId": "javascript",
       "title": "Pure Calculations",
-      "titleId": "Pure Calculations"
+      "titleId": "Function Murni untuk Perhitungan"
     },
     {
       "id": "js-mutation-boundaries",
       "courseId": "javascript",
       "title": "Mutation at a Clear Boundary",
-      "titleId": "Mutation at a Clear Boundary"
+      "titleId": "Mengubah Data di Batas yang Jelas"
     },
     {
       "id": "js-default-parameters",
       "courseId": "javascript",
       "title": "Defaults in Function Parameters",
-      "titleId": "Defaults in Function Parameters"
+      "titleId": "Nilai Default pada Parameter Function"
     },
     {
       "id": "js-recursion",
       "courseId": "javascript",
       "title": "Recursion and a Base Case",
-      "titleId": "Recursion and a Base Case"
+      "titleId": "Recursion dan Kondisi Berhenti"
     },
     {
       "id": "js-this-arrow",
       "courseId": "javascript",
       "title": "This and Call Style",
-      "titleId": "This and Call Style"
+      "titleId": "This dan Cara Memanggil Function"
     },
     {
       "id": "js-classes-prototypes",
       "courseId": "javascript",
       "title": "Classes and Shared Methods",
-      "titleId": "Classes and Shared Methods"
+      "titleId": "Class dan Method Bersama"
     },
     {
       "id": "js-microtasks",
       "courseId": "javascript",
       "title": "Synchronous Work and Microtasks",
-      "titleId": "Synchronous Work and Microtasks"
+      "titleId": "Proses Sinkron dan Microtask"
     },
     {
       "id": "js-promise-chains",
       "courseId": "javascript",
       "title": "Return from Promise Chains",
-      "titleId": "Return from Promise Chains"
+      "titleId": "Mengembalikan Nilai dari Promise Chain"
     },
     {
       "id": "js-promise-all",
       "courseId": "javascript",
       "title": "Independent Work with Promise All",
-      "titleId": "Independent Work with Promise All"
+      "titleId": "Menjalankan Beberapa Proses dengan Promise.all"
     },
     {
       "id": "js-promise-allsettled",
       "courseId": "javascript",
       "title": "Partial Results with AllSettled",
-      "titleId": "Partial Results with AllSettled"
+      "titleId": "Mengumpulkan Hasil dengan Promise.allSettled"
     },
     {
       "id": "js-finally-cleanup",
       "courseId": "javascript",
       "title": "Cleanup with Finally",
-      "titleId": "Cleanup with Finally"
+      "titleId": "Membersihkan Proses dengan Finally"
     },
     {
       "id": "js-error-context",
       "courseId": "javascript",
       "title": "Preserve Error Context",
-      "titleId": "Preserve Error Context"
+      "titleId": "Mempertahankan Informasi Error"
     },
     {
       "id": "js-intl-formatting",
       "courseId": "javascript",
       "title": "Locale-aware Number Formatting",
-      "titleId": "Locale-aware Number Formatting"
+      "titleId": "Memformat Angka Sesuai Locale"
     },
     {
       "id": "js-regex-boundaries",
       "courseId": "javascript",
       "title": "Regular Expressions with Clear Boundaries",
-      "titleId": "Regular Expressions with Clear Boundaries"
+      "titleId": "Regular Expression dengan Batas yang Jelas"
     },
     {
       "id": "browser-dom",
       "courseId": "browser",
       "title": "Find and Update an Element",
-      "titleId": "Find and Update an Element"
+      "titleId": "Menemukan dan Memperbarui Elemen"
     },
     {
       "id": "browser-events",
       "courseId": "browser",
       "title": "Respond to an Event",
-      "titleId": "Respond to an Event"
+      "titleId": "Menanggapi Event"
     },
     {
       "id": "browser-forms",
       "courseId": "browser",
       "title": "Read and Validate a Form",
-      "titleId": "Read and Validate a Form"
+      "titleId": "Membaca dan Memvalidasi Form"
     },
     {
       "id": "browser-data-states",
       "courseId": "browser",
       "title": "Loading, Empty, Error, Success",
-      "titleId": "Loading, Empty, Error, Success"
+      "titleId": "Kondisi Loading, Kosong, Error, dan Berhasil"
     },
     {
       "id": "browser-storage",
       "courseId": "browser",
       "title": "Remember a Preference",
-      "titleId": "Remember a Preference"
+      "titleId": "Mengingat Pilihan Pengguna"
     },
     {
       "id": "browser-state",
       "courseId": "browser",
       "title": "One State, One Render Function",
-      "titleId": "One State, One Render Function"
+      "titleId": "Satu State, Satu Fungsi Render"
     },
     {
       "id": "browser-query-all",
       "courseId": "browser",
       "title": "Select Several Elements",
-      "titleId": "Select Several Elements"
+      "titleId": "Memilih Beberapa Elemen"
     },
     {
       "id": "browser-create-elements",
       "courseId": "browser",
       "title": "Create Elements and Insert Text",
-      "titleId": "Create Elements and Insert Text"
+      "titleId": "Membuat Elemen dan Menambahkan Teks"
     },
     {
       "id": "browser-document-fragment",
       "courseId": "browser",
       "title": "Build a Group Before Inserting It",
-      "titleId": "Build a Group Before Inserting It"
+      "titleId": "Menyusun Sekelompok Elemen Sebelum Ditambahkan"
     },
     {
       "id": "browser-classlist",
       "courseId": "browser",
       "title": "ClassList for Visual State",
-      "titleId": "ClassList for Visual State"
+      "titleId": "ClassList untuk Menandai Kondisi UI"
     },
     {
       "id": "browser-attributes-properties",
       "courseId": "browser",
       "title": "Attributes and Live Properties",
-      "titleId": "Attributes and Live Properties"
+      "titleId": "Atribut dan Properti yang Berubah"
     },
     {
       "id": "browser-event-delegation",
       "courseId": "browser",
       "title": "Delegate Events to a Stable Parent",
-      "titleId": "Delegate Events to a Stable Parent"
+      "titleId": "Mendelegasikan Event ke Elemen Induk"
     },
     {
       "id": "browser-event-propagation",
       "courseId": "browser",
       "title": "Target, CurrentTarget, and Bubbling",
-      "titleId": "Target, CurrentTarget, and Bubbling"
+      "titleId": "Target, CurrentTarget, dan Bubbling"
     },
     {
       "id": "browser-prevent-default",
       "courseId": "browser",
       "title": "Prevent a Specific Default Action",
-      "titleId": "Prevent a Specific Default Action"
+      "titleId": "Mencegah Aksi Bawaan yang Tidak Diinginkan"
     },
     {
       "id": "browser-formdata",
       "courseId": "browser",
       "title": "Read FormData Deliberately",
-      "titleId": "Read FormData Deliberately"
+      "titleId": "Membaca FormData dengan Sengaja"
     },
     {
       "id": "browser-custom-validity",
       "courseId": "browser",
       "title": "Custom Validation Messages",
-      "titleId": "Custom Validation Messages"
+      "titleId": "Membuat Pesan Validasi Sendiri"
     },
     {
       "id": "browser-focus-management",
       "courseId": "browser",
       "title": "Move Focus for a Reason",
-      "titleId": "Move Focus for a Reason"
+      "titleId": "Memindahkan Fokus dengan Tujuan"
     },
     {
       "id": "browser-keyboard-shortcuts",
       "courseId": "browser",
       "title": "Respect Typing When Adding Shortcuts",
-      "titleId": "Respect Typing When Adding Shortcuts"
+      "titleId": "Shortcut Keyboard yang Tidak Mengganggu Saat Mengetik"
     },
     {
       "id": "browser-debounce",
       "courseId": "browser",
       "title": "Debounce Repeated Input",
-      "titleId": "Debounce Repeated Input"
+      "titleId": "Debounce untuk Input Berulang"
     },
     {
       "id": "browser-throttle",
       "courseId": "browser",
       "title": "Throttle Frequent Events",
-      "titleId": "Throttle Frequent Events"
+      "titleId": "Throttle untuk Event yang Sering Terjadi"
     },
     {
       "id": "browser-fetch-status",
       "courseId": "browser",
       "title": "Fetch Does Not Reject Every HTTP Error",
-      "titleId": "Fetch Does Not Reject Every HTTP Error"
+      "titleId": "Fetch Tidak Selalu Gagal pada HTTP Error"
     },
     {
       "id": "browser-url-parameters",
       "courseId": "browser",
       "title": "Share State Through URL Parameters",
-      "titleId": "Share State Through URL Parameters"
+      "titleId": "Menyimpan State di Parameter URL"
     },
     {
       "id": "browser-abort-requests",
       "courseId": "browser",
       "title": "Cancel a Request with AbortController",
-      "titleId": "Cancel a Request with AbortController"
+      "titleId": "Membatalkan Request dengan AbortController"
     },
     {
       "id": "browser-request-races",
       "courseId": "browser",
       "title": "Ignore Stale Results",
-      "titleId": "Ignore Stale Results"
+      "titleId": "Mengabaikan Hasil Request yang Sudah Kedaluwarsa"
     },
     {
       "id": "browser-storage-validation",
       "courseId": "browser",
       "title": "Recover from Invalid Saved Data",
-      "titleId": "Recover from Invalid Saved Data"
+      "titleId": "Memulihkan Data Tersimpan yang Tidak Valid"
     },
     {
       "id": "browser-storage-events",
       "courseId": "browser",
       "title": "Coordinate Changes Across Tabs",
-      "titleId": "Coordinate Changes Across Tabs"
+      "titleId": "Menyelaraskan Perubahan Antar-tab"
     },
     {
       "id": "browser-resize-observer",
       "courseId": "browser",
       "title": "Observe Element Size",
-      "titleId": "Observe Element Size"
+      "titleId": "Mengamati Perubahan Ukuran Elemen"
     },
     {
       "id": "browser-intersection-observer",
       "courseId": "browser",
       "title": "Observe Visibility Intersections",
-      "titleId": "Observe Visibility Intersections"
+      "titleId": "Mengamati Elemen yang Masuk ke Layar"
     },
     {
       "id": "browser-animation-frame",
       "courseId": "browser",
       "title": "Schedule Visual Work with Animation Frames",
-      "titleId": "Schedule Visual Work with Animation Frames"
+      "titleId": "Menjadwalkan Pembaruan Visual dengan Animation Frame"
     },
     {
       "id": "browser-history-navigation",
       "courseId": "browser",
       "title": "History State and Back Navigation",
-      "titleId": "History State and Back Navigation"
+      "titleId": "History State dan Navigasi Kembali"
     },
     {
       "id": "browser-listener-cleanup",
       "courseId": "browser",
       "title": "Clean Up Event Listeners",
-      "titleId": "Clean Up Event Listeners"
+      "titleId": "Membersihkan Event Listener"
     },
     {
       "id": "browser-feature-detection",
       "courseId": "browser",
       "title": "Detect Capabilities and Offer a Fallback",
-      "titleId": "Detect Capabilities and Offer a Fallback"
+      "titleId": "Memeriksa Dukungan Fitur dan Menyiapkan Alternatif"
     },
     {
       "id": "react-components",
       "courseId": "react",
       "title": "Thinking in Components",
-      "titleId": "Thinking in Components"
+      "titleId": "Memahami Komponen"
     },
     {
       "id": "react-jsx-props",
       "courseId": "react",
       "title": "JSX and Props",
-      "titleId": "JSX and Props"
+      "titleId": "JSX dan Props"
     },
     {
       "id": "react-conditional-rendering",
       "courseId": "react",
       "title": "Conditional Rendering",
-      "titleId": "Conditional Rendering"
+      "titleId": "Menampilkan UI Berdasarkan Kondisi"
     },
     {
       "id": "react-component-boundaries",
       "courseId": "react",
       "title": "Choosing Component Boundaries",
-      "titleId": "Choosing Component Boundaries"
+      "titleId": "Menentukan Batas Komponen"
     },
     {
       "id": "react-styling-ui",
       "courseId": "react",
       "title": "Styling a Component",
-      "titleId": "Styling a Component"
+      "titleId": "Mengatur Tampilan Komponen"
     },
     {
       "id": "react-state-events",
       "courseId": "react",
       "title": "State and Events",
-      "titleId": "State and Events"
+      "titleId": "State dan Event"
     },
     {
       "id": "react-lists-keys",
       "courseId": "react",
       "title": "Lists and Keys",
-      "titleId": "Lists and Keys"
+      "titleId": "List dan Key"
     },
     {
       "id": "react-updating-objects",
       "courseId": "react",
       "title": "Updating Objects in State",
-      "titleId": "Updating Objects in State"
+      "titleId": "Memperbarui Object di dalam State"
     },
     {
       "id": "react-updating-arrays",
       "courseId": "react",
       "title": "Updating Arrays in State",
-      "titleId": "Updating Arrays in State"
+      "titleId": "Memperbarui Array di dalam State"
     },
     {
       "id": "react-controlled-inputs",
       "courseId": "react",
       "title": "Controlled Inputs",
-      "titleId": "Controlled Inputs"
+      "titleId": "Mengelola Nilai Input di React"
     },
     {
       "id": "react-effects",
       "courseId": "react",
       "title": "Effects and External Systems",
-      "titleId": "Effects and External Systems"
+      "titleId": "Effect dan Sistem Eksternal"
     },
     {
       "id": "react-composition-hooks",
       "courseId": "react",
       "title": "Composition and Custom Hooks",
-      "titleId": "Composition and Custom Hooks"
+      "titleId": "Composition dan Custom Hook"
     },
     {
       "id": "react-refs",
       "courseId": "react",
       "title": "Refs and DOM Values",
-      "titleId": "Refs and DOM Values"
+      "titleId": "Ref dan Nilai DOM"
     },
     {
       "id": "react-effect-dependencies",
       "courseId": "react",
       "title": "Effect Dependencies",
-      "titleId": "Effect Dependencies"
+      "titleId": "Dependency pada Effect"
     },
     {
       "id": "react-effect-cleanup",
       "courseId": "react",
       "title": "Cleaning Up Effects",
-      "titleId": "Cleaning Up Effects"
+      "titleId": "Membersihkan Effect"
     },
     {
       "id": "react-lifting-state",
       "courseId": "react",
       "title": "Lifting State Up",
-      "titleId": "Lifting State Up"
+      "titleId": "Memindahkan State ke Komponen Induk"
     },
     {
       "id": "react-context",
       "courseId": "react",
       "title": "Context Without Prop Drilling",
-      "titleId": "Context Without Prop Drilling"
+      "titleId": "Menggunakan Context Tanpa Meneruskan Props Terus-menerus"
     },
     {
       "id": "react-reducer",
       "courseId": "react",
       "title": "Reducers for Complex State",
-      "titleId": "Reducers for Complex State"
+      "titleId": "Reducer untuk State yang Kompleks"
     },
     {
       "id": "react-derived-state",
       "courseId": "react",
       "title": "Deriving Values During Render",
-      "titleId": "Deriving Values During Render"
+      "titleId": "Menghitung Nilai Turunan Saat Render"
     },
     {
       "id": "react-preserving-state",
       "courseId": "react",
       "title": "Preserving and Resetting State",
-      "titleId": "Preserving and Resetting State"
+      "titleId": "Mempertahankan dan Mengatur Ulang State"
     },
     {
       "id": "react-memo",
       "courseId": "react",
       "title": "Memoizing Expensive Work",
-      "titleId": "Memoizing Expensive Work"
+      "titleId": "Memoization untuk Proses yang Berat"
     },
     {
       "id": "react-callbacks",
       "courseId": "react",
       "title": "Stable Callbacks",
-      "titleId": "Stable Callbacks"
+      "titleId": "Callback yang Stabil"
     },
     {
       "id": "react-transitions",
       "courseId": "react",
       "title": "Transitions and Responsive UI",
-      "titleId": "Transitions and Responsive UI"
+      "titleId": "Transisi dan UI yang Tetap Responsif"
     },
     {
       "id": "react-accessibility",
       "courseId": "react",
       "title": "Accessible Interactive UI",
-      "titleId": "Accessible Interactive UI"
+      "titleId": "Interaksi React yang Aksesibel"
     },
     {
       "id": "react-virtualized-lists",
       "courseId": "react",
       "title": "Rendering Long Lists Responsibly",
-      "titleId": "Rendering Long Lists Responsibly"
+      "titleId": "Menampilkan List Panjang dengan Efisien"
     },
     {
       "id": "react-state-queue",
       "courseId": "react",
       "title": "State Snapshots and Queued Updates",
-      "titleId": "State Snapshots and Queued Updates"
+      "titleId": "Snapshot State dan Antrean Pembaruan"
     },
     {
       "id": "react-lazy-initial-state",
       "courseId": "react",
       "title": "Lazy Initialization",
-      "titleId": "Lazy Initialization"
+      "titleId": "Inisialisasi State Secara Lazy"
     },
     {
       "id": "react-accessible-ids",
       "courseId": "react",
       "title": "Stable Accessible Relationships with UseId",
-      "titleId": "Stable Accessible Relationships with UseId"
+      "titleId": "Menghubungkan Elemen Aksesibel dengan useId"
     },
     {
       "id": "react-stale-effect-results",
       "courseId": "react",
       "title": "Protect Effects from Stale Results",
-      "titleId": "Protect Effects from Stale Results"
+      "titleId": "Mencegah Effect Memakai Hasil yang Kedaluwarsa"
     },
     {
       "id": "react-portals",
       "courseId": "react",
       "title": "Portals and the React Tree",
-      "titleId": "Portals and the React Tree"
+      "titleId": "Portal dan Pohon React"
     },
     {
       "id": "react-external-store",
       "courseId": "react",
       "title": "Subscribe to an External Store",
-      "titleId": "Subscribe to an External Store"
+      "titleId": "Berlangganan ke External Store"
     },
     {
       "id": "react-form-validation",
       "courseId": "react",
       "title": "Form Validation",
-      "titleId": "Form Validation"
+      "titleId": "Validasi Form"
     },
     {
       "id": "react-request-states",
       "courseId": "react",
       "title": "Request States in React",
-      "titleId": "Request States in React"
+      "titleId": "Menangani Kondisi Request di React"
     },
     {
       "id": "react-error-boundaries",
       "courseId": "react",
       "title": "Recovering From Render Errors",
-      "titleId": "Recovering From Render Errors"
+      "titleId": "Memulihkan UI dari Error Render"
     },
     {
       "id": "react-testing-behavior",
       "courseId": "react",
       "title": "Testing User Behavior",
-      "titleId": "Testing User Behavior"
+      "titleId": "Menguji Perilaku Pengguna"
     },
     {
       "id": "react-feature-architecture",
       "courseId": "react",
       "title": "Organizing a React Feature",
-      "titleId": "Organizing a React Feature"
+      "titleId": "Menyusun Struktur Fitur React"
     },
     {
       "id": "why-typescript",
       "courseId": "typescript",
       "title": "Why TypeScript?",
-      "titleId": "Why TypeScript?"
+      "titleId": "Kenapa Memakai TypeScript?"
     },
     {
       "id": "javascript-vs-typescript",
       "courseId": "typescript",
       "title": "JavaScript vs TypeScript",
-      "titleId": "JavaScript vs TypeScript"
+      "titleId": "JavaScript dan TypeScript"
     },
     {
       "id": "your-first-type",
       "courseId": "typescript",
       "title": "Your First Type",
-      "titleId": "Your First Type"
+      "titleId": "Type Pertamamu"
     },
     {
       "id": "primitive-types",
       "courseId": "typescript",
       "title": "Primitive Types",
-      "titleId": "Primitive Types"
+      "titleId": "Primitive Type"
     },
     {
       "id": "type-inference",
@@ -1235,79 +1235,79 @@
       "id": "arrays",
       "courseId": "typescript",
       "title": "Arrays",
-      "titleId": "Arrays"
+      "titleId": "Array"
     },
     {
       "id": "objects",
       "courseId": "typescript",
       "title": "Objects",
-      "titleId": "Objects"
+      "titleId": "Object"
     },
     {
       "id": "union-types",
       "courseId": "typescript",
       "title": "Union Types",
-      "titleId": "Union Types"
+      "titleId": "Union Type"
     },
     {
       "id": "parameters",
       "courseId": "typescript",
       "title": "Parameters",
-      "titleId": "Parameters"
+      "titleId": "Parameter"
     },
     {
       "id": "return-types",
       "courseId": "typescript",
       "title": "Return Types",
-      "titleId": "Return Types"
+      "titleId": "Return Type"
     },
     {
       "id": "optional-parameters",
       "courseId": "typescript",
       "title": "Optional Parameters",
-      "titleId": "Optional Parameters"
+      "titleId": "Parameter Opsional"
     },
     {
       "id": "function-types",
       "courseId": "typescript",
       "title": "Function Types",
-      "titleId": "Function Types"
+      "titleId": "Function Type"
     },
     {
       "id": "type-aliases",
       "courseId": "typescript",
       "title": "Type Aliases",
-      "titleId": "Type Aliases"
+      "titleId": "Type Alias"
     },
     {
       "id": "interfaces",
       "courseId": "typescript",
       "title": "Interfaces",
-      "titleId": "Interfaces"
+      "titleId": "Interface"
     },
     {
       "id": "optional-properties",
       "courseId": "typescript",
       "title": "Optional Properties",
-      "titleId": "Optional Properties"
+      "titleId": "Properti Opsional"
     },
     {
       "id": "extending-interfaces",
       "courseId": "typescript",
       "title": "Extending Interfaces",
-      "titleId": "Extending Interfaces"
+      "titleId": "Mengembangkan Interface"
     },
     {
       "id": "literal-types",
       "courseId": "typescript",
       "title": "Literal Types",
-      "titleId": "Literal Types"
+      "titleId": "Literal Type"
     },
     {
       "id": "narrowing",
       "courseId": "typescript",
       "title": "Narrowing",
-      "titleId": "Narrowing"
+      "titleId": "Narrowing Type"
     },
     {
       "id": "keyof",
@@ -1325,313 +1325,313 @@
       "id": "utility-types",
       "courseId": "typescript",
       "title": "Utility Types",
-      "titleId": "Utility Types"
+      "titleId": "Utility Type"
     },
     {
       "id": "why-generics",
       "courseId": "typescript",
       "title": "Why Generics?",
-      "titleId": "Why Generics?"
+      "titleId": "Kegunaan Generic"
     },
     {
       "id": "generic-functions",
       "courseId": "typescript",
       "title": "Generic Functions",
-      "titleId": "Generic Functions"
+      "titleId": "Generic pada Function"
     },
     {
       "id": "generic-constraints",
       "courseId": "typescript",
       "title": "Generic Constraints",
-      "titleId": "Generic Constraints"
+      "titleId": "Batasan pada Generic"
     },
     {
       "id": "generic-interfaces",
       "courseId": "typescript",
       "title": "Generic Interfaces",
-      "titleId": "Generic Interfaces"
+      "titleId": "Generic pada Interface"
     },
     {
       "id": "ts-satisfies-const",
       "courseId": "typescript",
       "title": "Validate a Shape with Satisfies",
-      "titleId": "Validate a Shape with Satisfies"
+      "titleId": "Memeriksa Bentuk Data dengan satisfies"
     },
     {
       "id": "ts-indexed-access",
       "courseId": "typescript",
       "title": "Read Types from Existing Models",
-      "titleId": "Read Types from Existing Models"
+      "titleId": "Mengambil Type dari Model yang Ada"
     },
     {
       "id": "ts-mapped-types",
       "courseId": "typescript",
       "title": "Transform Properties with Mapped Types",
-      "titleId": "Transform Properties with Mapped Types"
+      "titleId": "Mengubah Properti dengan Mapped Type"
     },
     {
       "id": "ts-conditional-infer",
       "courseId": "typescript",
       "title": "Conditional Types and Infer",
-      "titleId": "Conditional Types and Infer"
+      "titleId": "Conditional Type dan infer"
     },
     {
       "id": "ts-exhaustive-never",
       "courseId": "typescript",
       "title": "Exhaustive State Handling",
-      "titleId": "Exhaustive State Handling"
+      "titleId": "Menangani Semua Kondisi dengan never"
     },
     {
       "id": "ts-unknown-guards",
       "courseId": "typescript",
       "title": "Narrow Unknown with Runtime Checks",
-      "titleId": "Narrow Unknown with Runtime Checks"
+      "titleId": "Memeriksa Nilai unknown Saat Runtime"
     },
     {
       "id": "typing-api-responses",
       "courseId": "typescript",
       "title": "Typing API Responses",
-      "titleId": "Typing API Responses"
+      "titleId": "Menentukan Type untuk Respons API"
     },
     {
       "id": "async-functions",
       "courseId": "typescript",
       "title": "Async Functions",
-      "titleId": "Async Functions"
+      "titleId": "Function Async"
     },
     {
       "id": "practical-data-models",
       "courseId": "typescript",
       "title": "Practical Data Models",
-      "titleId": "Practical Data Models"
+      "titleId": "Model Data yang Praktis"
     },
     {
       "id": "react-props",
       "courseId": "typescript",
       "title": "React Props / TypeScript in React",
-      "titleId": "React Props / TypeScript in React"
+      "titleId": "Props React dengan TypeScript"
     },
     {
       "id": "final-challenge",
       "courseId": "typescript",
       "title": "Final Challenge",
-      "titleId": "Final Challenge"
+      "titleId": "Tantangan Akhir"
     },
     {
       "id": "next-file-routing",
       "courseId": "nextjs",
       "title": "File-based Routing",
-      "titleId": "File-based Routing"
+      "titleId": "Routing Berdasarkan Struktur File"
     },
     {
       "id": "next-layouts-dynamic",
       "courseId": "nextjs",
       "title": "Layouts and Dynamic Segments",
-      "titleId": "Layouts and Dynamic Segments"
+      "titleId": "Layout dan Segmen Dinamis"
     },
     {
       "id": "next-link-navigation",
       "courseId": "nextjs",
       "title": "Navigation with Link",
-      "titleId": "Navigation with Link"
+      "titleId": "Navigasi dengan Link"
     },
     {
       "id": "next-route-groups",
       "courseId": "nextjs",
       "title": "Route Groups and Organization",
-      "titleId": "Route Groups and Organization"
+      "titleId": "Route Group untuk Menata Halaman"
     },
     {
       "id": "next-not-found",
       "courseId": "nextjs",
       "title": "Not Found States",
-      "titleId": "Not Found States"
+      "titleId": "Menangani Halaman yang Tidak Ditemukan"
     },
     {
       "id": "next-server-components",
       "courseId": "nextjs",
       "title": "Server Components",
-      "titleId": "Server Components"
+      "titleId": "Server Component"
     },
     {
       "id": "next-client-components",
       "courseId": "nextjs",
       "title": "Client Components",
-      "titleId": "Client Components"
+      "titleId": "Client Component"
     },
     {
       "id": "next-streaming-suspense",
       "courseId": "nextjs",
       "title": "Streaming with Suspense",
-      "titleId": "Streaming with Suspense"
+      "titleId": "Streaming dengan Suspense"
     },
     {
       "id": "next-caching-revalidation",
       "courseId": "nextjs",
       "title": "Caching and Revalidation",
-      "titleId": "Caching and Revalidation"
+      "titleId": "Caching dan Revalidasi"
     },
     {
       "id": "next-server-actions",
       "courseId": "nextjs",
       "title": "Server Actions",
-      "titleId": "Server Actions"
+      "titleId": "Server Action"
     },
     {
       "id": "next-data-fetching",
       "courseId": "nextjs",
       "title": "Data Fetching and States",
-      "titleId": "Data Fetching and States"
+      "titleId": "Mengambil Data dan Menangani Kondisinya"
     },
     {
       "id": "next-metadata-route-handlers",
       "courseId": "nextjs",
       "title": "Metadata and Route Handlers",
-      "titleId": "Metadata and Route Handlers"
+      "titleId": "Metadata dan Route Handler"
     },
     {
       "id": "next-loading-ui",
       "courseId": "nextjs",
       "title": "Loading UI Files",
-      "titleId": "Loading UI Files"
+      "titleId": "File UI Loading"
     },
     {
       "id": "next-error-ui",
       "courseId": "nextjs",
       "title": "Route Error Recovery",
-      "titleId": "Route Error Recovery"
+      "titleId": "Memulihkan Route dari Error"
     },
     {
       "id": "next-fonts-images",
       "courseId": "nextjs",
       "title": "Fonts and Images",
-      "titleId": "Fonts and Images"
+      "titleId": "Font dan Gambar"
     },
     {
       "id": "next-forms-validation",
       "courseId": "nextjs",
       "title": "Forms and Server Validation",
-      "titleId": "Forms and Server Validation"
+      "titleId": "Form dan Validasi di Server"
     },
     {
       "id": "next-optimistic-ui",
       "courseId": "nextjs",
       "title": "Optimistic UI",
-      "titleId": "Optimistic UI"
+      "titleId": "UI Optimistis"
     },
     {
       "id": "next-revalidate-path",
       "courseId": "nextjs",
       "title": "Refreshing Changed Data",
-      "titleId": "Refreshing Changed Data"
+      "titleId": "Memperbarui Data pada Route yang Berubah"
     },
     {
       "id": "next-auth-boundaries",
       "courseId": "nextjs",
       "title": "Authorization Boundaries",
-      "titleId": "Authorization Boundaries"
+      "titleId": "Menjaga Batas Otorisasi"
     },
     {
       "id": "next-route-handlers",
       "courseId": "nextjs",
       "title": "Designing Route Handlers",
-      "titleId": "Designing Route Handlers"
+      "titleId": "Merancang Route Handler"
     },
     {
       "id": "next-code-splitting",
       "courseId": "nextjs",
       "title": "Code Splitting by Route",
-      "titleId": "Code Splitting by Route"
+      "titleId": "Memisahkan Kode Berdasarkan Route"
     },
     {
       "id": "next-client-boundaries",
       "courseId": "nextjs",
       "title": "Keeping Client Boundaries Small",
-      "titleId": "Keeping Client Boundaries Small"
+      "titleId": "Menjaga Client Component Tetap Ringkas"
     },
     {
       "id": "next-seo-metadata",
       "courseId": "nextjs",
       "title": "Route Metadata and Sharing",
-      "titleId": "Route Metadata and Sharing"
+      "titleId": "Metadata Route dan Pratinjau Tautan"
     },
     {
       "id": "next-web-vitals",
       "courseId": "nextjs",
       "title": "Reading Web Vitals",
-      "titleId": "Reading Web Vitals"
+      "titleId": "Memahami Web Vitals"
     },
     {
       "id": "next-bundle-analysis",
       "courseId": "nextjs",
       "title": "Reviewing What Reaches the Browser",
-      "titleId": "Reviewing What Reaches the Browser"
+      "titleId": "Memeriksa Kode yang Dikirim ke Browser"
     },
     {
       "id": "next-async-route-inputs",
       "courseId": "nextjs",
       "title": "Await Route Inputs",
-      "titleId": "Await Route Inputs"
+      "titleId": "Menunggu Input Route"
     },
     {
       "id": "next-redirect-control-flow",
       "courseId": "nextjs",
       "title": "Redirect as Control Flow",
-      "titleId": "Redirect as Control Flow"
+      "titleId": "Redirect sebagai Alur Kontrol"
     },
     {
       "id": "next-parallel-data",
       "courseId": "nextjs",
       "title": "Start Independent Data Together",
-      "titleId": "Start Independent Data Together"
+      "titleId": "Memulai Pengambilan Data Secara Bersamaan"
     },
     {
       "id": "next-public-data-shapes",
       "courseId": "nextjs",
       "title": "Send an Intentional Client Data Shape",
-      "titleId": "Send an Intentional Client Data Shape"
+      "titleId": "Menentukan Data yang Dikirim ke Client"
     },
     {
       "id": "next-request-cookies",
       "courseId": "nextjs",
       "title": "Read Request Cookies Asynchronously",
-      "titleId": "Read Request Cookies Asynchronously"
+      "titleId": "Membaca Cookie Request Secara Async"
     },
     {
       "id": "next-static-route-params",
       "courseId": "nextjs",
       "title": "Enumerate Known Dynamic Routes",
-      "titleId": "Enumerate Known Dynamic Routes"
+      "titleId": "Mendaftarkan Parameter Route Dinamis"
     },
     {
       "id": "next-environment-variables",
       "courseId": "nextjs",
       "title": "Environment Variables",
-      "titleId": "Environment Variables"
+      "titleId": "Environment Variable"
     },
     {
       "id": "next-deployment-checklist",
       "courseId": "nextjs",
       "title": "Preparing a Production Build",
-      "titleId": "Preparing a Production Build"
+      "titleId": "Menyiapkan Build untuk Produksi"
     },
     {
       "id": "next-observability",
       "courseId": "nextjs",
       "title": "Observing Route Failures",
-      "titleId": "Observing Route Failures"
+      "titleId": "Memantau Error pada Route"
     },
     {
       "id": "next-security-headers",
       "courseId": "nextjs",
       "title": "Protecting the Request Boundary",
-      "titleId": "Protecting the Request Boundary"
+      "titleId": "Melindungi Batas Request"
     },
     {
       "id": "next-full-route-review",
       "courseId": "nextjs",
       "title": "Reviewing a Complete Route",
-      "titleId": "Reviewing a Complete Route"
+      "titleId": "Meninjau Route secara Menyeluruh"
     }
   ],
   "journey": [
