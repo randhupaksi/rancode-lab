@@ -5,12 +5,16 @@ import { LocaleProvider } from './features/locale/LocaleProvider'
 import { ProgressProvider } from './features/progress/ProgressProvider'
 const Home = lazy(() => import('./pages/HomePage'))
 const Course = lazy(() => import('./pages/CoursePage'))
-const CourseHub = lazy(() => import('./pages/CourseHubPage'))
+const CourseHub = lazy(() => import('./pages/LearningPathPage'))
 const Lesson = lazy(() => import('./pages/LessonPage'))
 const Explore = lazy(() => import('./pages/ExplorePage'))
 const Playground = lazy(() => import('./pages/PlaygroundPage'))
 const Challenges = lazy(() => import('./pages/ChallengesPage'))
 const CheatSheet = lazy(() => import('./pages/CheatSheetPage'))
+const Onboarding = lazy(() => import('./pages/OnboardingPage'))
+const Checkpoint = lazy(() => import('./pages/CheckpointPage'))
+const Projects = lazy(() => import('./pages/ProjectsPage'))
+const Project = lazy(() => import('./pages/ProjectPage'))
 
 function NotFoundPage() {
   return <div className="page-width not-found"><p className="eyebrow">404 / A little off the path</p><h1 className="page-heading">Let’s find your way back.</h1><p className="page-lead">This page doesn’t exist. There’s plenty more to discover in the learning path.</p><Link className="button primary" to="/learn">Explore the course</Link></div>
@@ -21,6 +25,10 @@ export default function App() {
     <LocaleProvider><ProgressProvider><Routes><Route element={<SiteLayout/>}>
       <Route index element={<Home/>}/>
       <Route path="learn" element={<CourseHub/>}/>
+      <Route path="start" element={<Onboarding/>}/>
+      <Route path="learn/:courseId/checkpoint" element={<Checkpoint/>}/>
+      <Route path="projects" element={<Projects/>}/>
+      <Route path="projects/:courseId" element={<Project/>}/>
       <Route path="learn/:courseId" element={<Course/>}/>
       <Route path="learn/:courseId/:lessonId" element={<Lesson/>}/>
       <Route path="explore/:conceptId?" element={<Explore/>}/>

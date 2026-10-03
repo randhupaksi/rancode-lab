@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { journeyMessages } from './journeyMessages'
 
 export type Locale = 'en' | 'id'
 
@@ -58,10 +59,10 @@ function interpolate(message: string, values?: Record<string, string | number>) 
 }
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(() => localStorage.getItem(storageKey) === 'id' ? 'id' : 'en')
+  const [locale, setLocale] = useState<Locale>(() => { try { return localStorage.getItem(storageKey) === 'id' ? 'id' : 'en' } catch { return 'en' } })
 
   useEffect(() => {
-    localStorage.setItem(storageKey, locale)
+    try { localStorage.setItem(storageKey, locale) } catch { /* The interface remains usable when storage is unavailable. */ }
     document.documentElement.lang = locale
   }, [locale])
 
@@ -69,7 +70,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
     locale,
     setLocale,
     toggleLocale: () => setLocale(current => current === 'en' ? 'id' : 'en'),
-    t: (key, values) => interpolate(messages[locale][key] ?? messages.en[key] ?? key, values),
+    t: (key, values) => interpolate(journeyMessages[locale][key] ?? messages[locale][key] ?? messages.en[key] ?? key, values),
   }), [locale])
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>

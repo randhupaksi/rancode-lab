@@ -1,0 +1,26 @@
+export const journeyMessages: Record<'en' | 'id', Record<string, string>> = {
+  en: {
+    'nav.projects': 'Projects',
+    'home.lead': 'Start with clear steps, build your first web page, and grow into React and Next.js. A guided path connects every new idea to something you can make.',
+    'home.stack': 'One connected learning journey', 'home.fromTypes': 'From your first page,', 'home.toApps': 'to a complete app.',
+    'home.stackLead': 'Begin with logic and web foundations. Add HTML, CSS, and JavaScript, then build with React, TypeScript, and Next.js.',
+    'home.connectedPaths': 'learning stages', 'home.everyPath': 'See the full learning path',
+    'explore.lead': 'Explore the ideas behind logic, web foundations, HTML, CSS, JavaScript, React, TypeScript, and Next.js.',
+    'sheet.lead': 'From your first HTML element to application patterns. Find an example, then get back to your project.',
+    'play.lead': 'Choose a learning stage, change an example, and see what happens.',
+    'settings.resetLead': 'This clears your lessons, challenges, starting point, checkpoint results, and project drafts in this browser. Download project copies first if you want to keep them.',
+    'course.finished': 'The lessons are complete. Use the checkpoint and stage project to apply what you learned.',
+  },
+  id: {
+    'nav.projects': 'Proyek',
+    'home.lead': 'Mulai dari langkah sederhana, buat halaman web pertamamu, lalu lanjut ke React dan Next.js. Jalur yang terarah menghubungkan setiap ide dengan sesuatu yang bisa kamu buat.',
+    'home.stack': 'Satu perjalanan belajar yang terhubung', 'home.fromTypes': 'Dari halaman pertamamu,', 'home.toApps': 'ke aplikasi utuh.',
+    'home.stackLead': 'Mulai dari logika dan fondasi web. Pelajari HTML, CSS, dan JavaScript, lalu bangun dengan React, TypeScript, dan Next.js.',
+    'home.connectedPaths': 'tahap belajar', 'home.everyPath': 'Lihat seluruh jalur belajar',
+    'explore.lead': 'Jelajahi ide di balik logika, fondasi web, HTML, CSS, JavaScript, React, TypeScript, dan Next.js.',
+    'sheet.lead': 'Dari elemen HTML pertama sampai pola aplikasi. Temukan contoh, lalu lanjutkan proyekmu.',
+    'play.lead': 'Pilih tahap belajar, ubah contohnya, dan lihat apa yang terjadi.',
+    'settings.resetLead': 'Ini menghapus progres pelajaran, tantangan, titik awal, checkpoint, dan draft proyek di browser ini. Unduh salinan proyek terlebih dahulu jika ingin menyimpannya.',
+    'course.finished': 'Pelajarannya sudah selesai. Gunakan checkpoint dan proyek tahap ini untuk menerapkan pemahamanmu.',
+  },
+}

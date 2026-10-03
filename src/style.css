@@ -6,6 +6,7 @@
 @import './styles/select.css';
 @import './styles/select-layout.css';
 @import './styles/home.css';
+@import './styles/journey.css';
 
 :root {
   font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
