@@ -1,5 +1,4 @@
-import { getCourseLessons, getLesson, lessonPath } from '../../content'
-import { journey } from '../../content/journey'
+import { getCourseLessons, getLesson, lessonPath, journey } from '../../content/navigation'
 
 interface LearnerProgress {
   completedLessons: string[]
