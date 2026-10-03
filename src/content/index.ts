@@ -45,11 +45,29 @@ const lessonById = new Map(lessons.map(lesson => [lesson.id, lesson]))
 export const concepts: Concept[] = [...foundationConcepts, ...conceptEntries.map(concept => ({ ...concept, courseId: 'typescript', visual: lessonById.get(concept.lessonId)?.visual })), ...frameworkConcepts, ...expansionConcepts]
 export const challenges: Challenge[] = lessons.map(lesson => lesson.challenge)
 
+// Build indexes once for the immutable catalog instead of scanning it on every render.
+function groupBy<T>(items: T[], key: (item: T) => string | undefined) {
+  const groups = new Map<string, T[]>()
+  for (const item of items) {
+    const id = key(item)
+    if (id === undefined) continue
+    const group = groups.get(id) ?? []
+    group.push(item)
+    groups.set(id, group)
+  }
+  return groups
+}
+const courseById = new Map(courses.map(course => [course.id, course]))
+const lessonsByModule = groupBy(lessons, lesson => lesson.moduleId)
+const lessonsByCourse = groupBy(lessons, lesson => lesson.courseId)
+const modulesByCourse = groupBy(modules, module => module.courseId)
+const lessonByChallenge = new Map(lessons.map(lesson => [lesson.challenge.id, lesson]))
+
 export function getLesson(id: string | undefined): Lesson | undefined { return id ? lessonById.get(id) : undefined }
-export function getCourse(id: string | undefined): Course | undefined { return courses.find(course => course.id === id) }
-export function getModuleLessons(id: string): Lesson[] { return lessons.filter(lesson => lesson.moduleId === id) }
-export function getCourseModules(id: string): CourseModule[] { return modules.filter(module => module.courseId === id) }
-export function getCourseLessons(id: string): Lesson[] { return lessons.filter(lesson => lesson.courseId === id) }
+export function getCourse(id: string | undefined): Course | undefined { return id ? courseById.get(id) : undefined }
+export function getModuleLessons(id: string): readonly Lesson[] { return lessonsByModule.get(id) ?? [] }
+export function getCourseModules(id: string): readonly CourseModule[] { return modulesByCourse.get(id) ?? [] }
+export function getCourseLessons(id: string): readonly Lesson[] { return lessonsByCourse.get(id) ?? [] }
 export function lessonPath(lesson: Lesson): string { return `/learn/${lesson.courseId ?? 'typescript'}/${lesson.id}` }
 export function getNextCourse(id: string | undefined): Course | undefined { const index = courses.findIndex(course => course.id === id); return index >= 0 ? courses[index + 1] : undefined }
-export function getLessonForChallenge(id: string): Lesson | undefined { return lessons.find(lesson => lesson.challenge.id === id) }
+export function getLessonForChallenge(id: string): Lesson | undefined { return lessonByChallenge.get(id) }
