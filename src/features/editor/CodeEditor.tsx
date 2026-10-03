@@ -6,6 +6,7 @@ import { indentWithTab } from '@codemirror/commands'
 import { javascript } from '@codemirror/lang-javascript'
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import { tags } from '@lezer/highlight'
+import { useLocale } from '../locale/LocaleProvider'
 import './editor.css'
 
 export interface CodeEditorProps {
@@ -45,7 +46,9 @@ const syntax = HighlightStyle.define([
   { tag: tags.invalid, color: 'var(--error)' },
 ])
 
-export default function CodeEditor({ value, onChange, label = 'TypeScript code editor', readOnly = false, minHeight = 200, highlightLine = 0 }: CodeEditorProps) {
+export default function CodeEditor({ value, onChange, label, readOnly = false, minHeight = 200, highlightLine = 0 }: CodeEditorProps) {
+  const { t } = useLocale()
+  const editorLabel = label ?? t('code.editor')
   const container = useRef<HTMLDivElement>(null)
   const editor = useRef<EditorView | null>(null)
   const callback = useRef(onChange)
@@ -69,7 +72,7 @@ export default function CodeEditor({ value, onChange, label = 'TypeScript code e
           lineHighlights,
           EditorView.lineWrapping,
           readOnlyConfig.current.of([EditorState.readOnly.of(readOnly), EditorView.editable.of(!readOnly)]),
-          accessibilityConfig.current.of(EditorView.contentAttributes.of({ 'aria-label': label, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })),
+          accessibilityConfig.current.of(EditorView.contentAttributes.of({ 'aria-label': editorLabel, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })),
           EditorView.updateListener.of((update) => {
             if (update.docChanged && !update.transactions.some((transaction) => transaction.annotation(externalUpdate))) callback.current(update.state.doc.toString())
           }),
@@ -78,8 +81,6 @@ export default function CodeEditor({ value, onChange, label = 'TypeScript code e
     })
     editor.current = view
     return () => { editor.current = null; view.destroy() }
-    // CodeMirror owns its state; subsequent changes are dispatched below.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -92,13 +93,13 @@ export default function CodeEditor({ value, onChange, label = 'TypeScript code e
   }, [readOnly])
 
   useEffect(() => {
-    editor.current?.dispatch({ effects: accessibilityConfig.current.reconfigure(EditorView.contentAttributes.of({ 'aria-label': label, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })) })
-  }, [label, descriptionId])
+    editor.current?.dispatch({ effects: accessibilityConfig.current.reconfigure(EditorView.contentAttributes.of({ 'aria-label': editorLabel, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })) })
+  }, [editorLabel, descriptionId])
 
   useEffect(() => { editor.current?.dispatch({ effects: highlightEffect.of(highlightLine) }) }, [highlightLine, value])
 
   return <div className="code-editor" translate="no" style={{ '--editor-min-height': `${minHeight}px` } as React.CSSProperties}>
     <div ref={container} />
-    <span className="code-editor-hint" id={descriptionId}>{readOnly ? 'Read-only example.' : 'Tab indents. Press Escape, then Tab to leave the editor.'}</span>
+    <span className="code-editor-hint" id={descriptionId}>{readOnly ? t('code.readOnlyHint') : t('code.editHint')}</span>
   </div>
 }

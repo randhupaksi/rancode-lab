@@ -1,8 +1,10 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { Play, RotateCcw } from 'lucide-react'
 import { useLearningCopy } from '../../features/journey/useLearningCopy'
+import { useLocale } from '../../features/locale/LocaleProvider'
 
-export function WebPreview({ code, title = 'Web preview', narrow = false }: { code: string; title?: string; narrow?: boolean }) {
+export function WebPreview({ code, title, narrow = false }: { code: string; title?: string; narrow?: boolean }) {
+  const { locale, t } = useLocale()
   const frame = useRef<HTMLIFrameElement>(null)
   const channel = useId()
   const [error, setError] = useState('')
@@ -15,8 +17,8 @@ export function WebPreview({ code, title = 'Web preview', narrow = false }: { co
     return () => window.removeEventListener('message', receive)
   }, [code, channel])
   const bootstrap = `addEventListener('error',e=>parent.postMessage({channel:${JSON.stringify(channel)},error:e.message},'*'));addEventListener('unhandledrejection',e=>parent.postMessage({channel:${JSON.stringify(channel)},error:String(e.reason)},'*'));addEventListener('submit',e=>e.preventDefault());`
-  const document = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'"><style>body{font:16px/1.6 system-ui,sans-serif;color:#183022;background:#fff;margin:0;padding:24px;overflow-wrap:anywhere}*{box-sizing:border-box}button,input{font:inherit}button,input,a{margin:4px}button{cursor:pointer}img{max-width:100%}:focus-visible{outline:3px solid #245536;outline-offset:3px}</style><script>${bootstrap}</script></head><body>${code}</body></html>`
-  return <><div className={`web-preview ${narrow ? 'is-narrow' : ''}`}><iframe ref={frame} title={title} sandbox="allow-scripts" referrerPolicy="no-referrer" srcDoc={document}/></div>{error && <p className="feedback error" role="status">{error}</p>}</>
+  const document = `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'"><style>body{font:16px/1.6 system-ui,sans-serif;color:#183022;background:#fff;margin:0;padding:24px;overflow-wrap:anywhere}*{box-sizing:border-box}button,input{font:inherit}button,input,a{margin:4px}button{cursor:pointer}img{max-width:100%}:focus-visible{outline:3px solid #245536;outline-offset:3px}</style><script>${bootstrap}</script></head><body>${code}</body></html>`
+  return <><div className={`web-preview ${narrow ? 'is-narrow' : ''}`}><iframe ref={frame} title={title ?? t('lab.preview')} sandbox="allow-scripts" referrerPolicy="no-referrer" srcDoc={document}/></div>{error && <p className="feedback error" role="status">{error}</p>}</>
 }
 
 export default function WebLab({ initialCode, value, onChange, title = 'index.html' }: { initialCode: string; value?: string; onChange?: (code: string) => void; title?: string }) {

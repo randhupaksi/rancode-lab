@@ -5,7 +5,7 @@ import { useTypeScript } from '../../features/runtime/useTypeScript'
 import { runCode } from '../../features/runtime/runner'
 import { useLocale } from '../../features/locale/LocaleProvider'
 
-export default function LiveLab({ initialCode, value, onChange, symbols = [], title = 'Try it yourself', runnable = true }: { initialCode: string; value?: string; onChange?: (code: string) => void; symbols?: string[]; title?: string; runnable?: boolean }) {
+export default function LiveLab({ initialCode, value, onChange, symbols = [], title, runnable = true }: { initialCode: string; value?: string; onChange?: (code: string) => void; symbols?: string[]; title?: string; runnable?: boolean }) {
   const { locale, t } = useLocale()
   const [localCode, setCode] = useState(initialCode)
   const code = value ?? localCode
@@ -55,7 +55,7 @@ export default function LiveLab({ initialCode, value, onChange, symbols = [], ti
     }
   }
   return <div className="live-lab">
-    <div className="lab-toolbar"><span><span className="file-dot" /> {title}</span><div className="toolbar-actions"><button className="button ghost small" onClick={() => { changeCode(initialCode); setSelected(0) }}><RotateCcw size={14}/> {t('lab.reset')}</button>{runnable && <button className="button secondary small" onClick={run} disabled={running || analysis.status !== 'ready' || analysis.diagnostics.some(d => d.category === 'error')}><Play size={13}/>{running ? t('lab.running') : t('lab.run')}</button>}</div></div>
+    <div className="lab-toolbar"><span><span className="file-dot" /> {title ?? t('lab.tryTitle')}</span><div className="toolbar-actions"><button className="button ghost small" onClick={() => { changeCode(initialCode); setSelected(0) }}><RotateCcw size={14}/> {t('lab.reset')}</button>{runnable && <button className="button secondary small" onClick={run} disabled={running || analysis.status !== 'ready' || analysis.diagnostics.some(d => d.category === 'error')}><Play size={13}/>{running ? t('lab.running') : t('lab.run')}</button>}</div></div>
     <CodeEditor value={code} onChange={changeCode} label={t('lab.editor')} minHeight={230} />
     <div className="lab-inspector">
       <div className="inspector-title"><span className="eyebrow">{t('lab.inspector')}</span><span className="analysis-status" role="status">{analysis.status === 'loading' ? t('lab.reading') : analysis.status === 'error' ? t('lab.unavailable') : analysis.diagnostics.length ? t('lab.diagnostics', { count: analysis.diagnostics.length, plural: locale === 'en' && analysis.diagnostics.length > 1 ? 's' : '' }) : <><Check size={12}/> {t('lab.valid')}</>}</span></div>

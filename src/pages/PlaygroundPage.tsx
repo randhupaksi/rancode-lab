@@ -24,7 +24,7 @@ function PlaygroundWorkspace({ lessonId }: { lessonId?: string }) {
     {pending && <div className="example-confirm" role="status"><p>{t('play.load', { title: options.find(item => item.id === pending)?.title ?? '' })}</p><button className="button secondary small" onClick={() => { setSelected(pending); setPending(null) }}>{t('play.loadButton')}</button><button className="button ghost small" onClick={() => setPending(null)}>{t('play.keep')}</button></div>}
     {lesson.practice && <p className="playground-practice">{lesson.practice}</p>}
     <LessonLab key={lesson.id} lesson={lesson}/>
-    <div className="playground-notes"><p>{c('Playground edits are temporary. Use a stage project when you want to save a draft and review your work.', 'Perubahan di playground bersifat sementara. Gunakan proyek tahap belajar untuk menyimpan draft dan mereview hasilmu.')}</p><Link className="text-link" to={`/projects/${lesson.courseId}`}>{c('Open this stage’s project', 'Buka proyek tahap ini')}</Link></div>
+    <div className="playground-notes"><p>{c('Playground edits are temporary. Use a stage project to save a draft and keep notes on your work.', 'Perubahan di Lab Kode hanya sementara. Gunakan proyek tahap belajar untuk menyimpan draf dan mencatat hasilnya.')}</p><Link className="text-link" to={`/projects/${lesson.courseId}`}>{c('Open this stage’s project', 'Buka proyek tahap ini')}</Link></div>
   </div>
 }
 
