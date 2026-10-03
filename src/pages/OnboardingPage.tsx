@@ -14,7 +14,7 @@ import { localizeJourneyStage } from '../content/journey-localize'
 export default function OnboardingPage() {
   const c = useLearningCopy()
   const { locale } = useLocale()
-  usePageTitle(c('Find your starting point', 'Temukan titik mulainya'))
+  usePageTitle(c('Choose where to start', 'Pilih titik awal'))
   const { setLearningProfile } = useProgress()
   const navigate = useNavigate()
   const [choice, setChoice] = useState<(typeof experienceOptions)[number] | null>(null)
@@ -31,8 +31,8 @@ export default function OnboardingPage() {
     {!choice ? <div className="experience-options">{experienceOptions.map(option => <button className="experience-option" key={option.id} onClick={() => { setChoice(option); setResult(null) }}><span><strong>{c(option.label, option.labelId)}</strong><small>{c(option.detail, option.detailId)}</small></span><ArrowRight size={18}/></button>)}</div> : <>
       <div className="onboarding-selection"><strong>{c(choice.label, choice.labelId)}</strong><button className="text-link" onClick={() => { setChoice(null); setResult(null) }}>{c('Change starting point', 'Ganti titik awal')}</button></div>
       {stage ? <><h2>{c('A quick readiness check', 'Cek kesiapan singkat')}</h2><p className="muted">{c('This samples one foundation area. It does not certify earlier stages or mark them complete.', 'Ini hanya mengecek sebagian fondasi. Hasilnya tidak menandai tahap sebelumnya sebagai selesai.')}</p><CheckpointQuiz key={stage.courseId} questions={stage.checkpoint} onComplete={(score, total) => setResult({ score, total })} onRetry={() => setResult(null)}/></> : <div className="onboarding-result"><h2>{c('Small steps. A real first result.', 'Langkah kecil. Hasil pertama yang nyata.')}</h2><p>{c('Begin with decisions and clear instructions, then build your first web page. No syntax knowledge required.', 'Mulai dari keputusan dan instruksi yang jelas, lalu buat halaman web pertamamu. Tidak perlu hafal sintaks.')}</p></div>}
-      {(!stage || result) && <div className="onboarding-result"><span className="eyebrow">{c('Suggested starting stage', 'Tahap awal yang disarankan')}</span><h2>{localizedRecommendedCourse?.title}</h2><p>{getStage(recommended) ? localizeJourneyStage(getStage(recommended)!, locale).outcome : null}</p><button className="button primary" onClick={() => begin(recommended)}>{c('Use this starting point', 'Gunakan titik awal ini')}<ArrowRight size={16}/></button></div>}
-      {stage && <button className="text-link onboarding-skip" onClick={() => begin(choice.startCourseId)}>{c('Use my chosen starting point without the check', 'Gunakan pilihanku tanpa cek kesiapan')}</button>}
+      {(!stage || result) && <div className="onboarding-result"><span className="eyebrow">{c('Suggested starting stage', 'Tahap awal yang disarankan')}</span><h2>{localizedRecommendedCourse?.title}</h2><p>{getStage(recommended) ? localizeJourneyStage(getStage(recommended)!, locale).outcome : null}</p><button className="button primary" onClick={() => begin(recommended)}>{c('Use this starting point', 'Mulai dari sini')}<ArrowRight size={16}/></button></div>}
+      {stage && <button className="text-link onboarding-skip" onClick={() => begin(choice.startCourseId)}>{c('Use my chosen starting point without the check', 'Lewati cek dan mulai dari pilihan ini')}</button>}
     </>}
     <p className="quiet-note journey-footnote">{c('You can change your starting point later without deleting any progress.', 'Kamu bisa mengganti titik awal nanti tanpa menghapus progres.')}</p>
   </div>
