@@ -3,7 +3,7 @@ import type { Locale } from '../features/locale/LocaleProvider'
 
 const courseCopy: Record<string, Pick<Course, 'eyebrow' | 'description' | 'prerequisite'>> = {
   typescript: { eyebrow: 'Buat maksud JavaScript-mu lebih jelas', description: 'Bangun model mental yang kuat untuk types, data, dan kode aplikasi nyata.', prerequisite: 'Dasar JavaScript' },
-  react: { eyebrow: 'Bangun antarmuka dari bagian yang jelas', description: 'Pahami components, state, effects, dan pertimbangan di balik UI yang responsif.', prerequisite: 'Dasar JavaScript + TypeScript' },
+  react: { eyebrow: 'Bangun antarmuka dari bagian yang jelas', description: 'Pahami components, state, effects, dan pertimbangan di balik UI yang responsif.', prerequisite: 'Dasar JavaScript dan browser' },
   nextjs: { eyebrow: 'Bangun pengalaman web yang utuh', description: 'Pelajari routes, batas rendering, alur data, dan pengalaman route yang andal.', prerequisite: 'Fondasi React' },
 }
 

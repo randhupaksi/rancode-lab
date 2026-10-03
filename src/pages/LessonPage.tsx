@@ -1,11 +1,13 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { ArrowLeft, ArrowRight, Check, CheckCircle2, Clock3 } from 'lucide-react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import { concepts, getCourse, getCourseLessons, getCourseModules, getLesson, getModuleLessons, getNextCourse, lessonPath } from '../content'
+import { concepts, getCourse, getCourseLessons, getCourseModules, getLesson, getModuleLessons, lessonPath } from '../content'
 import type { Lesson } from '../content'
 import ConceptCanvas from '../components/learning/ConceptCanvas'
 import ExecutionStepper from '../components/learning/ExecutionStepper'
-import LazyLab from '../components/learning/LazyLab'
+import LessonLab from '../components/learning/LessonLab'
+import StageMilestone from '../features/journey/StageMilestone'
+import { useLearningCopy } from '../features/journey/useLearningCopy'
 import CodeBlock from '../components/ui/CodeBlock'
 import ErrorBoundary from '../components/ui/ErrorBoundary'
 import SelectField from '../components/ui/SelectField'
@@ -34,6 +36,7 @@ function CourseNavigation({ lesson }: { lesson: Lesson }) {
 function LessonContent({ lesson }: { lesson: Lesson }) {
   const { completeLesson, completedLessons, storageAvailable } = useProgress()
   const { locale, t } = useLocale()
+  const c = useLearningCopy()
   const done = completedLessons.includes(lesson.id)
   const courseLessons = getCourseLessons(lesson.courseId ?? 'typescript')
   const course = getCourse(lesson.courseId)
@@ -42,7 +45,6 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
   const next = courseLessons[index + 1]
   const sourceModule = getCourseModules(lesson.courseId ?? 'typescript').find(item => item.id === lesson.moduleId)
   const module = sourceModule ? localizeModule(sourceModule, locale) : undefined
-  const nextCourse = getNextCourse(lesson.courseId)
 
   return <article className="lesson-content">
     <header className="lesson-header">
@@ -52,17 +54,18 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
       <nav className="lesson-section-nav" aria-label={lesson.title}>{[['explain', 'lesson.explain'], ['visualize', 'lesson.visualize'], ['play', 'lesson.play'], ['challenge', 'lesson.challenge'], ['recap', 'lesson.recap']].map(([section, label]) => <a href={`#${section}`} key={section}>{t(label)}</a>)}</nav>
     </header>
 
-    <section className="lesson-section" id="explain" aria-labelledby="explain-title"><span className="lesson-section-label">01 / {t('lesson.understand')}</span><h2 id="explain-title">{t('lesson.idea')}</h2><div className="lesson-prose">{lesson.explanation.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>{lesson.comparison && <div className="code-comparison"><div><h3>{lesson.comparison.beforeLabel}</h3><CodeBlock code={lesson.comparison.before} language={lesson.comparison.beforeLabel === 'JavaScript' ? 'javascript' : 'typescript'}/></div><div><h3>{lesson.comparison.afterLabel}</h3><CodeBlock code={lesson.comparison.after} language={lesson.comparison.afterLabel.includes('TSX') ? 'tsx' : 'typescript'}/></div></div>}</section>
+    <section className="lesson-section" id="explain" aria-labelledby="explain-title"><span className="lesson-section-label">01 / {t('lesson.understand')}</span><h2 id="explain-title">{t('lesson.idea')}</h2><div className="lesson-prose">{lesson.explanation.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>{lesson.comparison && <div className="code-comparison"><div><h3>{lesson.comparison.beforeLabel}</h3><CodeBlock code={lesson.comparison.before} language={lesson.language ?? (lesson.comparison.beforeLabel === 'JavaScript' ? 'javascript' : 'typescript')}/></div><div><h3>{lesson.comparison.afterLabel}</h3><CodeBlock code={lesson.comparison.after} language={lesson.courseId === 'react' ? 'jsx' : lesson.comparison.afterLabel.includes('TSX') ? 'tsx' : 'typescript'}/></div></div>}</section>
 
     <section className="lesson-section" id="visualize" aria-labelledby="visualize-title"><span className="lesson-section-label">02 / {t('lesson.relationship')}</span><h2 id="visualize-title">{lesson.visual.title}</h2><p className="section-description">{lesson.visual.description}</p><ConceptCanvas visual={lesson.visual}/>{lesson.steps && <ExecutionStepper code={lesson.code} steps={lesson.steps}/>}</section>
 
-    <section className="lesson-section" id="play" aria-labelledby="play-title"><span className="lesson-section-label">03 / {t('lesson.try')}</span><h2 id="play-title">{t('lesson.change')}</h2><p className="section-description">{t('lesson.editorLead')}</p><LazyLab initialCode={lesson.code} symbols={lesson.inspectSymbols} title={`${lesson.title} · experiment`}/><Link className="text-link" to={`/playground?example=${lesson.id}`}>{t('lesson.playground')} <ArrowRight size={14} aria-hidden="true"/></Link></section>
+    <section className="lesson-section" id="play" aria-labelledby="play-title"><span className="lesson-section-label">03 / {t('lesson.try')}</span><h2 id="play-title">{lesson.practice ? c('Try it, then explain what changed.', 'Coba, lalu jelaskan perubahannya.') : t('lesson.change')}</h2><p className="section-description">{lesson.practice ?? t('lesson.editorLead')}</p><LessonLab lesson={lesson}/>{lesson.lab !== 'read' && <Link className="text-link" to={`/playground?example=${lesson.id}`}>{t('lesson.playground')} <ArrowRight size={14} aria-hidden="true"/></Link>}</section>
 
     <section className="lesson-section" id="challenge" aria-labelledby="challenge-title"><span className="lesson-section-label">04 / {t('lesson.checkUnderstanding')}</span><h2 id="challenge-title">{lesson.challenge.title}</h2>{done && <p className="quiet-note">{t('lesson.completed')}</p>}<ErrorBoundary compact><Suspense fallback={<div className="loading-note" role="status">{t('layout.loading')}</div>}><ChallengeBlock challenge={lesson.challenge} onComplete={() => completeLesson(lesson.id)}/></Suspense></ErrorBoundary></section>
 
     <section className="lesson-section lesson-recap" id="recap" aria-labelledby="recap-title"><span className="lesson-section-label">05 / {t('lesson.takeWithYou')}</span><h2 id="recap-title">{t('lesson.remember')}</h2><ul>{lesson.recap.map(item => <li key={item}><Check size={15} aria-hidden="true"/><span>{item}</span></li>)}</ul><div className="lesson-completion-note" role="status">{done ? <><CheckCircle2 size={16} aria-hidden="true"/><span>{storageAvailable ? t('lesson.done') : t('lesson.doneSession')}</span></> : <span>{t('lesson.completePrompt')}</span>}</div><div className="related-concepts"><span className="eyebrow">{t('lesson.exploreFurther')}</span><div>{lesson.relatedConcepts.map(id => { const concept = concepts.find(item => item.id === id); return concept ? <Link to={`/explore/${id}`} key={id}>{concept.title}<ArrowRight size={12} aria-hidden="true"/></Link> : null })}</div></div></section>
 
-    <nav className="lesson-pagination" aria-label={t('lesson.paths')}><div>{previous ? <Link to={lessonPath(previous)}><span><ArrowLeft size={13} aria-hidden="true"/>{t('lesson.previous')}</span><strong>{previous.title}</strong></Link> : <Link to={`/learn/${lesson.courseId}`}><span><ArrowLeft size={13} aria-hidden="true"/>{t('lesson.backTo')}</span><strong>{course?.title} {t('common.path')}</strong></Link>}</div><div>{next ? <Link to={lessonPath(next)}><span>{t('lesson.next')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{next.title}</strong></Link> : nextCourse ? <Link to={`/learn/${nextCourse.id}`}><span>{t('lesson.continueStack')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{t('course.upNext', { title: nextCourse.title })}</strong></Link> : <Link to="/learn"><span>{t('lesson.paths')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{t('lesson.review')}</strong></Link>}</div></nav>
+    {!next && <StageMilestone courseId={lesson.courseId!}/>}
+    <nav className="lesson-pagination" aria-label={t('lesson.paths')}><div>{previous ? <Link to={lessonPath(previous)}><span><ArrowLeft size={13} aria-hidden="true"/>{t('lesson.previous')}</span><strong>{previous.title}</strong></Link> : <Link to={`/learn/${lesson.courseId}`}><span><ArrowLeft size={13} aria-hidden="true"/>{t('lesson.backTo')}</span><strong>{course?.title} {t('common.path')}</strong></Link>}</div><div>{next ? <Link to={lessonPath(next)}><span>{t('lesson.next')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{next.title}</strong></Link> : <Link to={`/learn/${lesson.courseId}/checkpoint`}><span>{c('Next step', 'Langkah berikutnya')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{c('Stage checkpoint', 'Checkpoint tahap ini')}</strong></Link>}</div></nav>
   </article>
 }
 
@@ -71,7 +74,7 @@ export default function LessonPage() {
   const lesson = getLesson(lessonId)
   const { visitLesson } = useProgress()
   usePageTitle(lesson?.title ?? 'Lesson not found')
-  useEffect(() => { if (lesson) visitLesson(lesson.id) }, [lesson, visitLesson])
+  useEffect(() => { if (lesson && lesson.courseId === courseId) visitLesson(lesson.id) }, [lesson, courseId, visitLesson])
 
   if (!lesson || lesson.courseId !== courseId) return <Navigate to="/learn" replace/>
   return <div className="lesson-layout page-width"><CourseNavigation lesson={lesson}/><LessonContent lesson={lesson} key={lesson.id}/></div>
