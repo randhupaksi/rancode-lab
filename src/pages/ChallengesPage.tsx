@@ -33,7 +33,7 @@ export default function ChallengesPage() {
   const requested = challengeId ? localizedChallenges.find((challenge) => challenge.id === challengeId) : undefined
   const selected = requested && filtered.some((challenge) => challenge.id === requested.id) ? requested : filtered[0]
   const completedCount = localizedChallenges.filter((challenge) => completedChallenges.includes(challenge.id)).length
-  usePageTitle(selected ? `${selected.title} · Challenges` : 'Practice challenges')
+  usePageTitle(selected ? `${selected.title} · ${t('nav.challenges')}` : t('challenges.pageTitle'))
 
   function clearFilters() { setCourseId('All'); setTopic('All'); setDifficulty('All'); setHideCompleted(false) }
 

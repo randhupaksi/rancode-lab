@@ -26,7 +26,7 @@ export default function ExplorePage() {
   const sourceLesson = selected ? getLesson(selected.lessonId) : undefined
   const lesson = sourceLesson ? localizeLesson(sourceLesson, locale) : undefined
   const visual = selected?.visual ?? lesson?.visual
-  usePageTitle(selected ? `${selected.title} · Explore` : 'Explore concepts')
+  usePageTitle(selected ? `${selected.title} · ${t('nav.explore')}` : t('explore.pageTitle'))
 
   return <div className="page-width reference-page">
     <header className="page-header reference-page-header">
@@ -35,9 +35,9 @@ export default function ExplorePage() {
     </header>
     <div className="reference-layout">
       <aside className="concept-index" aria-label={t('explore.eyebrow')}>
-        <label className="reference-search"><Search size={16} aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('explore.find')} aria-label={t('explore.find')} type="search" /></label><SelectField id="explore-path" className="concept-course-filter" label={t('reference.path')} value={courseId} onValueChange={setCourseId} options={[{ value: 'all', label: t('reference.allPaths') }, ...courses.map(course => ({ value: course.id, label: course.title }))]} />
+        <label className="reference-search"><Search size={16} aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('explore.find')} aria-label={t('explore.find')} type="search" /></label><SelectField id="explore-path" className="concept-course-filter" label={t('reference.path')} value={courseId} onValueChange={setCourseId} options={[{ value: 'all', label: t('reference.allPaths') }, ...courses.map(course => ({ value: course.id, label: localizeCourse(course, locale).title }))]} />
         <p className="reference-result-count" role="status">{filtered.length} {filtered.length === 1 ? t('explore.concept') : t('explore.concepts')}</p>
-        {categories.map((category) => <section className="concept-group" key={category}><h2>{category}</h2><nav aria-label={`${category} concepts`}>{filtered.filter((concept) => concept.category === category).map((concept) => <Link key={concept.id} className={`concept-link ${selected?.id === concept.id ? 'is-active' : ''}`} to={`/explore/${concept.id}`} aria-current={selected?.id === concept.id ? 'page' : undefined}>{concept.title}<ArrowRight size={14} aria-hidden="true" /></Link>)}</nav></section>)}
+        {categories.map((category) => <section className="concept-group" key={category}><h2>{category}</h2><nav aria-label={`${category} ${t('explore.concepts')}`}>{filtered.filter((concept) => concept.category === category).map((concept) => <Link key={concept.id} className={`concept-link ${selected?.id === concept.id ? 'is-active' : ''}`} to={`/explore/${concept.id}`} aria-current={selected?.id === concept.id ? 'page' : undefined}>{concept.title}<ArrowRight size={14} aria-hidden="true" /></Link>)}</nav></section>)}
         {!filtered.length && <div className="reference-empty"><p>{t('search.empty', { query })}</p><button className="button ghost" onClick={() => setQuery('')}>{t('explore.clear')}</button></div>}
       </aside>
       {selected ? <article className="concept-detail" key={selected.id}>
