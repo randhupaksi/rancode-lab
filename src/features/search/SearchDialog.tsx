@@ -22,7 +22,7 @@ export default function SearchDialog({ open, onClose }: { open: boolean; onClose
   const navigate = useNavigate()
   const { locale, t } = useLocale()
   const list = useRef<HTMLDivElement>(null)
-  const results = useMemo(() => query.trim() ? index.search(query).slice(0, 12) as unknown as Entry[] : entries.filter(item => item.type === 'Lesson').slice(0, 6), [query])
+  const results = useMemo(() => query.trim() ? index.search(query).slice(0, 12) as unknown as Entry[] : entries.filter(item => item.id.startsWith('lesson-')).slice(0, 6), [query])
   useEffect(() => { if (open) { setQuery(''); setActive(0) } }, [open])
   useEffect(() => { list.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' }) }, [active])
   const go = (entry: Entry) => { onClose(); navigate(entry.url) }

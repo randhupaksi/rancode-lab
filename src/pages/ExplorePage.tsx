@@ -37,7 +37,7 @@ export default function ExplorePage() {
       {selected ? <article className="concept-detail" key={selected.id}>
         <div className="concept-detail-heading"><span className="eyebrow">{getCourse(selected.courseId)?.title} / {selected.category}</span><span className="reference-mono">{String(concepts.indexOf(selected) + 1).padStart(2, '0')} / {String(concepts.length).padStart(2, '0')}</span></div>
         <h2>{selected.title}</h2><p className="concept-definition">{selected.description}</p>
-        <section className="reference-example"><h3 className="section-heading">{t('explore.code')}</h3><CodeBlock code={selected.code} /></section>
+        <section className="reference-example"><h3 className="section-heading">{t('explore.code')}</h3><CodeBlock code={selected.code} language={selected.language} /></section>
         {visual && <section className="reference-visual"><h3 className="section-heading">{t('explore.mental')}</h3><ConceptCanvas visual={visual} /></section>}
         <div className="concept-next"><div><span className="eyebrow">{t('explore.practice')}</span><h3>{lesson?.title ?? t('explore.learn')}</h3><p className="muted">{t('explore.try')}</p></div>{lesson && <Link className="button primary" to={lessonPath(lesson)}>{t('explore.open')} <ArrowRight size={16} aria-hidden="true" /></Link>}</div>
       </article> : <section className="reference-empty"><h2>{t('explore.missing')}</h2><p>{t('explore.choose')}</p><Link className="button secondary" to="/explore">{t('explore.browse')}</Link></section>}

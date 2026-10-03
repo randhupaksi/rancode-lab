@@ -56,7 +56,7 @@ function ChallengeAttempt({ challenge, onComplete }: Props) {
         message = result.message
       } else {
         success = [challenge.answer, ...(challenge.acceptedAnswers ?? [])].some((expected) => answer.trim() === expected.trim())
-        message = success ? challenge.explanation : 'Not quite. Read the example again and think about the type of each value. You can open a hint for a nudge.'
+        message = success ? challenge.explanation : 'Not quite. Follow the example one step at a time. Open a hint if you need a nudge.'
       }
       if (current !== request.current) return
       setFeedback({ success, message })
@@ -71,12 +71,12 @@ function ChallengeAttempt({ challenge, onComplete }: Props) {
   return <section className="challenge-block" aria-label={challenge.title}>
     <div className="challenge-kind-label"><span>{challenge.kind === 'choice' ? t('challenge.choice') : challenge.kind === 'fill' ? t('challenge.fill') : t('challenge.fix')}</span><span className="badge">{challenge.difficulty}</span></div>
     <h3 className="challenge-prompt">{challenge.prompt}</h3>
-    {challenge.kind === 'fix' ? <CodeEditor label={t('challenge.editor')} value={code} onChange={editCode} minHeight={220} /> : <CodeBlock code={challenge.code} />}
+    {challenge.kind === 'fix' ? <CodeEditor label={t('challenge.editor')} value={code} onChange={editCode} minHeight={220} /> : <CodeBlock code={challenge.code} language={challenge.language} />}
     {challenge.kind === 'choice' && <fieldset className="challenge-options"><legend className="sr-only">{t('challenge.choice')}</legend>{challenge.options?.map((option, index) => <label key={option} className={`challenge-option ${answer === option ? 'is-selected' : ''}`}><input type="radio" name={inputId} value={option} checked={answer === option} onChange={() => editAnswer(option)} /><span className="challenge-option-letter">{String.fromCharCode(65 + index)}</span><code>{option}</code></label>)}</fieldset>}
     {challenge.kind === 'fill' && <div className="challenge-fill"><label htmlFor={inputId}>{t('challenge.replace')}</label><input id={inputId} className="field" value={answer} onChange={(event) => editAnswer(event.target.value)} placeholder={t('challenge.answer')} autoComplete="off" autoCapitalize="off" spellCheck={false} onKeyDown={(event) => { if (event.key === 'Enter' && canCheck && !checking) void checkAnswer() }} /></div>}
     <div className="challenge-actions"><button className="button primary" disabled={!canCheck || checking} onClick={() => void checkAnswer()}>{checking ? t('challenge.checking') : t('challenge.check')}{!checking && <CheckCircle2 size={16} aria-hidden="true" />}</button><button className="button ghost" onClick={() => setHintOpen(!hintOpen)} aria-expanded={hintOpen} aria-controls={`${inputId}-hint`}><Lightbulb size={16} aria-hidden="true" /> {hintOpen ? t('challenge.hideHint') : t('challenge.hint')}</button><button className="icon-button challenge-reset" aria-label={t('challenge.reset')} title={t('challenge.reset')} onClick={reset}><RotateCcw size={16} /></button></div>
     {hintOpen && <aside className="challenge-hint" id={`${inputId}-hint`}><Lightbulb size={17} aria-hidden="true" /><p>{challenge.hint}</p></aside>}
     {feedback && <div className={`feedback ${feedback.success ? 'success' : 'error'}`} role="status"><strong>{feedback.success ? t('challenge.right') : t('challenge.retry')}</strong><p>{feedback.message}</p></div>}
-    {attempted && <div className="challenge-solution"><button className="button ghost" onClick={() => setSolutionOpen(!solutionOpen)} aria-expanded={solutionOpen} aria-controls={`${inputId}-solution`}>{solutionOpen ? t('challenge.hideExplanation') : t('challenge.showExplanation')}<ChevronDown size={14} aria-hidden="true" /></button>{solutionOpen && <div id={`${inputId}-solution`}><CodeBlock code={challenge.solution ?? challenge.answer} /><p>{challenge.explanation}</p></div>}</div>}
+    {attempted && <div className="challenge-solution"><button className="button ghost" onClick={() => setSolutionOpen(!solutionOpen)} aria-expanded={solutionOpen} aria-controls={`${inputId}-solution`}>{solutionOpen ? t('challenge.hideExplanation') : t('challenge.showExplanation')}<ChevronDown size={14} aria-hidden="true" /></button>{solutionOpen && <div id={`${inputId}-solution`}><CodeBlock code={challenge.solution ?? challenge.answer} language={challenge.language} /><p>{challenge.explanation}</p></div>}</div>}
   </section>
 }
