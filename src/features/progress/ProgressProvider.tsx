@@ -1,22 +1,19 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
-import { z } from 'zod'
+import { progressSchema as schema, emptyProgress as empty } from './model'
+import type { Progress, ProjectDraft } from './model'
+export type { ProjectDraft } from './model'
 
 const KEY = 'undercode.progress.v1'
-const schema = z.object({
-  version: z.literal(1),
-  completedLessons: z.array(z.string()).max(10000),
-  completedChallenges: z.array(z.string()).max(10000),
-  lastLesson: z.string().nullable(),
-})
-type Progress = z.infer<typeof schema>
-const empty: Progress = { version: 1, completedLessons: [], completedChallenges: [], lastLesson: null }
 interface ProgressContext extends Progress {
   storageAvailable: boolean
   completeLesson: (id: string) => void
   completeChallenge: (id: string) => void
   visitLesson: (id: string) => void
   resetProgress: () => void
+  setLearningProfile: (experience: string, startCourseId: string) => void
+  saveCheckpoint: (courseId: string, score: number, total: number) => void
+  saveProject: (courseId: string, draft: ProjectDraft) => void
 }
 const Context = createContext<ProgressContext | null>(null)
 
@@ -55,7 +52,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const completeLesson = useCallback((id: string) => setProgress(p => p.completedLessons.includes(id) ? p : { ...p, completedLessons: [...p.completedLessons, id] }), [])
   const completeChallenge = useCallback((id: string) => setProgress(p => p.completedChallenges.includes(id) ? p : { ...p, completedChallenges: [...p.completedChallenges, id] }), [])
   const resetProgress = useCallback(() => setProgress({ ...empty }), [])
-  const value = useMemo(() => ({ ...progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress }), [progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress])
+  const setLearningProfile = useCallback((experience: string, startCourseId: string) => setProgress(p => ({ ...p, learningProfile: { experience, startCourseId } })), [])
+  const saveCheckpoint = useCallback((courseId: string, score: number, total: number) => setProgress(p => {
+    if (p.checkpoints[courseId]?.passed) return p
+    return { ...p, checkpoints: { ...p.checkpoints, [courseId]: { score, total, passed: score === total } } }
+  }), [])
+  const saveProject = useCallback((courseId: string, draft: ProjectDraft) => setProgress(p => ({ ...p, projects: { ...p.projects, [courseId]: draft } })), [])
+  const value = useMemo(() => ({ ...progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress, setLearningProfile, saveCheckpoint, saveProject }), [progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress, setLearningProfile, saveCheckpoint, saveProject])
   return <Context.Provider value={value}>{children}</Context.Provider>
 }
 

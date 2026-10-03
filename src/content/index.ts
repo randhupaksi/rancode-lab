@@ -8,12 +8,15 @@ import { generics } from './generics'
 import { realWorld } from './real-world'
 import { conceptEntries } from './concepts'
 import { frameworkConcepts, frameworkLessons, frameworkModules } from './framework-courses'
+import { foundationCourses, foundationModules, foundationLessons, foundationConcepts } from './foundations'
+import { expansionModules, expansionLessons, expansionConcepts } from './expansion'
 
 export type { Challenge, Concept, Course, CourseModule, Lesson } from './types'
 
 export const courses: Course[] = [
+  ...foundationCourses,
+  { id: 'react', title: 'React', eyebrow: 'Build interfaces from clear parts', description: 'Understand components, state, effects, and the decisions behind a responsive UI.', prerequisite: 'JavaScript and browser foundations' },
   { id: 'typescript', title: 'TypeScript', eyebrow: 'Make your JavaScript intentions clear', description: 'Build a reliable mental model for types, data, and real application code.', prerequisite: 'JavaScript basics' },
-  { id: 'react', title: 'React', eyebrow: 'Build interfaces from clear parts', description: 'Understand components, state, effects, and the decisions behind a responsive UI.', prerequisite: 'JavaScript + TypeScript basics' },
   { id: 'nextjs', title: 'Next.js', eyebrow: 'Build complete web experiences', description: 'Learn routes, rendering boundaries, data flow, and dependable route experiences.', prerequisite: 'React foundations' },
 ]
 
@@ -27,10 +30,19 @@ const typeScriptModules: CourseModule[] = [
   { id: 'real-world', number: '07', title: 'Real World TypeScript', description: 'Bring types to data boundaries, async code, and components.' },
 ]
 
-export const modules: CourseModule[] = [...typeScriptModules.map(module => ({ ...module, courseId: 'typescript' })), ...frameworkModules]
-export const lessons: Lesson[] = [...[...gettingStarted, ...typeSystem, ...functions, ...structures, ...advancedTypes, ...generics, ...realWorld].map(lesson => ({ ...lesson, courseId: 'typescript' })), ...frameworkLessons]
+const catalogModules: CourseModule[] = [...foundationModules, ...typeScriptModules.map(module => ({ ...module, courseId: 'typescript' })), ...frameworkModules]
+const finalPracticeModule: Record<string, string> = { react: 'react-practice', typescript: 'real-world', nextjs: 'next-production' }
+export const modules: CourseModule[] = courses.flatMap(course => {
+  const ordered = catalogModules.filter(module => module.courseId === course.id)
+  const additions = expansionModules.filter(module => module.courseId === course.id)
+  const practiceIndex = ordered.findIndex(module => module.id === finalPracticeModule[course.id])
+  ordered.splice(practiceIndex < 0 ? ordered.length : practiceIndex, 0, ...additions)
+  return ordered.map((module, index) => ({ ...module, number: String(index + 1).padStart(2, '0') }))
+})
+const catalogLessons: Lesson[] = [...foundationLessons, ...[...gettingStarted, ...typeSystem, ...functions, ...structures, ...advancedTypes, ...generics, ...realWorld].map(lesson => ({ ...lesson, courseId: 'typescript' })), ...frameworkLessons, ...expansionLessons]
+export const lessons: Lesson[] = courses.flatMap(course => modules.filter(module => module.courseId === course.id).flatMap(module => catalogLessons.filter(lesson => lesson.moduleId === module.id && lesson.courseId === course.id)))
 const lessonById = new Map(lessons.map(lesson => [lesson.id, lesson]))
-export const concepts: Concept[] = [...conceptEntries.map(concept => ({ ...concept, courseId: 'typescript', visual: lessonById.get(concept.lessonId)?.visual })), ...frameworkConcepts]
+export const concepts: Concept[] = [...foundationConcepts, ...conceptEntries.map(concept => ({ ...concept, courseId: 'typescript', visual: lessonById.get(concept.lessonId)?.visual })), ...frameworkConcepts, ...expansionConcepts]
 export const challenges: Challenge[] = lessons.map(lesson => lesson.challenge)
 
 export function getLesson(id: string | undefined): Lesson | undefined { return id ? lessonById.get(id) : undefined }
