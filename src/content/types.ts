@@ -13,6 +13,7 @@ export interface ConceptVisual {
 }
 
 export interface Challenge {
+  language?: 'javascript' | 'typescript' | 'html' | 'css' | 'text'
   id: string
   title: string
   topic: string
@@ -32,6 +33,9 @@ export interface Challenge {
 }
 
 export interface Lesson {
+  lab?: 'console' | 'web' | 'read'
+  language?: 'javascript' | 'typescript' | 'html' | 'css' | 'text'
+  practice?: string
   id: string
   title: string
   moduleId: string
@@ -58,6 +62,7 @@ export interface CourseModule {
 }
 
 export interface Concept {
+  language?: Lesson['language']
   id: string
   title: string
   category: string
