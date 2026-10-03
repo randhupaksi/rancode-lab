@@ -10,26 +10,30 @@ import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { usePageTitle } from '../hooks/usePageTitle'
 import LazyLab from '../components/learning/LazyLab'
 import FrameworkSetup from '../features/journey/FrameworkSetup'
+import { useLocale } from '../features/locale/LocaleProvider'
+import { localizeCourse } from '../content/localize'
+import { localizeJourneyStage } from '../content/journey-localize'
 const WebLab = lazy(() => import('../components/learning/WebLab'))
 const ConsoleLab = lazy(() => import('../components/learning/ConsoleLab'))
 const CodeEditor = lazy(() => import('../features/editor/CodeEditor'))
 
-function ProjectWorkspace({ stage }: { stage: JourneyStage }) {
+function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceStage: JourneyStage }) {
   const c = useLearningCopy()
+  const { locale } = useLocale()
   const progress = useProgress()
   const project = stage.project
   const draft: ProjectDraft = progress.projects[stage.courseId] ?? { code: project.starter, notes: '', criteria: [], completed: false, updatedAt: '' }
   const [message, setMessage] = useState('')
-  const course = getCourse(stage.courseId)!
+  const course = localizeCourse(getCourse(stage.courseId)!, locale)
   const next = getNextCourse(course.id)
-  const ready = project.criteria.every(criterion => draft.criteria.includes(criterion)) && Boolean(draft.code.trim()) && Boolean(draft.notes.trim())
+  const ready = sourceStage.project.criteria.every(criterion => draft.criteria.includes(criterion)) && Boolean(draft.code.trim()) && Boolean(draft.notes.trim())
   const passed = progress.checkpoints[course.id]?.passed
   function update(change: Partial<ProjectDraft>) {
     const nextDraft = { ...draft, ...(change.code !== undefined && change.code !== draft.code ? { criteria: [] } : {}), ...change, completed: change.completed ?? false, updatedAt: new Date().toISOString() }
     progress.saveProject(course.id, nextDraft); setMessage('')
   }
   function download() {
-    const text = `${project.title}\n\n${project.brief}\n\nCODE / ARTIFACT\n${draft.code}\n\nREVIEW NOTES\n${draft.notes}\n\nSELF REVIEW\n${project.criteria.map(item => `${draft.criteria.includes(item) ? '[x]' : '[ ]'} ${item}`).join('\n')}`
+    const text = `${project.title}\n\n${project.brief}\n\nCODE / ARTIFACT\n${draft.code}\n\nREVIEW NOTES\n${draft.notes}\n\nSELF REVIEW\n${project.criteria.map((item, index) => `${draft.criteria.includes(sourceStage.project.criteria[index]) ? '[x]' : '[ ]'} ${item}`).join('\n')}`
     const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }))
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `undercode-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
@@ -44,7 +48,7 @@ function ProjectWorkspace({ stage }: { stage: JourneyStage }) {
       </Suspense>
       <div className="project-save-row"><span role="status" className="quiet-note">{progress.storageAvailable ? draft.updatedAt ? c('Draft and review saved in this browser.', 'Draft dan review tersimpan di browser ini.') : c('Changes are saved as you work.', 'Perubahan tersimpan saat kamu mengerjakan proyek.') : c('Session only. Download a copy to keep your work.', 'Hanya sesi ini. Unduh salinan untuk menyimpan hasilmu.')}</span><button className="text-link" onClick={download}><Download size={15}/>{c('Download a copy', 'Unduh salinan')}</button></div>
       <label className="project-notes-label" htmlFor="project-notes">{c('Your review notes', 'Catatan review-mu')}</label><p className="quiet-note">{c('What did you check, what happened, and what would you improve? Record evidence from the running project.', 'Apa yang kamu periksa, bagaimana hasilnya, dan apa yang ingin diperbaiki? Catat bukti dari proyek yang berjalan.')}</p><textarea id="project-notes" className="field project-notes" value={draft.notes} maxLength={20000} onChange={event => update({ notes: event.target.value })}/>
-    </div><aside className="project-review"><h2>{c('Review your work', 'Tinjau hasilmu')}</h2><p className="muted">{c('This is a self-review, not an automated code grade. Check each item after trying it in your project.', 'Ini review mandiri, bukan penilaian kode otomatis. Centang setelah kamu mencobanya pada proyekmu.')}</p><div className="project-criteria">{project.criteria.map(criterion => <label key={criterion}><input type="checkbox" checked={draft.criteria.includes(criterion)} onChange={event => update({ criteria: event.target.checked ? [...draft.criteria, criterion] : draft.criteria.filter(item => item !== criterion) })}/><span>{criterion}</span></label>)}</div>
+    </div><aside className="project-review"><h2>{c('Review your work', 'Tinjau hasilmu')}</h2><p className="muted">{c('This is a self-review, not an automated code grade. Check each item after trying it in your project.', 'Ini review mandiri, bukan penilaian kode otomatis. Centang setelah kamu mencobanya pada proyekmu.')}</p><div className="project-criteria">{project.criteria.map((criterion, index) => { const criterionKey = sourceStage.project.criteria[index]; return <label key={criterionKey}><input type="checkbox" checked={draft.criteria.includes(criterionKey)} onChange={event => update({ criteria: event.target.checked ? [...draft.criteria, criterionKey] : draft.criteria.filter(item => item !== criterionKey) })}/><span>{criterion}</span></label>})}</div>
       {!passed && <p className="project-checkpoint-note"><Link className="text-link" to={`/learn/${course.id}/checkpoint`}>{c('Pass the checkpoint', 'Selesaikan checkpoint')}<ArrowRight size={14}/></Link><span>{c('Required before completing this stage.', 'Diperlukan untuk menyelesaikan tahap ini.')}</span></p>}
       <button className="button primary" disabled={!ready || !passed || draft.completed} onClick={() => { update({ completed: true }); setMessage(c('Project review saved. Stage completed.', 'Review proyek tersimpan. Tahap selesai.')) }}>{draft.completed ? <><CheckCircle2 size={16}/>{c('Project reviewed', 'Proyek sudah direview')}</> : c('Complete project review', 'Selesaikan review proyek')}</button>
       {!ready && <p className="quiet-note">{c('Add your artifact, review notes, and all checklist items to finish.', 'Isi hasil proyek, catatan review, dan semua kriteria untuk menyelesaikan.')}</p>}
@@ -56,8 +60,10 @@ function ProjectWorkspace({ stage }: { stage: JourneyStage }) {
 
 export default function ProjectPage() {
   const { courseId } = useParams()
-  const stage = getStage(courseId)
+  const { locale } = useLocale()
+  const sourceStage = getStage(courseId)
+  const stage = sourceStage ? localizeJourneyStage(sourceStage, locale) : undefined
   usePageTitle(stage?.project.title ?? 'Project')
   if (!stage) return <Navigate to="/learn" replace/>
-  return <ProjectWorkspace key={stage.courseId} stage={stage}/>
+  return <ProjectWorkspace key={stage.courseId} stage={stage} sourceStage={sourceStage!}/>
 }

@@ -2,6 +2,9 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { getCourse } from '../content'
 import { getStage } from '../content/journey'
+import { useLocale } from '../features/locale/LocaleProvider'
+import { localizeCourse } from '../content/localize'
+import { localizeJourneyStage } from '../content/journey-localize'
 import CheckpointQuiz from '../features/journey/CheckpointQuiz'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { useProgress } from '../features/progress/ProgressProvider'
@@ -9,8 +12,11 @@ import { usePageTitle } from '../hooks/usePageTitle'
 
 export default function CheckpointPage() {
   const { courseId } = useParams()
-  const course = getCourse(courseId)
-  const stage = getStage(courseId)
+  const { locale } = useLocale()
+  const sourceCourse = getCourse(courseId)
+  const sourceStage = getStage(courseId)
+  const course = sourceCourse ? localizeCourse(sourceCourse, locale) : undefined
+  const stage = sourceStage ? localizeJourneyStage(sourceStage, locale) : undefined
   const c = useLearningCopy()
   const { checkpoints, saveCheckpoint } = useProgress()
   usePageTitle(`${course?.title ?? ''} · Checkpoint`)

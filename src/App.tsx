@@ -3,6 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import SiteLayout from './components/layout/SiteLayout'
 import { LocaleProvider } from './features/locale/LocaleProvider'
 import { ProgressProvider } from './features/progress/ProgressProvider'
+import { useLearningCopy } from './features/journey/useLearningCopy'
 const Home = lazy(() => import('./pages/HomePage'))
 const Course = lazy(() => import('./pages/CoursePage'))
 const CourseHub = lazy(() => import('./pages/LearningPathPage'))
@@ -17,7 +18,8 @@ const Projects = lazy(() => import('./pages/ProjectsPage'))
 const Project = lazy(() => import('./pages/ProjectPage'))
 
 function NotFoundPage() {
-  return <div className="page-width not-found"><p className="eyebrow">404 / A little off the path</p><h1 className="page-heading">Let’s find your way back.</h1><p className="page-lead">This page doesn’t exist. There’s plenty more to discover in the learning path.</p><Link className="button primary" to="/learn">Explore the course</Link></div>
+  const c = useLearningCopy()
+  return <div className="page-width not-found"><p className="eyebrow">404 / {c('A little off the path', 'Sedikit melenceng dari jalur')}</p><h1 className="page-heading">{c('Let’s find your way back.', 'Mari kembali ke jalur belajar.')}</h1><p className="page-lead">{c('This page doesn’t exist. There’s plenty more to discover in the learning path.', 'Halaman ini tidak ditemukan. Masih banyak hal menarik untuk dipelajari di jalur belajar.')}</p><Link className="button primary" to="/learn">{c('Explore the learning path', 'Jelajahi jalur belajar')}</Link></div>
 }
 
 export default function App() {

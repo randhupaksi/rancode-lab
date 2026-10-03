@@ -6,21 +6,34 @@ import { useProgress } from '../features/progress/ProgressProvider'
 import { usePageTitle } from '../hooks/usePageTitle'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { recommendNext } from '../features/journey/recommendation'
+import { useLocale } from '../features/locale/LocaleProvider'
+import { localizeCourse, localizeLesson } from '../content/localize'
+import { localizeJourneyStage } from '../content/journey-localize'
 
 export default function LearningPathPage() {
   const c = useLearningCopy()
+  const { locale } = useLocale()
   usePageTitle(c('Your frontend learning path', 'Jalur belajar frontend-mu'))
   const progress = useProgress()
   const next = recommendNext(progress)
   const startIndex = Math.max(0, journey.findIndex(stage => stage.courseId === progress.learningProfile?.startCourseId))
   const completedStages = journey.filter(stage => progress.checkpoints[stage.courseId]?.passed && progress.projects[stage.courseId]?.completed).length
   const completedLessons = lessons.filter(lesson => progress.completedLessons.includes(lesson.id)).length
+  const localizedStages = journey.map(stage => localizeJourneyStage(stage, locale))
+  const recommendedTitle = (() => {
+    if (next.kind === 'finished') return c('Your learning path', 'Jalur belajarmu')
+    if (next.kind === 'checkpoint') return c('Stage checkpoint', 'Checkpoint tahap ini')
+    if (next.kind === 'project') return localizedStages.find(stage => stage.courseId === next.courseId)?.project.title ?? next.title
+    const lessonId = next.url.split('/').at(-1)
+    const lesson = lessons.find(item => item.id === lessonId)
+    return lesson ? localizeLesson(lesson, locale).title : next.title
+  })()
   return <div className="page-width journey-page">
-    <header className="journey-heading journey-hub-heading"><div><p className="eyebrow">{c('The frontend learning path', 'Jalur belajar frontend')}</p><h1>{c('From your first idea', 'Dari ide pertamamu')}<br/><span className="serif-emphasis">{c('to an app of your own.', 'sampai aplikasi buatanmu.')}</span></h1><p className="page-lead">{c('Build your foundations, connect the ideas, and make something at every stage.', 'Bangun fondasi, hubungkan ide-idenya, dan buat sesuatu di setiap tahap.')}</p></div><div className="journey-progress-summary"><strong>{completedStages}<span> / {journey.length}</span></strong><p>{c('stages reviewed', 'tahap sudah direview')}</p><progress value={completedStages} max={journey.length} aria-label={c('Stages completed', 'Tahap selesai')}/><small>{completedLessons} {c('lessons completed', 'pelajaran selesai')}</small></div></header>
-    <section className="journey-next" aria-labelledby="next-step-heading"><div><p className="eyebrow">{progress.learningProfile ? c('Your next step', 'Langkah berikutnya') : c('New here?', 'Baru mulai?')}</p><h2 id="next-step-heading">{progress.learningProfile ? next.kind === 'finished' ? c('Your chosen path is complete.', 'Jalur pilihanmu sudah selesai.') : next.title : c('Find a comfortable starting point.', 'Temukan titik mulai yang pas.')}</h2><p>{progress.learningProfile ? next.kind === 'finished' ? c('Revisit a project or explore stages you skipped.', 'Tinjau proyek atau jelajahi tahap yang kamu lewati.') : `${getCourse(next.courseId)?.title} · ${c('One focused step at a time.', 'Satu langkah terarah setiap saat.')}` : c('Start from zero or use a short readiness check to join further along.', 'Mulai dari nol atau gunakan cek kesiapan singkat untuk masuk di tahap lanjutan.')}</p></div><div className="journey-next-actions"><Link className="button primary" to={progress.learningProfile ? next.url : '/start'}>{progress.learningProfile ? next.kind === 'finished' ? c('Review capstone', 'Tinjau proyek akhir') : c('Continue learning', 'Lanjut belajar') : c('Find my starting point', 'Temukan titik mulainya')}<ArrowRight size={16}/></Link>{progress.learningProfile && <Link className="text-link" to="/start">{c('Change starting point', 'Ganti titik awal')}</Link>}</div></section>
+    <header className="journey-heading journey-hub-heading"><div><p className="eyebrow">{c('The frontend learning path', 'Jalur belajar frontend')}</p><h1>{c('From your first idea', 'Dari ide pertamamu')}<br/><span className="serif-emphasis">{c('to an app of your own.', 'sampai aplikasi buatanmu.')}</span></h1><p className="page-lead">{c('Build your foundations, connect the ideas, and make something at every stage.', 'Bangun fondasi, hubungkan ide-idenya, dan buat sesuatu di setiap tahap.')}</p></div><div className="journey-progress-summary"><strong>{completedStages}<span> / {journey.length}</span></strong><p>{c('stages completed', 'tahap dituntaskan')}</p><progress value={completedStages} max={journey.length} aria-label={c('Stages completed', 'Tahap selesai')}/><small>{completedLessons} {c('lessons completed', 'pelajaran selesai')}</small></div></header>
+    <section className="journey-next" aria-labelledby="next-step-heading"><div><p className="eyebrow">{progress.learningProfile ? c('Your next step', 'Langkah berikutnya') : c('New here?', 'Baru mulai?')}</p><h2 id="next-step-heading">{progress.learningProfile ? next.kind === 'finished' ? c('Your chosen path is complete.', 'Jalur pilihanmu sudah selesai.') : recommendedTitle : c('Find a comfortable starting point.', 'Temukan titik mulai yang pas.')}</h2><p>{progress.learningProfile ? next.kind === 'finished' ? c('Revisit a project or explore stages you skipped.', 'Tinjau proyek atau jelajahi tahap yang kamu lewati.') : `${localizeCourse(getCourse(next.courseId)!, locale).title} · ${c('One focused step at a time.', 'Satu langkah terarah setiap saat.')}` : c('Start from zero or use a short readiness check to join further along.', 'Mulai dari nol atau gunakan cek kesiapan singkat untuk masuk di tahap lanjutan.')}</p></div><div className="journey-next-actions"><Link className="button primary" to={progress.learningProfile ? next.url : '/start'}>{progress.learningProfile ? next.kind === 'finished' ? c('Review capstone', 'Tinjau proyek akhir') : c('Continue learning', 'Lanjut belajar') : c('Find my starting point', 'Temukan titik mulainya')}<ArrowRight size={16}/></Link>{progress.learningProfile && <Link className="text-link" to="/start">{c('Change starting point', 'Ganti titik awal')}</Link>}</div></section>
     <div className="journey-map-heading"><div><h2>{c('Your journey, step by step', 'Perjalananmu, selangkah demi selangkah')}</h2><p className="muted">{c('Learn → check understanding → build a project. Every stage stays open.', 'Belajar → cek pemahaman → buat proyek. Semua tahap tetap terbuka.')}</p></div><Link className="text-link" to="/projects">{c('View all projects', 'Lihat semua proyek')}<ArrowRight size={15}/></Link></div>
-    <ol className="journey-map">{journey.map((stage, index) => {
-      const course = getCourse(stage.courseId)!
+    <ol className="journey-map">{localizedStages.map((stage, index) => {
+      const course = localizeCourse(getCourse(stage.courseId)!, locale)
       const courseLessons = getCourseLessons(course.id)
       const learned = courseLessons.filter(lesson => progress.completedLessons.includes(lesson.id)).length
       const checked = progress.checkpoints[course.id]?.passed
