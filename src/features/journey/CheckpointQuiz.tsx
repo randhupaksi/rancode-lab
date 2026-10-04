@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 import { getLesson, lessonPath } from '../../content'
 import type { CheckpointQuestion } from '../../content/journey'
 import { useLearningCopy } from './useLearningCopy'
+import { useLocale } from '../locale/LocaleProvider'
+import { localizeLesson } from '../../content/localize'
 
 export default function CheckpointQuiz({ questions, onComplete, onRetry }: { questions: CheckpointQuestion[]; onComplete: (score: number, total: number) => void; onRetry?: () => void }) {
   const c = useLearningCopy()
+  const { locale } = useLocale()
   const id = useId()
   const [answers, setAnswers] = useState<Record<string, number>>({})
   const [submitted, setSubmitted] = useState(false)
@@ -22,7 +25,8 @@ export default function CheckpointQuiz({ questions, onComplete, onRetry }: { que
     <p className="quiet-note">{c('Answer each question. You can review the explanations and try again as often as you like.', 'Jawab semua pertanyaan. Baca penjelasannya, lalu coba lagi kapan pun kamu mau.')}</p>
     {questions.map((question, index) => {
       const correct = answers[question.id] === question.options.indexOf(question.answer)
-      const lesson = getLesson(question.lessonId)
+      const sourceLesson = getLesson(question.lessonId)
+      const lesson = sourceLesson ? localizeLesson(sourceLesson, locale) : undefined
       const offset = index % question.options.length
       const options = [...question.options.slice(offset), ...question.options.slice(0, offset)]
       return <fieldset className="checkpoint-question" key={question.id}>

@@ -1,24 +1,91 @@
 import assert from 'node:assert/strict'
 import { before, after, test } from 'node:test'
 import { fileURLToPath } from 'node:url'
-import { Script } from 'node:vm'
+import { Script, createContext } from 'node:vm'
 import { createServer } from 'vite'
 
-let server, catalog, journey, recommendNext, progressSchema
+let server, catalog, journey, recommendNext, progressSchema, localizeJourneyStage
 before(async () => {
   server = await createServer({
     configFile: false,
     root: fileURLToPath(new URL('../../../', import.meta.url)),
-    server: { middlewareMode: true, hmr: false, watch: null },
+    server: { middlewareMode: true, hmr: false, ws: false, watch: null },
     optimizeDeps: { noDiscovery: true, include: [] },
     appType: 'custom',
   })
   catalog = await server.ssrLoadModule('/src/content/index.ts')
   ;({ journey } = await server.ssrLoadModule('/src/content/journey.ts'))
+  ;({ localizeJourneyStage } = await server.ssrLoadModule('/src/content/journey-localize.ts'))
   ;({ recommendNext } = await server.ssrLoadModule('/src/features/journey/recommendation.ts'))
   ;({ progressSchema } = await server.ssrLoadModule('/src/features/progress/model.ts'))
 })
 after(async () => { await server?.close() })
+
+test('expanded checkpoints preserve original questions and localized answer alignment', () => {
+  const originalIds = {
+    logic: ['logic-order', 'logic-boundary', 'logic-stop'],
+    web: ['web-structure', 'web-path', 'web-history'],
+    html: ['html-label', 'html-action', 'html-list'],
+    css: ['css-space', 'css-parent', 'css-small'],
+    javascript: ['js-map', 'js-copy', 'js-reject'],
+    browser: ['browser-null', 'browser-text', 'browser-empty'],
+    react: ['react-input', 'react-key', 'react-effect'],
+    typescript: ['ts-runtime', 'ts-narrow', 'ts-generic'],
+    nextjs: ['next-page', 'next-client', 'next-recovery'],
+  }
+  assert.deepEqual(journey.map(stage => stage.courseId), Object.keys(originalIds))
+  assert.equal(new Set(journey.flatMap(stage => stage.checkpoint.map(question => question.id))).size, 54)
+  for (const stage of journey) {
+    const localized = localizeJourneyStage(stage, 'id')
+    assert.equal(localizeJourneyStage(stage, 'en'), stage)
+    assert.equal(stage.checkpoint.length, 6, stage.courseId)
+    assert.equal(localized.checkpoint.length, 6, stage.courseId)
+    assert.deepEqual(stage.checkpoint.slice(0, 3).map(question => question.id), originalIds[stage.courseId])
+    assert.equal(localized.project.criteria.length, stage.project.criteria.length, `${stage.courseId}: criteria`)
+    assert.equal(localized.project.steps.length, stage.project.steps.length, `${stage.courseId}: steps`)
+    const lessons = catalog.getCourseLessons(stage.courseId)
+    const originalDepth = Math.max(...stage.checkpoint.slice(0, 3).map(question => lessons.findIndex(lesson => lesson.id === question.lessonId)))
+    stage.checkpoint.forEach((question, index) => {
+      const translated = localized.checkpoint[index]
+      assert.equal(translated.id, question.id)
+      assert.equal(translated.lessonId, question.lessonId)
+      assert.equal(catalog.getLesson(question.lessonId)?.courseId, stage.courseId)
+      assert.equal(question.options.length, 3)
+      assert.equal(new Set(question.options).size, 3)
+      assert.equal(new Set(translated.options).size, 3)
+      const answerIndex = question.options.indexOf(question.answer)
+      assert.ok(answerIndex >= 0, question.id)
+      assert.equal(translated.options.indexOf(translated.answer), answerIndex, question.id)
+      assert.ok(translated.prompt.trim() && translated.explanation.trim())
+      assert.notEqual(translated.prompt, question.prompt, `${question.id}: missing translated prompt`)
+      assert.notEqual(translated.explanation, question.explanation, `${question.id}: missing translated explanation`)
+      if (index >= 3) assert.ok(lessons.findIndex(lesson => lesson.id === question.lessonId) > originalDepth, `${question.id}: expected deeper review lesson`)
+    })
+  }
+})
+
+test('JavaScript project simulation supports success, failure, and independent task values', async () => {
+  const stage = journey.find(stage => stage.courseId === 'javascript')
+  for (const source of [stage, localizeJourneyStage(stage, 'id')]) {
+    const context = createContext({console: {log() {}}})
+    const probe = '\nconst loaded = await loadTasks(false);\nloaded[0].done = false;\nlet message;\ntry { await loadTasks(true); } catch (error) { message = error.message; }\nglobalThis.observed = { count: loaded.length, originalDone: tasks[0].done, message };'
+    await new Script(`(async () => { ${source.project.starter}${probe}\n })()`).runInContext(context)
+    assert.equal(context.observed.count, 2)
+    assert.equal(context.observed.originalDone, true)
+    assert.equal(context.observed.message, 'Simulated load failure')
+    assert.equal(source.project.criteria.length, 7)
+  }
+})
+
+test('CSS project fragment links have matching destinations in both locales', () => {
+  const stage = journey.find(stage => stage.courseId === 'css')
+  for (const source of [stage, localizeJourneyStage(stage, 'id')]) {
+    const ids = [...source.project.starter.matchAll(/\bid="([^"]+)"/g)].map(match => match[1])
+    const destinations = [...source.project.starter.matchAll(/\bhref="#([^"]+)"/g)].map(match => match[1])
+    assert.deepEqual(destinations, ['profile', 'gallery'])
+    for (const destination of destinations) assert.equal(ids.filter(id => id === destination).length, 1)
+  }
+})
 
 test('learning stages have consistent ordering, valid review links, and executable JavaScript models', () => {
   for (const collection of ['courses', 'modules', 'lessons', 'concepts', 'challenges']) {
