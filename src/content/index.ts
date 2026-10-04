@@ -10,6 +10,7 @@ import { conceptEntries } from './concepts'
 import { frameworkConcepts, frameworkLessons, frameworkModules } from './framework-courses'
 import { foundationCourses, foundationModules, foundationLessons, foundationConcepts } from './foundations'
 import { expansionModules, expansionLessons, expansionConcepts } from './expansion'
+import { typeScriptPractice } from './typescript-practice'
 
 export type { Challenge, Concept, Course, CourseModule, Lesson } from './types'
 
@@ -17,7 +18,7 @@ export const courses: Course[] = [
   ...foundationCourses,
   { id: 'react', title: 'React', eyebrow: 'Build interfaces from clear parts', description: 'Understand components, state, effects, and the decisions behind a responsive UI.', prerequisite: 'JavaScript and browser foundations' },
   { id: 'typescript', title: 'TypeScript', eyebrow: 'Make your JavaScript intentions clear', description: 'Build a reliable mental model for types, data, and real application code.', prerequisite: 'JavaScript basics' },
-  { id: 'nextjs', title: 'Next.js', eyebrow: 'Build complete web experiences', description: 'Learn routes, rendering boundaries, data flow, and dependable route experiences.', prerequisite: 'React foundations' },
+  { id: 'nextjs', title: 'Next.js', eyebrow: 'Build complete web experiences', description: 'Learn routes, rendering boundaries, data flow, and dependable route experiences.', prerequisite: 'React foundations and basic TypeScript' },
 ]
 
 const typeScriptModules: CourseModule[] = [
@@ -39,7 +40,7 @@ export const modules: CourseModule[] = courses.flatMap(course => {
   ordered.splice(practiceIndex < 0 ? ordered.length : practiceIndex, 0, ...additions)
   return ordered.map((module, index) => ({ ...module, number: String(index + 1).padStart(2, '0') }))
 })
-const catalogLessons: Lesson[] = [...foundationLessons, ...[...gettingStarted, ...typeSystem, ...functions, ...structures, ...advancedTypes, ...generics, ...realWorld].map(lesson => ({ ...lesson, courseId: 'typescript' })), ...frameworkLessons, ...expansionLessons]
+const catalogLessons: Lesson[] = [...foundationLessons, ...[...gettingStarted, ...typeSystem, ...functions, ...structures, ...advancedTypes, ...generics, ...realWorld].map(lesson => ({ ...lesson, practice: typeScriptPractice[lesson.id], courseId: 'typescript' })), ...frameworkLessons, ...expansionLessons]
 export const lessons: Lesson[] = courses.flatMap(course => modules.filter(module => module.courseId === course.id).flatMap(module => catalogLessons.filter(lesson => lesson.moduleId === module.id && lesson.courseId === course.id)))
 const lessonById = new Map(lessons.map(lesson => [lesson.id, lesson]))
 export const concepts: Concept[] = [...foundationConcepts, ...conceptEntries.map(concept => ({ ...concept, courseId: 'typescript', visual: lessonById.get(concept.lessonId)?.visual })), ...frameworkConcepts, ...expansionConcepts]

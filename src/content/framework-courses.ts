@@ -1,8 +1,9 @@
 import type { Challenge, Concept, CourseModule, Lesson } from './types'
 import { flow, node } from './visuals'
 import { reactExamples } from './react-examples'
+import { nextExamples } from './next-examples'
 
-type Seed = { id: string; title: string; moduleId: string; minutes: number; description: string; code: string; symbols: string[]; topic: string; question: string; answer: string; options: string[]; recap: string[] }
+type Seed = { id: string; title: string; moduleId: string; minutes: number; description: string; code: string; symbols: string[]; topic: string; question: string; answer: string; recap: string[] }
 
 function graph(title: string, input: string, output: string) {
   return flow(title, 'Follow the information through the pattern. Select a node to read its role.', [
@@ -12,42 +13,350 @@ function graph(title: string, input: string, output: string) {
   ], [{ from: 'input', to: 'logic', label: 'passes data' }, { from: 'logic', to: 'output', label: 'returns' }])
 }
 
+const frameworkPractice: Record<string, string> = {
+  "react-components": "Render two Profile components locally with different names and roles. Run the label model with the same inputs and identify the component’s responsibility.",
+  "react-jsx-props": "Change title and minutes in the model and predict its logged summary. Locally, pass new props to LessonCard without changing its implementation.",
+  "react-state-events": "Run increment with count 0 and 2. Locally, click Counter twice and explain the render snapshot and queued updater. Keep useState before any early return.",
+  "react-lists-keys": "Reverse the todo array and inspect the logged labels. Locally, reorder TaskList while retaining each task.id key; explain why indices identify positions.",
+  "react-effects": "Run the connection model. Locally, toggle browser offline mode with OnlineStatus mounted; unmount it and explain how listener cleanup mirrors setup.",
+  "react-composition-hooks": "Run toggle twice using each returned value. Locally, render two Details components and confirm opening one leaves the other closed.",
+  "react-conditional-rendering": "Run screen with signedIn true and false. Locally, render Results with empty and populated arrays and check both branches.",
+  "react-component-boundaries": "Change the model’s heading. Locally, change ProfileHeader while retaining Biography and explain their separate props and responsibilities.",
+  "react-styling-ui": "Run cardClass with two tones. Locally, toggle Status’s done prop and style task/task-complete so the text and visual state agree.",
+  "react-updating-objects": "Print the original profile beside subscribe’s result. Locally, edit Profile’s name and verify city remains unchanged and the original object is preserved.",
+  "react-updating-arrays": "Add a second task and finish only read; compare original and returned arrays. Locally, toggle either task while preserving unrelated items and IDs.",
+  "react-controlled-inputs": "Inspect changeEmail’s copied form. Locally, type into Search, add a button that clears query, and confirm the displayed input follows state.",
+  "react-refs": "Change current in the ref model. Locally, activate FocusInput with the keyboard; verify focus moves and explain why ref updates do not render UI.",
+  "react-effect-dependencies": "Run requestKey with two terms. Locally, change PageTitle’s title prop and verify document.title changes; explain the title dependency.",
+  "react-effect-cleanup": "Inspect stop’s logged result. Locally, repeatedly mount and unmount Timer; verify one active timer per mount and explain Strict Mode’s development cleanup check.",
+  "react-lifting-state": "Run select with two IDs. Locally, add another Input bound to Parent’s name; editing either must update both inputs and the greeting.",
+  "react-context": "Run label with light and dark. Locally, nest Label under an intermediate component, then change the provider value and verify the consumer updates.",
+  "react-reducer": "Run increment and an unknown action with the same state. Locally, add a Reset button dispatching reset and keep the reducer free of side effects.",
+  "react-derived-state": "Change cart quantities and inspect total. Locally, change TaskSummary’s tasks and verify remaining updates without duplicate state or an effect.",
+  "react-memo": "Run expensiveTotal with a larger array. Locally, measure Results before memoizing, then change items/query to verify both dependencies control the cache.",
+  "react-callbacks": "Compare two newly created arrow functions by identity. Locally, change unrelated Counter state and compare AddButton renders with and without useCallback.",
+  "react-transitions": "Run beginSearch with another term. Locally, type into Search with a large list; keep input updates urgent and compare the list transition with an ordinary update.",
+  "react-accessibility": "Try canSubmit with an empty label and disabled true. Locally, navigate EmailField with the keyboard and confirm its visible label focuses the input.",
+  "react-form-validation": "Try @, a@, a b@example.com, and learner@example.com in the email model. Locally, submit NameForm empty and populated; inspect associated field feedback.",
+  "react-request-states": "Extend message to distinguish error and empty results. Locally, render Results with loading, error, empty success, and populated success fixtures.",
+  "react-error-boundaries": "Run fallback with an error and a value. Locally, wrap a child that throws during render in ErrorBoundary and add a reset/remount recovery button.",
+  "react-testing-behavior": "Run the scenario model. Locally, perform the Counter scenario in the comparison, then check failed submission and keyboard activation through visible UI outcomes.",
+  "react-feature-architecture": "Inspect the model’s feature files. Locally, let a parent own tasks/onToggle while TaskList renders them; identify the public data and event contract.",
+  "react-preserving-state": "Run editorKey with two IDs. Locally, type a draft, change person.id, and compare Draft with and without the key.",
+  "react-virtualized-lists": "Run visible with windows at both array ends. Locally, change VisibleRows’s start/count and identify the scroll geometry, overscan, and keyboard behavior a complete virtualizer still needs.",
+  "next-file-routing": "Create both page files and open /learn and /learn/react directly. Rename a folder and predict the URL change.",
+  "next-layouts-dynamic": "Keep the generated root layout, add the learn layout and [slug] page, then visit two slugs. Await params and verify the shared navigation.",
+  "next-server-components": "Run the async server page. Replace its synthetic helper with a server read and explain which fields may safely reach the UI.",
+  "next-client-components": "Split Menu and Page into separate files and toggle the menu. Remove use client temporarily, inspect the error, then restore the Menu boundary.",
+  "next-data-fetching": "Visit the page normally, with ?demo=empty, and with ?demo=error. Add loading.tsx/error.tsx from the companion lessons and inspect each state.",
+  "next-metadata-route-handlers": "Create the page and endpoint separately. Inspect the document title; call /api/greeting?name=Ada and the URL without name, comparing status and JSON.",
+  "next-link-navigation": "Create both pages and navigate using Link, including keyboard activation. Open each destination directly and verify the URLs.",
+  "next-route-groups": "Create (learning)/learn with its group layout. Verify the URL excludes parentheses and avoid defining a second page for the same /learn route.",
+  "next-not-found": "Open /learn/react and /learn/missing. Check that notFound stops rendering and that the segment fallback offers a working recovery link.",
+  "next-streaming-suspense": "Run the delayed Progress example and reload directly. Verify the heading appears before progress; move the Suspense boundary and compare what waits.",
+  "next-caching-revalidation": "Use the default App Router with Cache Components disabled. Inspect revalidate: 60, compare cache: no-store, and explain the freshness tradeoff for public data.",
+  "next-server-actions": "Create the action and form, save a goal, and inspect its cookie. Send blank/oversized input and explain the additional permission checks for a sensitive write.",
+  "next-loading-ui": "Create /learn with loading.tsx and the delayed page. Navigate and reload directly; inspect the loading message and its replacement by ready content.",
+  "next-error-ui": "Run the failing demo and activate Try again. Verify segment containment and explain why its error.tsx cannot catch its own segment’s layout.",
+  "next-fonts-images": "Add your own study.jpg with the stated dimensions and matching alt text. Resize the page and verify reserved image space and the font layout.",
+  "next-forms-validation": "Render EmailForm from the server page. Check valid, blank, @, and whitespace-containing values; bypass browser hints and verify server errors and pending feedback.",
+  "next-optimistic-ui": "Read the cookie in the server page and pass initialSaved. Toggle the bookmark; make saveBookmark throw and verify pending feedback and rollback.",
+  "next-revalidate-path": "Visit /learn twice, invalidate its cache with the action, then revisit. Explain why a real mutation must complete successfully before invalidation.",
+  "next-auth-boundaries": "Call the demo endpoint and inspect 403. Set the trusted adapter to editor, send invalid JSON, and explain why request-body roles cannot grant permission.",
+  "next-route-handlers": "POST valid JSON, invalid JSON, missing title, and a whitespace-only title to /api/lessons. Compare statuses and identify where sensitive writes need authorization.",
+  "next-code-splitting": "Create EditorPanel and Editor and render the panel from a server page. Toggle notes while inspecting network modules and the loading fallback. Measure before claiming a speed gain.",
+  "next-client-boundaries": "Split CompletionButton from the server page and toggle it. Inspect which file needs use client while keeping data and surrounding layout on the server.",
+  "next-seo-metadata": "Visit both known slugs and an unknown slug. Inspect title, description, and Open Graph fields; confirm they describe the visible lesson.",
+  "next-web-vitals": "Mount Vitals in the root layout and inspect browser reports. Record a baseline, change one measured bottleneck, and compare the same loading/interaction scenario.",
+  "next-environment-variables": "Use synthetic environment values and restart locally. Inspect /api/config and HelpLink; explain why the public URL is visible but the token must not be returned.",
+  "next-deployment-checklist": "Build and start the local production app with the listed commands. Check success, unknown, empty, and error routes and record configuration differences from development.",
+  "next-observability": "Call /api/demo and match the response requestId to the server log. Confirm the log has controlled context and no bodies, cookies, or credentials.",
+  "next-security-headers": "Add the baseline headers, restart locally, and inspect network response headers. Explain the framing tradeoff and why validation/authorization are still necessary.",
+  "next-full-route-review": "Assemble the companion route files. Check direct/detail URLs, empty/error queries, loading, recovery links, keyboard focus, narrow screens, and metadata.",
+  "next-bundle-analysis": "Install the local analyzer and run the platform-specific command using the Webpack build. Narrow a client boundary and record the actual client-module size difference."
+}
+
+const frameworkDistractors: Record<string, [string, string]> = {
+  "react-components": [
+    "Every nested HTML tag needs its own component",
+    "Only UI that owns state can be a component"
+  ],
+  "react-jsx-props": [
+    "Its own state automatically",
+    "A child component’s return value"
+  ],
+  "react-state-events": [
+    "Inside the event handler that needs state",
+    "Inside a condition when the component is visible"
+  ],
+  "react-lists-keys": [
+    "The item’s current index in a reorderable list",
+    "A random value created for each render"
+  ],
+  "react-effects": [
+    "Recalculating a value that can be derived during render",
+    "Handling every button click after rendering"
+  ],
+  "react-composition-hooks": [
+    "One shared state instance across every call",
+    "The DOM nodes of the first component"
+  ],
+  "react-conditional-rendering": [
+    "A useEffect that directly edits the DOM",
+    "The position of the JSX in the file"
+  ],
+  "react-component-boundaries": [
+    "Whenever another HTML element is nested",
+    "Only after a file reaches a fixed line count"
+  ],
+  "react-styling-ui": [
+    "The current nesting depth of the DOM",
+    "A random name unrelated to the component state"
+  ],
+  "react-updating-objects": [
+    "Mutate the existing object, then pass it to the setter",
+    "Replace the object with only the changed field"
+  ],
+  "react-updating-arrays": [
+    "push, which updates an existing array in place",
+    "forEach, whose return value is the new array"
+  ],
+  "react-controlled-inputs": [
+    "Only from defaultValue after every render",
+    "From direct DOM edits that bypass state"
+  ],
+  "react-refs": [
+    "For the count displayed on a button",
+    "For replacing every state value with mutable storage"
+  ],
+  "react-effect-dependencies": [
+    "Only values that changed during the last render",
+    "Only values you want to allow to rerun the effect"
+  ],
+  "react-effect-cleanup": [
+    "Only after the next effect has already connected",
+    "Only when the entire browser tab closes"
+  ],
+  "react-lifting-state": [
+    "In a separate state copy inside each child",
+    "In the deepest child even when its sibling needs it"
+  ],
+  "react-context": [
+    "Every temporary input value in one global provider",
+    "A replacement for every parent-to-child prop"
+  ],
+  "react-reducer": [
+    "The action after mutating it",
+    "A Promise that changes the old state later"
+  ],
+  "react-derived-state": [
+    "In an effect that keeps duplicate state synchronized",
+    "Only once when the component initializes"
+  ],
+  "react-memo": [
+    "For every calculation regardless of cost",
+    "To make an impure render function safe"
+  ],
+  "react-callbacks": [
+    "So the callback always keeps its first render’s data",
+    "Because ordinary event handlers cannot be recreated"
+  ],
+  "react-transitions": [
+    "The state that controls each input keystroke",
+    "A synchronous validation check before submitting"
+  ],
+  "react-accessibility": [
+    "A div with an onClick handler alone",
+    "An anchor with no destination for an in-page action"
+  ],
+  "react-form-validation": [
+    "Only in the browser’s developer console",
+    "In an unrelated panel without a field association"
+  ],
+  "react-request-states": [
+    "Only success and a permanently hidden error",
+    "A single ready state for every completed request"
+  ],
+  "react-error-boundaries": [
+    "Automatic handling of every event-handler error",
+    "A silent blank screen until the app reloads"
+  ],
+  "react-testing-behavior": [
+    "Private state variable names",
+    "The exact nesting of implementation components"
+  ],
+  "react-feature-architecture": [
+    "A fixed number of files for every feature",
+    "Separating each HTML tag into a different folder"
+  ],
+  "react-preserving-state": [
+    "Changing a prop always resets all local state",
+    "Changing a CSS class resets component identity"
+  ],
+  "react-virtualized-lists": [
+    "Every item hidden only with CSS",
+    "Only one item regardless of viewport size"
+  ],
+  "next-file-routing": [
+    "layout.tsx, which defines shared wrapping UI",
+    "route.ts, which defines an HTTP endpoint"
+  ],
+  "next-layouts-dynamic": [
+    "A literal URL segment named [slug]",
+    "A query-string value available only from searchParams"
+  ],
+  "next-server-components": [
+    "Only after hydration in the browser",
+    "Inside a browser click handler"
+  ],
+  "next-client-components": [
+    "Whenever a component renders HTML",
+    "Whenever a component awaits server data"
+  ],
+  "next-data-fetching": [
+    "Only loading and success, because empty means failure",
+    "Only success, with failures sent to the console"
+  ],
+  "next-metadata-route-handlers": [
+    "In the Client Component before sending a request",
+    "In a browser effect after the response arrives"
+  ],
+  "next-link-navigation": [
+    "A button that assigns window.location for every link",
+    "An onClick handler that rewrites the page HTML"
+  ],
+  "next-route-groups": [
+    "Yes, including the parentheses",
+    "Only when the group contains a layout"
+  ],
+  "next-not-found": [
+    "Show an empty success view for every missing record",
+    "Keep a permanent loading indicator"
+  ],
+  "next-streaming-suspense": [
+    "Every asynchronous operation is automatically canceled",
+    "A browser state update becomes a server mutation"
+  ],
+  "next-caching-revalidation": [
+    "The longest duration that makes the build pass",
+    "A fixed interval shared by all data regardless of use"
+  ],
+  "next-server-actions": [
+    "Only in the input’s required attribute",
+    "Only inside a client submit handler"
+  ],
+  "next-loading-ui": [
+    "A permanent placeholder that hides completed content",
+    "Internal server stack traces while data loads"
+  ],
+  "next-error-ui": [
+    "A spinner with no way to leave the failure",
+    "The complete server stack trace for every visitor"
+  ],
+  "next-fonts-images": [
+    "To make every image load before all text",
+    "To remove the need for meaningful alt text"
+  ],
+  "next-forms-validation": [
+    "Only on the client because its UI owns the form",
+    "Only when the browser’s validation is disabled"
+  ],
+  "next-optimistic-ui": [
+    "Treating the optimistic result as permanently confirmed",
+    "Skipping server validation to match the optimistic view"
+  ],
+  "next-revalidate-path": [
+    "Before every attempted mutation, including failures",
+    "Only when a browser refresh button is clicked"
+  ],
+  "next-auth-boundaries": [
+    "Only by hiding the button in the browser",
+    "By trusting a role supplied in the request JSON"
+  ],
+  "next-route-handlers": [
+    "Trust the TypeScript annotation as runtime validation",
+    "Perform the write first and validate its result afterward"
+  ],
+  "next-code-splitting": [
+    "For every small function regardless of loading cost",
+    "To move a server secret safely into client code"
+  ],
+  "next-client-boundaries": [
+    "At the root of every page regardless of interactivity",
+    "Around all data fetching even when it is server-only"
+  ],
+  "next-seo-metadata": [
+    "The same generic title for every unrelated page",
+    "Keywords unrelated to the visible route content"
+  ],
+  "next-web-vitals": [
+    "A larger number of optimization hooks",
+    "Build success alone without user measurements"
+  ],
+  "next-environment-variables": [
+    "In a NEXT_PUBLIC_ variable referenced by a Client Component",
+    "In a hidden HTML element that users cannot see"
+  ],
+  "next-deployment-checklist": [
+    "Deploy first and use visitors to discover broken routes",
+    "Check only the development homepage"
+  ],
+  "next-observability": [
+    "The complete request body and all session cookies",
+    "Only a generic failed message with no route context"
+  ],
+  "next-security-headers": [
+    "Trust it whenever the browser sends an Origin header",
+    "Use a type assertion instead of checking runtime values"
+  ],
+  "next-full-route-review": [
+    "Only success because failures are developer concerns",
+    "Only loading because empty data never occurs"
+  ],
+  "next-bundle-analysis": [
+    "Whether every TypeScript type is erased correctly",
+    "Whether a database transaction has committed"
+  ]
+}
+
 function makeLessons(courseId: string, seeds: Seed[]): Lesson[] {
-  return seeds.map((seed) => {
+  return seeds.map((seed, index) => {
     const symbols = courseId === 'react' ? seed.symbols.filter(symbol => ['const', 'let', 'function'].some(keyword => seed.code.includes(`${keyword} ${symbol}`))) : seed.symbols
-    const challenge: Challenge = { language: courseId === 'react' ? 'javascript' : 'typescript', id: `${seed.id}-check`, title: `Check: ${seed.title}`, topic: seed.topic, difficulty: 'Beginner', kind: 'choice', prompt: seed.question, code: seed.code, options: seed.options, answer: seed.answer, hint: 'Look at the boundary between input, logic, and result.', explanation: `${seed.answer} follows the pattern shown in this lesson.` }
+    const code = courseId === 'react' && !seed.code.includes('console.log') ? seed.code + '\nconsole.log(' + symbols.at(-1) + ');' : seed.code
+    const authoredOptions = [seed.answer, ...frameworkDistractors[seed.id]]
+    const options = [...authoredOptions.slice(index % 3), ...authoredOptions.slice(0, index % 3)]
+    const challenge: Challenge = { language: courseId === 'react' ? 'javascript' : 'typescript', id: `${seed.id}-check`, title: `Check: ${seed.title}`, topic: seed.topic, difficulty: 'Beginner', kind: 'choice', prompt: seed.question, code, options, answer: seed.answer, hint: seed.recap[0], explanation: seed.description }
     const comparison = courseId === 'react'
-      ? { beforeLabel: 'The model', before: seed.code, afterLabel: 'In a React component', after: reactExamples[seed.id] ?? seed.code }
-      : { beforeLabel: 'The model', before: seed.code, afterLabel: 'In a Next.js route', after: `export default async function Page() {\n  const title = "${seed.title}";\n\n  return <main>\n    <h1>{title}</h1>\n  </main>;\n}` }
-    return { id: seed.id, courseId, title: seed.title, moduleId: seed.moduleId, minutes: seed.minutes, description: seed.description, language: courseId === 'react' ? 'javascript' : 'typescript', practice: courseId === 'react' ? 'Predict the output, change the input, and run the JavaScript model. The comparison shows the React syntax; package imports are not executed in this lab.' : undefined, explanation: [seed.description, courseId === 'react' ? 'The editable example uses plain JavaScript to focus on the data and behavior. Read the component comparison to connect that model to React. TypeScript is introduced in the next stage.' : 'The editable example focuses on the underlying JavaScript and TypeScript model. The comparison connects it to a Next.js route.'], code: seed.code, inspectSymbols: symbols, visual: graph(seed.title, symbols[0] ?? 'input', symbols.at(-1) ?? 'result'), challenge, recap: seed.recap, relatedConcepts: [`${courseId}-${seed.id}`], comparison }
+      ? { beforeLabel: 'The model', before: code, afterLabel: 'In a React component', after: reactExamples[seed.id] ?? seed.code }
+      : { beforeLabel: 'The model', before: code, afterLabel: 'In a local Next.js project', after: nextExamples[seed.id] }
+    return { id: seed.id, courseId, title: seed.title, moduleId: seed.moduleId, minutes: seed.minutes, description: seed.description, language: courseId === 'react' ? 'javascript' : 'typescript', practice: frameworkPractice[seed.id], explanation: [seed.description, courseId === 'react' ? 'The editable example uses plain JavaScript to focus on the data and behavior. Read the component comparison to connect that model to React. TypeScript is introduced in the next stage.' : 'The editable example focuses on the underlying JavaScript and TypeScript model. The comparison connects it to a Next.js route.'], code, inspectSymbols: symbols, visual: graph(seed.title, symbols[0] ?? 'input', symbols.at(-1) ?? 'result'), challenge, recap: seed.recap, relatedConcepts: [`${courseId}-${seed.id}`], comparison }
   })
 }
 
 const reactSeeds: Seed[] = [
-  { id: 'react-components', title: 'Thinking in Components', moduleId: 'react-foundations', minutes: 7, description: 'A component is a focused function that turns inputs into one meaningful part of an interface. Find product boundaries before splitting markup.', code: "\"use strict\";\nfunction profileLabel(profile) {\n    return `${profile.name} · ${profile.role}`;\n}\nconst label = profileLabel({ name: \"Ada\", role: \"Engineer\" });\nconsole.log(label);", symbols: ['Profile', 'profileLabel', 'label'], topic: 'React foundations', question: 'What should a well-scoped component represent?', answer: 'One meaningful piece of the interface', options: ['One meaningful piece of the interface', 'Every HTML element', 'An entire app in one file'], recap: ['Components describe focused pieces of UI.', 'They receive data and return a view.', 'Choose boundaries based on meaning and reuse.'] },
-  { id: 'react-jsx-props', title: 'JSX and Props', moduleId: 'react-foundations', minutes: 7, description: 'JSX describes a UI tree, while props let a parent provide the values a child needs. Curly braces bring JavaScript expressions into JSX.', code: "\"use strict\";\nfunction summary({ title, minutes }) {\n    return `${title} · ${minutes} min`;\n}\nconst text = summary({ title: \"Props\", minutes: 7 });", symbols: ['LessonCardProps', 'summary', 'text'], topic: 'React foundations', question: 'Who provides a component’s props?', answer: 'Its parent', options: ['Its parent', 'The browser automatically', 'Only the component itself'], recap: ['JSX describes a UI tree.', 'Props are read-only inputs from a parent.', 'Props make the component’s inputs explicit.'] },
-  { id: 'react-state-events', title: 'State and Events', moduleId: 'react-state', minutes: 8, description: 'State is a component’s changing memory. Events decide the next state from the current state, then React updates the view from that new value.', code: "\"use strict\";\nfunction increment(counter) {\n    return { count: counter.count + 1 };\n}\nconst next = increment({ count: 2 });\nconsole.log(next.count);", symbols: ['Counter', 'increment', 'next'], topic: 'React state', question: 'What should you do with a state object?', answer: 'Create the next value instead of mutating it', options: ['Create the next value instead of mutating it', 'Change it directly anywhere', 'Store every value globally'], recap: ['State holds values that can change.', 'Events calculate the next state.', 'Do not mutate existing state objects.'] },
-  { id: 'react-lists-keys', title: 'Lists and Keys', moduleId: 'react-state', minutes: 7, description: 'A list maps data to repeated UI. A stable key lets React recognize the same item when the list changes.', code: "\"use strict\";\nconst todos = [{ id: \"learn\", title: \"Learn keys\" }, { id: \"build\", title: \"Build a list\" }];\nconst labels = todos.map((todo) => `${todo.id}: ${todo.title}`);\nconsole.log(labels);", symbols: ['Todo', 'todos', 'labels'], topic: 'React state', question: 'What makes a good key for a list item?', answer: 'A stable ID from the data', options: ['A stable ID from the data', 'A new random value each render', 'Always the array index'], recap: ['Map data to repeated UI.', 'Keys identify siblings between renders.', 'Use stable IDs when order can change.'] },
-  { id: 'react-effects', title: 'Effects and External Systems', moduleId: 'react-effects', minutes: 8, description: 'Effects synchronize a component with something outside React, such as a browser API, timer, subscription, or request. Ordinary derived values belong in render.', code: "\"use strict\";\nfunction connect() {\n    return { active: true };\n}\nconst connection = connect();\nconsole.log(connection.active);", symbols: ['Connection', 'connect', 'connection'], topic: 'React effects', question: 'What is an effect for?', answer: 'Synchronizing with an external system', options: ['Synchronizing with an external system', 'Calculating every value in render', 'Replacing all event handlers'], recap: ['Effects connect React to external systems.', 'Derived values usually belong in render.', 'Clean up subscriptions and timers.'] },
-  { id: 'react-composition-hooks', title: 'Composition and Custom Hooks', moduleId: 'react-effects', minutes: 8, description: 'Composition gives one component structure while another provides content. A custom Hook packages reusable stateful logic without sharing component state.', code: "\"use strict\";\nfunction toggle(value) {\n    return { on: !value.on };\n}\nconst nextToggle = toggle({ on: false });\nconsole.log(nextToggle.on);", symbols: ['Toggle', 'toggle', 'nextToggle'], topic: 'React effects', question: 'What does a custom Hook reuse?', answer: 'Stateful logic', options: ['Stateful logic', 'One shared component instance', 'A global CSS file'], recap: ['Composition combines focused pieces.', 'Custom Hooks package stateful logic.', 'Each use receives its own state.'] },
+  { id: 'react-components', title: 'Thinking in Components', moduleId: 'react-foundations', minutes: 7, description: 'A component is a focused function that turns inputs into one meaningful part of an interface. Find product boundaries before splitting markup.', code: "\"use strict\";\nfunction profileLabel(profile) {\n    return `${profile.name} · ${profile.role}`;\n}\nconst label = profileLabel({ name: \"Ada\", role: \"Engineer\" });\nconsole.log(label);", symbols: ['Profile', 'profileLabel', 'label'], topic: 'React foundations', question: 'What should a well-scoped component represent?', answer: 'One meaningful piece of the interface', recap: ['Components describe focused pieces of UI.', 'They receive data and return a view.', 'Choose boundaries based on meaning and reuse.'] },
+  { id: 'react-jsx-props', title: 'JSX and Props', moduleId: 'react-foundations', minutes: 7, description: 'JSX describes a UI tree, while props let a parent provide the values a child needs. Curly braces bring JavaScript expressions into JSX.', code: "\"use strict\";\nfunction summary({ title, minutes }) {\n    return `${title} · ${minutes} min`;\n}\nconst text = summary({ title: \"Props\", minutes: 7 });", symbols: ['LessonCardProps', 'summary', 'text'], topic: 'React foundations', question: 'Who provides a component’s props?', answer: 'Its parent', recap: ['JSX describes a UI tree.', 'Props are read-only inputs from a parent.', 'Props make the component’s inputs explicit.'] },
+  { id: 'react-state-events', title: 'State and Events', moduleId: 'react-state', minutes: 8, description: 'State is a component’s changing memory. Hooks such as useState must be called at the top level of a React component or custom Hook, before early returns; never call them in conditions, loops, ordinary functions, or event handlers. Each render sees a state snapshot: setters queue the next render instead of changing the current handler’s variable. Use a pure updater when the next value depends on the previous queued state, and create new objects instead of mutating existing state.', code: "\"use strict\";\nfunction increment(counter) {\n    return { count: counter.count + 1 };\n}\nconst next = increment({ count: 2 });\nconsole.log(next.count);", symbols: ['Counter', 'increment', 'next'], topic: 'React state', question: 'Where may useState be called?', answer: 'At the top level of a React component or custom Hook', recap: ['Keep Hook calls in a stable order on every render.', 'Each render sees its own state snapshot.', 'Use pure updaters and create new state values.'] },
+  { id: 'react-lists-keys', title: 'Lists and Keys', moduleId: 'react-state', minutes: 7, description: 'A list maps data to repeated UI. A stable key lets React recognize the same item when the list changes.', code: "\"use strict\";\nconst todos = [{ id: \"learn\", title: \"Learn keys\" }, { id: \"build\", title: \"Build a list\" }];\nconst labels = todos.map((todo) => `${todo.id}: ${todo.title}`);\nconsole.log(labels);", symbols: ['Todo', 'todos', 'labels'], topic: 'React state', question: 'What makes a good key for a list item?', answer: 'A stable ID from the data', recap: ['Map data to repeated UI.', 'Keys identify siblings between renders.', 'Use stable IDs when order can change.'] },
+  { id: 'react-effects', title: 'Effects and External Systems', moduleId: 'react-effects', minutes: 8, description: 'Effects synchronize a component with something outside React, such as a browser API, timer, subscription, or request. Ordinary derived values belong in render.', code: "\"use strict\";\nfunction connect() {\n    return { active: true };\n}\nconst connection = connect();\nconsole.log(connection.active);", symbols: ['Connection', 'connect', 'connection'], topic: 'React effects', question: 'What is an effect for?', answer: 'Synchronizing with an external system', recap: ['Effects connect React to external systems.', 'Derived values usually belong in render.', 'Clean up subscriptions and timers.'] },
+  { id: 'react-composition-hooks', title: 'Composition and Custom Hooks', moduleId: 'react-effects', minutes: 8, description: 'Composition gives one component structure while another provides content. A custom Hook packages reusable stateful logic without sharing component state.', code: "\"use strict\";\nfunction toggle(value) {\n    return { on: !value.on };\n}\nconst nextToggle = toggle({ on: false });\nconsole.log(nextToggle.on);", symbols: ['Toggle', 'toggle', 'nextToggle'], topic: 'React effects', question: 'What does a custom Hook reuse?', answer: 'Stateful logic', recap: ['Composition combines focused pieces.', 'Custom Hooks package stateful logic.', 'Each use receives its own state.'] },
 ]
 
 const nextSeeds: Seed[] = [
-  { id: 'next-file-routing', title: 'File-based Routing', moduleId: 'next-routing', minutes: 7, description: 'In the App Router, folders and special files describe routes. A page file is the UI entry point for one URL segment.', code: 'const segments = ["learn", "react"];\nconst path = `/${segments.join("/")}`;\nconsole.log(path);', symbols: ['segments', 'path'], topic: 'Next.js routing', question: 'Which file defines UI for a route in the App Router?', answer: 'page.tsx', options: ['page.tsx', 'route.ts', 'next.config.ts'], recap: ['Folders describe URL segments.', 'page.tsx renders a route.', 'Keep route UI close to its route.'] },
-  { id: 'next-layouts-dynamic', title: 'Layouts and Dynamic Segments', moduleId: 'next-routing', minutes: 8, description: 'Layouts provide shared structure for related routes. A bracketed folder captures a URL value so a route can find the resource it needs.', code: 'type Params = { slug: string };\nfunction lessonPath({ slug }: Params) { return `/learn/${slug}`; }\nconst url = lessonPath({ slug: "react-state" });', symbols: ['Params', 'lessonPath', 'url'], topic: 'Next.js routing', question: 'What does [slug] represent in a route folder?', answer: 'A value captured from the URL', options: ['A value captured from the URL', 'A CSS class', 'A server secret'], recap: ['Layouts wrap related child routes.', 'Dynamic segments capture URL values.', 'Validate missing or invalid data.'] },
-  { id: 'next-server-components', title: 'Server Components', moduleId: 'next-rendering', minutes: 8, description: 'Server Components render on the server by default. They can fetch data close to the component without shipping their implementation to the browser.', code: 'type Lesson = { title: string };\nasync function getLesson(): Promise<Lesson> { return { title: "Server Components" }; }\nconst lesson = await getLesson();\nconsole.log(lesson.title);', symbols: ['Lesson', 'getLesson', 'lesson'], topic: 'Next.js rendering', question: 'Where do Server Components render by default?', answer: 'On the server', options: ['On the server', 'Only in a browser event handler', 'Inside CSS'], recap: ['App Router components are server components by default.', 'They can await data directly.', 'Their code is not automatically sent to the browser.'] },
-  { id: 'next-client-components', title: 'Client Components', moduleId: 'next-rendering', minutes: 8, description: 'Use "use client" at the boundary that needs browser state, effects, or event handlers. Keep that boundary small so the browser receives only what it needs.', code: 'type Menu = { open: boolean };\nfunction toggleMenu(menu: Menu): Menu { return { open: !menu.open }; }\nconst nextMenu = toggleMenu({ open: false });\nconsole.log(nextMenu.open);', symbols: ['Menu', 'toggleMenu', 'nextMenu'], topic: 'Next.js rendering', question: 'When is "use client" needed?', answer: 'When a component needs browser interactivity', options: ['When a component needs browser interactivity', 'For every page', 'To fetch all data'], recap: ['Client Components enable browser APIs and state.', 'The directive creates a client boundary.', 'Keep client boundaries narrow.'] },
-  { id: 'next-data-fetching', title: 'Data Fetching and States', moduleId: 'next-experience', minutes: 8, description: 'Fetch data where it is needed, then deliberately design loading, success, empty, and error states. Request data has a lifecycle, not only a final value.', code: 'type Result = { title: string };\nasync function fetchLesson(): Promise<Result> { return { title: "Data Fetching" }; }\nconst result = await fetchLesson();\nconsole.log(result.title);', symbols: ['Result', 'fetchLesson', 'result'], topic: 'Next.js experience', question: 'What should a data-driven route plan for?', answer: 'Loading, success, empty, and error states', options: ['Loading, success, empty, and error states', 'Only the happy path', 'A global mutable variable'], recap: ['Fetch data close to its consumer.', 'Plan for each request state.', 'Keep data shape explicit.'] },
-  { id: 'next-metadata-route-handlers', title: 'Metadata and Route Handlers', moduleId: 'next-experience', minutes: 8, description: 'Metadata describes a route for people and browsers. Route Handlers create server endpoints that should validate input and return clear responses.', code: 'type Input = { name: string };\ntype Output = { greeting: string };\nfunction greet(input: Input): Output { return { greeting: `Hello, ${input.name}` }; }\nconsole.log(greet({ name: "Mira" }).greeting);', symbols: ['Input', 'Output', 'greet'], topic: 'Next.js experience', question: 'Where should sensitive Route Handler work run?', answer: 'On the server', options: ['On the server', 'In a public browser variable', 'Inside CSS'], recap: ['Metadata belongs with the route it describes.', 'Route Handlers create HTTP endpoints.', 'Validate data at the server boundary.'] },
+  { id: 'next-file-routing', title: 'File-based Routing', moduleId: 'next-routing', minutes: 7, description: 'In the App Router, folders and special files describe routes. A page file is the UI entry point for one URL segment.', code: 'const segments = ["learn", "react"];\nconst path = `/${segments.join("/")}`;\nconsole.log(path);', symbols: ['segments', 'path'], topic: 'Next.js routing', question: 'Which file defines UI for a route in the App Router?', answer: 'page.tsx', recap: ['Folders describe URL segments.', 'page.tsx renders a route.', 'Keep route UI close to its route.'] },
+  { id: 'next-layouts-dynamic', title: 'Layouts and Dynamic Segments', moduleId: 'next-routing', minutes: 8, description: 'Layouts provide shared structure for related routes. A bracketed folder captures a URL value so a route can find the resource it needs.', code: 'type Params = { slug: string };\nfunction lessonPath({ slug }: Params) { return `/learn/${slug}`; }\nconst url = lessonPath({ slug: "react-state" });', symbols: ['Params', 'lessonPath', 'url'], topic: 'Next.js routing', question: 'What does [slug] represent in a route folder?', answer: 'A value captured from the URL', recap: ['Layouts wrap related child routes.', 'Dynamic segments capture URL values.', 'Validate missing or invalid data.'] },
+  { id: 'next-server-components', title: 'Server Components', moduleId: 'next-rendering', minutes: 8, description: 'Server Components render on the server by default. They can fetch data close to the component without shipping their implementation to the browser.', code: 'type Lesson = { title: string };\nasync function getLesson(): Promise<Lesson> { return { title: "Server Components" }; }\nconst lesson = await getLesson();\nconsole.log(lesson.title);', symbols: ['Lesson', 'getLesson', 'lesson'], topic: 'Next.js rendering', question: 'Where do Server Components render by default?', answer: 'On the server', recap: ['App Router components are server components by default.', 'They can await data directly.', 'Their code is not automatically sent to the browser.'] },
+  { id: 'next-client-components', title: 'Client Components', moduleId: 'next-rendering', minutes: 8, description: 'Use "use client" at the boundary that needs browser state, effects, or event handlers. Keep that boundary small so the browser receives only what it needs.', code: 'type Menu = { open: boolean };\nfunction toggleMenu(menu: Menu): Menu { return { open: !menu.open }; }\nconst nextMenu = toggleMenu({ open: false });\nconsole.log(nextMenu.open);', symbols: ['Menu', 'toggleMenu', 'nextMenu'], topic: 'Next.js rendering', question: 'When is "use client" needed?', answer: 'When a component needs browser interactivity', recap: ['Client Components enable browser APIs and state.', 'The directive creates a client boundary.', 'Keep client boundaries narrow.'] },
+  { id: 'next-data-fetching', title: 'Data Fetching and States', moduleId: 'next-experience', minutes: 8, description: 'Fetch data where it is needed, then deliberately design loading, success, empty, and error states. Request data has a lifecycle, not only a final value.', code: 'type Result = { title: string };\nasync function fetchLesson(): Promise<Result> { return { title: "Data Fetching" }; }\nconst result = await fetchLesson();\nconsole.log(result.title);', symbols: ['Result', 'fetchLesson', 'result'], topic: 'Next.js experience', question: 'What should a data-driven route plan for?', answer: 'Loading, success, empty, and error states', recap: ['Fetch data close to its consumer.', 'Plan for each request state.', 'Keep data shape explicit.'] },
+  { id: 'next-metadata-route-handlers', title: 'Metadata and Route Handlers', moduleId: 'next-experience', minutes: 8, description: 'Metadata describes a route for people and browsers. Route Handlers create server endpoints that should validate input and return clear responses.', code: 'type Input = { name: string };\ntype Output = { greeting: string };\nfunction greet(input: Input): Output { return { greeting: `Hello, ${input.name}` }; }\nconsole.log(greet({ name: "Mira" }).greeting);', symbols: ['Input', 'Output', 'greet'], topic: 'Next.js experience', question: 'Where should sensitive Route Handler work run?', answer: 'On the server', recap: ['Metadata belongs with the route it describes.', 'Route Handlers create HTTP endpoints.', 'Validate data at the server boundary.'] },
 ]
 
-type ExpansionSeed = Omit<Seed, 'minutes' | 'options'> & { minutes?: number }
+type ExpansionSeed = Omit<Seed, 'minutes'> & { minutes?: number }
 
 function expandSeed(seed: ExpansionSeed): Seed {
   return {
     ...seed,
     minutes: seed.minutes ?? 7,
-    options: [seed.answer, 'A value that happens outside this component', 'A browser setting chosen at random'],
   }
 }
 
@@ -69,13 +378,13 @@ const reactExpansionSeeds: Seed[] = [
   expandSeed({ id: 'react-callbacks', title: 'Stable Callbacks', moduleId: 'react-performance', description: 'A callback changes identity when it is created again. Stabilize one only when a memoized child or Hook contract needs that stable reference.', code: "\"use strict\";\nconst save = () => \"saved\";\nconst result = save();\nconsole.log(result);", symbols: ['Action', 'save', 'result'], topic: 'React performance', question: 'Why might a callback need a stable reference?', answer: 'A memoized consumer depends on its identity', recap: ['Functions are values too.', 'Stable callbacks are an optimization.', 'Do not add them by default.'] }),
   expandSeed({ id: 'react-transitions', title: 'Transitions and Responsive UI', moduleId: 'react-performance', description: 'A transition marks a state update as non-urgent so typing and direct feedback can remain responsive while a larger view catches up.', code: "\"use strict\";\nfunction beginSearch(term) {\n    return { term, pending: true };\n}\nconst search = beginSearch(\"react\");", symbols: ['Search', 'beginSearch', 'search'], topic: 'React performance', question: 'What kind of update suits a transition?', answer: 'A non-urgent view update', recap: ['Urgent input should stay responsive.', 'Transitions communicate priority.', 'Use them around noticeable work.'] }),
   expandSeed({ id: 'react-accessibility', title: 'Accessible Interactive UI', moduleId: 'react-performance', description: 'Use native elements for their native jobs, then verify keyboard focus, visible labels, and feedback. Accessibility is part of a component contract.', code: "\"use strict\";\nfunction canSubmit(button) {\n    return !button.disabled && button.label.length > 0;\n}\nconst ready = canSubmit({ label: \"Save\", disabled: false });", symbols: ['Button', 'canSubmit', 'ready'], topic: 'React performance', question: 'What is the first choice for a clickable action?', answer: 'A native button element', recap: ['Prefer semantic HTML.', 'Every control needs a usable name.', 'Test keyboard and focus behavior.'] }),
-  expandSeed({ id: 'react-form-validation', title: 'Form Validation', moduleId: 'react-practice', description: 'Validate the data model at the moment it matters, then communicate errors close to the field. A valid form is an explicit state, not a guess.', code: "\"use strict\";\nfunction isValidEmail(email) {\n    return email.value.includes(\"@\");\n}\nconst valid = isValidEmail({ value: \"hello@underco.de\" });", symbols: ['Email', 'isValidEmail', 'valid'], topic: 'React practice', question: 'Where should an input error be shown?', answer: 'Close to the field it describes', recap: ['Validate user input deliberately.', 'Connect errors to their fields.', 'Keep submission state explicit.'] }),
-  expandSeed({ id: 'react-request-states', title: 'Request States in React', moduleId: 'react-practice', description: 'A request can be idle, loading, successful, empty, or failed. Model those states clearly so the interface never leaves people guessing.', code: "\"use strict\";\nfunction message(state) {\n    return state === \"loading\" ? \"Loading…\" : \"Ready\";\n}\nconst text = message(\"loading\");", symbols: ['Request', 'message', 'text'], topic: 'React practice', question: 'Which state should a request UI handle besides success?', answer: 'Loading and error states', recap: ['Requests have a lifecycle.', 'Plan empty results too.', 'Keep retry and recovery visible.'] }),
+  expandSeed({ id: 'react-form-validation', title: 'Form Validation', moduleId: 'react-practice', description: 'Validate the data model at the moment it matters, then communicate errors close to the field. A valid form is an explicit state, not a guess. This email model uses a limited lesson rule: one @, no whitespace, a dotted domain, and at most 254 characters; it is not a full email standards parser.', code: "\"use strict\";\nfunction isValidEmail(email) {\n    return email.value.length <= 254 && /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.value);\n}\nconst valid = isValidEmail({ value: \"hello@underco.de\" });", symbols: ['Email', 'isValidEmail', 'valid'], topic: 'React practice', question: 'Where should an input error be shown?', answer: 'Close to the field it describes', recap: ['Validate user input deliberately.', 'Connect errors to their fields.', 'Keep submission state explicit.'] }),
+  expandSeed({ id: 'react-request-states', title: 'Request States in React', moduleId: 'react-practice', description: 'A request can be idle, loading, successful, empty, or failed. Model those states clearly so the interface never leaves people guessing.', code: "\"use strict\";\nfunction message(state) {\n    return state === \"idle\" ? \"Choose a search\" : state === \"loading\" ? \"Loading…\" : state === \"error\" ? \"Could not load\" : state === \"empty\" ? \"No results\" : \"Ready\";\n}\nconst text = message(\"loading\");", symbols: ['Request', 'message', 'text'], topic: 'React practice', question: 'Which state should a request UI handle besides success?', answer: 'Loading and error states', recap: ['Requests have a lifecycle.', 'Plan empty results too.', 'Keep retry and recovery visible.'] }),
   expandSeed({ id: 'react-error-boundaries', title: 'Recovering From Render Errors', moduleId: 'react-practice', description: 'An Error Boundary gives a failed part of the interface a contained fallback. Pair it with a useful recovery action and enough context for debugging.', code: "\"use strict\";\nfunction fallback(result) {\n    return result.error ?? result.value ?? \"Try again\";\n}\nconst text = fallback({ error: \"Could not load profile\" });", symbols: ['Result', 'fallback', 'text'], topic: 'React practice', question: 'What should an error boundary provide?', answer: 'A contained fallback UI', recap: ['Contain failures when possible.', 'Give people a recovery path.', 'Log enough context to diagnose errors.'] }),
   expandSeed({ id: 'react-testing-behavior', title: 'Testing User Behavior', moduleId: 'react-practice', description: 'A useful component test checks what a person can see and do: render a state, interact, and observe the result. This protects behavior through refactors.', code: "\"use strict\";\nconst test = { name: \"submits form\", expected: \"success message\" };\nconsole.log(test.expected);", symbols: ['TestCase', 'test'], topic: 'React practice', question: 'What should a component test focus on?', answer: 'Observable user behavior', recap: ['Test behavior over implementation details.', 'Cover important states.', 'Keep tests readable as product documentation.'] }),
   expandSeed({ id: 'react-feature-architecture', title: 'Organizing a React Feature', moduleId: 'react-practice', description: 'Group a feature around the work it owns: UI, stateful logic, data boundary, and tests. The folder should help a new reader find the next question quickly.', code: "\"use strict\";\nconst profile = { name: \"profile\", files: [\"ProfileCard\", \"useProfile\"] };\nconsole.log(profile.files);", symbols: ['Feature', 'profile'], topic: 'React practice', question: 'What should guide a feature folder?', answer: 'The responsibility the feature owns', recap: ['Organize around product responsibilities.', 'Keep public boundaries small.', 'Let related code live together.'] }),
   expandSeed({ id: 'react-preserving-state', title: 'Preserving and Resetting State', moduleId: 'react-composition', description: 'React preserves state for a component in the same position in the tree. Change a key when a new identity should begin with fresh state.', code: "\"use strict\";\nfunction editorKey(editor) {\n    return `editor:${editor.documentId}`;\n}\nconst key = editorKey({ documentId: \"lesson-1\", draft: \"\" });", symbols: ['Editor', 'editorKey', 'key'], topic: 'React composition', question: 'What can intentionally reset a component’s state?', answer: 'Changing its key', recap: ['State belongs to a tree position.', 'Keys establish component identity.', 'Reset only when a new identity is intended.'] }),
-  expandSeed({ id: 'react-virtualized-lists', title: 'Rendering Long Lists Responsibly', moduleId: 'react-performance', description: 'A very long list can make interaction slow because the browser must create and update many nodes. Virtualize only when the visible window is a small part of the full collection.', code: "\"use strict\";\nfunction visible(items, window) {\n    return items.slice(window.start, window.end);\n}\nconst rows = visible([\"a\", \"b\", \"c\", \"d\"], { start: 1, end: 3 });", symbols: ['Window', 'visible', 'rows'], topic: 'React performance', question: 'What does list virtualization render?', answer: 'The items currently visible in the viewport', recap: ['Measure list cost first.', 'Render the visible window when needed.', 'Keep keyboard navigation and semantics intact.'] }),
+  expandSeed({ id: 'react-virtualized-lists', title: 'Rendering Long Lists Responsibly', moduleId: 'react-performance', description: 'A very long list can make interaction slow because the browser must create and update many nodes. Virtualize only when the visible window is a small part of the full collection.', code: "\"use strict\";\nfunction visible(items, window) {\n    return items.slice(window.start, window.end);\n}\nconst rows = visible([\"a\", \"b\", \"c\", \"d\"], { start: 1, end: 3 });", symbols: ['Window', 'visible', 'rows'], topic: 'React performance', question: 'What does list virtualization render?', answer: 'A small visible window, often with nearby overscan', recap: ['Measure list cost first.', 'Render the visible window when needed.', 'Keep keyboard navigation and semantics intact.'] }),
 ]
 
 const nextExpansionSeeds: Seed[] = [
@@ -88,7 +397,7 @@ const nextExpansionSeeds: Seed[] = [
   expandSeed({ id: 'next-loading-ui', title: 'Loading UI Files', moduleId: 'next-experience', description: 'A loading file supplies an immediate route-level fallback. Make it resemble the incoming content so people understand what is on its way.', code: 'type Loading = { label: string };\n\nconst loading: Loading = { label: "Loading lessons…" };\nconsole.log(loading.label);', symbols: ['Loading', 'loading'], topic: 'Next.js experience', question: 'What should a loading UI communicate?', answer: 'What content is currently being prepared', recap: ['Loading is part of the route design.', 'Match the layout where possible.', 'Keep it quick and informative.'] }),
   expandSeed({ id: 'next-error-ui', title: 'Route Error Recovery', moduleId: 'next-experience', description: 'An error file contains a failure within its route segment and can offer a retry. Write the fallback for the person seeing it, not only the developer reading logs.', code: 'type Failure = { message: string; retryable: boolean };\n\nfunction action(failure: Failure) {\n  return failure.retryable ? "Try again" : "Return home";\n}\n\nconst nextStep = action({ message: "Unavailable", retryable: true });', symbols: ['Failure', 'action', 'nextStep'], topic: 'Next.js experience', question: 'What is a useful route error fallback?', answer: 'A clear explanation with a recovery action', recap: ['Contain errors to a route segment.', 'Offer retry when appropriate.', 'Keep technical details out of the main message.'] }),
   expandSeed({ id: 'next-fonts-images', title: 'Fonts and Images', moduleId: 'next-experience', description: 'Load fonts and images with their display behavior in mind. Reserve image space and avoid shifting content after a person has started reading.', code: 'type ImageSize = { width: number; height: number };\n\nfunction ratio(size: ImageSize) {\n  return size.width / size.height;\n}\n\nconst aspect = ratio({ width: 1200, height: 800 });', symbols: ['ImageSize', 'ratio', 'aspect'], topic: 'Next.js experience', question: 'Why should an image have known dimensions?', answer: 'To reserve space and avoid layout shift', recap: ['Reserve image space.', 'Load fonts deliberately.', 'Protect reading and interaction stability.'] }),
-  expandSeed({ id: 'next-forms-validation', title: 'Forms and Server Validation', moduleId: 'next-mutations', description: 'A form can provide immediate client hints, but the server remains the authority for validation. Return field level feedback in a shape the UI can render.', code: 'type Signup = { email: string };\n\nfunction validate(input: Signup) {\n  return input.email.includes("@") ? null : "Enter a valid email";\n}\n\nconst error = validate({ email: "hello" });', symbols: ['Signup', 'validate', 'error'], topic: 'Next.js mutations', question: 'Where must form data be validated?', answer: 'On the server', recap: ['Treat every request as untrusted.', 'Return useful field feedback.', 'Keep success and pending states visible.'] }),
+  expandSeed({ id: 'next-forms-validation', title: 'Forms and Server Validation', moduleId: 'next-mutations', description: 'A form can provide immediate client hints, but the server remains the authority for validation. Return field level feedback in a shape the UI can render. This email model uses a limited lesson rule: one @, no whitespace, a dotted domain, and at most 254 characters; it is not a full email standards parser.', code: 'type Signup = { email: string };\n\nfunction validate(input: Signup) {\n  return input.email.length <= 254 && /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(input.email) ? null : "Enter a valid email";\n}\n\nconst error = validate({ email: "hello" });', symbols: ['Signup', 'validate', 'error'], topic: 'Next.js mutations', question: 'Where must form data be validated?', answer: 'On the server', recap: ['Treat every request as untrusted.', 'Return useful field feedback.', 'Keep success and pending states visible.'] }),
   expandSeed({ id: 'next-optimistic-ui', title: 'Optimistic UI', moduleId: 'next-mutations', description: 'Optimistic UI shows the expected result before the server confirms it. Use it for actions that feel safe, then reconcile or recover when the request fails.', code: 'type Todo = { title: string; pending: boolean };\n\nfunction optimistic(title: string): Todo {\n  return { title, pending: true };\n}\n\nconst todo = optimistic("Ship lesson");', symbols: ['Todo', 'optimistic', 'todo'], topic: 'Next.js mutations', question: 'What must optimistic UI plan for?', answer: 'A failed server request', recap: ['Show the expected state quickly.', 'Mark pending work clearly.', 'Recover when the server disagrees.'] }),
   expandSeed({ id: 'next-revalidate-path', title: 'Refreshing Changed Data', moduleId: 'next-mutations', description: 'After a successful mutation, revalidate the route or tag that depends on the changed data. This keeps cached views aligned with the source of truth.', code: 'type Change = { path: string };\n\nfunction refreshTarget(change: Change) {\n  return `refresh:${change.path}`;\n}\n\nconst target = refreshTarget({ path: "/learn" });', symbols: ['Change', 'refreshTarget', 'target'], topic: 'Next.js mutations', question: 'When should a cached route be revalidated?', answer: 'After data it depends on changes', recap: ['Mutations affect cached views.', 'Refresh the smallest relevant area.', 'Keep invalidation near the write.'] }),
   expandSeed({ id: 'next-auth-boundaries', title: 'Authorization Boundaries', moduleId: 'next-mutations', description: 'Authentication identifies a person; authorization decides whether that person may perform this action. Enforce both rules on the server for every sensitive mutation.', code: 'type Actor = { role: "reader" | "editor" };\n\nfunction canPublish(actor: Actor) {\n  return actor.role === "editor";\n}\n\nconst allowed = canPublish({ role: "editor" });', symbols: ['Actor', 'canPublish', 'allowed'], topic: 'Next.js mutations', question: 'Where must authorization be enforced?', answer: 'On the server', recap: ['Authentication and authorization differ.', 'Check permission per action.', 'Never trust a browser-only check.'] }),

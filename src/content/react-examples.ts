@@ -14,7 +14,9 @@ export default function App() {
 }`,
   'react-state-events': `import { useState } from "react";
 export default function Counter() {
+  // Hooks stay at the top level, before conditional returns.
   const [count, setCount] = useState(0);
+  // Each handler sees its render's snapshot; the updater receives queued state.
   return <button onClick={() => setCount(current => current + 1)}>
     Count: {count}
   </button>;
@@ -142,6 +144,10 @@ export default function Counter() {
   return <><p>{count}</p><AddButton onAdd={add}/></>;
 }`,
   'react-transitions': `import { useState, useTransition } from "react";
+import { memo } from "react";
+const MatchingTasks = memo(function MatchingTasks({ items, query }) {
+  return <ul>{items.filter(item => item.title.includes(query)).map(item => <li key={item.id}>{item.title}</li>)}</ul>;
+});
 export default function Search({ items }) {
   const [text, setText] = useState("");
   const [query, setQuery] = useState("");
@@ -153,7 +159,7 @@ export default function Search({ items }) {
   }
   return <><input aria-label="Search" value={text} onChange={change}/>
     <p role="status">{pending ? "Updating…" : "Ready"}</p>
-    <ul>{items.filter(item => item.title.includes(query)).map(item => <li key={item.id}>{item.title}</li>)}</ul>
+    <MatchingTasks items={items} query={query}/>
   </>;
 }`,
   'react-accessibility': `import { useId } from "react";
@@ -165,13 +171,23 @@ export default function EmailField() {
 export default function NameForm() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  function submit(event) { event.preventDefault(); setMessage(name.trim() ? "Ready to save" : "Enter a name."); }
-  return <form onSubmit={submit}><label>Name<input value={name} onChange={event => setName(event.target.value)}/></label>
-    <button>Save</button><p role="status">{message}</p></form>;
+  const [invalid, setInvalid] = useState(false);
+  function submit(event) {
+    event.preventDefault();
+    const missing = !name.trim();
+    setInvalid(missing);
+    setMessage(missing ? "Enter a name." : "Ready to save; this demo has not written data.");
+  }
+  return <form onSubmit={submit}><label htmlFor="name">Name</label>
+    <input id="name" value={name} onChange={event => setName(event.target.value)}
+      aria-invalid={invalid} aria-describedby="name-feedback"/>
+    <p id="name-feedback" role="status">{message}</p><button>Check name</button></form>;
 }`,
-  'react-request-states': `export default function Results({ state }) {
+  'react-request-states': `export default function Results({ state, onRetry }) {
+  if (state.status === "idle") return <p>Choose a search to begin.</p>;
   if (state.status === "loading") return <p role="status">Loading…</p>;
-  if (state.status === "error") return <p role="alert">Could not load the results.</p>;
+  if (state.status === "error") return <section><p role="alert">Could not load the results.</p>
+    {onRetry && <button onClick={onRetry}>Try again</button>}</section>;
   if (!state.items.length) return <p>No results yet.</p>;
   return <ul>{state.items.map(item => <li key={item.id}>{item.title}</li>)}</ul>;
 }`,
