@@ -30,7 +30,7 @@ export default function HomePage() {
     <section className="home-intro" aria-labelledby="home-heading">
       <p className="eyebrow"><span className="small-rule" aria-hidden="true"/> {t('home.eyebrow')}</p>
       <h1 id="home-heading">{t('home.heading')}<br/>{t('home.headingEmphasis').split(' ')[0]} <span className="serif-emphasis">{t('home.headingEmphasis').split(' ').slice(1).join(' ')}</span></h1>
-      <p className="home-hero-lead">{c('At UnderCode, you learn programming by trying things out. Start with logic and build your first web page, then keep going toward React and Next.js.', 'Di UnderCode, kamu belajar coding sambil langsung mencoba. Mulai dari logika, buat halaman web pertamamu, lalu lanjut ke React dan Next.js.')}</p>
+      <p className="home-hero-lead">{c('At Rancode Lab, you learn programming by trying things out. Start with logic and build your first web page, then keep going toward React and Next.js.', 'Di Rancode Lab, kamu belajar coding sambil langsung mencoba. Mulai dari logika, buat halaman web pertamamu, lalu lanjut ke React dan Next.js.')}</p>
       <div className="home-intro-actions">
         <Link className="button primary" to={learningProfile ? next.url : '/start'}>{learningProfile ? t('course.continueLearning') : c('Choose where to start', 'Pilih titik awal')}<ArrowRight size={16}/></Link>
         <Link className="button secondary" to="/learn">{c('Explore the learning path', 'Lihat jalur belajar')}<Layers3 size={15}/></Link>

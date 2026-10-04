@@ -1,4 +1,4 @@
 import { useEffect } from 'react'
 export function usePageTitle(title: string) {
-  useEffect(() => { document.title = `${title} · UnderCode` }, [title])
+  useEffect(() => { document.title = `${title} · Rancode Lab` }, [title])
 }

@@ -8,7 +8,7 @@ const generator = fileURLToPath(new URL('./generate-runtime-data.mjs', import.me
 /** Keep generated navigation in sync when curriculum is edited during npm run dev. */
 export function runtimeDataPlugin() {
   return {
-    name: 'undercode-runtime-data',
+    name: 'rancode-lab-runtime-data',
     apply: 'serve',
     configureServer(server) {
       let timer

@@ -1,6 +1,6 @@
-# UnderCode
+# Rancode Lab
 
-UnderCode guides learners from their first programming idea to a complete frontend application. It pairs explanations and visual concept maps with practice, readiness checkpoints, and a project at every stage.
+Rancode Lab is a welcoming place to learn programming, one small step at a time. Start with the fundamentals, build your first web pages, then grow into React and Next.js through clear learning paths, hands-on coding, and practical challenges. Explore at your own pace and build confidence with every project.
 
 ## Learning journey
 

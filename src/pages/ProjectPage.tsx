@@ -36,7 +36,7 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
   function download() {
     const text = `${project.title}\n\n${project.brief}\n\n${c('CODE / PROJECT WORK', 'KODE / HASIL PROYEK')}\n${draft.code}\n\n${c('REVIEW NOTES', 'CATATAN TINJAUAN')}\n${draft.notes}\n\n${c('SELF REVIEW', 'TINJAUAN MANDIRI')}\n${project.criteria.map((item, index) => `${draft.criteria.includes(sourceStage.project.criteria[index]) ? '[x]' : '[ ]'} ${item}`).join('\n')}`
     const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }))
-    const anchor = document.createElement('a'); anchor.href = url; anchor.download = `undercode-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
+    const anchor = document.createElement('a'); anchor.href = url; anchor.download = `rancode-lab-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return <div className="page-width journey-page project-page">
     <Link className="text-link" to="/learn"><ArrowLeft size={14}/>{c('My learning path', 'Jalur belajarku')}</Link>

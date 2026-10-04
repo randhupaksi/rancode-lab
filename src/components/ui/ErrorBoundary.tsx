@@ -10,7 +10,7 @@ function RecoveryState() {
 export default class ErrorBoundary extends Component<{ children: ReactNode; compact?: boolean }, { failed: boolean }> {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
-  componentDidCatch(error: Error, info: ErrorInfo) { console.error('UnderCode view error', error, info.componentStack) }
+  componentDidCatch(error: Error, info: ErrorInfo) { console.error('Rancode Lab view error', error, info.componentStack) }
   render() {
     if (this.state.failed) return <RecoveryState/>
     return this.props.children
