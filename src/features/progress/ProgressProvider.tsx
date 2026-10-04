@@ -4,7 +4,8 @@ import { progressSchema as schema, emptyProgress as empty } from './model'
 import type { Progress, ProjectDraft } from './model'
 export type { ProjectDraft } from './model'
 
-const KEY = 'undercode.progress.v1'
+const KEY = 'rancode-lab.progress.v1'
+const LEGACY_KEY = 'undercode.progress.v1'
 interface ProgressContext extends Progress {
   storageAvailable: boolean
   completeLesson: (id: string) => void
@@ -19,10 +20,17 @@ const Context = createContext<ProgressContext | null>(null)
 
 function readProgress(): { data: Progress; available: boolean } {
   try {
-    const value = localStorage.getItem(KEY)
-    if (!value) return { data: empty, available: true }
-    const parsed = schema.safeParse(JSON.parse(value))
-    return { data: parsed.success ? parsed.data : empty, available: true }
+    const parse = (value: string | null) => {
+      if (!value) return null
+      try {
+        const parsed = schema.safeParse(JSON.parse(value))
+        return parsed.success ? parsed.data : null
+      } catch { return null }
+    }
+    const current = parse(localStorage.getItem(KEY))
+    if (current) return { data: current, available: true }
+    const legacy = parse(localStorage.getItem(LEGACY_KEY))
+    return { data: legacy ?? empty, available: true }
   } catch {
     return { data: empty, available: false }
   }
@@ -35,12 +43,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(progress))
+      try { localStorage.removeItem(LEGACY_KEY) } catch { /* Keep the old copy if cleanup is blocked. */ }
       setAvailable(true)
     } catch { setAvailable(false) }
   }, [progress])
   useEffect(() => {
     const sync = (event: StorageEvent) => {
-      if (event.key !== KEY && event.key !== null) return
+      if (event.key !== KEY && event.key !== LEGACY_KEY && event.key !== null) return
       const next = readProgress()
       setProgress(next.data)
       setAvailable(next.available)
