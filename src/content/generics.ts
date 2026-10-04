@@ -36,7 +36,7 @@ export const generics: Lesson[] = [
       node('generic', 'T = string', 'first uses one shared type parameter.', 'type'),
       node('result', 'string | undefined', 'An empty array means the result may be absent.', 'type'),
     ]),
-    challenge: { id: 'generic-functions-check', title: 'Describe an honest return type', topic: 'Generics', difficulty: 'Intermediate', kind: 'fill', prompt: 'Complete the missing type for an empty-array result.', code: 'function first<T>(items: T[]): T | ___ {\n  return items[0];\n}', answer: 'undefined', hint: 'Reading element zero from an empty array produces this value.', explanation: 'T | undefined represents both a present element and an empty collection. It keeps the function’s type aligned with its runtime behavior.', solution: 'function first<T>(items: T[]): T | undefined {\n  return items[0];\n}' },
+    challenge: { id: 'generic-functions-check', title: 'Describe an honest return type', topic: 'Generics', difficulty: 'Intermediate', kind: 'fill', prompt: 'Complete the missing type for an empty-array result.', code: 'function first<T>(items: T[]): T | ___ {\n  return items[0];\n}', answer: 'undefined', answerType: 'undefined', hint: 'Reading element zero from an empty array produces this value.', explanation: 'T | undefined represents both a present element and an empty collection. It keeps the function’s type aligned with its runtime behavior.', solution: 'function first<T>(items: T[]): T | undefined {\n  return items[0];\n}' },
     recap: ['Generic helpers preserve element relationships.', 'Include real absence in the result contract.', 'Infer type arguments when the inputs provide enough information.'], relatedConcepts: ['generic-functions', 'arrays', 'nullish-values'],
   },
   {
@@ -72,7 +72,7 @@ export const generics: Lesson[] = [
       node('argument', 'T = Lesson', 'This instance holds lesson records.', 'type'),
       node('resolved', 'items: Lesson[]', 'Each item exposes id and title.', 'value'),
     ]),
-    challenge: { id: 'generic-interfaces-check', title: 'Specialize the container', topic: 'Generics', difficulty: 'Intermediate', kind: 'fill', prompt: 'Supply the type argument for a box holding a number.', code: 'interface Box<T> { value: T }\nconst score: Box<___> = { value: 95 };', answer: 'number', hint: 'The type argument replaces T in the value property.', explanation: 'Box<number> requires value to be a number. A different type argument could reuse the same interface for another payload.', solution: 'interface Box<T> { value: T }\nconst score: Box<number> = { value: 95 };' },
+    challenge: { id: 'generic-interfaces-check', title: 'Specialize the container', topic: 'Generics', difficulty: 'Intermediate', kind: 'fill', prompt: 'Supply the type argument for a box holding a number.', code: 'interface Box<T> { value: T }\nconst score: Box<___> = { value: 95 };', answer: 'number', answerType: 'number', hint: 'The type argument replaces T in the value property.', explanation: 'Box<number> requires value to be a number. A different type argument could reuse the same interface for another payload.', solution: 'interface Box<T> { value: T }\nconst score: Box<number> = { value: 95 };' },
     recap: ['Generic interfaces parameterize reusable containers.', 'A type argument replaces every occurrence of T.', 'Keep unrelated fields concrete.'], relatedConcepts: ['generic-interfaces', 'generics', 'interfaces'],
   },
 ]

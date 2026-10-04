@@ -54,7 +54,7 @@ export const typeSystem: Lesson[] = [
       node('map', 'score → string', 'The callback creates a label from each number.'),
       node('output', 'string[]', 'The new array contains the returned strings.', 'type'),
     ]),
-    challenge: { id: 'arrays-check', title: 'Type a list of labels', topic: 'Types', difficulty: 'Beginner', kind: 'fill', prompt: 'Complete the annotation for an array of strings.', code: 'const labels: ___ = ["Learn", "Practice"];', answer: 'string[]', acceptedAnswers: ['Array<string>', 'string []'], hint: 'Add square brackets after the element type.', explanation: 'string[] describes an array whose elements are strings. Array<string> is equivalent.', solution: 'const labels: string[] = ["Learn", "Practice"];' },
+    challenge: { id: 'arrays-check', title: 'Type a list of labels', topic: 'Types', difficulty: 'Beginner', kind: 'fill', prompt: 'Complete the annotation for an array of strings.', code: 'const labels: ___ = ["Learn", "Practice"];', answer: 'string[]', answerType: 'string[]', acceptedAnswers: ['Array<string>', 'string []'], hint: 'Add square brackets after the element type.', explanation: 'string[] describes an array whose elements are strings. Array<string> is equivalent.', solution: 'const labels: string[] = ["Learn", "Practice"];' },
     recap: ['T[] and Array<T> describe the same array type.', 'map can transform one element type into another.', 'Check indexed values that may be absent.'], relatedConcepts: ['arrays', 'inference', 'nullish-values'],
   },
   {
