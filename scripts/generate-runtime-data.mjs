@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 import { readCompilerLibraries } from './compiler-libraries.mjs'
+import { validateContentLocales } from './validate-content-locales.mjs'
 
 const output = new URL('../src/generated/', import.meta.url)
 await mkdir(output, { recursive: true })
@@ -14,14 +15,19 @@ async function save(name, text) {
 const server = await createServer({
   configFile: false,
   root: fileURLToPath(new URL('../', import.meta.url)),
-  server: { middlewareMode: true, hmr: false, watch: null },
+  server: { middlewareMode: true, hmr: false, ws: false, watch: null },
   optimizeDeps: { noDiscovery: true, include: [] },
   appType: 'custom',
 })
 try {
-  const { courses, lessons } = await server.ssrLoadModule('/src/content/index.ts')
+  const catalog = await server.ssrLoadModule('/src/content/index.ts')
+  const { courses, lessons } = catalog
   const { journey } = await server.ssrLoadModule('/src/content/journey.ts')
-  const { localizeLesson } = await server.ssrLoadModule('/src/content/localize.ts')
+  const localizers = await server.ssrLoadModule('/src/content/localize.ts')
+  const { localizeLesson } = localizers
+  const copy = await server.ssrLoadModule('/src/content/locales/id.ts')
+  const coverage = validateContentLocales(catalog, localizers, copy)
+  console.log(`Verified Indonesian copy: ${coverage.lessons} lessons, ${coverage.concepts} concepts, ${coverage.checkedFields} fields.`)
   const { localizeJourneyStage } = await server.ssrLoadModule('/src/content/journey-localize.ts')
   for (const stage of journey) {
     if (localizeJourneyStage(stage, 'id').project.criteria.length !== stage.project.criteria.length) {

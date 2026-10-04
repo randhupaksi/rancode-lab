@@ -22,14 +22,20 @@ export interface Challenge {
   prompt: string
   code: string
   options?: string[]
+  /** Translated display labels; options and answer remain canonical scoring values. */
+  optionLabels?: string[]
   answer: string
   acceptedAnswers?: string[]
+  /** A type-expression blank is checked for equivalence, rather than spelling. */
+  answerType?: string
   explanation: string
   hint: string
   solution?: string
   expectedTypes?: Record<string, string>
   /** Type-only assertions appended during grading; never executed or displayed as learner code. */
   validationCode?: string
+  /** Authored input/output cases run in the existing isolated, timed code runner. */
+  runtimeChecks?: { expression: string; expected: string | number | boolean | null | Record<string, number> }[]
 }
 
 export interface Lesson {

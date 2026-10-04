@@ -2,6 +2,7 @@ import type { Challenge, Concept, Course, CourseModule, Lesson } from './types'
 import type { Locale } from '../features/locale/LocaleProvider'
 import { localizeLogicLesson } from './logic-lesson-locales'
 import { lessonTitleId } from './lesson-title-locales'
+import { translateLessonCopy } from './locales/id'
 
 const courseCopy: Record<string, Partial<Pick<Course, 'title' | 'eyebrow' | 'description' | 'prerequisite'>>> = {
   logic: { title: 'Logika & Pemecahan Masalah', eyebrow: 'Mulai dari cara berpikir', description: 'Uraikan masalah sehari-hari menjadi langkah yang jelas, lalu tentukan keputusan dan urutannya.', prerequisite: 'Belum perlu pengalaman coding' },
@@ -12,7 +13,7 @@ const courseCopy: Record<string, Partial<Pick<Course, 'title' | 'eyebrow' | 'des
   browser: { title: 'JavaScript di Browser', eyebrow: 'Hubungkan kode dengan halaman', description: 'Buat interaksi dengan DOM, events, form, dan kondisi data yang jelas.', prerequisite: 'Dasar function, object, dan async JavaScript' },
   typescript: { eyebrow: 'Jelaskan maksud kodemu', description: 'Pahami types dan data, lalu gunakan TypeScript pada kode aplikasi.', prerequisite: 'Dasar JavaScript' },
   react: { eyebrow: 'Susun antarmuka dari komponen', description: 'Pahami components, state, effects, dan cara membangun UI yang responsif.', prerequisite: 'Dasar JavaScript dan browser' },
-  nextjs: { eyebrow: 'Rangkai pengalaman web yang utuh', description: 'Pelajari routes, rendering, alur data, dan cara menangani berbagai kondisi halaman.', prerequisite: 'Dasar React' },
+  nextjs: { eyebrow: 'Rangkai pengalaman web yang utuh', description: 'Pelajari routes, rendering, alur data, dan cara menangani berbagai kondisi halaman.', prerequisite: 'Dasar React dan TypeScript' },
 }
 
 const moduleCopy: Record<string, Pick<CourseModule, 'title' | 'description'>> = {
@@ -83,32 +84,61 @@ export function localizeLesson(lesson: Lesson, locale: Locale): Lesson {
     lessonTranslations.set(lesson, logicLocalized)
     return logicLocalized
   }
-  const title = lessonTitleId[lesson.id]
-  if (!title) return lesson
-  const sourceChallengeTitle = lesson.challenge.title
-  const challengeTitle = sourceChallengeTitle.startsWith('Apply:')
-    ? `Coba: ${title}`
-    : sourceChallengeTitle.startsWith('Check:')
-      ? `Cek pemahaman: ${title}`
-      : `Coba: ${title}`
-  const localized = {
+  const tr = (value: string) => translateLessonCopy(value, lesson.courseId ?? 'typescript')
+  const title = lessonTitleId[lesson.id] ?? tr(lesson.title)
+  const localized: Lesson = {
     ...lesson,
     title,
-    visual: { ...lesson.visual, title },
+    description: tr(lesson.description),
+    explanation: lesson.explanation.map(tr),
+    practice: lesson.practice ? tr(lesson.practice) : undefined,
+    recap: lesson.recap.map(tr),
+    visual: {
+      ...lesson.visual,
+      title: lesson.visual.title === lesson.title ? title : tr(lesson.visual.title),
+      description: tr(lesson.visual.description),
+      nodes: lesson.visual.nodes.map(node => ({ ...node, label: tr(node.label), detail: tr(node.detail) })),
+      edges: lesson.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined })),
+    },
     challenge: {
       ...lesson.challenge,
-      title: challengeTitle,
-      topic: moduleCopy[lesson.moduleId]?.title ?? lesson.challenge.topic,
+      title: lesson.challenge.title.startsWith('Apply:') ? 'Coba: ' + title
+        : lesson.challenge.title.startsWith('Check:') ? 'Cek pemahaman: ' + title
+          : tr(lesson.challenge.title),
+      topic: moduleCopy[lesson.moduleId]?.title ?? tr(lesson.challenge.topic),
+      prompt: tr(lesson.challenge.prompt),
+      hint: tr(lesson.challenge.hint),
+      explanation: tr(lesson.challenge.explanation),
+      optionLabels: lesson.challenge.options?.map(tr),
     },
+    comparison: lesson.comparison ? {
+      ...lesson.comparison,
+      beforeLabel: tr(lesson.comparison.beforeLabel),
+      afterLabel: tr(lesson.comparison.afterLabel),
+    } : undefined,
+    steps: lesson.steps?.map(step => ({ ...step, label: tr(step.label), explanation: tr(step.explanation) })),
   }
   lessonTranslations.set(lesson, localized)
   return localized
 }
 
 export function localizeConcept(concept: Concept, lesson: Lesson, locale: Locale): Concept {
-  const localizedLesson = localizeLesson(lesson, locale)
-  if (localizedLesson === lesson) return concept
-  return { ...concept, title: localizedLesson.title, category: localizedLesson.challenge.topic, description: localizedLesson.description, visual: localizedLesson.visual }
+  if (locale !== 'id') return concept
+  const localized = localizeLesson(lesson, locale)
+  const tr = (value: string) => translateLessonCopy(value, concept.courseId ?? lesson.courseId ?? 'typescript')
+  return {
+    ...concept,
+    title: concept.title === lesson.title ? localized.title : tr(concept.title),
+    category: tr(concept.category),
+    description: concept.description === lesson.description ? localized.description : tr(concept.description),
+    visual: concept.visual ? {
+      ...concept.visual,
+      title: concept.visual.title === lesson.visual.title ? localized.visual.title : tr(concept.visual.title),
+      description: tr(concept.visual.description),
+      nodes: concept.visual.nodes.map(node => ({ ...node, label: tr(node.label), detail: tr(node.detail) })),
+      edges: concept.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined })),
+    } : undefined,
+  }
 }
 
 export function localizeChallenge(challenge: Challenge, lesson: Lesson, locale: Locale): Challenge {

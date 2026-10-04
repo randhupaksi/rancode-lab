@@ -30,7 +30,15 @@ Checkpoints require all three answers to be correct and provide explanations and
 
 Every stage stays open. Lesson progress, checkpoint results, starting point, project drafts, and review notes stay in this browser using local storage. Existing v1 lesson progress is retained through additive schema defaults. There is no account or cloud sync. Projects offer a text download; editing project code clears its review checklist so it can be checked again. If browser storage is unavailable, work lasts only for the session and can still be downloaded.
 
-Interface controls support English and Indonesian. Full lesson, checkpoint, and project prose localization is intentionally deferred until the curriculum is stable. Brands and code remain unchanged.
+Interface controls and learning material support English and Indonesian, including lesson explanations, practice prompts, concept diagrams, challenges, checkpoints, and project briefs. Brand names, executable examples, identifiers, and compiler diagnostics retain their original spelling. Language switching changes presentation without changing saved progress or challenge answers.
+
+### Editing learning translations
+
+- Author English material in the existing course files. Add the corresponding Indonesian copy to `src/content/locales/id/<course>.json`, using the exact English text as the key. Use clear, conversational sentences that address the learner directly.
+- `common.json` holds shared titles and copy. Repeated generated hints are composed from translated diagram labels and practice prompts. Preserve code literals explicitly when they appear as answer choices or diagram labels.
+- The existing logic lessons keep their authored overrides in `logic-lesson-locales.ts`; keep matching shared reference copy in sync when editing those lessons.
+- `localize.ts` applies translations only to display fields. `Challenge.optionLabels` supplies translated choices; `options`, `answer`, accepted answers, and validation code stay canonical. Concepts retain their own descriptions rather than borrowing their lesson's description.
+- `npm run content:generate` checks every lesson and concept for translation coverage, empty copy, option alignment, and unchanged code, identifiers, graph structure, and scoring contracts. This check also runs before development, tests, and production builds.
 
 ## Run locally
 

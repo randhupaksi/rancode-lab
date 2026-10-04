@@ -14,7 +14,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Algoritma adalah urutan langkah yang jelas untuk menerima input dan menghasilkan output.',
     explanation: [
       'Algoritma adalah urutan langkah yang jelas untuk menerima input dan menghasilkan output.',
-      'Bayangkan kamu menghitung total keranjang belanja. Baca harga dan jumlah barang, kalikan, lalu tampilkan totalnya. Urutan itu penting: menampilkan total sebelum menghitungnya tidak menyelesaikan masalah. JavaScript di bawah ini hanya cara menuliskan instruksi; pahami langkahnya lebih dulu.',
+      'Bayangkan kamu menghitung total keranjang belanja. Baca harga dan jumlah barang, kalikan, lalu tampilkan totalnya. Urutan itu penting: menampilkan total sebelum menghitungnya tidak menyelesaikan masalah. JavaScript di bawah ini hanya cara menuliskan instruksi; pahami langkahnya lebih dulu. Baca const price = 12 sebagai “beri nama price pada nilai 12.” Simbol = menetapkan nilai, * mengalikan, dan console.log menampilkan hasil. Titik koma mengakhiri instruksi. Baca dari atas ke bawah, prediksi, lalu jalankan; kamu belum perlu pengalaman JavaScript.',
     ],
     practice: 'Prediksi totalnya. Jalankan kode, lalu ubah quantity menjadi 5 dan prediksi lagi.',
     flow: ['Harga + jumlah barang', 'Kalikan', 'Total belanja'],
@@ -68,7 +68,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Tugas besar lebih mudah dipahami saat tiap bagian punya satu tanggung jawab yang jelas.',
     explanation: [
       'Tugas besar lebih mudah dipahami saat tiap bagian punya satu tanggung jawab yang jelas.',
-      'Proses checkout dapat menghitung subtotal secara terpisah dari ongkir. Di sini basketTotal menerima daftar harga dan mengembalikan angka; fungsi ini tidak mencetak struk atau menagih uang. Dengan memisahkan perhitungan, kamu bisa mencoba keranjang kosong, satu barang, atau beberapa barang tanpa mengubah bagian toko lainnya.',
+      'Proses checkout dapat menghitung subtotal secara terpisah dari ongkir. Di sini basketTotal menerima daftar harga dan mengembalikan angka. Kata kunci function memberi nama pada kelompok langkah ini; prices adalah input, sedangkan return mengirim hasil kembali ke pemanggilnya. Kurung siku berisi daftar nilai berurutan: [10, 15, 5] punya tiga harga, sedangkan [] kosong. Loop for...of membaca satu harga setiap kali; total += price berarti total = total + price. Dengan memisahkan perhitungan, kamu bisa mencoba berbagai keranjang tanpa mengubah langkah checkout lainnya.',
     ],
     practice: 'Prediksi kedua output. Coba keranjang berisi satu barang, lalu jelaskan mengapa keranjang kosong menghasilkan 0.',
     flow: ['Daftar harga', 'Jumlahkan satu per satu', 'Kembalikan total'],
@@ -122,7 +122,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Tabel kebenaran memperlihatkan semua kombinasi pada aturan boolean yang sederhana.',
     explanation: [
       'Tabel kebenaran memperlihatkan semua kombinasi pada aturan boolean yang sederhana.',
-      'Untuk akses yang membutuhkan tiket dan tempat yang sedang buka, tuliskan keempat kombinasinya. Cara ini membantu kita memeriksa lebih dari jalur yang berhasil saja. OR menyatakan aturan berbeda: satu kondisi saja sudah cukup.',
+      'Untuk akses yang membutuhkan tiket dan tempat yang sedang buka, tuliskan keempat kombinasinya. Setiap loop membaca daftar [false, true], jadi loop di dalam mencoba kedua nilai open untuk setiap nilai ticket. Operator && mengharuskan kedua nilai true. Menggantinya dengan || berarti salah satu nilai boleh true. Periksa keempat baris untuk melihat perubahan aturannya.',
     ],
     practice: 'Ganti && menjadi || lalu cari baris mana saja yang berubah.',
     flow: ['Input boolean', 'Periksa setiap pasangan', 'Bandingkan hasil'],
@@ -140,7 +140,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Validasi membuat asumsi menjadi jelas sebelum sebuah nilai dipakai dalam perhitungan.',
     explanation: [
       'Validasi membuat asumsi menjadi jelas sebelum sebuah nilai dipakai dalam perhitungan.',
-      'Rata-rata membutuhkan setidaknya satu nilai. Mengembalikan null untuk daftar kosong menyatakan bahwa hasilnya tidak tersedia; angka 0 justru terlihat seperti hasil yang sah. Tentukan cara bagian pemanggil menampilkan hasil yang tidak tersedia itu.',
+      'Rata-rata membutuhkan setidaknya satu nilai. scores.length menghitung banyaknya nilai dalam daftar. Mengembalikan null untuk daftar kosong menyatakan bahwa hasilnya tidak tersedia; angka 0 justru terlihat seperti hasil yang sah. Jika daftar berisi nilai, loop menjumlahkan setiap score seperti contoh basketTotal, lalu membagi jumlahnya dengan banyaknya nilai. Tentukan cara bagian pemanggil menampilkan hasil yang tidak tersedia itu.',
     ],
     practice: 'Coba satu nilai dan daftar kosong. Jelaskan mengapa null dan 0 punya arti berbeda.',
     flow: ['Periksa asumsi', 'Tangani ketiadaan data', 'Hitung data valid'],
@@ -158,7 +158,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Linear search memeriksa kandidat sampai menemukan kecocokan atau mencapai akhir daftar.',
     explanation: [
       'Linear search memeriksa kandidat sampai menemukan kecocokan atau mencapai akhir daftar.',
-      'Cara ini bekerja pada data yang belum diurutkan dan bisa berhenti lebih awal. Jika tidak ada kecocokan, algoritma harus memeriksa semua kandidat. Nilai -1 sering dipakai untuk menyatakan tidak ada posisi yang cocok; dokumentasikan artinya agar tidak dianggap sebagai index yang sah.',
+      'Cara ini bekerja pada data yang belum diurutkan dan bisa berhenti lebih awal. Posisi dalam daftar dimulai dari 0: items[0] membaca nilai pertama, items[1] nilai kedua, dan items.length menghitung banyaknya nilai. Loop membandingkan setiap items[i] dengan target; === memeriksa apakah nilainya sama. Jika tidak ada kecocokan, semua kandidat diperiksa. Nilai -1 berarti tidak ada posisi yang cocok, jadi pemanggil perlu menanganinya secara tersendiri.',
     ],
     practice: 'Cari item pertama, item terakhir, dan item yang tidak ada. Hitung jumlah perbandingannya.',
     flow: ['Kandidat belum diurutkan', 'Bandingkan berurutan', 'Temukan atau nyatakan tidak ada'],
@@ -176,7 +176,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Binary search membuang separuh kandidat pada setiap perbandingan.',
     explanation: [
       'Binary search membuang separuh kandidat pada setiap perbandingan.',
-      'Cara ini membutuhkan data yang sudah terurut. Bandingkan nilai tengah dengan target, lalu pindahkan batas bawah atau atas melewati index tengah itu. Memajukan batas penting; jika tidak, pencarian dapat mengulang rentang yang sama tanpa akhir.',
+      'Cara ini membutuhkan data yang sudah terurut. Variabel low dan high menandai posisi pertama dan terakhir yang masih diperiksa. Loop while mengulang langkah selama low <= high; Math.floor membulatkan titik tengah ke bawah menjadi posisi bulat. Bandingkan nilai tengah dengan target, lalu pindahkan batas bawah atau atas melewati posisi itu. Memajukan batas penting; jika tidak, pencarian dapat mengulang rentang yang sama tanpa akhir.',
     ],
     practice: 'Telusuri nilai low, high, dan mid di kertas untuk target 8 dan 7.',
     flow: ['Rentang sudah terurut', 'Bandingkan nilai tengah', 'Pertahankan satu bagian'],
@@ -212,7 +212,7 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     description: 'Contoh yang baik dapat memeriksa satu jalur; kumpulan tes yang berguna juga memeriksa batas aturan.',
     explanation: [
       'Contoh yang baik dapat memeriksa satu jalur; kumpulan tes yang berguna juga memeriksa batas aturan.',
-      'Untuk batas usia inklusif, periksa nilai tepat di bawah, sama dengan, dan di atas ambang. Tentukan hasil yang diharapkan sebelum menjalankan function. Jika hasilnya berbeda, sederhanakan kasusnya sampai penyebabnya mudah dijelaskan.',
+      'Untuk batas usia inklusif, periksa nilai tepat di bawah, sama dengan, dan di atas ambang. Setiap testCase adalah daftar berisi dua nilai: testCase[0] adalah usia, sedangkan testCase[1] adalah hasil yang diharapkan. Tentukan harapan itu sebelum menjalankan function bernama. Setiap baris output menampilkan usia, hasil aktual, hasil yang diharapkan, dan apakah keduanya cocok. Jika hasilnya berbeda, sederhanakan kasusnya sampai penyebabnya mudah dijelaskan.',
     ],
     practice: 'Ubah >= menjadi >. Temukan satu kasus uji yang mendeteksi kesalahannya.',
     flow: ['Hasil yang diharapkan', 'Input di sekitar batas', 'Bukti dari hasil aktual'],
@@ -248,8 +248,9 @@ export function localizeLogicLesson(lesson: Lesson, locale: Locale): Lesson {
     challenge: {
       ...lesson.challenge,
       ...copy.challenge,
-      options,
-      answer: copy.challenge.options[lesson.challenge.answer] ?? lesson.challenge.answer,
+      options: lesson.challenge.options,
+      optionLabels: options,
+      answer: lesson.challenge.answer,
       topic: 'Logika & Pemecahan Masalah',
     },
   }
