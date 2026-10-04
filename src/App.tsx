@@ -19,7 +19,7 @@ const Project = lazy(() => import('./pages/ProjectPage'))
 
 function NotFoundPage() {
   const c = useLearningCopy()
-  return <div className="page-width not-found"><p className="eyebrow">404 / {c('A little off the path', 'Sedikit melenceng dari jalur')}</p><h1 className="page-heading">{c('Let’s find your way back.', 'Mari kembali ke jalur belajar.')}</h1><p className="page-lead">{c('This page doesn’t exist. There’s plenty more to discover in the learning path.', 'Halaman ini tidak ditemukan. Masih banyak hal menarik untuk dipelajari di jalur belajar.')}</p><Link className="button primary" to="/learn">{c('Explore the learning path', 'Jelajahi jalur belajar')}</Link></div>
+  return <div className="page-width not-found"><p className="eyebrow">404 / {c('A little off the path', 'Sedikit melenceng dari jalur')}</p><h1 className="page-heading">{c('Let’s find your way back', 'Mari kembali ke jalur belajar')}</h1><p className="page-lead">{c('This page doesn’t exist. There’s plenty more to discover in the learning path.', 'Halaman ini tidak ditemukan. Masih banyak hal menarik untuk dipelajari di jalur belajar.')}</p><Link className="button primary" to="/learn">{c('Explore the learning path', 'Jelajahi jalur belajar')}</Link></div>
 }
 
 export default function App() {

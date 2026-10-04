@@ -24,7 +24,7 @@ export default function CheckpointPage() {
   const passed = checkpoints[course.id]?.passed
   return <div className="page-width journey-page checkpoint-page">
     <Link className="text-link" to={`/learn/${course.id}`}><ArrowLeft size={14}/>{course.title}</Link>
-    <header className="journey-heading"><p className="eyebrow">{course.title} / {c('Knowledge check', 'Cek pemahaman')}</p><h1>{c('Connect what you learned.', 'Gunakan yang sudah kamu pelajari.')}</h1><p className="page-lead">{stage.outcome}</p></header>
+    <header className="journey-heading"><p className="eyebrow">{course.title} / {c('Knowledge check', 'Cek pemahaman')}</p><h1>{c('Connect what you learned', 'Gunakan yang sudah kamu pelajari')}</h1><p className="page-lead">{stage.outcome}</p></header>
     {passed && <div className="checkpoint-passed"><p>{c('You passed this check. Review it again any time, or put the ideas to work in your project.', 'Kamu sudah lolos cek ini. Kamu bisa mengulangnya kapan saja atau langsung memakai idenya di proyek.')}</p><Link className="button primary" to={`/projects/${course.id}`}>{c('Open stage project', 'Buka proyek tahap ini')}<ArrowRight size={16}/></Link></div>}
     <CheckpointQuiz key={course.id} questions={stage.checkpoint} onComplete={(score, total) => saveCheckpoint(course.id, score, total)}/>
     <div className="stage-bridge"><p>{stage.bridge}</p><Link className="text-link" to={`/projects/${course.id}`}>{c('See the project brief', 'Lihat panduan proyek')}<ArrowRight size={14}/></Link></div>
