@@ -65,7 +65,7 @@ samp {
 }
 
 :focus-visible {
-  outline: 2px solid #6ee7b7;
+  outline: 1px solid var(--subtle);
   outline-offset: 3px;
 }
 

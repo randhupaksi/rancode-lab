@@ -1,6 +1,6 @@
 .code-editor { color: var(--foreground); background: var(--surface); overflow: hidden; }
 .code-editor .cm-editor { background: transparent; font-size: 13px; outline: none; }
-.code-editor .cm-editor.cm-focused { outline: 2px solid var(--primary); outline-offset: -2px; }
+.code-editor .cm-editor.cm-focused { outline: none; }
 .code-editor .cm-scroller { font-family: var(--font-mono, 'Geist Mono Variable', monospace); min-height: var(--editor-min-height, 200px); line-height: 1.85; }
 .code-editor .cm-content { padding: 18px 0; caret-color: var(--primary); }
 .code-editor .cm-line { padding: 0 20px 0 12px; }

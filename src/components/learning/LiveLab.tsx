@@ -4,18 +4,22 @@ import CodeEditor from '../../features/editor/CodeEditor'
 import { useTypeScript } from '../../features/runtime/useTypeScript'
 import { runCode } from '../../features/runtime/runner'
 import { useLocale } from '../../features/locale/LocaleProvider'
+import { useLearningCopy } from '../../features/journey/useLearningCopy'
 
 export default function LiveLab({ initialCode, value, onChange, symbols = [], title, runnable = true }: { initialCode: string; value?: string; onChange?: (code: string) => void; symbols?: string[]; title?: string; runnable?: boolean }) {
   const { locale, t } = useLocale()
+  const c = useLearningCopy()
   const [localCode, setCode] = useState(initialCode)
   const code = value ?? localCode
   const [selected, setSelected] = useState(0)
   const [running, setRunning] = useState(false)
   const [output, setOutput] = useState<string[] | null>(null)
   const [runtimeError, setRuntimeError] = useState('')
+  const [autoRun, setAutoRun] = useState(false)
   const activeRun = useRef<AbortController | null>(null)
   const analysis = useTypeScript(code, symbols)
   const inspection = analysis.types[selected] ?? analysis.types[0]
+  const hasAnalysisErrors = analysis.diagnostics.some(diagnostic => diagnostic.category === 'error')
 
   useEffect(() => {
     activeRun.current?.abort()
@@ -54,8 +58,13 @@ export default function LiveLab({ initialCode, value, onChange, symbols = [], ti
       if (activeRun.current === controller) { activeRun.current = null; setRunning(false) }
     }
   }
+  useEffect(() => {
+    if (!autoRun || !runnable || analysis.status !== 'ready' || hasAnalysisErrors) return
+    const timer = window.setTimeout(() => { void run() }, 500)
+    return () => window.clearTimeout(timer)
+  }, [autoRun, code, runnable, analysis.status, hasAnalysisErrors])
   return <div className="live-lab">
-    <div className="lab-toolbar"><span><span className="file-dot" /> {title ?? t('lab.tryTitle')}</span><div className="toolbar-actions"><button className="button ghost small" onClick={() => { changeCode(initialCode); setSelected(0) }}><RotateCcw size={14}/> {t('lab.reset')}</button>{runnable && <button className="button secondary small" onClick={run} disabled={running || analysis.status !== 'ready' || analysis.diagnostics.some(d => d.category === 'error')}><Play size={13}/>{running ? t('lab.running') : t('lab.run')}</button>}</div></div>
+    <div className="lab-toolbar"><span><span className="file-dot" /> {title ?? t('lab.tryTitle')}</span><div className="toolbar-actions"><button className="button ghost small" onClick={() => { changeCode(initialCode); setSelected(0) }}><RotateCcw size={14}/> {t('lab.reset')}</button>{runnable && <button className="button ghost small lab-auto-run" aria-pressed={autoRun} aria-label={c('Toggle automatic code execution', 'Aktifkan atau matikan jalankan kode otomatis')} title={c('Toggle automatic code execution', 'Aktifkan atau matikan jalankan kode otomatis')} onClick={() => setAutoRun(value => !value)}>{c('Auto-run', 'Otomatis')}</button>}{runnable && <button className="button secondary small" onClick={run} disabled={running || analysis.status !== 'ready' || hasAnalysisErrors}><Play size={13}/>{running ? t('lab.running') : t('lab.run')}</button>}</div></div>
     <CodeEditor value={code} onChange={changeCode} label={t('lab.editor')} minHeight={230} />
     <div className="lab-inspector">
       <div className="inspector-title"><span className="eyebrow">{t('lab.inspector')}</span><span className="analysis-status" role="status">{analysis.status === 'loading' ? t('lab.reading') : analysis.status === 'error' ? t('lab.unavailable') : analysis.diagnostics.length ? t('lab.diagnostics', { count: analysis.diagnostics.length, plural: locale === 'en' && analysis.diagnostics.length > 1 ? 's' : '' }) : <><Check size={12}/> {t('lab.valid')}</>}</span></div>
