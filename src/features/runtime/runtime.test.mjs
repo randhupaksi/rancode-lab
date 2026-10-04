@@ -11,13 +11,13 @@ async function loadSource(relativePath, transform = (value) => value) {
 }
 
 test('compiler provides real literals, standard library inference, generics, and positioned diagnostics', async () => {
-  globalThis.__undercodeTestCompiler = ts
-  globalThis.__undercodeTestLibraries = Object.fromEntries(await readCompilerLibraries())
+  globalThis.__rancodeLabTestCompiler = ts
+  globalThis.__rancodeLabTestLibraries = Object.fromEntries(await readCompilerLibraries())
   let response
   globalThis.self = { postMessage: (message) => { response = message } }
   await loadSource('./typescript.worker.ts', (source) => source
-    .replace("import ts from 'typescript-browser'", 'const ts = globalThis.__undercodeTestCompiler')
-    .replace("import rawLibraries from '../../generated/compiler-libraries'", 'const rawLibraries = globalThis.__undercodeTestLibraries'))
+    .replace("import ts from 'typescript-browser'", 'const ts = globalThis.__rancodeLabTestCompiler')
+    .replace("import rawLibraries from '../../generated/compiler-libraries'", 'const rawLibraries = globalThis.__rancodeLabTestLibraries'))
 
   function analyze(code, symbols = []) {
     self.onmessage({ data: { id: 1, code, symbols } })
@@ -45,8 +45,8 @@ test('compiler provides real literals, standard library inference, generics, and
   assert.ok(analyze('const = ;').diagnostics.length, 'malformed syntax must not silently pass')
   assert.equal(analyze('const value: number = 2;').javascript.includes(': number'), false, 'emitted code must erase annotations')
   delete globalThis.self
-  delete globalThis.__undercodeTestCompiler
-  delete globalThis.__undercodeTestLibraries
+  delete globalThis.__rancodeLabTestCompiler
+  delete globalThis.__rancodeLabTestLibraries
 })
 
 test('console formatter handles circular values, bigints, errors, and output limits', async () => {

@@ -56,7 +56,7 @@ export const gettingStarted: Lesson[] = [
       node('type', 'number', 'The declared contract remains number.', 'type'),
       node('invalid', '"halfway"', 'This string cannot be assigned to progress.', 'error'),
     ], [{ from: 'zero', to: 'type', label: 'accepted' }, { from: 'invalid', to: 'type', label: 'rejected' }]),
-    challenge: { id: 'your-first-type-check', title: 'Annotate a completion flag', topic: 'Foundations', difficulty: 'Beginner', kind: 'fill', prompt: 'Replace ___ with the primitive type that accepts true and false.', code: 'const isComplete: ___ = false;', answer: 'boolean', answerType: 'boolean', hint: 'This primitive has exactly two possible values.', explanation: 'boolean describes the values true and false. Use the lowercase primitive type, rather than the Boolean wrapper object type.', solution: 'const isComplete: boolean = false;' },
+    challenge: { id: 'your-first-type-check', title: 'Annotate a completion flag', topic: 'Foundations', difficulty: 'Beginner', kind: 'fill', prompt: 'Replace ___ with the primitive type that accepts true and false', code: 'const isComplete: ___ = false;', answer: 'boolean', answerType: 'boolean', hint: 'This primitive has exactly two possible values.', explanation: 'boolean describes the values true and false. Use the lowercase primitive type, rather than the Boolean wrapper object type.', solution: 'const isComplete: boolean = false;' },
     recap: ['Annotations follow a name and a colon.', 'The type describes a set of valid values.', 'Later assignments must satisfy the same contract.'],
     relatedConcepts: ['annotations', 'primitives'],
   },

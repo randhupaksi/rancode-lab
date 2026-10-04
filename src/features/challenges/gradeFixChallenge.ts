@@ -31,15 +31,15 @@ export async function gradeFixChallenge(challenge: Challenge, code: string, loca
   }
 
   if (challenge.runtimeChecks?.length) {
-    const marker = `undercode-check-${crypto.randomUUID()}`
-    const cases = challenge.runtimeChecks.map(check => `__UnderCodeMatches(${check.expression}, ${JSON.stringify(check.expected)})`)
-    const compare = `function __UnderCodeMatches(value: unknown, expected: unknown): boolean {
+    const marker = `rancode-lab-check-${crypto.randomUUID()}`
+    const cases = challenge.runtimeChecks.map(check => `__RancodeLabMatches(${check.expression}, ${JSON.stringify(check.expected)})`)
+    const compare = `function __RancodeLabMatches(value: unknown, expected: unknown): boolean {
       if (Object.is(value, expected)) return true;
       if (!value || !expected || typeof value !== "object" || typeof expected !== "object") return false;
       if (Array.isArray(value) !== Array.isArray(expected)) return false;
       const actual = value as Record<string, unknown>, target = expected as Record<string, unknown>;
       const keys = Object.keys(target);
-      return Object.keys(actual).length === keys.length && keys.every(key => Object.hasOwn(actual, key) && __UnderCodeMatches(actual[key], target[key]));
+      return Object.keys(actual).length === keys.length && keys.every(key => Object.hasOwn(actual, key) && __RancodeLabMatches(actual[key], target[key]));
     }`
     const execution = await runCode(`${code}\n${compare}\nconsole.log(${JSON.stringify(marker)}, [${cases.join(', ')}].every(Boolean));`)
     if (execution.error || !execution.output.includes(`${marker} true`)) {
