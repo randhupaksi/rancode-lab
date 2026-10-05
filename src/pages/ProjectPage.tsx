@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState } from 'react'
 import { ArrowLeft, ArrowRight, CheckCircle2, Download } from 'lucide-react'
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import TextLink from '../components/ui/TextLink'
 import { getCourse, getNextCourse } from '../content/runtime/catalog'
 import { getStage } from '../content/runtime/catalog'
