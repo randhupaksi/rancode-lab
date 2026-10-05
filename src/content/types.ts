@@ -39,7 +39,9 @@ export interface Challenge {
 }
 
 export interface Lesson {
-  lab?: 'console' | 'web' | 'read'
+  /** A localized writing exercise, kept separate from executable source code. */
+  promptExample?: string
+  lab?: 'console' | 'web' | 'read' | 'tailwind'
   language?: 'javascript' | 'typescript' | 'html' | 'css' | 'text'
   practice?: string
   id: string
@@ -68,6 +70,7 @@ export interface CourseModule {
 }
 
 export interface Concept {
+  promptExample?: string
   language?: Lesson['language']
   id: string
   title: string
@@ -80,6 +83,7 @@ export interface Concept {
 }
 
 export interface Course {
+  path?: 'companion'
   id: string
   title: string
   eyebrow: string
