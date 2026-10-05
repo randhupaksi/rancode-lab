@@ -1,0 +1,31 @@
+/* Give button-like controls a small tactile response while preserving their existing color transitions. */
+button:not(:disabled):not([aria-disabled='true']):not([data-disabled]):not(.canvas-node):not(.text-link) {
+  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+}
+
+button:not(:disabled):not([aria-disabled='true']):not([data-disabled]):not(.canvas-node):not(.text-link):active,
+a.button:not([aria-disabled='true']):active {
+  transform: translateY(1px) scale(.985);
+}
+
+a.button:not([aria-disabled='true']) {
+  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+}
+
+button.text-link:not(:disabled):not([aria-disabled='true']),
+a.text-link:not([aria-disabled='true']) {
+  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+}
+
+button.text-link:not(:disabled):not([aria-disabled='true']):active,
+a.text-link:not([aria-disabled='true']):active {
+  transform: translateY(1px);
+}
+
+button.canvas-node:not(:disabled) {
+  transition: background .15s, color .15s, border-color .15s, filter .11s ease-out;
+}
+
+button.canvas-node:not(:disabled):active {
+  filter: brightness(.88);
+}
