@@ -1,3 +1,6 @@
+import { aiCodingStage } from './ai-coding/stage'
+import { tailwindStage } from './tailwind/stage'
+
 export interface CheckpointQuestion {
   id: string
   prompt: string
@@ -10,7 +13,7 @@ export interface StageProject {
   title: string
   brief: string
   starter: string
-  mode: 'web' | 'console' | 'document' | 'react' | 'nextjs'
+  mode: 'web' | 'console' | 'document' | 'react' | 'nextjs' | 'tailwind'
   criteria: string[]
   steps: string[]
 }
@@ -126,7 +129,9 @@ export const journey: JourneyStage[] = [
   ] },
 ]
 
-export function getStage(courseId: string | undefined) { return journey.find(stage => stage.courseId === courseId) }
+export const companionStages: JourneyStage[] = [aiCodingStage, tailwindStage]
+export const projectStages: JourneyStage[] = [...journey, ...companionStages]
+export function getStage(courseId: string | undefined) { return projectStages.find(stage => stage.courseId === courseId) }
 export const experienceOptions = [
   { id: 'new', startCourseId: 'logic', assessCourseId: null, label: 'I am new to coding', labelId: 'Aku baru mulai coding', detail: 'Start with clear steps and small wins.', detailId: 'Mulai dari langkah sederhana dan hasil kecil.' },
   { id: 'markup', startCourseId: 'javascript', assessCourseId: 'css', label: 'I have built HTML/CSS pages', labelId: 'Aku pernah membuat halaman HTML/CSS', detail: 'Check your layout foundations before JavaScript.', detailId: 'Cek fondasi layout sebelum masuk JavaScript.' },
