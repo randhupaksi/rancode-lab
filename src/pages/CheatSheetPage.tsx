@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Search } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
-import { concepts, courses, getLesson } from '../content'
+import { concepts, courses, getLesson } from '../content/runtime/catalog'
 import CodeBlock from '../components/ui/CodeBlock'
 import { usePageTitle } from '../hooks/usePageTitle'
 import '../styles/reference.css'
 import SelectField from '../components/ui/SelectField'
 import { useLocale } from '../features/locale/LocaleProvider'
-import { localizeConcept, localizeCourse } from '../content/localize'
+import { localizeConcept, localizeCourse } from '../content/runtime/localize'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 
 const PAGE_SIZE = 24

@@ -1,10 +1,10 @@
 import { useId, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getLesson, lessonPath } from '../../content'
-import type { CheckpointQuestion } from '../../content/journey'
+import { getLesson, lessonPath } from '../../content/runtime/catalog'
+import type { CheckpointQuestion } from '../../content/runtime/catalog'
 import { useLearningCopy } from './useLearningCopy'
 import { useLocale } from '../locale/LocaleProvider'
-import { localizeLesson } from '../../content/localize'
+import { localizeLesson } from '../../content/runtime/localize'
 
 export default function CheckpointQuiz({ questions, onComplete, onRetry }: { questions: CheckpointQuestion[]; onComplete: (score: number, total: number) => void; onRetry?: () => void }) {
   const c = useLearningCopy()

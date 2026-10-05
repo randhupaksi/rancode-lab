@@ -1,13 +1,13 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { getCourse } from '../content'
-import { projectStages as journey } from '../content/journey'
+import { getCourse } from '../content/runtime/catalog'
+import { projectStages as journey } from '../content/runtime/catalog'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { useProgress } from '../features/progress/ProgressProvider'
 import { usePageTitle } from '../hooks/usePageTitle'
 import { useLocale } from '../features/locale/LocaleProvider'
-import { localizeCourse } from '../content/localize'
-import { localizeJourneyStage } from '../content/journey-localize'
+import { localizeCourse } from '../content/runtime/localize'
+import { localizeJourneyStage } from '../content/runtime/localize'
 
 export default function ProjectsPage() {
   const c = useLearningCopy()

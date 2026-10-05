@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import type { Lesson } from '../../content'
+import type { Lesson } from '../../content/runtime/catalog'
 import CodeBlock from '../ui/CodeBlock'
 import LazyLab from './LazyLab'
 import { useLearningCopy } from '../../features/journey/useLearningCopy'

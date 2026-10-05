@@ -1,10 +1,10 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { getStage } from '../../content/journey'
+import { getStage } from '../../content/runtime/catalog'
 import { useProgress } from '../progress/ProgressProvider'
 import { useLearningCopy } from './useLearningCopy'
 import { useLocale } from '../locale/LocaleProvider'
-import { localizeJourneyStage } from '../../content/journey-localize'
+import { localizeJourneyStage } from '../../content/runtime/localize'
 
 export default function StageMilestone({ courseId }: { courseId: string }) {
   const stage = getStage(courseId)

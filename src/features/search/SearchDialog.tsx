@@ -2,25 +2,28 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Search } from 'lucide-react'
 import MiniSearch from 'minisearch'
 import { useNavigate } from 'react-router-dom'
-import { lessons, concepts, challenges, getCourse, getLesson, getLessonForChallenge, lessonPath } from '../../content'
 import Dialog from '../../components/ui/Dialog'
 import { useLocale } from '../locale/LocaleProvider'
-import { localizeChallenge, localizeConcept, localizeCourse, localizeLesson } from '../../content/localize'
 
 type Entry = { id: string; title: string; description: string; type: string; url: string }
 
+const dataFiles = import.meta.glob<string>('../../generated/catalog/search-*.json', { eager: true, query: '?url', import: 'default' })
+const data = new Map<'en' | 'id', Entry[]>()
+const pending = new Map<'en' | 'id', Promise<void>>()
+const failures = new Map<'en' | 'id', unknown>()
 function makeEntries(locale: 'en' | 'id'): Entry[] {
-  const label = locale === 'id' ? { lesson: 'Pelajaran', concept: 'Konsep', challenge: 'Tantangan', reference: 'Referensi' } : { lesson: 'lesson', concept: 'Concept', challenge: 'Challenge', reference: 'Reference' }
-  const localizedConcepts = concepts.map(concept => {
-    const lesson = getLesson(concept.lessonId)
-    return lesson ? localizeConcept(concept, lesson, locale) : concept
-  })
-  return [
-    ...lessons.map(item => { const lesson = localizeLesson(item, locale); const course = getCourse(item.courseId); return { id: `lesson-${item.id}`, title: lesson.title, description: lesson.description, type: `${course ? localizeCourse(course, locale).title : 'Course'} ${label.lesson}`, url: lessonPath(item) } }),
-    ...localizedConcepts.map(item => ({ id: `concept-${item.id}`, title: item.title, description: item.description, type: label.concept, url: `/explore/${item.id}` })),
-    ...challenges.map(item => { const lesson = getLessonForChallenge(item.id); const challenge = lesson ? localizeChallenge(item, lesson, locale) : item; return { id: `challenge-${item.id}`, title: challenge.title, description: challenge.prompt, type: label.challenge, url: `/challenges/${item.id}` } }),
-    ...localizedConcepts.map(item => ({ id: `reference-${item.id}`, title: item.title, description: item.description, type: label.reference, url: `/cheat-sheet#${item.id}` })),
-  ]
+  const entries = data.get(locale)
+  if (entries) return entries
+  if (failures.has(locale)) throw failures.get(locale)
+  let request = pending.get(locale)
+  if (!request) {
+    request = fetch(dataFiles['../../generated/catalog/search-' + locale + '.json']).then(response => {
+      if (!response.ok) throw new Error('Search data request failed: ' + response.status)
+      return response.json() as Promise<Entry[]>
+    }).then(entries => { data.set(locale, entries) }, error => { failures.set(locale, error) })
+    pending.set(locale, request)
+  }
+  throw request
 }
 
 // Curriculum is immutable for the lifetime of a deployment; at most two indexes are retained.

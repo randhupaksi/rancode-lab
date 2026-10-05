@@ -4,18 +4,19 @@ import SiteLayout from './components/layout/SiteLayout'
 import { LocaleProvider } from './features/locale/LocaleProvider'
 import { ProgressProvider } from './features/progress/ProgressProvider'
 import { useLearningCopy } from './features/journey/useLearningCopy'
-const Home = lazy(() => import('./pages/HomePage'))
-const Course = lazy(() => import('./pages/CoursePage'))
-const CourseHub = lazy(() => import('./pages/LearningPathPage'))
-const Lesson = lazy(() => import('./pages/LessonPage'))
-const Explore = lazy(() => import('./pages/ExplorePage'))
-const Playground = lazy(() => import('./pages/PlaygroundPage'))
-const Challenges = lazy(() => import('./pages/ChallengesPage'))
-const CheatSheet = lazy(() => import('./pages/CheatSheetPage'))
-const Onboarding = lazy(() => import('./pages/OnboardingPage'))
-const Checkpoint = lazy(() => import('./pages/CheckpointPage'))
-const Projects = lazy(() => import('./pages/ProjectsPage'))
-const Project = lazy(() => import('./pages/ProjectPage'))
+import Home from './pages/HomePage'
+import { routeLoaders } from './routeLoaders'
+const Course = lazy(routeLoaders.course)
+const CourseHub = lazy(routeLoaders.learn)
+const Lesson = lazy(routeLoaders.lesson)
+const Explore = lazy(routeLoaders.explore)
+const Playground = lazy(routeLoaders.playground)
+const Challenges = lazy(routeLoaders.challenges)
+const CheatSheet = lazy(routeLoaders.reference)
+const Onboarding = lazy(routeLoaders.start)
+const Checkpoint = lazy(routeLoaders.checkpoint)
+const Projects = lazy(routeLoaders.projects)
+const Project = lazy(routeLoaders.project)
 
 function NotFoundPage() {
   const c = useLearningCopy()

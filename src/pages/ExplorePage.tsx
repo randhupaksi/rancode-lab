@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react'
 import { ArrowRight, Braces, Search } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
-import { concepts, courses, getCourse, getLesson, lessonPath } from '../content'
+import { concepts, courses, getCourse, getLesson, lessonPath } from '../content/runtime/catalog'
 import ConceptCanvas from '../components/learning/ConceptCanvas'
 import CodeBlock from '../components/ui/CodeBlock'
 import SelectField from '../components/ui/SelectField'
 import { usePageTitle } from '../hooks/usePageTitle'
 import '../styles/reference.css'
 import { useLocale } from '../features/locale/LocaleProvider'
-import { localizeConcept, localizeCourse, localizeLesson } from '../content/localize'
+import { localizeConcept, localizeCourse, localizeLesson } from '../content/runtime/localize'
 
 export default function ExplorePage() {
   const { conceptId } = useParams()
@@ -25,7 +25,7 @@ export default function ExplorePage() {
   const categories = [...new Set(filtered.map((concept) => concept.category))]
   const sourceLesson = selected ? getLesson(selected.lessonId) : undefined
   const lesson = sourceLesson ? localizeLesson(sourceLesson, locale) : undefined
-  const visual = selected?.visual ?? lesson?.visual
+  const visual = selected?.visual
   usePageTitle(selected ? `${selected.title} · ${t('nav.explore')}` : t('explore.pageTitle'))
 
   return <div className="page-width reference-page">

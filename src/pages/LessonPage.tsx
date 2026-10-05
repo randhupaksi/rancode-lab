@@ -1,8 +1,8 @@
 import { lazy, Suspense, useEffect, useMemo } from 'react'
 import { ArrowLeft, ArrowRight, Check, CheckCircle2, Clock3 } from 'lucide-react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import { concepts, getCourse, getCourseLessons, getCourseModules, getLesson, getModuleLessons, lessonPath } from '../content'
-import type { Lesson } from '../content'
+import { concepts, getCourse, getCourseLessons, getCourseModules, getLesson, getFullLesson, getModuleLessons, lessonPath } from '../content/runtime/catalog'
+import type { Lesson } from '../content/runtime/catalog'
 import ConceptCanvas from '../components/learning/ConceptCanvas'
 import ExecutionStepper from '../components/learning/ExecutionStepper'
 import LessonLab from '../components/learning/LessonLab'
@@ -10,12 +10,13 @@ import StageMilestone from '../features/journey/StageMilestone'
 import FrameworkSetup from '../features/journey/FrameworkSetup'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import CodeBlock from '../components/ui/CodeBlock'
+import DeferredContent from '../components/ui/DeferredContent'
 import ErrorBoundary from '../components/ui/ErrorBoundary'
 import SelectField from '../components/ui/SelectField'
 import { useProgress } from '../features/progress/ProgressProvider'
 import { usePageTitle } from '../hooks/usePageTitle'
 import { useLocale } from '../features/locale/LocaleProvider'
-import { localizeConcept, localizeCourse, localizeLesson, localizeModule } from '../content/localize'
+import { localizeConcept, localizeCourse, localizeLesson, localizeModule } from '../content/runtime/localize'
 
 const ChallengeBlock = lazy(() => import('../features/challenges/ChallengeBlock'))
 
@@ -61,9 +62,9 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
 
     <section className="lesson-section" id="visualize" aria-labelledby="visualize-title"><span className="lesson-section-label">02 / {t('lesson.relationship')}</span><h2 id="visualize-title">{lesson.visual.title}</h2><p className="section-description">{lesson.visual.description}</p><ConceptCanvas visual={lesson.visual}/>{lesson.steps && <ExecutionStepper code={lesson.code} steps={lesson.steps}/>}</section>
 
-    <section className="lesson-section" id="play" aria-labelledby="play-title"><span className="lesson-section-label">03 / {t('lesson.try')}</span><h2 id="play-title">{lesson.promptExample ? c('Make this prompt your own', 'Sesuaikan prompt ini untuk idemu') : lesson.practice ? c('Try it, then explain what changed', 'Coba, lalu jelaskan perubahannya') : t('lesson.change')}</h2><p className="section-description">{lesson.practice ?? t('lesson.editorLead')}</p>{(lesson.courseId === 'react' || lesson.courseId === 'nextjs') && <><FrameworkSetup framework={lesson.courseId}/>{lesson.courseId === 'nextjs' && <p className="quiet-note">{c('New to the type annotations in these examples?', 'Belum kenal anotasi type di contoh ini?')} <Link className="text-link" to="/learn/typescript">{c('Review the TypeScript path', 'Pelajari dasar TypeScript')}</Link>.</p>}</>}<LessonLab lesson={lesson}/>{(lesson.lab !== 'read' || lesson.promptExample) && <Link className="text-link" to={`/playground?example=${lesson.id}`}>{t('lesson.playground')} <ArrowRight size={14} aria-hidden="true"/></Link>}</section>
+    <section className="lesson-section" id="play" aria-labelledby="play-title"><span className="lesson-section-label">03 / {t('lesson.try')}</span><h2 id="play-title">{lesson.promptExample ? c('Make this prompt your own', 'Sesuaikan prompt ini untuk idemu') : lesson.practice ? c('Try it, then explain what changed', 'Coba, lalu jelaskan perubahannya') : t('lesson.change')}</h2><p className="section-description">{lesson.practice ?? t('lesson.editorLead')}</p>{(lesson.courseId === 'react' || lesson.courseId === 'nextjs') && <><FrameworkSetup framework={lesson.courseId}/>{lesson.courseId === 'nextjs' && <p className="quiet-note">{c('New to the type annotations in these examples?', 'Belum kenal anotasi type di contoh ini?')} <Link className="text-link" to="/learn/typescript">{c('Review the TypeScript path', 'Pelajari dasar TypeScript')}</Link>.</p>}</>}<DeferredContent fallback={<CodeBlock code={lesson.promptExample ?? lesson.code} language={lesson.language}/>}><LessonLab lesson={lesson}/></DeferredContent>{(lesson.lab !== 'read' || lesson.promptExample) && <Link className="text-link" to={`/playground?example=${lesson.id}`}>{t('lesson.playground')} <ArrowRight size={14} aria-hidden="true"/></Link>}</section>
 
-    <section className="lesson-section" id="challenge" aria-labelledby="challenge-title"><span className="lesson-section-label">04 / {t('lesson.checkUnderstanding')}</span><h2 id="challenge-title">{lesson.challenge.title}</h2>{done && <p className="quiet-note">{t('lesson.completed')}</p>}<ErrorBoundary compact><Suspense fallback={<div className="loading-note" role="status">{t('layout.loading')}</div>}><ChallengeBlock challenge={lesson.challenge} onComplete={() => completeLesson(lesson.id)}/></Suspense></ErrorBoundary></section>
+    <section className="lesson-section" id="challenge" aria-labelledby="challenge-title"><span className="lesson-section-label">04 / {t('lesson.checkUnderstanding')}</span><h2 id="challenge-title">{lesson.challenge.title}</h2>{done && <p className="quiet-note">{t('lesson.completed')}</p>}<ErrorBoundary compact><Suspense fallback={<div className="loading-note" role="status">{t('layout.loading')}</div>}><DeferredContent fallback={<p className="quiet-note">{lesson.challenge.prompt}</p>}><ChallengeBlock challenge={lesson.challenge} onComplete={() => completeLesson(lesson.id)}/></DeferredContent></Suspense></ErrorBoundary></section>
 
     <section className="lesson-section lesson-recap" id="recap" aria-labelledby="recap-title"><span className="lesson-section-label">05 / {t('lesson.takeWithYou')}</span><h2 id="recap-title">{t('lesson.remember')}</h2><ul>{lesson.recap.map(item => <li key={item}><Check size={15} aria-hidden="true"/><span>{item}</span></li>)}</ul><div className="lesson-completion-note" role="status">{done ? <><CheckCircle2 size={16} aria-hidden="true"/><span>{storageAvailable ? t('lesson.done') : t('lesson.doneSession')}</span></> : <span>{t('lesson.completePrompt')}</span>}</div><div className="related-concepts"><span className="eyebrow">{t('lesson.exploreFurther')}</span><div>{lesson.relatedConcepts.map(id => { const concept = concepts.find(item => item.id === id); const conceptLesson = concept ? getLesson(concept.lessonId) : undefined; const localizedConcept = concept && conceptLesson ? localizeConcept(concept, conceptLesson, locale) : concept; return localizedConcept ? <Link to={`/explore/${id}`} key={id}>{localizedConcept.title}<ArrowRight size={12} aria-hidden="true"/></Link> : null })}</div></div></section>
 
@@ -74,7 +75,7 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
 
 export default function LessonPage() {
   const { courseId, lessonId } = useParams<{ courseId: string; lessonId: string }>()
-  const sourceLesson = getLesson(lessonId)
+  const sourceLesson = getFullLesson(lessonId)
   const { locale, t } = useLocale()
   const lesson = useMemo(() => sourceLesson ? localizeLesson(sourceLesson, locale) : undefined, [sourceLesson, locale])
   const { visitLesson } = useProgress()

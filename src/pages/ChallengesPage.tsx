@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react'
 import { ArrowRight, CheckCircle2, Code2, ListFilter } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
-import { challenges, courses, getCourse, getLessonForChallenge } from '../content'
+import { challenges, courses, getCourse, getLessonForChallenge } from '../content/runtime/catalog'
 import ChallengeBlock from '../features/challenges/ChallengeBlock'
 import { useProgress } from '../features/progress/ProgressProvider'
 import { usePageTitle } from '../hooks/usePageTitle'
 import SelectField from '../components/ui/SelectField'
 import '../styles/reference.css'
 import { useLocale } from '../features/locale/LocaleProvider'
-import { localizeChallenge, localizeCourse } from '../content/localize'
+import { localizeChallenge, localizeCourse } from '../content/runtime/localize'
 
 const difficultyLabelsId = { Beginner: 'Pemula', Intermediate: 'Menengah', Advanced: 'Lanjutan' } as const
 
