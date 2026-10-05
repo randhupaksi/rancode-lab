@@ -5,6 +5,7 @@ import type { AnalysisRequest, AnalysisResponse, AnalysisResult, InferredType } 
 // Ship official lib definitions with the worker: inference never needs a CDN or network request.
 const libraries = new Map(Object.entries(rawLibraries).map(([path, text]) => [`/${path.split('/').at(-1)}`, text]))
 const sourceCache = new Map<string, ts.SourceFile>()
+let previousProgram: ts.Program | undefined
 const fileName = '/lesson.ts'
 const options: ts.CompilerOptions = {
   target: ts.ScriptTarget.ES2022,
@@ -47,7 +48,8 @@ function analyze(code: string, requested: string[]): AnalysisResult {
     useCaseSensitiveFileNames: () => true,
     getNewLine: () => '\n',
   }
-  const program = ts.createProgram([fileName], options, host)
+  const program = ts.createProgram([fileName], options, host, previousProgram)
+  previousProgram = program
   const checker = program.getTypeChecker()
   const diagnostics = [...program.getSyntacticDiagnostics(source), ...program.getSemanticDiagnostics(source)].map((diagnostic) => {
     const position = source.getLineAndCharacterOfPosition(diagnostic.start ?? 0)
