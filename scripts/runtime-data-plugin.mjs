@@ -21,6 +21,8 @@ export function runtimeDataPlugin() {
         running = true
         try {
           await run(process.execPath, [generator], { windowsHide: true })
+          // Browser catalogs are immutable deployment snapshots. Refresh after authoring changes.
+          server.ws.send({ type: 'full-reload' })
         } catch (error) {
           server.config.logger.error(`Runtime data generation failed: ${error.message}`)
         } finally {
