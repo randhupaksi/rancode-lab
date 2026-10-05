@@ -1,6 +1,8 @@
 import { ArrowDown, ArrowRight, BookOpen, Layers3 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import HomeDemo from '../features/home/BeginnerDemo'
+import AiCodingEntry from '../features/ai-coding/AiCodingEntry'
+import TailwindEntry from '../features/tailwind/TailwindEntry'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { recommendNext } from '../features/journey/recommendation'
 import { courseCount, lessons, getLesson, lessonPath, journey } from '../content/navigation'
@@ -45,6 +47,8 @@ export default function HomePage() {
       <div className="course-intro"><span className="eyebrow">{t('home.stack')}</span><h2>{t('home.fromTypes')}<br/>{t('home.toApps')}</h2><p>{t('home.stackLead')}</p><Link className="text-link" to="/learn">{t('home.everyPath')} <ArrowRight size={16}/></Link><div className="course-facts"><span><BookOpen size={15}/>{lessons.length} {t('home.focusedLessons')}</span><span><Layers3 size={15}/>{courseCount} {t('home.connectedPaths')}</span></div></div>
       <div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17}/></Link>)}<Link className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14}/></Link></div>
     </section>
+    <TailwindEntry/>
+    <AiCodingEntry/>
     <section className="learning-rhythm"><span className="eyebrow">{t('home.rhythm')}</span><div>{[['home.seeIdea', 'home.seeIdeaBody'], ['home.changeTitle', 'home.changeBody'], ['home.ownTitle', 'home.ownBody']].map(([title, body], i) => <article key={title}><span className="rhythm-number">0{i + 1}</span><h3>{t(title)}</h3><p>{t(body)}</p></article>)}</div></section>
   </div>
 }

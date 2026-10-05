@@ -9,6 +9,8 @@ import { recommendNext } from '../features/journey/recommendation'
 import { useLocale } from '../features/locale/LocaleProvider'
 import { localizeCourse, localizeLesson } from '../content/localize'
 import { localizeJourneyStage } from '../content/journey-localize'
+import AiCodingEntry from '../features/ai-coding/AiCodingEntry'
+import TailwindEntry from '../features/tailwind/TailwindEntry'
 
 export default function LearningPathPage() {
   const c = useLearningCopy()
@@ -18,7 +20,7 @@ export default function LearningPathPage() {
   const next = recommendNext(progress)
   const startIndex = Math.max(0, journey.findIndex(stage => stage.courseId === progress.learningProfile?.startCourseId))
   const completedStages = journey.filter(stage => progress.checkpoints[stage.courseId]?.passed && progress.projects[stage.courseId]?.completed).length
-  const completedLessons = lessons.filter(lesson => progress.completedLessons.includes(lesson.id)).length
+  const completedLessons = lessons.filter(lesson => getCourse(lesson.courseId)?.path !== 'companion' && progress.completedLessons.includes(lesson.id)).length
   const localizedStages = journey.map(stage => localizeJourneyStage(stage, locale))
   const recommendedTitle = (() => {
     if (next.kind === 'finished') return c('Your learning path', 'Jalur belajarmu')
@@ -49,6 +51,8 @@ export default function LearningPathPage() {
         </div>
       </li>
     })}</ol>
+    <TailwindEntry/>
+    <AiCodingEntry/>
     <p className="journey-footnote quiet-note">{c('Lesson completion, knowledge checks, and project reviews are tracked separately. Skipped stages are not marked complete.', 'Progres pelajaran, cek pemahaman, dan tinjauan proyek dicatat terpisah. Tahap yang dilewati tidak ikut ditandai selesai.')}</p>
   </div>
 }
