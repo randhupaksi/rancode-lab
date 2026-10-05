@@ -1,0 +1,1419 @@
+{
+  "modules": [
+    {
+      "id": "tw-start",
+      "title": "Install and understand Tailwind",
+      "description": "Choose a setup that fits your project and connect the generated CSS.",
+      "number": "01",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-utilities",
+      "title": "Read and combine utilities",
+      "description": "Build a consistent foundation for spacing, size, type, and color.",
+      "number": "02",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-layout",
+      "title": "Arrange the page",
+      "description": "Use Flexbox, Grid, position, and overflow with a clear layout purpose.",
+      "number": "03",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-responsive",
+      "title": "Adapt to available space",
+      "description": "Make the content usable across viewport sizes and component placements.",
+      "number": "04",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-states",
+      "title": "Style interactions and feedback",
+      "description": "Make hover, keyboard focus, validation, and state easy to understand.",
+      "number": "05",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-theme",
+      "title": "Create your visual system",
+      "description": "Customize tokens, dark mode, and utilities with CSS-first configuration.",
+      "number": "06",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-components",
+      "title": "Use Tailwind in components",
+      "description": "Bring complete class names and reusable contracts into React and Next.js.",
+      "number": "07",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-workflow",
+      "title": "Understand the build and fix missing styles",
+      "description": "Trace source detection, CSS layers, migration, and production output.",
+      "number": "08",
+      "courseId": "tailwind"
+    },
+    {
+      "id": "tw-practice",
+      "title": "Build a complete responsive page",
+      "description": "Apply the ideas to navigation, forms, lists, and a study dashboard.",
+      "number": "09",
+      "courseId": "tailwind"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "tw-why",
+      "moduleId": "tw-start",
+      "title": "What Tailwind adds to CSS",
+      "summary": "Use small classes to apply familiar CSS rules directly where you build the interface.",
+      "explanation": [
+        "Use small classes to apply familiar CSS rules directly where you build the interface.",
+        "p-6 sets padding, text-xl sets a type size, and flex establishes a flex container. Tailwind generates CSS for classes found in the source. You still need HTML semantics, the box model, layout, and the cascade to explain the result. Start here after the HTML and CSS paths."
+      ],
+      "code": "<main class=\"p-6\"><h1 class=\"text-2xl font-semibold\">Study desk</h1><p class=\"mt-3 text-slate-600\">One useful task at a time</p></main>",
+      "practice": "Change p-6 to p-10 and text-2xl to text-3xl. Explain the two CSS responsibilities.",
+      "question": "What does Tailwind do with p-6 found in your source?",
+      "options": [
+        "Generate the corresponding CSS utility",
+        "Add a JavaScript event handler",
+        "Replace the HTML element with a React component"
+      ],
+      "answer": "Generate the corresponding CSS utility",
+      "reason": "Tailwind produces CSS utilities. It does not add interaction logic or change HTML semantics.",
+      "hint": "Think about the layer that controls appearance.",
+      "flow": [
+        "Source class",
+        "Generated rule",
+        "Styled element"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-vite-install",
+      "moduleId": "tw-start",
+      "title": "Install Tailwind with Vite",
+      "summary": "Connect the Tailwind Vite plugin and import the stylesheet into your app.",
+      "explanation": [
+        "Connect the Tailwind Vite plugin and import the stylesheet into your app.",
+        "For a new vanilla app, create the Vite project, install its dependencies, then add tailwindcss and @tailwindcss/vite. Add tailwindcss() to the existing plugin list without removing other plugins. Import Tailwind in your CSS and load that CSS from the entry file. Run these commands in your own terminal; the lesson displays them as reference."
+      ],
+      "code": "npm create vite@latest study-desk -- --template vanilla\ncd study-desk\nnpm install\nnpm install tailwindcss @tailwindcss/vite\n\n// vite.config.js\nimport { defineConfig } from \"vite\";\nimport tailwindcss from \"@tailwindcss/vite\";\nexport default defineConfig({ plugins: [tailwindcss()] });\n\n/* src/style.css */\n@import \"tailwindcss\";\n\n// src/main.js\nimport \"./style.css\";\n\n// Terminal\nnpm run dev",
+      "practice": "Create the project locally and put text-3xl on a heading. Check the stylesheet import if the size does not change.",
+      "question": "Which combination connects Tailwind to this Vite app?",
+      "options": [
+        "Only adding class names without loading CSS",
+        "The Vite plugin plus the imported Tailwind stylesheet",
+        "Running the development server without installing dependencies"
+      ],
+      "answer": "The Vite plugin plus the imported Tailwind stylesheet",
+      "reason": "The plugin compiles Tailwind and the stylesheet import brings its output into the page.",
+      "hint": "Both compilation and CSS loading matter.",
+      "flow": [
+        "Install packages",
+        "Connect plugin and CSS",
+        "Start the app"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-cli-install",
+      "moduleId": "tw-start",
+      "title": "Use Tailwind with plain HTML and the CLI",
+      "summary": "Compile a stylesheet with the CLI and link its output from your HTML.",
+      "explanation": [
+        "Compile a stylesheet with the CLI and link its output from your HTML.",
+        "The v4 CLI lives in @tailwindcss/cli. Keep input and output as separate files. Watch mode rebuilds while you edit; a normal build writes the file once. This route is useful when you want plain HTML without a framework. The browser sandbox already provides Tailwind compilation for practice, so it cannot execute npm commands."
+      ],
+      "code": "mkdir study-desk\ncd study-desk\nnpm init -y\nnpm install tailwindcss @tailwindcss/cli\n\n/* src/input.css */\n@import \"tailwindcss\";\n\n// Watch in your terminal\nnpx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch\n\n<!-- src/index.html -->\n<link rel=\"stylesheet\" href=\"./output.css\">\n<h1 class=\"text-3xl font-semibold\">Study desk</h1>\n\n// One production CSS build\nnpx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
+      "practice": "Build the output locally, link it in HTML, then try watch mode while changing a utility.",
+      "question": "Which file should the HTML link to in this CLI setup?",
+      "options": [
+        "package.json",
+        "The npm cache",
+        "The generated output.css"
+      ],
+      "answer": "The generated output.css",
+      "reason": "The browser needs the compiled stylesheet. The input contains Tailwind directives that require compilation.",
+      "hint": "Choose the file containing the generated CSS.",
+      "flow": [
+        "Input stylesheet",
+        "CLI compilation",
+        "Linked output"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-next-install",
+      "moduleId": "tw-start",
+      "title": "Install Tailwind in Next.js",
+      "summary": "Use the PostCSS integration and load global CSS from the app layout.",
+      "explanation": [
+        "Use the PostCSS integration and load global CSS from the app layout.",
+        "A newly scaffolded Next.js project may already include Tailwind; inspect its files before installing twice. For manual v4 setup, install tailwindcss, @tailwindcss/postcss, and postcss. Register the PostCSS plugin, import Tailwind in globals.css, and import that file from the root layout. Follow the React and Next.js foundations before building this project."
+      ],
+      "code": "npx create-next-app@latest study-desk\ncd study-desk\n# If Tailwind is not already configured:\nnpm install tailwindcss @tailwindcss/postcss postcss\n\n// postcss.config.mjs\nexport default { plugins: { \"@tailwindcss/postcss\": {} } };\n\n/* app/globals.css */\n@import \"tailwindcss\";\n\n// app/layout.tsx\nimport \"./globals.css\";\nexport default function RootLayout({ children }: { children: React.ReactNode }) {\n  return <html lang=\"en\"><body>{children}</body></html>;\n}\n\n// app/page.tsx\nexport default function Page() {\n  return <h1 className=\"text-3xl font-semibold\">Study desk</h1>;\n}\n\nnpm run dev",
+      "practice": "Inspect a local Next.js project for its PostCSS config, CSS import, and root layout. Record which parts already exist.",
+      "question": "Which plugin is used for a manual Tailwind v4 PostCSS setup?",
+      "options": [
+        "@tailwindcss/postcss",
+        "@tailwindcss/vite",
+        "No plugin and no stylesheet"
+      ],
+      "answer": "@tailwindcss/postcss",
+      "reason": "@tailwindcss/postcss integrates the compiler with PostCSS; the Vite plugin belongs to the Vite route.",
+      "hint": "Match the integration to the build tool.",
+      "flow": [
+        "Inspect existing setup",
+        "Configure PostCSS",
+        "Load globals.css"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-preflight",
+      "moduleId": "tw-start",
+      "title": "Understand Preflight and editor help",
+      "summary": "Tailwind resets some browser defaults, so headings and borders need deliberate styling.",
+      "explanation": [
+        "Tailwind resets some browser defaults, so headings and borders need deliberate styling.",
+        "Preflight is included in the main Tailwind import. It removes default heading sizes and margins and establishes predictable base rules. Add text and spacing utilities explicitly. An editor extension for Tailwind can help with completion and class previews, but it does not compile the stylesheet for you."
+      ],
+      "code": "<main class=\"p-6 space-y-4\"><h1>Heading without size utilities</h1><h2 class=\"text-2xl font-semibold\">Deliberately styled heading</h2><p class=\"border border-slate-300 p-4\">Border and padding are explicit</p></main>",
+      "practice": "Compare the two headings, then style the first with size and weight utilities. Inspect the border rule in your local browser.",
+      "question": "Why can an h1 look like ordinary text after importing Tailwind?",
+      "options": [
+        "It has lost its HTML heading semantics",
+        "Preflight resets default visual heading styles",
+        "Every heading requires JavaScript"
+      ],
+      "answer": "Preflight resets default visual heading styles",
+      "reason": "Preflight affects appearance, while h1 retains heading semantics. Apply the intended type hierarchy explicitly.",
+      "hint": "Separate semantics from browser styling.",
+      "flow": [
+        "Browser defaults",
+        "Preflight reset",
+        "Explicit hierarchy"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-spacing",
+      "moduleId": "tw-utilities",
+      "title": "Spacing, padding, margin, and gap",
+      "summary": "Distinguish inner space, outer space, and space between children.",
+      "explanation": [
+        "Distinguish inner space, outer space, and space between children.",
+        "p-6 adds padding on all sides, px-4 changes horizontal padding, and mt-4 adds top margin. gap-4 spaces flex or grid children. Numbered spacing follows the theme spacing token; keep a consistent rhythm."
+      ],
+      "code": "<main class=\"p-6\"><div class=\"flex gap-4 border border-slate-300 p-4\"><p class=\"bg-emerald-100 px-4 py-2\">First</p><p class=\"bg-emerald-100 px-4 py-2\">Second</p></div><p class=\"mt-6\">Outside the group</p></main>",
+      "practice": "Change gap-4 to gap-8, then p-4 to p-8. Compare which space changes.",
+      "question": "Which utility spaces the flex children?",
+      "options": [
+        "gap-4",
+        "p-4",
+        "mt-4"
+      ],
+      "answer": "gap-4",
+      "reason": "gap spaces children; padding is inside an element and margin is outside it.",
+      "hint": "Locate the space between items.",
+      "flow": [
+        "p-4",
+        "gap-4",
+        "mt-6"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-sizing",
+      "moduleId": "tw-utilities",
+      "title": "Size elements without locking the page",
+      "summary": "Combine flexible widths and readable maximum sizes.",
+      "explanation": [
+        "Combine flexible widths and readable maximum sizes.",
+        "w-full fills available width, max-w-xl limits growth, and mx-auto centers a block when space allows. Fixed widths may overflow small parents. min-w-0 allows a flex child to shrink; min-h-dvh can establish a dynamic viewport minimum height."
+      ],
+      "code": "<main class=\"p-6\"><article class=\"mx-auto w-full max-w-xl border border-slate-300 p-6\"><h1 class=\"text-xl font-semibold\">A readable width</h1><p class=\"mt-3\">This panel fills a small space and stops growing in a large one.</p></article></main>",
+      "practice": "Compare the narrow preview with w-full max-w-xl and with w-[700px].",
+      "question": "Which pair fills small spaces while limiting the maximum width?",
+      "options": [
+        "w-[700px] only",
+        "w-full max-w-xl",
+        "h-screen only"
+      ],
+      "answer": "w-full max-w-xl",
+      "reason": "A flexible width plus a maximum grows with its parent without requiring a fixed large width.",
+      "hint": "Look for a width and a maximum.",
+      "flow": [
+        "w-full",
+        "max-w-xl",
+        "mx-auto"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-typography",
+      "moduleId": "tw-utilities",
+      "title": "Build a readable type hierarchy",
+      "summary": "Use size, weight, line height, and line length to show what matters.",
+      "explanation": [
+        "Use size, weight, line height, and line length to show what matters.",
+        "text-3xl controls size, font-semibold controls weight, and leading-relaxed controls line height. text-sm/6 combines size and line height. Preserve semantic heading order and readable contrast; tiny essential text is not a good way to solve a crowded layout."
+      ],
+      "code": "<main class=\"mx-auto max-w-2xl p-6\"><p class=\"text-sm font-medium text-emerald-800\">Learning notes</p><h1 class=\"mt-2 text-3xl font-semibold tracking-tight\">One clear idea</h1><p class=\"mt-4 text-base leading-relaxed text-slate-700\">A short explanation deserves enough room to read. Size and spacing show how the parts belong together.</p></main>",
+      "practice": "Change heading weight and paragraph line height separately. Compare readability.",
+      "question": "Which utility changes font weight?",
+      "options": [
+        "leading-relaxed",
+        "text-3xl",
+        "font-semibold"
+      ],
+      "answer": "font-semibold",
+      "reason": "font-semibold changes weight; text utilities set size and leading utilities set line height.",
+      "hint": "Separate weight from size.",
+      "flow": [
+        "text-3xl",
+        "font-semibold",
+        "leading-relaxed"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-colors",
+      "moduleId": "tw-utilities",
+      "title": "Use color with a clear purpose",
+      "summary": "Apply background, text, and alpha utilities without losing contrast.",
+      "explanation": [
+        "Apply background, text, and alpha utilities without losing contrast.",
+        "bg-emerald-700 colors a surface and text-white colors text. bg-emerald-700/10 changes only that background alpha; opacity-50 affects the entire element and its children. A palette name does not guarantee contrast. Check the foreground/background pair and use text for meaningful status."
+      ],
+      "code": "<main class=\"space-y-4 p-6\"><p class=\"bg-emerald-700 p-4 text-white\">Ready to study</p><p class=\"bg-emerald-700/10 p-4 text-emerald-950\">Background alpha only</p><p class=\"bg-emerald-700 p-4 text-white opacity-50\">Whole element opacity</p></main>",
+      "practice": "Compare background alpha and whole-element opacity. Keep both examples readable.",
+      "question": "Which utility changes only background alpha?",
+      "options": [
+        "bg-emerald-700/10",
+        "opacity-10",
+        "text-sm"
+      ],
+      "answer": "bg-emerald-700/10",
+      "reason": "The slash modifier changes the color utility alpha; opacity affects the composited element.",
+      "hint": "Find the color-specific modifier.",
+      "flow": [
+        "Background",
+        "Text contrast",
+        "Meaningful status"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-surfaces",
+      "moduleId": "tw-utilities",
+      "title": "Borders, radius, and shadows",
+      "summary": "Use surface treatments to explain grouping and elevation.",
+      "explanation": [
+        "Use surface treatments to explain grouping and elevation.",
+        "border sets width; choose an explicit border color. rounded-lg sets radius and shadow-sm adds a restrained shadow. Some v4 defaults differ from older tutorials. A container does not need every effect; use the treatment that clarifies its purpose."
+      ],
+      "code": "<main class=\"space-y-4 p-6\"><section class=\"rounded-lg border border-slate-300 p-4\"><h1 class=\"font-semibold\">A grouped note</h1></section><section class=\"rounded-lg bg-white p-4 shadow-sm\"><h2 class=\"font-semibold\">A lightly raised panel</h2></section></main>",
+      "practice": "Compare a border-only group with a shadow-only group. Explain each purpose.",
+      "question": "What accompanies border when its intended color matters?",
+      "options": [
+        "A random animation",
+        "An explicit border color utility",
+        "A JavaScript timer"
+      ],
+      "answer": "An explicit border color utility",
+      "reason": "An explicit color avoids relying on an inherited border default.",
+      "hint": "Width and color are separate choices.",
+      "flow": [
+        "border",
+        "border-slate-300",
+        "Clear grouping"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-display",
+      "moduleId": "tw-layout",
+      "title": "Choose how elements participate in layout",
+      "summary": "Use block, flex, grid, hidden, and invisible for their distinct purposes.",
+      "explanation": [
+        "Use block, flex, grid, hidden, and invisible for their distinct purposes.",
+        "flex and grid establish container layouts. hidden removes an element from layout and accessibility exposure; invisible retains its space. sr-only hides text visually while preserving it for assistive technology. Do not interchange these when users still need the information."
+      ],
+      "code": "<main class=\"p-6\"><div class=\"flex gap-4\"><span class=\"bg-slate-100 p-3\">Visible</span><span class=\"invisible bg-slate-100 p-3\">Space remains</span><span class=\"bg-slate-100 p-3\">Third</span></div><p class=\"sr-only\">An accessible description</p></main>",
+      "practice": "Change invisible to hidden and compare the occupied space.",
+      "question": "Which utility removes the item and its layout space?",
+      "options": [
+        "invisible",
+        "sr-only",
+        "hidden"
+      ],
+      "answer": "hidden",
+      "reason": "hidden uses display: none; invisible keeps space and sr-only has an accessibility purpose.",
+      "hint": "Think about display rather than visibility.",
+      "flow": [
+        "Container display",
+        "Child participation",
+        "Visible layout"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-flex",
+      "moduleId": "tw-layout",
+      "title": "Align a row or column with Flexbox",
+      "summary": "Choose the direction before aligning the main and cross axes.",
+      "explanation": [
+        "Choose the direction before aligning the main and cross axes.",
+        "flex creates a row by default. justify-between distributes free space on the main axis and items-center aligns the cross axis. flex-col changes the axis directions. Prefer content-driven height and use gap for predictable spacing between controls."
+      ],
+      "code": "<main class=\"p-6\"><div class=\"flex items-center justify-between gap-4 border border-slate-300 p-4\"><div><h1 class=\"text-xl font-semibold\">Today</h1><p class=\"text-sm text-slate-600\">Two tasks remaining</p></div><button class=\"rounded bg-emerald-700 px-4 py-2 text-white\">Add task</button></div></main>",
+      "practice": "Switch to flex-col and explain how the axes change.",
+      "question": "In a default flex row, which utility aligns the cross axis?",
+      "options": [
+        "items-center",
+        "justify-between",
+        "text-center"
+      ],
+      "answer": "items-center",
+      "reason": "items-center controls align-items; justify-between works on the main axis.",
+      "hint": "Identify the axis first.",
+      "flow": [
+        "flex",
+        "Main and cross axes",
+        "Aligned content"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-flex-shrink",
+      "moduleId": "tw-layout",
+      "title": "Wrap controls and shrink long content",
+      "summary": "Use wrapping and minimum-width rules for real text.",
+      "explanation": [
+        "Use wrapping and minimum-width rules for real text.",
+        "flex-wrap allows another line. flex-1 takes remaining space, min-w-0 lets a flexible child shrink, and shrink-0 preserves a control’s size. truncate hides overflow on one line, so provide a way to read essential full content before choosing it."
+      ],
+      "code": "<main class=\"p-6\"><div class=\"flex items-start gap-4\"><p class=\"min-w-0 flex-1 wrap-break-word\">A_long_study_task_title_that_needs_to_fit_in_the_available_space</p><button class=\"shrink-0 rounded border border-slate-300 px-3 py-2\">Edit</button></div><div class=\"mt-6 flex flex-wrap gap-2\"><span class=\"bg-slate-100 px-3 py-2\">HTML</span><span class=\"bg-slate-100 px-3 py-2\">CSS foundations</span><span class=\"bg-slate-100 px-3 py-2\">Browser interactions</span></div></main>",
+      "practice": "Remove and restore min-w-0 in the narrow preview with a long title.",
+      "question": "Which utility removes the minimum-width obstacle for the flexible child?",
+      "options": [
+        "shrink-0",
+        "min-w-0",
+        "font-bold"
+      ],
+      "answer": "min-w-0",
+      "reason": "min-w-0 allows shrinking below the intrinsic minimum while flex-1 shares space.",
+      "hint": "Inspect the minimum width.",
+      "flow": [
+        "flex-1",
+        "min-w-0",
+        "Usable long content"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-grid",
+      "moduleId": "tw-layout",
+      "title": "Create grid tracks and child spans",
+      "summary": "Define columns on the container and spans on its children.",
+      "explanation": [
+        "Define columns on the container and spans on its children.",
+        "grid-cols-2 creates two equal columns; gap-4 spaces them and col-span-2 spans both. grid-cols-[1fr_2fr] creates unequal tracks. Keep a sensible DOM reading order: visual placement should not scramble keyboard navigation or the document meaning."
+      ],
+      "code": "<main class=\"grid grid-cols-2 gap-4 p-6\"><h1 class=\"col-span-2 text-2xl font-semibold\">Study topics</h1><article class=\"bg-emerald-100 p-4\">HTML</article><article class=\"bg-slate-100 p-4\">CSS</article><article class=\"col-span-2 bg-slate-100 p-4\">Both columns</article></main>",
+      "practice": "Change the track ratio and one child span, then compare the DOM order.",
+      "question": "Where should grid-cols-2 be applied?",
+      "options": [
+        "On every text node",
+        "Only on the final child",
+        "On the grid container"
+      ],
+      "answer": "On the grid container",
+      "reason": "The container defines tracks; child utilities control their placement within them.",
+      "hint": "Find the element establishing the grid.",
+      "flow": [
+        "Grid container",
+        "Tracks and gap",
+        "Child spans"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-position-overflow",
+      "moduleId": "tw-layout",
+      "title": "Position labels and manage overflow",
+      "summary": "Choose a containing block and keep scrolling intentional.",
+      "explanation": [
+        "Choose a containing block and keep scrolling intentional.",
+        "relative anchors an absolute child with top-3 right-3. sticky needs an inset such as top-0 and depends on the scroll ancestor. z-index stays within stacking contexts. overflow-hidden can clip text and focus; use overflow-x-auto for content that genuinely needs horizontal scrolling."
+      ],
+      "code": "<main class=\"p-6\"><article class=\"relative border border-slate-300 p-6 pt-12\"><span class=\"absolute top-3 right-3 text-sm text-emerald-800\">New</span><h1 class=\"text-xl font-semibold\">CSS notes</h1></article><div class=\"mt-6 overflow-x-auto\"><pre class=\"w-max bg-slate-100 p-4\">A long code sample that needs its own horizontal scrolling area.</pre></div></main>",
+      "practice": "Move the label with inset utilities and try the long line in a narrow preview.",
+      "question": "What makes this article the positioning reference for the absolute label?",
+      "options": [
+        "relative on the article",
+        "text-xl on the heading",
+        "overflow-x-auto on another element"
+      ],
+      "answer": "relative on the article",
+      "reason": "The appropriate positioned ancestor supplies the absolute child’s containing block.",
+      "hint": "Inspect the parent positioning rule.",
+      "flow": [
+        "relative parent",
+        "absolute child",
+        "Anchored label"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Beginner"
+    },
+    {
+      "id": "tw-mobile-first",
+      "moduleId": "tw-responsive",
+      "title": "Start responsive styling from the smallest layout",
+      "summary": "Unprefixed utilities apply first; breakpoint variants extend them as space grows.",
+      "explanation": [
+        "Unprefixed utilities apply first; breakpoint variants extend them as space grows.",
+        "grid-cols-1 md:grid-cols-2 starts with one column and changes to two at md and above. sm is a minimum-width breakpoint, not a command for small phones. The default md begins at 48rem. Preview breakpoints use the iframe viewport, so a wide laptop does not automatically make a narrow preview match md."
+      ],
+      "code": "<main class=\"grid grid-cols-1 gap-4 p-6 md:grid-cols-2\"><article class=\"bg-emerald-100 p-4\">First topic</article><article class=\"bg-slate-100 p-4\">Second topic</article></main>",
+      "practice": "Use wide and narrow previews and identify the base layout before the breakpoint.",
+      "question": "What does md:grid-cols-2 mean with the default breakpoints?",
+      "options": [
+        "Two columns only below 48rem",
+        "Two columns at 48rem and above",
+        "Two columns on every screen"
+      ],
+      "answer": "Two columns at 48rem and above",
+      "reason": "The md variant is a minimum-width condition; the unprefixed layout remains below it.",
+      "hint": "Read the breakpoint as a minimum.",
+      "flow": [
+        "Base layout",
+        "md condition",
+        "Wider layout"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-breakpoint-ranges",
+      "moduleId": "tw-responsive",
+      "title": "Target a breakpoint range",
+      "summary": "Combine minimum and maximum variants when a rule should have a limited range.",
+      "explanation": [
+        "Combine minimum and maximum variants when a rule should have a limited range.",
+        "md:max-lg:bg-emerald-100 applies from md until below lg. max-md targets widths below md. Keep a base rule that works outside the range. Custom breakpoint tokens should use consistent units so their generated order stays meaningful."
+      ],
+      "code": "<main class=\"p-6\"><p class=\"bg-slate-100 p-4 md:max-lg:bg-emerald-100\">A different background between md and lg</p><p class=\"mt-4 text-sm max-md:font-semibold\">Emphasized below md</p></main>",
+      "practice": "Try max-md and md:max-lg locally at widths around their boundaries.",
+      "question": "Which condition does md:max-lg represent?",
+      "options": [
+        "All widths above lg",
+        "Only widths below md",
+        "At least md and below lg"
+      ],
+      "answer": "At least md and below lg",
+      "reason": "Stacked variants combine their conditions, producing a bounded width range.",
+      "hint": "Both conditions must hold.",
+      "flow": [
+        "Minimum",
+        "Maximum",
+        "Limited range"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-container-queries",
+      "moduleId": "tw-responsive",
+      "title": "Adapt a component with container queries",
+      "summary": "Let a component react to its available parent space rather than only the viewport.",
+      "explanation": [
+        "Let a component react to its available parent space rather than only the viewport.",
+        "Mark an ancestor with @container and use @sm: or @md: variants on descendants. Container breakpoints have their own scale, separate from viewport sm and md. This makes the same component usable in a sidebar and a main column. The queried descendant should have a query container ancestor."
+      ],
+      "code": "<main class=\"space-y-6 p-6\"><section class=\"@container max-w-sm border border-slate-300 p-4\"><div class=\"flex flex-col gap-3 @sm:flex-row\"><h1 class=\"font-semibold\">Narrow host</h1><p>Study notes</p></div></section><section class=\"@container border border-slate-300 p-4\"><div class=\"flex flex-col gap-3 @sm:flex-row\"><h2 class=\"font-semibold\">Flexible host</h2><p>Study notes</p></div></section></main>",
+      "practice": "Change the first host max-width and compare both copies in the same viewport.",
+      "question": "What lets @sm:flex-row respond to each containing space?",
+      "options": [
+        "An ancestor marked @container",
+        "Only a large browser window",
+        "A random z-index"
+      ],
+      "answer": "An ancestor marked @container",
+      "reason": "The container ancestor provides the inline-size context for its descendant query.",
+      "hint": "Find the query container ancestor.",
+      "flow": [
+        "@container",
+        "@sm condition",
+        "Component layout"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-fluid-layout",
+      "moduleId": "tw-responsive",
+      "title": "Use fluid values while preserving readability",
+      "summary": "Let layout adapt without making content uncomfortably small.",
+      "explanation": [
+        "Let layout adapt without making content uncomfortably small.",
+        "w-full max-w-3xl handles width without a fixed large size. An arbitrary clamp value can scale a heading between a minimum and maximum. text-wrap and line-length decisions remain important. Check real long content and zoom; a responsive screenshot alone does not show whether text is readable."
+      ],
+      "code": "<main class=\"mx-auto w-full max-w-3xl p-6\"><h1 class=\"text-[clamp(1.5rem,4vw,3rem)] font-semibold leading-tight\">A clear learning space</h1><p class=\"mt-4 max-w-prose text-base leading-relaxed\">Keep meaningful content readable at narrow widths and larger text settings.</p></main>",
+      "practice": "Change the clamp minimum and test a long heading with browser zoom locally.",
+      "question": "What does clamp provide here?",
+      "options": [
+        "A JavaScript timer",
+        "A preferred fluid size bounded by a minimum and maximum",
+        "A guarantee that all text fits at any zoom"
+      ],
+      "answer": "A preferred fluid size bounded by a minimum and maximum",
+      "reason": "clamp bounds the preferred value; actual content and zoom still require review.",
+      "hint": "Read the three size arguments.",
+      "flow": [
+        "Minimum",
+        "Preferred size",
+        "Maximum"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-media",
+      "moduleId": "tw-responsive",
+      "title": "Give media a stable frame",
+      "summary": "Use aspect ratios and object-fit with descriptive alternatives.",
+      "explanation": [
+        "Use aspect ratios and object-fit with descriptive alternatives.",
+        "aspect-video reserves a 16:9 ratio; object-cover fills the frame and may crop content. object-contain keeps the whole image visible with possible extra space. Set useful alt text and known image dimensions. Remote assets are blocked in this sandbox, so this exercise uses a local data image."
+      ],
+      "code": "<main class=\"max-w-xl p-6\"><img class=\"aspect-video w-full rounded-lg bg-slate-100 object-cover\" width=\"240\" height=\"160\" alt=\"Three colored study blocks\" src=\"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27160%27%3E%3Crect width=%27240%27 height=%27160%27 fill=%27%23d1fae5%27/%3E%3Crect x=%2730%27 y=%2730%27 width=%2780%27 height=%27100%27 fill=%27%23065f46%27/%3E%3Crect x=%27130%27 y=%2730%27 width=%2780%27 height=%27100%27 fill=%27%23475569%27/%3E%3C/svg%3E\"></main>",
+      "practice": "Compare object-cover with object-contain and change the aspect ratio.",
+      "question": "Which utility keeps the full image visible inside its frame?",
+      "options": [
+        "object-cover",
+        "overflow-hidden",
+        "object-contain"
+      ],
+      "answer": "object-contain",
+      "reason": "object-contain preserves the image within the box instead of cropping to fill it.",
+      "hint": "Choose fit rather than crop.",
+      "flow": [
+        "Stable ratio",
+        "Fit choice",
+        "Useful alternative"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-hover-focus",
+      "moduleId": "tw-states",
+      "title": "Style hover and keyboard focus",
+      "summary": "Give mouse and keyboard users clear interaction feedback.",
+      "explanation": [
+        "Give mouse and keyboard users clear interaction feedback.",
+        "hover: changes appearance when a pointer can hover. focus-visible: helps show focus during keyboard navigation. Keep a visible outline or ring with enough contrast and offset. A hover color alone does not make a div behave like a button; retain native controls."
+      ],
+      "code": "<main class=\"p-6\"><button class=\"rounded bg-emerald-700 px-4 py-2 text-white hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700\">Save notes</button></main>",
+      "practice": "Hover, then Tab to the button. Compare both feedback states without removing focus.",
+      "question": "What does focus-visible: styling help communicate?",
+      "options": [
+        "Keyboard focus on the control",
+        "Successful server authentication",
+        "That every mouse click saved data"
+      ],
+      "answer": "Keyboard focus on the control",
+      "reason": "A visible focus treatment helps users locate the active keyboard control.",
+      "hint": "Consider navigation without a mouse.",
+      "flow": [
+        "Native button",
+        "Focus variant",
+        "Visible location"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-group-peer",
+      "moduleId": "tw-states",
+      "title": "Style related elements with group and peer",
+      "summary": "Respond to an ancestor or preceding sibling state without duplicating it.",
+      "explanation": [
+        "Respond to an ancestor or preceding sibling state without duplicating it.",
+        "group marks an ancestor for group-hover or group-focus-within descendants. peer marks a preceding sibling for peer-checked or peer-invalid styling. Peer uses sibling relationships, so the marked element must come before the target. Neither marker creates state by itself."
+      ],
+      "code": "<main class=\"space-y-6 p-6\"><a href=\"#details\" class=\"group block rounded border border-slate-300 p-4 focus-visible:outline-2\"><h1 class=\"font-semibold group-hover:text-emerald-800\">Study notes</h1></a><label class=\"flex items-center gap-3\"><input type=\"checkbox\" class=\"peer size-4 accent-emerald-700\"><span class=\"peer-checked:line-through peer-checked:text-slate-500\">Read the lesson</span></label><section id=\"details\"><h2>Lesson details</h2></section></main>",
+      "practice": "Toggle the checkbox, then move the span before the input and explain why peer styling stops matching.",
+      "question": "Where must a peer-marked input be relative to the styled sibling?",
+      "options": [
+        "After the styled sibling",
+        "Before the styled sibling",
+        "In an unrelated document"
+      ],
+      "answer": "Before the styled sibling",
+      "reason": "The peer variant follows a preceding-sibling relationship. DOM order matters.",
+      "hint": "Inspect the sibling order.",
+      "flow": [
+        "peer input",
+        "Checked state",
+        "Styled sibling"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-forms",
+      "moduleId": "tw-states",
+      "title": "Style forms and useful validation feedback",
+      "summary": "Keep labels, invalid feedback, and disabled states understandable.",
+      "explanation": [
+        "Keep labels, invalid feedback, and disabled states understandable.",
+        "Use native inputs with connected labels. invalid: can style a constraint-invalid field; peer-invalid can reveal nearby feedback. aria-describedby connects explanatory text. Styling disabled: changes appearance, while the disabled attribute controls behavior. Preview form submission remains local and blocked from the network."
+      ],
+      "code": "<main class=\"p-6\"><form class=\"space-y-3\"><label for=\"email\" class=\"block font-medium\">Email for your notes</label><input id=\"email\" type=\"email\" class=\"peer w-full rounded border border-slate-400 px-3 py-2 invalid:border-red-700 focus-visible:outline-2 focus-visible:outline-emerald-700\" aria-describedby=\"email-help\"><p id=\"email-help\" class=\"hidden text-sm text-red-800 peer-invalid:block\">Enter an email such as name@example.com.</p><button disabled class=\"rounded bg-emerald-700 px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50\">Save unavailable</button></form></main>",
+      "practice": "Type an invalid email, then a valid one. Check label focus and the disabled button.",
+      "question": "What actually disables the button interaction?",
+      "options": [
+        "opacity-50 alone",
+        "The background color",
+        "The disabled attribute"
+      ],
+      "answer": "The disabled attribute",
+      "reason": "The attribute controls native behavior. Appearance alone cannot enforce a disabled state.",
+      "hint": "Separate a style from a behavioral attribute.",
+      "flow": [
+        "Native constraint",
+        "Invalid variant",
+        "Helpful feedback"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-data-aria",
+      "moduleId": "tw-states",
+      "title": "Style data and ARIA states honestly",
+      "summary": "Use state attributes as styling hooks while maintaining their real meaning.",
+      "explanation": [
+        "Use state attributes as styling hooks while maintaining their real meaning.",
+        "data-[state=open]: responds to a data attribute. aria-expanded: responds to aria-expanded=\"true\". Attributes do not implement a disclosure or tab widget; its behavior and keyboard contract still need to exist. Avoid setting ARIA only to get a color. This example uses a native details disclosure and its open variant."
+      ],
+      "code": "<main class=\"space-y-4 p-6\"><p data-state=\"ready\" class=\"border border-slate-300 p-3 data-[state=ready]:border-emerald-700\">Status: ready</p><details class=\"rounded border border-slate-300 p-4 open:bg-emerald-50\"><summary class=\"cursor-pointer font-medium focus-visible:outline-2\">Read the study tip</summary><p class=\"mt-3\">Try one small change and inspect the result.</p></details></main>",
+      "practice": "Change the data-state value and use keyboard activation on the native disclosure.",
+      "question": "Does adding aria-expanded=\"true\" implement a working disclosure?",
+      "options": [
+        "No; the actual behavior must match the attribute",
+        "Yes; it creates all event handlers automatically",
+        "Yes; it supplies keyboard navigation for any div"
+      ],
+      "answer": "No; the actual behavior must match the attribute",
+      "reason": "ARIA communicates state rather than implementing behavior. It must describe the real interface.",
+      "hint": "Think about semantics and events separately.",
+      "flow": [
+        "Actual state",
+        "Attribute hook",
+        "Matching appearance"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-motion",
+      "moduleId": "tw-states",
+      "title": "Use motion as feedback and respect preferences",
+      "summary": "Animate relevant properties and provide a reduced-motion alternative.",
+      "explanation": [
+        "Animate relevant properties and provide a reduced-motion alternative.",
+        "transition-colors avoids transitioning every property. duration-150 sets a short duration; motion-reduce:transition-none respects reduced-motion preferences. Transform utilities can move or scale elements without replacing layout rules. Keep essential feedback visible when motion is disabled."
+      ],
+      "code": "<main class=\"p-6\"><button class=\"rounded bg-emerald-700 px-4 py-2 text-white transition-colors duration-150 hover:bg-emerald-900 focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none\">Start a study session</button></main>",
+      "practice": "Compare the hover transition with reduced motion enabled in your local system or browser tools.",
+      "question": "Which variant targets a reduced-motion preference?",
+      "options": [
+        "hover:",
+        "motion-reduce:",
+        "md:"
+      ],
+      "answer": "motion-reduce:",
+      "reason": "motion-reduce applies when the user prefers less motion, so essential state feedback should still work.",
+      "hint": "Find the preference-related variant.",
+      "flow": [
+        "State change",
+        "Relevant transition",
+        "Reduced-motion option"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-theme",
+      "moduleId": "tw-theme",
+      "title": "Define design tokens with @theme",
+      "summary": "A theme variable can create named utilities for your own visual system.",
+      "explanation": [
+        "A theme variable can create named utilities for your own visual system.",
+        "In v4, @theme is CSS-first configuration. --color-brand creates color utilities such as bg-brand and text-brand. Other namespaces define font, spacing, radius, and breakpoints. Ordinary :root variables can hold data without creating utilities. The text/tailwindcss style block is a lab convenience: in a local app, put these directives in the input CSS after @import \"tailwindcss\". Keep tokens few and meaningful."
+      ],
+      "code": "<style type=\"text/tailwindcss\">@theme { --color-brand: #166534; --radius-panel: 0.75rem; }</style><main class=\"p-6\"><article class=\"rounded-panel border border-brand p-6\"><h1 class=\"text-xl font-semibold text-brand\">A shared identity</h1><button class=\"mt-4 rounded bg-brand px-4 py-2 text-white\">Continue</button></article></main>",
+      "practice": "Change --color-brand once and observe every brand utility.",
+      "question": "Which directive defines a token that creates color utilities?",
+      "options": [
+        "@media",
+        "@keyframes",
+        "@theme"
+      ],
+      "answer": "@theme",
+      "reason": "@theme variables in recognized namespaces connect design tokens to generated utilities.",
+      "hint": "Look for the theme configuration directive.",
+      "flow": [
+        "--color-brand",
+        "bg-brand and text-brand",
+        "Shared decision"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-arbitrary",
+      "moduleId": "tw-theme",
+      "title": "Use arbitrary values when a token is not enough",
+      "summary": "Express an occasional custom value without turning every value into a one-off.",
+      "explanation": [
+        "Express an occasional custom value without turning every value into a one-off.",
+        "w-[18rem] and grid-cols-[1fr_2fr] express arbitrary values. Underscores represent spaces where needed. CSS variable shorthand such as bg-(--panel-color) reads a custom property. Prefer a theme token for repeated values and reserve arbitrary values for a specific constraint."
+      ],
+      "code": "<main class=\"p-6\" style=\"--panel-color: #ecfdf5\"><article class=\"w-full max-w-[28rem] bg-(--panel-color) p-6\"><h1 class=\"text-xl font-semibold\">A specific constraint</h1><p class=\"mt-3\">The maximum width serves this content.</p></article></main>",
+      "practice": "Change the maximum width and the custom property independently. Explain which should become a reusable token.",
+      "question": "When is a theme token preferable to repeating the same arbitrary value?",
+      "options": [
+        "When the value represents a repeated design decision",
+        "When no element uses the value",
+        "Never; every utility must be arbitrary"
+      ],
+      "answer": "When the value represents a repeated design decision",
+      "reason": "A named token centralizes a repeated decision and lets you change it consistently.",
+      "hint": "Look for repeated meaning.",
+      "flow": [
+        "Specific constraint",
+        "Arbitrary value",
+        "Reusable token if repeated"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-dark",
+      "moduleId": "tw-theme",
+      "title": "Build light and dark themes",
+      "summary": "Choose system preference or a selector-driven dark variant deliberately.",
+      "explanation": [
+        "Choose system preference or a selector-driven dark variant deliberately.",
+        "dark: follows prefers-color-scheme by default. For a manual selector, define @custom-variant dark with :where(.dark, .dark *). A theme toggle still requires actual JavaScript or application state, and persistence is a separate decision. Check surface, text, border, and focus contrast in both themes."
+      ],
+      "code": "<style type=\"text/tailwindcss\">@custom-variant dark (&:where(.dark, .dark *));</style><main class=\"dark p-6\"><article class=\"rounded-lg border border-slate-300 bg-white p-6 text-slate-900 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100\"><h1 class=\"text-xl font-semibold\">Theme-aware notes</h1><p class=\"mt-3 text-slate-600 dark:text-slate-300\">The text and surface change together.</p></article></main>",
+      "practice": "Remove and restore dark on the main element. Check both text and border contrast.",
+      "question": "What does dark: use before you override its variant?",
+      "options": [
+        "A JavaScript cookie automatically",
+        "The prefers-color-scheme media feature",
+        "Only an element named dark"
+      ],
+      "answer": "The prefers-color-scheme media feature",
+      "reason": "The default dark variant uses system color-scheme preference; a selector override changes its activation.",
+      "hint": "Distinguish the default from a manual selector.",
+      "flow": [
+        "Activation choice",
+        "dark utilities",
+        "Readable paired colors"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-custom-variants",
+      "moduleId": "tw-theme",
+      "title": "Name a reusable state variant",
+      "summary": "Use @custom-variant for a recurring selector condition.",
+      "explanation": [
+        "Use @custom-variant for a recurring selector condition.",
+        "A custom variant can express a product state without repeating its full selector on every class. The selector must match real attributes or classes. Variant styling does not change those attributes, so state still belongs to the app. Keep the condition understandable for the next developer."
+      ],
+      "code": "<style type=\"text/tailwindcss\">@custom-variant study-ready (&:where([data-study=ready], [data-study=ready] *));</style><main data-study=\"ready\" class=\"p-6\"><p class=\"border border-slate-300 p-4 study-ready:border-emerald-700 study-ready:bg-emerald-50\">Ready for a short session</p></main>",
+      "practice": "Change data-study from ready to waiting and observe the variant condition.",
+      "question": "Does defining @custom-variant automatically update application state?",
+      "options": [
+        "Yes, it adds all events",
+        "Yes, it stores state in a database",
+        "No, it only defines a styling condition"
+      ],
+      "answer": "No, it only defines a styling condition",
+      "reason": "The variant describes a selector condition; the application supplies the actual state.",
+      "hint": "Separate styling from state updates.",
+      "flow": [
+        "Real state attribute",
+        "Named selector",
+        "Reusable variant"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-custom-utilities",
+      "moduleId": "tw-theme",
+      "title": "Add a custom utility and use @apply carefully",
+      "summary": "Extend CSS where the project needs it while keeping component responsibilities clear.",
+      "explanation": [
+        "Extend CSS where the project needs it while keeping component responsibilities clear.",
+        "@utility registers a custom utility that can work with variants. @apply inlines existing utilities in a CSS rule. It does not create HTML, events, or a reusable component contract. Prefer component reuse when structure repeats; use CSS for a real shared styling rule."
+      ],
+      "code": "<style type=\"text/tailwindcss\">@utility study-frame { border: 1px solid #94a3b8; padding: 1.5rem; } @layer components { .study-title { @apply text-xl font-semibold text-emerald-900; } }</style><main class=\"p-6\"><article class=\"study-frame hover:bg-emerald-50\"><h1 class=\"study-title\">A shared frame</h1><p class=\"mt-3\">Custom CSS has a focused job.</p></article></main>",
+      "practice": "Modify the custom utility and compare it with the @apply rule. Explain which responsibility each covers.",
+      "question": "What does @apply do?",
+      "options": [
+        "Inline existing utility declarations into a CSS rule",
+        "Generate a complete React component",
+        "Add a click handler automatically"
+      ],
+      "answer": "Inline existing utility declarations into a CSS rule",
+      "reason": "@apply combines styling declarations; it cannot implement structure or behavior.",
+      "hint": "Think in CSS declarations.",
+      "flow": [
+        "Existing utility",
+        "Shared CSS rule",
+        "Focused styling reuse"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 8,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-react-classname",
+      "moduleId": "tw-components",
+      "title": "Add utilities to React components",
+      "summary": "In React, Tailwind classes belong in className. The stylesheet still enters through your app entry.",
+      "explanation": [
+        "In React, Tailwind classes belong in className. The stylesheet still enters through your app entry.",
+        "Keep the React plugin when adding the Tailwind Vite plugin. Import the CSS once in main.tsx. These files belong in a local React project; the HTML preview does not execute JSX."
+      ],
+      "code": "// vite.config.ts\nimport { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nimport tailwindcss from '@tailwindcss/vite'\nexport default defineConfig({ plugins: [react(), tailwindcss()] })\n\n// src/index.css\n@import \"tailwindcss\";\n\n// src/main.tsx — add this import; keep the existing React render code\nimport './index.css'\n\n// src/StudyCard.tsx\nexport function StudyCard() {\n  return <article className=\"rounded-xl border border-slate-200 p-6\">\n    <h2 className=\"text-xl font-semibold\">Your next lesson</h2>\n    <p className=\"mt-2 text-slate-600\">Build a layout you can explain.</p>\n  </article>\n}",
+      "practice": "Move the card into a local React project and confirm its CSS import reaches main.tsx.",
+      "question": "Which JSX attribute holds Tailwind utilities?",
+      "options": [
+        "className",
+        "tailwind",
+        "styleName"
+      ],
+      "answer": "className",
+      "reason": "React uses className for HTML classes; Tailwind handles the resulting class strings during the build.",
+      "hint": "Think of the standard React attribute for a CSS class.",
+      "flow": [
+        "CSS entry",
+        "React component",
+        "Rendered classes"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-variant-map",
+      "moduleId": "tw-components",
+      "title": "Map component variants to complete classes",
+      "summary": "Keep each possible utility visible as a complete string when a component changes appearance.",
+      "explanation": [
+        "Keep each possible utility visible as a complete string when a component changes appearance.",
+        "A map connects a small prop to known classes. Tailwind scans source as text, so constructing bg-${tone}-600 hides the final utility from detection. A complete class map is predictable and easier to review."
+      ],
+      "code": "const tones = {\n  primary: 'bg-emerald-700 text-white hover:bg-emerald-800',\n  neutral: 'bg-slate-100 text-slate-900 hover:bg-slate-200',\n}\nexport function Action({ tone = 'primary', children }) {\n  return <button className={\n    'rounded-lg px-4 py-2 focus-visible:outline-2 ' + tones[tone]\n  }>{children}</button>\n}",
+      "practice": "Add a warning variant using complete utility strings instead of interpolated color names.",
+      "question": "Which approach lets Tailwind find every variant?",
+      "options": [
+        "A map with complete class strings",
+        "Build color names with string interpolation",
+        "Put a color name in an unrelated comment"
+      ],
+      "answer": "A map with complete class strings",
+      "reason": "Detection needs complete utilities such as bg-emerald-700, not a template that only produces them at runtime.",
+      "hint": "The build reads the file before your component runs.",
+      "flow": [
+        "Variant prop",
+        "Class map",
+        "Static utilities"
+      ],
+      "lab": "read",
+      "language": "javascript",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-component-boundaries",
+      "moduleId": "tw-components",
+      "title": "Reuse structure without hiding the design",
+      "summary": "Extract a component when several views share the same structure and behavior.",
+      "explanation": [
+        "Extract a component when several views share the same structure and behavior.",
+        "Keep headings, spacing, and accessibility semantics close to the component. Use children for content and a small set of purposeful props. @apply can compose existing utilities in CSS, but it does not replace a component that owns behavior or markup."
+      ],
+      "code": "export function SectionCard({ title, children }) {\n  return <section className=\"rounded-2xl border border-slate-200 p-6\">\n    <h2 className=\"text-xl font-semibold text-slate-950\">{title}</h2>\n    <div className=\"mt-4 space-y-3 text-slate-700\">{children}</div>\n  </section>\n}\n// Keep the real content at the call site.\n<SectionCard title=\"Practice today\">\n  <p>Make the layout work on a narrow screen.</p>\n</SectionCard>",
+      "practice": "Extract two repeated cards into one component while keeping their headings and content meaningful.",
+      "question": "What is a useful reason to extract this card?",
+      "options": [
+        "Repeated structure with the same responsibility",
+        "Every element has more than two utilities",
+        "All CSS must move into @apply"
+      ],
+      "answer": "Repeated structure with the same responsibility",
+      "reason": "A reusable boundary follows repeated responsibility, rather than an arbitrary class-count limit.",
+      "hint": "Look for something that changes together across views.",
+      "flow": [
+        "Repeated structure",
+        "Shared component",
+        "Purposeful props"
+      ],
+      "lab": "read",
+      "language": "javascript",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-class-conflicts",
+      "moduleId": "tw-components",
+      "title": "Resolve competing utilities deliberately",
+      "summary": "Avoid competing utilities for the same property and state. Rearranging the class attribute is not a reliable fix.",
+      "explanation": [
+        "Avoid competing utilities for the same property and state. Rearranging the class attribute is not a reliable fix.",
+        "CSS generation and cascade decide the winner, not the order of class names in HTML. p-4 and md:p-8 are purposeful responsive values; p-4 and p-8 on the same base state compete. Conditional maps help. Class helpers can join strings, and a compatible merge helper can resolve supported conflicts, but neither chooses your design intent."
+      ],
+      "code": "// Keep one base padding choice.\nconst density = {\n  compact: 'p-3',\n  comfortable: 'p-6',\n}\nconst cardClasses = 'rounded-xl border ' + density.comfortable\n// Different breakpoint, deliberate change:\nconst responsiveCard = 'p-4 md:p-8'\n// Avoid: 'p-4 p-8'",
+      "practice": "Remove one base padding conflict and explain whether the remaining breakpoint variant is intentional.",
+      "question": "What decides which conflicting utility wins?",
+      "options": [
+        "The CSS cascade and generated rule order",
+        "Always the last class in the HTML attribute",
+        "Always the shortest class name"
+      ],
+      "answer": "The CSS cascade and generated rule order",
+      "reason": "Class attribute order does not control CSS rule order. Choose a single intended value per state.",
+      "hint": "Compare CSS rule order with HTML class order.",
+      "flow": [
+        "Find the conflict",
+        "Choose the intended value",
+        "Keep deliberate variants"
+      ],
+      "lab": "read",
+      "language": "javascript",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-next-components",
+      "moduleId": "tw-components",
+      "title": "Use Tailwind across Next.js components",
+      "summary": "Utility classes work in Server Components as well as Client Components.",
+      "explanation": [
+        "Utility classes work in Server Components as well as Client Components.",
+        "A static card does not need use client just to have Tailwind styles. Add a client boundary when the component needs state, events, or browser APIs. Keep globals.css imported in the root layout and use the Next.js PostCSS setup from the installation lesson."
+      ],
+      "code": "// app/layout.tsx\nimport './globals.css'\nimport type { ReactNode } from 'react'\nexport default function RootLayout({ children }: { children: ReactNode }) {\n  return <html lang=\"en\"><body>{children}</body></html>\n}\n\n// app/page.tsx — Server Component by default\nexport default function Page() {\n  return <main className=\"mx-auto max-w-3xl px-6 py-12\">\n    <h1 className=\"text-3xl font-semibold\">Start with one small page</h1>\n    <p className=\"mt-4 text-slate-600\">Styles alone do not need a client boundary.</p>\n  </main>\n}",
+      "practice": "Build a static Next.js page with utilities and identify one feature that would need a Client Component.",
+      "question": "Does a static Tailwind-styled card need use client?",
+      "options": [
+        "No, styling alone does not need it",
+        "Yes, every className needs it",
+        "Only if a color utility is used"
+      ],
+      "answer": "No, styling alone does not need it",
+      "reason": "The client boundary follows interactive JavaScript needs, rather than CSS utility usage.",
+      "hint": "Ask whether the component needs state or browser events.",
+      "flow": [
+        "Global stylesheet",
+        "Server-rendered markup",
+        "Client boundary when needed"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-source-detection",
+      "moduleId": "tw-workflow",
+      "title": "Find out why a utility is missing",
+      "summary": "Check the stylesheet connection before investigating source detection.",
+      "explanation": [
+        "Check the stylesheet connection before investigating source detection.",
+        "Tailwind scans source text for complete class candidates and generates matching utilities. Ignored files, external packages, or runtime-built strings may not be scanned as expected. Inspect a known class first, then check the actual class string and file location."
+      ],
+      "code": "// src/main.ts\nimport './style.css'\n\n// src/style.css\n@import \"tailwindcss\";\n\n// src/card.html\n<article class=\"bg-emerald-100 p-6 rounded-xl\">A known utility</article>\n\n// Diagnostic order:\n// 1. Is style.css loaded?\n// 2. Is the complete utility in the source?\n// 3. Is that source in the files Tailwind scans?",
+      "practice": "Investigate one missing background utility using the three diagnostic questions in order.",
+      "question": "What should you check before changing scan sources?",
+      "options": [
+        "Whether the stylesheet is loaded",
+        "Whether all classes can become inline styles",
+        "Whether every element uses !important"
+      ],
+      "answer": "Whether the stylesheet is loaded",
+      "reason": "If the stylesheet never reaches the page, source registration cannot fix the missing styles.",
+      "hint": "Start at the connection between CSS and the page.",
+      "flow": [
+        "CSS connection",
+        "Complete utility",
+        "Scanned source"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-explicit-sources",
+      "moduleId": "tw-workflow",
+      "title": "Register sources when automatic detection needs help",
+      "summary": "Use @source for a real external location or a small explicit set of utilities.",
+      "explanation": [
+        "Use @source for a real external location or a small explicit set of utilities.",
+        "Paths are relative to the stylesheet. Register an external UI package only if your app uses it. @source inline can generate specific utilities that do not appear in scanned files. Keep that list deliberate: generating every imaginable utility adds unnecessary CSS. Adjust the paths to your project rather than pasting an example blindly."
+      ],
+      "code": "/* Example: src/style.css in a local project. */\n@import \"tailwindcss\";\n/* Replace this illustrative package with the one you actually use. */\n@source \"../node_modules/example-ui\";\n/* Explicit utilities for trusted content that is not scanned. */\n@source inline(\"bg-emerald-100 text-emerald-900\");",
+      "practice": "Sketch the path from your stylesheet to an external component folder, then register only that source.",
+      "question": "What does @source inline provide?",
+      "options": [
+        "An explicit set of utility candidates",
+        "A runtime JavaScript import",
+        "A replacement for loading the stylesheet"
+      ],
+      "answer": "An explicit set of utility candidates",
+      "reason": "It tells Tailwind to generate the specified candidates during compilation, even if source files do not contain them.",
+      "hint": "Distinguish class detection from stylesheet loading.",
+      "flow": [
+        "Identify the source",
+        "Register narrowly",
+        "Generate intended utilities"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-reference-layers",
+      "moduleId": "tw-workflow",
+      "title": "Share theme context with CSS modules",
+      "summary": "A separately processed stylesheet may need @reference to understand your shared theme and utilities.",
+      "explanation": [
+        "A separately processed stylesheet may need @reference to understand your shared theme and utilities.",
+        "@reference exposes another stylesheet to the compiler without emitting that stylesheet again. In a CSS module, reference your app stylesheet before @apply when it contains your theme or custom utilities. Keep layers in mind: ordinary unlayered CSS can override layered utility rules, so mix custom CSS intentionally."
+      ],
+      "code": "/* src/globals.css */\n@import \"tailwindcss\";\n@theme { --color-brand-600: #047857; }\n\n/* src/Card.module.css — compile in your local build */\n@reference \"./globals.css\";\n.card { @apply rounded-xl border p-6; }\n.title { @apply font-semibold text-brand-600; }",
+      "practice": "Explain why the CSS module references globals.css and where the app actually loads its global CSS.",
+      "question": "Does @reference emit another full copy of the referenced stylesheet?",
+      "options": [
+        "No, it shares compilation context without emitting that copy",
+        "Yes, it duplicates every style on every component",
+        "It runs the referenced file as JavaScript"
+      ],
+      "answer": "No, it shares compilation context without emitting that copy",
+      "reason": "Reference provides theme and utility context for compilation. The global stylesheet still needs its normal import in the app.",
+      "hint": "The name describes a reference, rather than a second stylesheet output.",
+      "flow": [
+        "Shared theme",
+        "Reference context",
+        "Local component CSS"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-v4-migration",
+      "moduleId": "tw-workflow",
+      "title": "Recognize a v3 tutorial before mixing its setup",
+      "summary": "Tailwind v4 uses a different installation flow from many older v3 tutorials.",
+      "explanation": [
+        "Tailwind v4 uses a different installation flow from many older v3 tutorials.",
+        "Use @import \"tailwindcss\" and the integration package for your build tool. Do not add the old init -p step to a fresh v4 setup. A migration of an existing v3 project needs the official upgrade guide, a supported browser target, and a review of changed utilities. For older browser requirements, choose a compatible version deliberately instead of assuming a newer setup fits."
+      ],
+      "code": "/* v4 input stylesheet */\n@import \"tailwindcss\";\n@theme { --color-brand-600: #047857; }\n\n/* A fresh Vite v4 integration uses @tailwindcss/vite. */\n/* A fresh PostCSS v4 integration uses @tailwindcss/postcss. */\n/* Older tutorials may show @tailwind directives and init -p.\n   Follow one version's installation guide consistently. */",
+      "practice": "Inspect a tutorial date and commands, then identify which installation steps belong to v4.",
+      "question": "Which stylesheet entry belongs to the fresh v4 setup taught here?",
+      "options": [
+        "@import \"tailwindcss\";",
+        "Run init -p for every new v4 project",
+        "Use no stylesheet entry at all"
+      ],
+      "answer": "@import \"tailwindcss\";",
+      "reason": "The v4 integration starts from the CSS import and the correct build package. Migration is a separate task.",
+      "hint": "Look at the installation lessons rather than commands from an older tutorial.",
+      "flow": [
+        "Identify the version",
+        "Choose its integration",
+        "Review migration changes"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-production-build",
+      "moduleId": "tw-workflow",
+      "title": "Ship generated CSS, not a browser compiler",
+      "summary": "A deployed app should serve the CSS produced by its Tailwind build integration.",
+      "explanation": [
+        "A deployed app should serve the CSS produced by its Tailwind build integration.",
+        "The interactive lab compiles locally so you can experiment. That is a learning environment, not your deployment recipe. In a real Vite or Next.js app, let the build generate CSS and check that the output loads. The Play CDN is for development. Avoid secrets in source and verify the real deployment after changing build configuration."
+      ],
+      "code": "# In a Vite or Next.js project with Tailwind already configured:\nnpm run build\n\n# For a CLI project with src/input.css:\nnpx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify\n\n# Your deployed HTML must load the generated stylesheet.\n# The educational preview here does not run these terminal commands.",
+      "practice": "Write a deployment checklist: build succeeds, CSS loads, intended classes appear, and the layout still works.",
+      "question": "What should a production app serve for Tailwind styling?",
+      "options": [
+        "Generated CSS from its build pipeline",
+        "A development browser compiler on every page",
+        "The npm install output as page content"
+      ],
+      "answer": "Generated CSS from its build pipeline",
+      "reason": "Generating CSS during the build keeps the deployment aligned with the selected framework integration.",
+      "hint": "Separate the lab experience from the files a real app deploys.",
+      "flow": [
+        "Compile at build time",
+        "Serve generated assets",
+        "Review deployed output"
+      ],
+      "lab": "read",
+      "language": "text",
+      "minutes": 10,
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": "tw-navigation-project",
+      "moduleId": "tw-practice",
+      "title": "Build navigation that stays usable",
+      "summary": "Start with real links, a clear brand, and a layout that can wrap on small screens.",
+      "explanation": [
+        "Start with real links, a clear brand, and a layout that can wrap on small screens.",
+        "A responsive navigation does not need a pretend menu button. This example keeps every destination available with flex-wrap, visible keyboard focus, and distinct hover states. If you add a collapsible menu in a real app, implement its expanded state and keyboard behavior as well."
+      ],
+      "code": "<div class=\"min-h-screen bg-slate-50 text-slate-950\">\n  <header class=\"border-b border-slate-200 bg-white\">\n    <nav aria-label=\"Main navigation\" class=\"mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4\">\n      <a class=\"font-bold focus-visible:outline-2 focus-visible:outline-offset-4\" href=\"#overview\">Study Space</a>\n      <div class=\"flex flex-wrap gap-2\">\n        <a class=\"rounded-lg px-3 py-2 hover:bg-emerald-50 focus-visible:outline-2\" href=\"#lessons\">Lessons</a>\n        <a class=\"rounded-lg px-3 py-2 hover:bg-emerald-50 focus-visible:outline-2\" href=\"#practice\">Practice</a>\n      </div>\n    </nav>\n  </header>\n  <main id=\"overview\" class=\"mx-auto max-w-5xl space-y-8 px-6 py-10\">\n    <h1 class=\"text-3xl font-semibold\">A calmer place to learn</h1>\n    <section id=\"lessons\"><h2 class=\"text-xl font-semibold\">Lessons</h2><p class=\"mt-2 text-slate-600\">Start with one concept.</p></section>\n    <section id=\"practice\"><h2 class=\"text-xl font-semibold\">Practice</h2><p class=\"mt-2 text-slate-600\">Try it in a small page.</p></section>\n  </main>\n</div>",
+      "practice": "Add a Resources link and its matching section, then try the narrow preview and keyboard navigation.",
+      "question": "What makes the links in this example useful?",
+      "options": [
+        "They point to sections that exist",
+        "Their href can be empty",
+        "Their labels must be icons only"
+      ],
+      "answer": "They point to sections that exist",
+      "reason": "Navigation needs a real destination and usable labels, not only attractive utility classes.",
+      "hint": "Follow a link and find the matching id.",
+      "flow": [
+        "Real destinations",
+        "Wrapping layout",
+        "Visible focus"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 10,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "tw-form-project",
+      "moduleId": "tw-practice",
+      "title": "Build a clear form with honest feedback",
+      "summary": "Make labels, instructions, input states, and the submit action understandable before polishing the surface.",
+      "explanation": [
+        "Make labels, instructions, input states, and the submit action understandable before polishing the surface.",
+        "Utilities style a form, but do not create persistence or server validation. Native required and email attributes help with basic input checks. This preview shows a local status message and sends nothing. A real application still needs appropriate server validation, success and error handling, and storage if it promises to save data."
+      ],
+      "code": "<main class=\"min-h-screen bg-slate-50 px-4 py-10\">\n  <form id=\"signup\" class=\"mx-auto max-w-md space-y-5 rounded-2xl border border-slate-200 bg-white p-6\">\n    <h1 class=\"text-2xl font-semibold text-slate-950\">Plan your next lesson</h1>\n    <p id=\"help\" class=\"text-sm text-slate-600\">Demo only. Nothing is sent or saved.</p>\n    <div><label for=\"email\" class=\"block text-sm font-medium\">Email</label>\n    <input id=\"email\" type=\"email\" required aria-describedby=\"help\" class=\"mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 focus-visible:outline-2 focus-visible:outline-emerald-700\"></div>\n    <button class=\"rounded-lg bg-emerald-700 px-4 py-2 font-semibold text-white hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-4\">Try the form</button>\n    <p id=\"status\" role=\"status\" class=\"text-sm text-emerald-800\"></p>\n  </form>\n</main>\n<script>document.getElementById('signup').addEventListener('submit', function(event) { event.preventDefault(); document.getElementById('status').textContent = 'Demo complete. No data was saved.'; });</script>",
+      "practice": "Add a labeled name field and keep the local-only status message accurate.",
+      "question": "What do the utilities provide in this form?",
+      "options": [
+        "Presentation and visual states",
+        "A database and server validation automatically",
+        "A guarantee that submitted data is saved"
+      ],
+      "answer": "Presentation and visual states",
+      "reason": "Form styling is separate from validation logic, network requests, and persistent storage.",
+      "hint": "Read the demo message and look for a storage implementation.",
+      "flow": [
+        "Labeled input",
+        "Clear visual states",
+        "Honest local feedback"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 10,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "tw-task-project",
+      "moduleId": "tw-practice",
+      "title": "Style task states with native controls",
+      "summary": "Use a real checkbox to drive a task state instead of drawing a checkbox that cannot be used.",
+      "explanation": [
+        "Use a real checkbox to drive a task state instead of drawing a checkbox that cannot be used.",
+        "Peer variants style a following sibling when the checkbox changes. The native control keeps keyboard support and an accessible label. details offers a simple disclosure without extra JavaScript. These states live in the current preview; saving tasks across visits would need a separate storage feature."
+      ],
+      "code": "<main class=\"min-h-screen bg-slate-50 p-6\">\n  <section class=\"mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6\">\n    <h1 class=\"text-2xl font-semibold\">Practice checklist</h1>\n    <p class=\"mt-2 text-sm text-slate-600\">Changes are not saved after the preview reloads.</p>\n    <ul class=\"mt-6 space-y-3\">\n      <li><label class=\"flex items-start gap-3 rounded-lg border border-slate-200 p-4\">\n        <input type=\"checkbox\" class=\"peer mt-1 size-4 accent-emerald-700 focus-visible:outline-2\">\n        <span class=\"min-w-0 peer-checked:text-slate-500 peer-checked:line-through\">Build a responsive grid with content that wraps naturally</span>\n      </label></li>\n      <li><label class=\"flex items-start gap-3 rounded-lg border border-slate-200 p-4\">\n        <input type=\"checkbox\" class=\"peer mt-1 size-4 accent-emerald-700 focus-visible:outline-2\">\n        <span class=\"peer-checked:text-slate-500 peer-checked:line-through\">Check keyboard focus</span>\n      </label></li>\n    </ul>\n    <details class=\"group mt-6 rounded-lg bg-emerald-50 p-4\">\n      <summary class=\"cursor-pointer font-medium group-open:text-emerald-800\">Why this practice matters</summary>\n      <p class=\"mt-3 text-sm text-slate-700\">Layout and interaction both need deliberate choices.</p>\n    </details>\n  </section>\n</main>",
+      "practice": "Add one long task label, check it, and confirm it wraps without pushing the checkbox out of view.",
+      "question": "Which element should carry peer in this example?",
+      "options": [
+        "The checkbox whose checked state drives the sibling style",
+        "Only the page heading",
+        "A sibling placed after the text being styled"
+      ],
+      "answer": "The checkbox whose checked state drives the sibling style",
+      "reason": "The stateful peer precedes the sibling targeted by peer-checked utilities.",
+      "hint": "Follow the relationship from the input to the next span.",
+      "flow": [
+        "Native control",
+        "Peer state",
+        "Readable task label"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 10,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "tw-dashboard-project",
+      "moduleId": "tw-practice",
+      "title": "Compose a dashboard around real content",
+      "summary": "Let a useful next action and readable content guide the layout instead of filling cards with invented metrics.",
+      "explanation": [
+        "Let a useful next action and readable content guide the layout instead of filling cards with invented metrics.",
+        "This dashboard uses a sidebar at larger widths and a single column on small screens. min-w-0 keeps long content from forcing the grid wider. Every link targets a real section. The cards describe study tasks instead of pretending to track progress that the page does not store."
+      ],
+      "code": "<main class=\"min-h-screen bg-slate-50 p-4 text-slate-950 sm:p-8\">\n  <div class=\"mx-auto grid max-w-6xl gap-6 md:grid-cols-[14rem_minmax(0,1fr)]\">\n    <aside class=\"rounded-2xl border border-slate-200 bg-white p-5\">\n      <p class=\"font-bold\">Study Space</p>\n      <nav aria-label=\"Dashboard sections\" class=\"mt-4 flex flex-wrap gap-2 md:flex-col\">\n        <a href=\"#next\" class=\"rounded-lg bg-emerald-50 px-3 py-2 text-emerald-900 focus-visible:outline-2\">Next practice</a>\n        <a href=\"#notes\" class=\"rounded-lg px-3 py-2 hover:bg-slate-100 focus-visible:outline-2\">Notes</a>\n      </nav>\n    </aside>\n    <div class=\"min-w-0 space-y-6\">\n      <header><h1 class=\"text-3xl font-semibold\">One useful step today</h1><p class=\"mt-2 text-slate-600\">Choose a task you can finish and explain.</p></header>\n      <section id=\"next\" class=\"rounded-2xl border border-slate-200 bg-white p-6\"><h2 class=\"text-xl font-semibold\">Next practice</h2><p class=\"mt-3 text-slate-700\">Build a card grid that stays readable on a narrow screen.</p></section>\n      <section id=\"notes\" class=\"rounded-2xl border border-slate-200 bg-white p-6\"><h2 class=\"text-xl font-semibold\">Review notes</h2><ul class=\"mt-3 list-disc space-y-2 pl-5 text-slate-700\"><li>Check long titles and focus styles.</li><li>Keep one primary action visible.</li></ul></section>\n    </div>\n  </div>\n</main>",
+      "practice": "Add a Resources section and link. Check the reading order when the sidebar becomes a wrapped navigation.",
+      "question": "Why is minmax(0,1fr) useful for the main grid column?",
+      "options": [
+        "It lets the flexible column shrink below its content minimum",
+        "It prevents all text from wrapping",
+        "It stores the dashboard progress"
+      ],
+      "answer": "It lets the flexible column shrink below its content minimum",
+      "reason": "A zero minimum helps the flexible column fit available space. Content still needs appropriate wrapping and overflow handling.",
+      "hint": "Compare a flexible column with a fixed content minimum.",
+      "flow": [
+        "Useful content",
+        "Responsive structure",
+        "Readable details"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 10,
+      "difficulty": "Advanced"
+    },
+    {
+      "id": "tw-capstone",
+      "moduleId": "tw-practice",
+      "title": "Bring the decisions together in a small page",
+      "summary": "Build a responsive study page with a clear hierarchy, a reusable visual theme, and honest interaction states.",
+      "explanation": [
+        "Build a responsive study page with a clear hierarchy, a reusable visual theme, and honest interaction states.",
+        "Use the lab to develop the layout, then move the markup into a local project using an installation path from the first module. Move @theme, @utility, and @custom-variant directives from lab style blocks into your input CSS after @import \"tailwindcss\". Review keyboard focus, long content, contrast, and narrow layouts. If you choose React or Next.js, keep the framework responsibilities separate from the Tailwind styling. The companion project gives you a review checklist rather than claiming a visual layout is automatically correct."
+      ],
+      "code": "<style type=\"text/tailwindcss\">\n@theme { --color-brand-700: #047857; --color-brand-50: #ecfdf5; }\n</style>\n<main class=\"min-h-screen bg-slate-50 px-4 py-10 text-slate-950 sm:px-8\">\n  <div class=\"mx-auto max-w-5xl\">\n    <header class=\"max-w-2xl\"><p class=\"text-sm font-semibold text-brand-700\">Your study space</p>\n    <h1 class=\"mt-3 text-3xl font-semibold tracking-tight sm:text-5xl\">Make one useful thing today</h1>\n    <p class=\"mt-4 text-slate-600\">Choose a small practice, try it, and explain the decisions you made.</p>\n    <a href=\"#practice\" class=\"mt-6 inline-flex rounded-lg bg-brand-700 px-4 py-3 font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-4\">Choose a practice</a></header>\n    <section id=\"practice\" class=\"mt-10 grid gap-4 sm:grid-cols-2\">\n      <article class=\"rounded-2xl border border-slate-200 bg-white p-6\"><h2 class=\"text-xl font-semibold\">Build a card</h2><p class=\"mt-3 text-slate-600\">Keep its title readable, even when the content grows.</p><label class=\"mt-5 flex items-center gap-3\"><input class=\"peer size-4 accent-emerald-700 focus-visible:outline-2\" type=\"checkbox\"><span class=\"peer-checked:line-through\">Ready to review</span></label></article>\n      <article class=\"rounded-2xl border border-slate-200 bg-white p-6\"><h2 class=\"text-xl font-semibold\">Review the layout</h2><details class=\"mt-3\"><summary class=\"cursor-pointer text-brand-700 focus-visible:outline-2\">Open the review notes</summary><p class=\"mt-3 text-slate-600\">Try a narrow screen and move through controls with the keyboard.</p></details></article>\n    </section>\n    <p class=\"mt-6 text-sm text-slate-500\">Demo controls reset when the preview reloads.</p>\n  </div>\n</main>",
+      "practice": "Add a third practice card, tune the responsive grid, and write three decisions you can explain before moving to the companion project.",
+      "question": "What is the best next step after the page looks good in the wide preview?",
+      "options": [
+        "Review narrow screens, keyboard access, and the real project build",
+        "Assume visual appearance proves all behavior works",
+        "Remove every focus indicator to simplify the design"
+      ],
+      "answer": "Review narrow screens, keyboard access, and the real project build",
+      "reason": "A visual preview helps with layout, but a complete review also covers interaction, content, and the app build.",
+      "hint": "Think beyond one screen size and one way of interacting.",
+      "flow": [
+        "Build the page",
+        "Review real usage",
+        "Move into a local app"
+      ],
+      "lab": "tailwind",
+      "language": "html",
+      "minutes": 10,
+      "difficulty": "Advanced"
+    }
+  ]
+}
