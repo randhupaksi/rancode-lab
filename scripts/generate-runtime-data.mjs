@@ -22,14 +22,14 @@ const server = await createServer({
 try {
   const catalog = await server.ssrLoadModule('/src/content/index.ts')
   const { courses, lessons } = catalog
-  const { journey } = await server.ssrLoadModule('/src/content/journey.ts')
+  const { journey, projectStages } = await server.ssrLoadModule('/src/content/journey.ts')
   const localizers = await server.ssrLoadModule('/src/content/localize.ts')
   const { localizeLesson } = localizers
   const copy = await server.ssrLoadModule('/src/content/locales/id.ts')
   const coverage = validateContentLocales(catalog, localizers, copy)
   console.log(`Verified Indonesian copy: ${coverage.lessons} lessons, ${coverage.concepts} concepts, ${coverage.checkedFields} fields.`)
   const { localizeJourneyStage } = await server.ssrLoadModule('/src/content/journey-localize.ts')
-  for (const stage of journey) {
+  for (const stage of projectStages) {
     if (localizeJourneyStage(stage, 'id').project.criteria.length !== stage.project.criteria.length) {
       throw new Error(`Project review translations must preserve criteria order and count: ${stage.courseId}`)
     }

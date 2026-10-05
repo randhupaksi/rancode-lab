@@ -1,5 +1,5 @@
 {
-  "courseCount": 9,
+  "courseCount": 11,
   "lessons": [
     {
       "id": "logic-instructions",
@@ -1632,6 +1632,420 @@
       "courseId": "nextjs",
       "title": "Reviewing a Complete Route",
       "titleId": "Meninjau Route secara Menyeluruh"
+    },
+    {
+      "id": "ai-agent-role",
+      "courseId": "ai-coding",
+      "title": "You steer, the agent helps build",
+      "titleId": "Kamu mengarahkan, agent membantu membangun"
+    },
+    {
+      "id": "ai-tool-access",
+      "courseId": "ai-coding",
+      "title": "Know what your agent can access",
+      "titleId": "Kenali akses yang dimiliki agent"
+    },
+    {
+      "id": "ai-small-first-app",
+      "courseId": "ai-coding",
+      "title": "Choose a first app you can finish",
+      "titleId": "Pilih aplikasi pertama yang bisa kamu tuntaskan"
+    },
+    {
+      "id": "ai-foundations",
+      "courseId": "ai-coding",
+      "title": "Use your coding foundations",
+      "titleId": "Pakai fondasi coding-mu"
+    },
+    {
+      "id": "ai-product-brief",
+      "courseId": "ai-coding",
+      "title": "Turn your idea into a product brief",
+      "titleId": "Ubah idemu menjadi brief produk"
+    },
+    {
+      "id": "ai-prompt-structure",
+      "courseId": "ai-coding",
+      "title": "Give your prompt a useful structure",
+      "titleId": "Beri struktur yang berguna pada prompt"
+    },
+    {
+      "id": "ai-context-budget",
+      "courseId": "ai-coding",
+      "title": "Keep context relevant",
+      "titleId": "Jaga konteks tetap relevan"
+    },
+    {
+      "id": "ai-acceptance",
+      "courseId": "ai-coding",
+      "title": "Describe what working means",
+      "titleId": "Jelaskan arti “bekerja dengan benar”"
+    },
+    {
+      "id": "ai-user-flow",
+      "courseId": "ai-coding",
+      "title": "Start the design with a user flow",
+      "titleId": "Mulai desain dari alur pengguna"
+    },
+    {
+      "id": "ai-visual-direction",
+      "courseId": "ai-coding",
+      "title": "Replace vague taste with visual decisions",
+      "titleId": "Ganti selera yang samar dengan keputusan visual"
+    },
+    {
+      "id": "ai-references",
+      "courseId": "ai-coding",
+      "title": "Use references with a reason",
+      "titleId": "Pakai referensi dengan alasan yang jelas"
+    },
+    {
+      "id": "ai-avoid-slop",
+      "courseId": "ai-coding",
+      "title": "Give every UI element a job",
+      "titleId": "Beri tiap elemen UI sebuah tugas"
+    },
+    {
+      "id": "ai-plan-first",
+      "courseId": "ai-coding",
+      "title": "Ask for a plan when decisions matter",
+      "titleId": "Minta rencana ketika keputusan perlu dibahas"
+    },
+    {
+      "id": "ai-existing-project",
+      "courseId": "ai-coding",
+      "title": "Let the project guide the implementation",
+      "titleId": "Biarkan pola proyek mengarahkan implementasi"
+    },
+    {
+      "id": "ai-feedback",
+      "courseId": "ai-coding",
+      "title": "Give feedback the agent can act on",
+      "titleId": "Beri feedback yang bisa ditindaklanjuti agent"
+    },
+    {
+      "id": "ai-debugging",
+      "courseId": "ai-coding",
+      "title": "Debug with evidence",
+      "titleId": "Debug dengan bukti"
+    },
+    {
+      "id": "ai-diff-review",
+      "courseId": "ai-coding",
+      "title": "Read the change before accepting it",
+      "titleId": "Baca perubahan sebelum menerimanya"
+    },
+    {
+      "id": "ai-behavior-checks",
+      "courseId": "ai-coding",
+      "title": "Test the flow beyond a build",
+      "titleId": "Uji alur setelah build berhasil"
+    },
+    {
+      "id": "ai-accessibility",
+      "courseId": "ai-coding",
+      "title": "Make keyboard use part of the brief",
+      "titleId": "Masukkan penggunaan keyboard ke brief"
+    },
+    {
+      "id": "ai-responsive-performance",
+      "courseId": "ai-coding",
+      "title": "Review small screens and real content",
+      "titleId": "Tinjau layar kecil dan konten nyata"
+    },
+    {
+      "id": "ai-safe-boundaries",
+      "courseId": "ai-coding",
+      "title": "Keep secrets and production actions explicit",
+      "titleId": "Perjelas batas rahasia dan tindakan produksi"
+    },
+    {
+      "id": "ai-handoff",
+      "courseId": "ai-coding",
+      "title": "Carry useful context into the next session",
+      "titleId": "Bawa konteks berguna ke sesi berikutnya"
+    },
+    {
+      "id": "ai-release-review",
+      "courseId": "ai-coding",
+      "title": "Make a release decision with evidence",
+      "titleId": "Tentukan kesiapan rilis dengan bukti"
+    },
+    {
+      "id": "ai-capstone",
+      "courseId": "ai-coding",
+      "title": "Build your Study Sprint capstone",
+      "titleId": "Bangun proyek akhir Study Sprint"
+    },
+    {
+      "id": "tw-why",
+      "courseId": "tailwind",
+      "title": "What Tailwind adds to CSS",
+      "titleId": "Hal yang ditambahkan Tailwind pada CSS"
+    },
+    {
+      "id": "tw-vite-install",
+      "courseId": "tailwind",
+      "title": "Install Tailwind with Vite",
+      "titleId": "Pasang Tailwind dengan Vite"
+    },
+    {
+      "id": "tw-cli-install",
+      "courseId": "tailwind",
+      "title": "Use Tailwind with plain HTML and the CLI",
+      "titleId": "Pakai Tailwind pada HTML biasa lewat CLI"
+    },
+    {
+      "id": "tw-next-install",
+      "courseId": "tailwind",
+      "title": "Install Tailwind in Next.js",
+      "titleId": "Pasang Tailwind di Next.js"
+    },
+    {
+      "id": "tw-preflight",
+      "courseId": "tailwind",
+      "title": "Understand Preflight and editor help",
+      "titleId": "Pahami Preflight dan bantuan editor"
+    },
+    {
+      "id": "tw-spacing",
+      "courseId": "tailwind",
+      "title": "Spacing, padding, margin, and gap",
+      "titleId": "Spacing, padding, margin, dan gap"
+    },
+    {
+      "id": "tw-sizing",
+      "courseId": "tailwind",
+      "title": "Size elements without locking the page",
+      "titleId": "Atur ukuran tanpa mengunci halaman"
+    },
+    {
+      "id": "tw-typography",
+      "courseId": "tailwind",
+      "title": "Build a readable type hierarchy",
+      "titleId": "Bangun hierarki teks yang nyaman dibaca"
+    },
+    {
+      "id": "tw-colors",
+      "courseId": "tailwind",
+      "title": "Use color with a clear purpose",
+      "titleId": "Pakai warna dengan tujuan jelas"
+    },
+    {
+      "id": "tw-surfaces",
+      "courseId": "tailwind",
+      "title": "Borders, radius, and shadows",
+      "titleId": "Border, radius, dan shadow"
+    },
+    {
+      "id": "tw-display",
+      "courseId": "tailwind",
+      "title": "Choose how elements participate in layout",
+      "titleId": "Tentukan peran elemen dalam layout"
+    },
+    {
+      "id": "tw-flex",
+      "courseId": "tailwind",
+      "title": "Align a row or column with Flexbox",
+      "titleId": "Atur baris atau kolom dengan Flexbox"
+    },
+    {
+      "id": "tw-flex-shrink",
+      "courseId": "tailwind",
+      "title": "Wrap controls and shrink long content",
+      "titleId": "Bungkus kontrol dan kecilkan konten panjang"
+    },
+    {
+      "id": "tw-grid",
+      "courseId": "tailwind",
+      "title": "Create grid tracks and child spans",
+      "titleId": "Buat track grid dan span anak"
+    },
+    {
+      "id": "tw-position-overflow",
+      "courseId": "tailwind",
+      "title": "Position labels and manage overflow",
+      "titleId": "Atur posisi label dan tangani overflow"
+    },
+    {
+      "id": "tw-mobile-first",
+      "courseId": "tailwind",
+      "title": "Start responsive styling from the smallest layout",
+      "titleId": "Mulai style responsif dari layout terkecil"
+    },
+    {
+      "id": "tw-breakpoint-ranges",
+      "courseId": "tailwind",
+      "title": "Target a breakpoint range",
+      "titleId": "Targetkan rentang breakpoint"
+    },
+    {
+      "id": "tw-container-queries",
+      "courseId": "tailwind",
+      "title": "Adapt a component with container queries",
+      "titleId": "Sesuaikan komponen lewat container query"
+    },
+    {
+      "id": "tw-fluid-layout",
+      "courseId": "tailwind",
+      "title": "Use fluid values while preserving readability",
+      "titleId": "Pakai nilai fleksibel sambil menjaga keterbacaan"
+    },
+    {
+      "id": "tw-media",
+      "courseId": "tailwind",
+      "title": "Give media a stable frame",
+      "titleId": "Beri media ruang yang stabil"
+    },
+    {
+      "id": "tw-hover-focus",
+      "courseId": "tailwind",
+      "title": "Style hover and keyboard focus",
+      "titleId": "Atur hover dan fokus keyboard"
+    },
+    {
+      "id": "tw-group-peer",
+      "courseId": "tailwind",
+      "title": "Style related elements with group and peer",
+      "titleId": "Atur elemen terkait memakai group dan peer"
+    },
+    {
+      "id": "tw-forms",
+      "courseId": "tailwind",
+      "title": "Style forms and useful validation feedback",
+      "titleId": "Atur form dan feedback validasi yang berguna"
+    },
+    {
+      "id": "tw-data-aria",
+      "courseId": "tailwind",
+      "title": "Style data and ARIA states honestly",
+      "titleId": "Atur state data dan ARIA sesuai perilaku"
+    },
+    {
+      "id": "tw-motion",
+      "courseId": "tailwind",
+      "title": "Use motion as feedback and respect preferences",
+      "titleId": "Pakai motion sebagai feedback dan hormati preferensi"
+    },
+    {
+      "id": "tw-theme",
+      "courseId": "tailwind",
+      "title": "Define design tokens with @theme",
+      "titleId": "Tentukan token desain dengan @theme"
+    },
+    {
+      "id": "tw-arbitrary",
+      "courseId": "tailwind",
+      "title": "Use arbitrary values when a token is not enough",
+      "titleId": "Pakai nilai arbitrer ketika token belum cukup"
+    },
+    {
+      "id": "tw-dark",
+      "courseId": "tailwind",
+      "title": "Build light and dark themes",
+      "titleId": "Bangun theme terang dan gelap"
+    },
+    {
+      "id": "tw-custom-variants",
+      "courseId": "tailwind",
+      "title": "Name a reusable state variant",
+      "titleId": "Beri nama variant state yang bisa dipakai ulang"
+    },
+    {
+      "id": "tw-custom-utilities",
+      "courseId": "tailwind",
+      "title": "Add a custom utility and use @apply carefully",
+      "titleId": "Tambah utility khusus dan pakai @apply dengan cermat"
+    },
+    {
+      "id": "tw-react-classname",
+      "courseId": "tailwind",
+      "title": "Add utilities to React components",
+      "titleId": "Tambahkan utility ke komponen React"
+    },
+    {
+      "id": "tw-variant-map",
+      "courseId": "tailwind",
+      "title": "Map component variants to complete classes",
+      "titleId": "Petakan varian komponen ke class yang utuh"
+    },
+    {
+      "id": "tw-component-boundaries",
+      "courseId": "tailwind",
+      "title": "Reuse structure without hiding the design",
+      "titleId": "Pakai ulang struktur tanpa menyembunyikan desain"
+    },
+    {
+      "id": "tw-class-conflicts",
+      "courseId": "tailwind",
+      "title": "Resolve competing utilities deliberately",
+      "titleId": "Rapikan utility yang saling bertabrakan"
+    },
+    {
+      "id": "tw-next-components",
+      "courseId": "tailwind",
+      "title": "Use Tailwind across Next.js components",
+      "titleId": "Pakai Tailwind di komponen Next.js"
+    },
+    {
+      "id": "tw-source-detection",
+      "courseId": "tailwind",
+      "title": "Find out why a utility is missing",
+      "titleId": "Cari tahu kenapa sebuah utility tidak muncul"
+    },
+    {
+      "id": "tw-explicit-sources",
+      "courseId": "tailwind",
+      "title": "Register sources when automatic detection needs help",
+      "titleId": "Daftarkan source saat deteksi otomatis perlu bantuan"
+    },
+    {
+      "id": "tw-reference-layers",
+      "courseId": "tailwind",
+      "title": "Share theme context with CSS modules",
+      "titleId": "Bagikan konteks theme ke CSS module"
+    },
+    {
+      "id": "tw-v4-migration",
+      "courseId": "tailwind",
+      "title": "Recognize a v3 tutorial before mixing its setup",
+      "titleId": "Kenali tutorial v3 sebelum mencampur langkah instalasinya"
+    },
+    {
+      "id": "tw-production-build",
+      "courseId": "tailwind",
+      "title": "Ship generated CSS, not a browser compiler",
+      "titleId": "Kirim CSS hasil build, bukan compiler browser"
+    },
+    {
+      "id": "tw-navigation-project",
+      "courseId": "tailwind",
+      "title": "Build navigation that stays usable",
+      "titleId": "Buat navigasi yang tetap nyaman dipakai"
+    },
+    {
+      "id": "tw-form-project",
+      "courseId": "tailwind",
+      "title": "Build a clear form with honest feedback",
+      "titleId": "Buat form yang jelas dengan feedback yang jujur"
+    },
+    {
+      "id": "tw-task-project",
+      "courseId": "tailwind",
+      "title": "Style task states with native controls",
+      "titleId": "Atur tampilan tugas dengan kontrol native"
+    },
+    {
+      "id": "tw-dashboard-project",
+      "courseId": "tailwind",
+      "title": "Compose a dashboard around real content",
+      "titleId": "Susun dashboard berdasarkan isi yang nyata"
+    },
+    {
+      "id": "tw-capstone",
+      "courseId": "tailwind",
+      "title": "Bring the decisions together in a small page",
+      "titleId": "Satukan semua keputusan dalam halaman kecil"
     }
   ],
   "journey": [

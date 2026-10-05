@@ -91,7 +91,7 @@ test('learning stages have consistent ordering, valid review links, and executab
   for (const collection of ['courses', 'modules', 'lessons', 'concepts', 'challenges']) {
     assert.equal(new Set(catalog[collection].map(item => item.id)).size, catalog[collection].length, `${collection}: duplicate IDs`)
   }
-  assert.deepEqual(catalog.courses.map(course => course.id), journey.map(stage => stage.courseId))
+  assert.deepEqual(catalog.courses.filter(course => course.path !== 'companion').map(course => course.id), journey.map(stage => stage.courseId))
   for (const stage of journey) {
     const lessons = catalog.getCourseLessons(stage.courseId)
     assert.ok(lessons.length, `Empty stage: ${stage.courseId}`)

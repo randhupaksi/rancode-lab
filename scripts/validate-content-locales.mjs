@@ -45,7 +45,7 @@ export function validateContentLocales(catalog, localizers, copy) {
     for (const key of ['id', 'courseId', 'moduleId', 'minutes', 'language', 'lab', 'code', 'inspectSymbols', 'relatedConcepts']) {
       assert.deepEqual(localized[key], lesson[key], `Lesson contract changed: ${id}.${key}`)
     }
-    for (const key of ['title', 'description', 'practice']) text(lesson[key], localized[key], course, `${id}.${key}`)
+    for (const key of ['title', 'description', 'practice', 'promptExample']) text(lesson[key], localized[key], course, `${id}.${key}`)
     for (const key of ['explanation', 'recap']) {
       assert.equal(localized[key].length, lesson[key].length, `${id}.${key} count`)
       lesson[key].forEach((value, i) => text(value, localized[key][i], course, `${id}.${key}.${i}`))
@@ -81,7 +81,7 @@ export function validateContentLocales(catalog, localizers, copy) {
     const course = concept.courseId ?? lesson.courseId ?? 'typescript'
     assert.equal(localizeConcept(concept, lesson, 'en'), concept)
     for (const key of ['id', 'lessonId', 'courseId', 'language', 'code']) assert.equal(localized[key], concept[key], `Concept contract changed: ${concept.id}.${key}`)
-    for (const key of ['title', 'description', 'category']) text(concept[key], localized[key], course, `${concept.id}.${key}`)
+    for (const key of ['title', 'description', 'category', 'promptExample']) text(concept[key], localized[key], course, `${concept.id}.${key}`)
     visual(concept.visual, localized.visual, course, `${concept.id}.visual`)
   }
   assert.equal(JSON.stringify({ lessons, concepts }), snapshot, 'Localization mutated source content')

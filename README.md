@@ -26,7 +26,24 @@ Curriculum references include the [MDN curriculum](https://developer.mozilla.org
 
 `/start` offers a beginner entry and short readiness checks for learners with experience. Choosing a later starting point does not mark earlier material complete. `/learn` recommends a next lesson, checkpoint, or project. Lessons follow the module order consistently in the syllabus and pagination.
 
-Checkpoints require all three answers to be correct and provide explanations and links for review. They are small readiness samples, not certifications. Passing a checkpoint allows an experienced learner to go straight to that stage's project. A stage is complete when its checkpoint passes and its project review is complete. Project criteria are **self-assessed**, not an automated code grade.
+Checkpoints require every answer to be correct and provide explanations and links for review. They are small readiness samples, not certifications. Passing a checkpoint allows an experienced learner to go straight to that stage's project. A stage is complete when its checkpoint passes and its project review is complete. Project criteria are **self-assessed**, not an automated code grade.
+
+### Companion learning paths
+
+Companion paths are optional branches and keep their own lesson, checkpoint, and project progress. They do not add mandatory stages to the nine-stage frontend journey.
+
+| Path | Lessons | Modules | Suggested starting point | Project |
+| --- | ---: | ---: | --- | --- |
+| Tailwind CSS | 45 | 9 | HTML and CSS; framework foundations for React/Next.js examples | Responsive study space |
+| Vibe Coding | 24 | 6 | HTML, CSS, JavaScript, and browser basics for build exercises | Build and review Study Sprint |
+
+The full catalog contains **341 lessons**. Tailwind appears on the home page, learning hub, CSS course, and framework courses, with its own route at `/learn/tailwind`. Its concepts, challenges, and examples also appear in search, Explore, the code reference, and the playground.
+
+Tailwind follows the v4.3 workflow documented in the official [Vite installation guide](https://tailwindcss.com/docs/installation/using-vite), [CLI guide](https://tailwindcss.com/docs/installation/tailwind-cli), and [Next.js guide](https://tailwindcss.com/docs/installation/framework-guides/nextjs). The course covers installation, Preflight, utilities, Flexbox and Grid, responsive and container variants, interaction states, themes, dark mode, React/Next.js integration, source detection, migration, and production CSS.
+
+Tailwind HTML exercises compile locally in a lazily loaded worker using the installed Tailwind package. A sandboxed iframe displays the generated CSS with automatic updates, reset, and narrow/wide views. `<style type="text/tailwindcss">` blocks let learners experiment with theme and utility directives; move those directives into the input stylesheet when using a real local app. External CSS imports, plugins, npm commands, and framework servers are outside the preview. Compile errors and timeouts keep the editor available for correction.
+
+Vibe Coding includes a prompt workspace and a self-review build journal. Learners run their chosen agent and the resulting app in their own workspace, then record actual prompts, design decisions, observed behavior, and known limits. The website does not invoke an AI service or verify an external app automatically.
 
 Every stage stays open. Lesson progress, checkpoint results, starting point, project drafts, and review notes stay in this browser using local storage. Existing v1 lesson progress is retained through additive schema defaults. There is no account or cloud sync. Projects offer a text download; editing project code clears its review checklist so it can be checked again. If browser storage is unavailable, work lasts only for the session and can still be downloaded.
 
@@ -64,7 +81,7 @@ Use `npm run build` to type-check and create a production build, `npm run lint` 
 - `src/content/foundations/` owns introductory lessons. `src/content/journey.ts` defines stage outcomes, project briefs, and checkpoint questions. `src/features/journey/` owns onboarding, recommendations, and milestone UI.
 - `src/content/expansion/` owns the additional themed modules, with separate course files and a shared data adapter. The public catalog numbers modules within each course and includes expanded material in lessons, challenges, reference, and search.
 - Each lesson follows Explain → Visualize → Play → Challenge → Recap.
-- JavaScript console practice uses the existing isolated runner. HTML/CSS/DOM lessons use an opaque-origin sandboxed preview with network, external resources, and form submissions blocked. Preview updates are explicit and support narrow and wide frames.
+- JavaScript console practice uses the existing isolated runner. HTML/CSS/DOM lessons use an opaque-origin sandboxed preview with network, external resources, and outbound form submissions blocked. Web previews update automatically after a short typing pause and support reset plus narrow and wide frames.
 - TypeScript lessons retain the real type inspector. React lessons use plain JavaScript models and separate JSX reading examples; TypeScript is not a React prerequisite. Framework projects are drafted here and run in the learner's own local React or Next.js workspace. The browser runner does not install packages or run framework imports.
 - Examples requiring network requests, persistent same-origin storage, external media, or Next.js server APIs use reading mode with local practice instructions. They do not claim to execute those capabilities inside the isolated preview.
 - `/projects` lists saved work. `/projects/:courseId` provides a brief, workspace, notes, downloadable artifact, and self-review criteria. The Next.js project is the capstone.
