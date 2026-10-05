@@ -5,6 +5,8 @@ import { lessonTitleId } from './lesson-title-locales'
 import { translateLessonCopy } from './locales/id'
 
 const courseCopy: Record<string, Partial<Pick<Course, 'title' | 'eyebrow' | 'description' | 'prerequisite'>>> = {
+  tailwind: { eyebrow: 'Ubah fondasi CSS-mu menjadi antarmuka yang jelas', description: 'Pasang Tailwind, pahami utility-nya, dan bangun halaman responsif dengan sistem visual yang bisa kamu jelaskan.', prerequisite: 'Dasar HTML dan CSS; dasar React dan Next.js untuk contoh framework' },
+  'ai-coding': { eyebrow: 'Bangun dengan terarah bersama AI coding agent', description: 'Ubah ide menjadi aplikasi kecil lewat prompt yang jelas, desain yang punya arah, dan hasil yang bisa kamu tinjau.', prerequisite: 'Dasar HTML, CSS, JavaScript, dan browser untuk latihan membangun aplikasi' },
   logic: { title: 'Logika & Pemecahan Masalah', eyebrow: 'Mulai dari cara berpikir', description: 'Uraikan masalah sehari-hari menjadi langkah yang jelas, lalu tentukan keputusan dan urutannya.', prerequisite: 'Belum perlu pengalaman coding' },
   web: { title: 'Web & Alat Developer', eyebrow: 'Kenali lingkungan belajarmu', description: 'Kenali browser, file proyek, alat developer, dan cara mencatat perubahan dengan version control.', prerequisite: 'Dasar pemecahan masalah' },
   html: { eyebrow: 'Susun konten dengan makna', description: 'Buat halaman yang rapi dan mudah digunakan dengan heading, tautan, daftar, dan formulir yang jelas.', prerequisite: 'Dasar web dan file' },
@@ -71,6 +73,7 @@ export function localizeCourse(course: Course, locale: Locale): Course {
 }
 
 export function localizeModule(module: CourseModule, locale: Locale): CourseModule {
+  if (locale === 'id' && module.courseId && ['ai-coding', 'tailwind'].includes(module.courseId)) return { ...module, title: translateLessonCopy(module.title, module.courseId), description: translateLessonCopy(module.description, module.courseId) }
   return locale === 'id' && moduleCopy[module.id] ? { ...module, ...moduleCopy[module.id] } : module
 }
 
@@ -92,6 +95,7 @@ export function localizeLesson(lesson: Lesson, locale: Locale): Lesson {
     description: tr(lesson.description),
     explanation: lesson.explanation.map(tr),
     practice: lesson.practice ? tr(lesson.practice) : undefined,
+    promptExample: lesson.promptExample ? tr(lesson.promptExample) : undefined,
     recap: lesson.recap.map(tr),
     visual: {
       ...lesson.visual,
@@ -131,6 +135,7 @@ export function localizeConcept(concept: Concept, lesson: Lesson, locale: Locale
     title: concept.title === lesson.title ? localized.title : tr(concept.title),
     category: tr(concept.category),
     description: concept.description === lesson.description ? localized.description : tr(concept.description),
+    promptExample: concept.promptExample ? tr(concept.promptExample) : undefined,
     visual: concept.visual ? {
       ...concept.visual,
       title: concept.visual.title === lesson.visual.title ? localized.visual.title : tr(concept.visual.title),

@@ -1,5 +1,8 @@
 import type { Locale } from '../features/locale/LocaleProvider'
 import type { JourneyStage } from './journey'
+import { aiCodingStageCopyId } from './ai-coding/stage'
+import { tailwindStageCopyId } from './tailwind/stage'
+import { translateLessonCopy } from './locales/id'
 
 type StageCopy = Pick<JourneyStage, 'outcome' | 'bridge'> & {
   project: Pick<JourneyStage['project'], 'title' | 'brief' | 'starter' | 'steps' | 'criteria'>
@@ -166,6 +169,11 @@ const checkpointCopy: Record<string, { prompt: string; options: Record<string, s
 
 export function localizeJourneyStage(stage: JourneyStage, locale: Locale): JourneyStage {
   if (locale !== 'id') return stage
+  const companionCopy = stage.courseId === 'ai-coding' ? aiCodingStageCopyId : stage.courseId === 'tailwind' ? tailwindStageCopyId : undefined
+  if (companionCopy) {
+    const tr = (value: string) => translateLessonCopy(value, stage.courseId)
+    return { ...stage, ...companionCopy, project: { ...stage.project, ...companionCopy.project }, checkpoint: stage.checkpoint.map(question => ({ ...question, prompt: tr(question.prompt), explanation: tr(question.explanation), options: question.options.map(tr), answer: tr(question.answer) })) }
+  }
   const copy = stageCopy[stage.courseId]
   return {
     ...stage,
