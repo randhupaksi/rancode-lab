@@ -1,12 +1,9 @@
 @import 'tailwindcss';
+/* Curriculum code runs in isolated previews; it is not part of the site's utility classes. */
+@source not './content';
+@source not './generated';
 @import './styles/foundation.css';
-@import './styles/learning.css';
-@import './styles/course-details.css';
-@import './styles/course-hub.css';
-@import './styles/select.css';
-@import './styles/select-layout.css';
 @import './styles/home.css';
-@import './styles/journey.css';
 
 :root {
   font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
