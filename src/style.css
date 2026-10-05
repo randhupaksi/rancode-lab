@@ -4,6 +4,7 @@
 @source not './generated';
 @import './styles/foundation.css';
 @import './styles/button-feedback.css';
+@import './styles/text-link.css';
 @import './styles/home.css';
 
 :root {

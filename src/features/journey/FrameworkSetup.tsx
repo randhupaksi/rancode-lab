@@ -1,4 +1,5 @@
 import CodeBlock from '../../components/ui/CodeBlock'
+import TextLink from '../../components/ui/TextLink'
 import { useLearningCopy } from './useLearningCopy'
 
 export default function FrameworkSetup({ framework }: { framework: 'react' | 'nextjs' }) {
@@ -17,6 +18,6 @@ export default function FrameworkSetup({ framework }: { framework: 'react' | 'ne
       <li>{react ? c('Move your component into src/App.jsx, save it, and check the page in your browser.', 'Pindahkan komponenmu ke src/App.jsx, simpan, lalu lihat hasilnya di browser.') : c('Start with app/page.tsx (or src/app/page.tsx if you chose a src folder). Put interactive components in separate files with a client boundary.', 'Mulai dari app/page.tsx, atau src/app/page.tsx jika memilih folder src. Letakkan komponen interaktif di file terpisah dengan batas client.')}</li>
       <li>{c('When you finish the project, run npm run build. Check the page as well as the build output.', 'Setelah proyek selesai, jalankan npm run build. Periksa tampilan halaman dan hasil build-nya.')}</li>
     </ol>
-    <a className="text-link" href={react ? 'https://vite.dev/guide/' : 'https://nextjs.org/docs/app/getting-started/installation'} target="_blank" rel="noreferrer">{c('Official setup guide', 'Panduan setup resmi')}</a>
+    <TextLink href={react ? 'https://vite.dev/guide/' : 'https://nextjs.org/docs/app/getting-started/installation'} target="_blank" rel="noreferrer">{c('Official setup guide', 'Panduan setup resmi')}</TextLink>
   </details>
 }

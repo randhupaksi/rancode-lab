@@ -1,5 +1,5 @@
 import { useId, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import TextLink from '../../components/ui/TextLink'
 import { getLesson, lessonPath } from '../../content/runtime/catalog'
 import type { CheckpointQuestion } from '../../content/runtime/catalog'
 import { useLearningCopy } from './useLearningCopy'
@@ -34,7 +34,7 @@ export default function CheckpointQuiz({ questions, onComplete, onRetry }: { que
         <div className="checkpoint-options">{options.map(option => { const optionIndex = question.options.indexOf(option); return <label key={option} className={"checkpoint-option " + (answers[question.id] === optionIndex ? "selected" : "")}>
           <input type="radio" name={id + "-" + question.id} value={optionIndex} checked={answers[question.id] === optionIndex} disabled={submitted} onChange={() => setAnswers(current => ({ ...current, [question.id]: optionIndex }))}/><span>{option}</span>
         </label> })}</div>
-        {submitted && <div className={`feedback ${correct ? 'success' : 'error'}`}><strong>{correct ? c('Correct.', 'Benar.') : c('Review this idea.', 'Tinjau kembali ide ini.')}</strong><p>{question.explanation}</p>{!correct && lesson && <Link className="text-link" to={lessonPath(lesson)}>{c('Review lesson', 'Tinjau pelajaran')}: {lesson.title}</Link>}</div>}
+        {submitted && <div className={`feedback ${correct ? 'success' : 'error'}`}><strong>{correct ? c('Correct.', 'Benar.') : c('Review this idea.', 'Tinjau kembali ide ini.')}</strong><p>{question.explanation}</p>{!correct && lesson && <TextLink to={lessonPath(lesson)}>{c('Review lesson', 'Tinjau pelajaran')}: {lesson.title}</TextLink>}</div>}
       </fieldset>
     })}
     {submitted ? <div className="checkpoint-result" ref={summary} tabIndex={-1} role="status"><h2>{score}/{questions.length} · {score === questions.length ? c('Ready for the next step', 'Siap ke langkah berikutnya') : c('A few ideas to revisit', 'Ada beberapa ide untuk ditinjau')}</h2><p>{c('Use the explanations above to understand the result.', 'Baca penjelasan di atas untuk memahami hasilnya.')}</p><button type="button" className="button secondary" onClick={() => { setSubmitted(false); setAnswers({}); onRetry?.() }}>{c('Try again', 'Coba lagi')}</button></div> : <button className="button primary" disabled={questions.some(question => answers[question.id] === undefined)}>{c('Check my understanding', 'Cek pemahamanku')}</button>}

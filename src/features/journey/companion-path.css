@@ -9,5 +9,5 @@
 .companion-setup-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;list-style:none;padding:0;margin:24px 0}
 .companion-setup-options h3{font-size:15px;margin-bottom:9px;font-weight:500}
 .companion-setup-options p{font-size:13px}
-.companion-setup-options .text-link{margin-top:10px;font-size:13px}
+.companion-setup-options .text-link{margin-top:10px}
 @media(max-width:760px){.companion-entry{align-items:start;flex-direction:column;gap:18px}.companion-entry-actions{width:100%}.companion-setup-options{grid-template-columns:1fr;gap:20px}}

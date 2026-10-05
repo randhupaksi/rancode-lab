@@ -1,5 +1,6 @@
 import { ArrowRight, Check, CheckCircle2, Clock3, Play } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import TextLink from '../components/ui/TextLink'
 import { getCourse, getCourseLessons, getCourseModules, getModuleLessons, getNextCourse, lessonPath } from '../content/runtime/catalog'
 import { useProgress } from '../features/progress/ProgressProvider'
 import { usePageTitle } from '../hooks/usePageTitle'
@@ -37,7 +38,7 @@ export default function CoursePage() {
   const totalMinutes = courseLessons.reduce((total, lesson) => total + lesson.minutes, 0)
   const stage = getStage(course.id)
   return <div className={`course-page page-width course-page-${course.id}`}>
-    <div className="course-journey-context"><Link className="text-link" to="/learn">{c('My learning path', 'Jalur belajarku')}</Link><span>{course.path === 'companion' ? course.id === 'tailwind' ? c('Companion path · after CSS foundations', 'Jalur pendamping · setelah fondasi CSS') : c('Companion path · after browser foundations', 'Jalur pendamping · setelah fondasi browser') : `${c('Stage', 'Tahap')} ${journey.findIndex(item => item.courseId === course.id) + 1} / ${journey.length}`}</span><p>{stage ? localizeJourneyStage(stage, locale).outcome : null}</p></div>
+    <div className="course-journey-context"><TextLink tone="muted" to="/learn">{c('My learning path', 'Jalur belajarku')}</TextLink><span>{course.path === 'companion' ? course.id === 'tailwind' ? c('Companion path · after CSS foundations', 'Jalur pendamping · setelah fondasi CSS') : c('Companion path · after browser foundations', 'Jalur pendamping · setelah fondasi browser') : `${c('Stage', 'Tahap')} ${journey.findIndex(item => item.courseId === course.id) + 1} / ${journey.length}`}</span><p>{stage ? localizeJourneyStage(stage, locale).outcome : null}</p></div>
     <header className="course-header"><div><p className="eyebrow">{course.eyebrow}</p><h1>{course.title}<br/><span className="serif-emphasis">{t('course.headingEmphasis')}</span></h1><p className="section-description">{course.description}</p><div className="course-facts"><span>{courseModules.length} {t('common.modules')}</span><span>{courseLessons.length} {t('common.lessons')}</span><span><Clock3 size={14} aria-hidden="true"/>{t('course.aboutHours', { hours: Math.max(1, Math.round(totalMinutes / 60)) })}</span></div><p className="quiet-note">{t('course.startingPoint', { prerequisite: course.prerequisite })}</p></div><div className="course-progress"><span className="eyebrow">{t('course.progress', { course: course.title })}</span><p className="course-progress-count"><strong>{completed}</strong><span> / {courseLessons.length} {t('common.lessons')}</span></p><progress value={completed} max={courseLessons.length} aria-label={`${course.title} ${t('common.complete')}`}/><p>{reviewed ? c('Your knowledge check and project are reviewed. Revisit a lesson or keep going.', 'Cek pemahaman dan proyekmu sudah ditinjau. Ulangi pelajaran atau lanjutkan belajar.') : passed ? c('You passed the knowledge check. Put what you learned into your stage project.', 'Kamu lulus cek pemahaman. Terapkan yang sudah dipelajari di proyek tahap ini.') : completed === courseLessons.length ? t('course.finished') : next ? completed ? t('course.upNext', { title: next.title }) : t('course.beginWith', { title: next.title }) : t('course.chooseLesson')}</p><Link className="button primary" to={destination}>{actionLabel}<ArrowRight size={16}/></Link><span className="quiet-note">{storageAvailable ? t('course.saved') : t('course.storageUnavailable')}</span></div></header>
     {course.id === 'ai-coding' && <AiCodingOrientation/>}
     {course.id === 'tailwind' && <TailwindOrientation/>}
@@ -45,6 +46,6 @@ export default function CoursePage() {
     <StageMilestone courseId={course.id}/>
     {['css', 'react', 'nextjs'].includes(course.id) && <TailwindEntry/>}
     {['browser', 'react', 'nextjs'].includes(course.id) && <AiCodingEntry/>}
-    <div className="course-outro"><p>{t('course.switchContext')}</p><Link className="text-link" to="/learn">{t('course.browsePaths')} <ArrowRight size={15}/></Link></div>
+    <div className="course-outro"><p>{t('course.switchContext')}</p><TextLink to="/learn">{t('course.browsePaths')} <ArrowRight size={15}/></TextLink></div>
   </div>
 }

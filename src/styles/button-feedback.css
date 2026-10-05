@@ -29,3 +29,9 @@ button.canvas-node:not(:disabled) {
 button.canvas-node:not(:disabled):active {
   filter: brightness(.88);
 }
+
+.button.primary:hover {
+  background: #356b42;
+  border-color: #82b98a;
+  color: var(--foreground);
+}

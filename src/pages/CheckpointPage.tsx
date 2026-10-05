@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import TextLink from '../components/ui/TextLink'
 import { getCourse } from '../content/runtime/catalog'
 import { getStage } from '../content/runtime/catalog'
 import { useLocale } from '../features/locale/LocaleProvider'
@@ -23,10 +24,10 @@ export default function CheckpointPage() {
   if (!course || !stage) return <Navigate to="/learn" replace/>
   const passed = checkpoints[course.id]?.passed
   return <div className="page-width journey-page checkpoint-page">
-    <Link className="text-link" to={`/learn/${course.id}`}><ArrowLeft size={14}/>{course.title}</Link>
+    <TextLink to={`/learn/${course.id}`}><ArrowLeft size={14}/>{course.title}</TextLink>
     <header className="journey-heading"><p className="eyebrow">{course.title} / {c('Knowledge check', 'Cek pemahaman')}</p><h1>{c('Connect what you learned', 'Gunakan yang sudah kamu pelajari')}</h1><p className="page-lead">{stage.outcome}</p></header>
     {passed && <div className="checkpoint-passed"><p>{c('You passed this check. Review it again any time, or put the ideas to work in your project.', 'Kamu sudah lolos cek ini. Kamu bisa mengulangnya kapan saja atau langsung memakai idenya di proyek.')}</p><Link className="button primary" to={`/projects/${course.id}`}>{c('Open stage project', 'Buka proyek tahap ini')}<ArrowRight size={16}/></Link></div>}
     <CheckpointQuiz key={course.id} questions={stage.checkpoint} onComplete={(score, total) => saveCheckpoint(course.id, score, total)}/>
-    <div className="stage-bridge"><p>{stage.bridge}</p><Link className="text-link" to={`/projects/${course.id}`}>{c('See the project brief', 'Lihat panduan proyek')}<ArrowRight size={14}/></Link></div>
+    <div className="stage-bridge"><p>{stage.bridge}</p><TextLink to={`/projects/${course.id}`}>{c('See the project brief', 'Lihat panduan proyek')}<ArrowRight size={14}/></TextLink></div>
   </div>
 }

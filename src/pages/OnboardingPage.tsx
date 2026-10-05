@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import TextLink from '../components/ui/TextLink'
 import { getCourse } from '../content/runtime/catalog'
 import { experienceOptions, getStage } from '../content/runtime/catalog'
 import { useProgress } from '../features/progress/ProgressProvider'
@@ -26,7 +27,7 @@ export default function OnboardingPage() {
   const localizedRecommendedCourse = recommendedCourse ? localizeCourse(recommendedCourse, locale) : undefined
   function begin(courseId: string) { setLearningProfile(choice?.id ?? 'new', courseId); navigate('/learn') }
   return <div className="page-width journey-page onboarding-page">
-    <Link className="text-link" to="/learn"><ArrowLeft size={14}/>{c('Learning path', 'Jalur belajar')}</Link>
+    <TextLink to="/learn"><ArrowLeft size={14}/>{c('Learning path', 'Jalur belajar')}</TextLink>
     <header className="journey-heading"><p className="eyebrow">{c('Your starting point', 'Titik awalmu')}</p><h1>{c('Start where you are', 'Mulai dari yang kamu pahami')}</h1><p className="page-lead">{c('Choose the option closest to your experience. A short readiness check is available for later entry points; new learners can start with the foundations. No account or timer, and every lesson stays open.', 'Pilih opsi yang paling sesuai dengan pengalamanmu. Jalur lanjutan menyediakan cek kesiapan singkat; pemula bisa langsung mulai dari fondasi. Tanpa akun atau batas waktu, dan semua pelajaran tetap terbuka.')}</p></header>
     {!choice ? <div className="experience-options">{experienceOptions.map(option => <button className="experience-option" key={option.id} onClick={() => { setChoice(option); setResult(null) }}><span><strong>{c(option.label, option.labelId)}</strong><small>{c(option.detail, option.detailId)}</small></span><ArrowRight size={18}/></button>)}</div> : <>
       <div className="onboarding-selection"><strong>{c(choice.label, choice.labelId)}</strong><button className="text-link" onClick={() => { setChoice(null); setResult(null) }}>{c('Change starting point', 'Ganti titik awal')}</button></div>

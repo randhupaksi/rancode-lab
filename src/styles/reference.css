@@ -50,8 +50,7 @@
 .cheatsheet-entry h3 a:hover { color: var(--primary); }
 .cheatsheet-entry > p { color: var(--muted); font-size: 11px; line-height: 1.8; margin: 11px 0 17px; }
 .cheatsheet-entry pre { font-size: 11px; }
-.reference-text-link { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 11px; color: var(--primary); margin-top: 17px; }
-.reference-text-link:hover { text-decoration: underline; }
+.cheatsheet-entry .cheatsheet-link { margin-top: 17px; }
 .cheatsheet-note { color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); padding-top: 22px; }
 .challenge-progress-summary { flex-shrink: 0; min-width: 180px; padding-bottom: 4px; }
 .challenge-progress-summary > span { color: var(--muted); font: 15px var(--font-mono); }

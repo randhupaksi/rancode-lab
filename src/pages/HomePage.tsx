@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight, BookOpen, Layers3 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import TextLink from '../components/ui/TextLink'
 import HomeDemo from '../features/home/BeginnerDemo'
 import AiCodingEntry from '../features/ai-coding/AiCodingEntry'
 import TailwindEntry from '../features/tailwind/TailwindEntry'
@@ -44,8 +45,8 @@ export default function HomePage() {
     <HomeDemo/>
     {resume && <Link className="resume-strip" to={resume.url}><div><span className="eyebrow">{t('home.resume')}</span><strong>{resume.title}</strong></div><span>{t('home.lessonsComplete', { completed, total: lessons.length })} <ArrowRight size={18}/></span></Link>}
     <section className="home-course">
-      <div className="course-intro"><span className="eyebrow">{t('home.stack')}</span><h2>{t('home.fromTypes')}<br/>{t('home.toApps')}</h2><p>{t('home.stackLead')}</p><Link className="text-link" to="/learn">{t('home.everyPath')} <ArrowRight size={16}/></Link><div className="course-facts"><span><BookOpen size={15}/>{lessons.length} {t('home.focusedLessons')}</span><span><Layers3 size={15}/>{courseCount} {t('home.connectedPaths')}</span></div></div>
-      <div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17}/></Link>)}<Link className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14}/></Link></div>
+      <div className="course-intro"><span className="eyebrow">{t('home.stack')}</span><h2>{t('home.fromTypes')}<br/>{t('home.toApps')}</h2><p>{t('home.stackLead')}</p><TextLink to="/learn">{t('home.everyPath')} <ArrowRight size={16}/></TextLink><div className="course-facts"><span><BookOpen size={15}/>{lessons.length} {t('home.focusedLessons')}</span><span><Layers3 size={15}/>{courseCount} {t('home.connectedPaths')}</span></div></div>
+      <div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17}/></Link>)}<TextLink className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14}/></TextLink></div>
     </section>
     <TailwindEntry/>
     <AiCodingEntry/>
