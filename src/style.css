@@ -3,6 +3,7 @@
 @source not './content';
 @source not './generated';
 @import './styles/foundation.css';
+@import './styles/loading.css';
 @import './styles/button-feedback.css';
 @import './styles/text-link.css';
 @import './styles/home.css';

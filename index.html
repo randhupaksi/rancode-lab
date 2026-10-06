@@ -8,8 +8,42 @@
     <link rel="preload" href="/node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Rancode Lab — Learn by seeing how code works</title>
+    <style>
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        color: #e9eee8;
+        background: #0c100e;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 180ms ease, visibility 180ms ease;
+      }
+      #initial-loader.is-ready { opacity: 0; visibility: hidden; pointer-events: none; }
+      .initial-loader-content { display: grid; justify-items: center; gap: 18px; text-align: center; }
+      .initial-loader-brand { display: flex; align-items: center; gap: 10px; font: 600 20px/1.2 system-ui, sans-serif; letter-spacing: -.04em; }
+      .initial-loader-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 5px; color: #132319; background: #afe0ad; font: 700 18px/1 ui-monospace, monospace; }
+      .initial-loader-caption { margin: 0; color: #a0ada3; font: 12px/1.6 system-ui, sans-serif; }
+      .initial-loader-track { width: min(210px, 58vw); height: 2px; overflow: hidden; background: #29352c; }
+      .initial-loader-bar { display: block; width: 38%; height: 100%; background: #afe0ad; animation: initial-loader-progress 1.1s ease-in-out infinite; }
+      @keyframes initial-loader-progress { from { transform: translateX(-110%); } to { transform: translateX(290%); } }
+      @media (prefers-reduced-motion: reduce) {
+        #initial-loader { transition-duration: 1ms; }
+        .initial-loader-bar { animation: none; transform: translateX(82%); }
+      }
+    </style>
   </head>
   <body>
+    <div id="initial-loader" role="status" aria-live="polite" aria-label="Opening Rancode Lab">
+      <div class="initial-loader-content">
+        <div class="initial-loader-brand"><span class="initial-loader-mark" aria-hidden="true">r_</span><span>Rancode Lab</span></div>
+        <p class="initial-loader-caption">Opening your learning space…</p>
+        <div class="initial-loader-track" aria-hidden="true"><span class="initial-loader-bar"></span></div>
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

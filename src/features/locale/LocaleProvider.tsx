@@ -12,7 +12,7 @@ type LocaleContextValue = {
 
 const messages: Record<Locale, Record<string, string>> = {
   en: {
-    'nav.learn': 'Learn', 'nav.explore': 'Explore', 'nav.playground': 'Playground', 'nav.challenges': 'Challenges', 'nav.cheatSheet': 'Cheat sheet',
+    'nav.home': 'Home', 'nav.learn': 'Learn', 'nav.explore': 'Explore', 'nav.playground': 'Playground', 'nav.challenges': 'Challenges', 'nav.cheatSheet': 'Cheat sheet',
     'language.switchTo': 'Switch language to Indonesian', 'language.current': 'English',
     'common.modules': 'modules', 'common.lessons': 'lessons', 'common.complete': 'complete', 'common.min': 'min', 'common.path': 'path',
     'layout.skip': 'Skip to content', 'layout.search': 'Search', 'layout.searchLabel': 'Search (Control or Command K)', 'layout.progressSettings': 'Learning progress settings', 'layout.openMenu': 'Open navigation', 'layout.closeMenu': 'Close navigation',
@@ -31,7 +31,7 @@ const messages: Record<Locale, Record<string, string>> = {
     'home.eyebrow': 'Learn programming by trying things out', 'home.heading': 'Understand how it works', 'home.headingEmphasis': 'Then build something', 'home.lead': 'Understand why the code works. Follow a type, component, or route until the idea makes sense.', 'home.explorePaths': 'Explore learning paths', 'home.free': 'Free to explore. No account needed.', 'home.change': 'A little change. A new understanding.', 'home.tryBelow': 'Try it below', 'home.resume': 'Pick up where you left off', 'home.lessonsComplete': '{completed}/{total} lessons complete', 'home.stack': 'From first steps to full apps', 'home.fromTypes': 'From types,', 'home.toApps': 'to apps', 'home.stackLead': 'Start with TypeScript, turn your ideas into interfaces with React, then bring everything together with Next.js.', 'home.everyPath': 'Explore every learning path', 'home.focusedLessons': 'focused lessons', 'home.connectedPaths': 'connected paths', 'home.browseConcepts': 'Browse concepts across the stack', 'home.rhythm': 'A rhythm for understanding', 'home.seeIdea': 'See the idea', 'home.seeIdeaBody': 'A short explanation and a visual mental model.', 'home.changeTitle': 'Make a change', 'home.changeBody': 'Experiment with real code and follow what happens.', 'home.ownTitle': 'Make it yours', 'home.ownBody': 'Check your understanding before moving forward.',
   },
   id: {
-    'nav.learn': 'Belajar', 'nav.explore': 'Jelajahi', 'nav.playground': 'Lab Kode', 'nav.challenges': 'Tantangan', 'nav.cheatSheet': 'Ringkasan Kode',
+    'nav.home': 'Beranda', 'nav.learn': 'Belajar', 'nav.explore': 'Jelajahi', 'nav.playground': 'Lab Kode', 'nav.challenges': 'Tantangan', 'nav.cheatSheet': 'Ringkasan Kode',
     'language.switchTo': 'Ganti bahasa ke English', 'language.current': 'Bahasa Indonesia',
     'common.modules': 'modul', 'common.lessons': 'pelajaran', 'common.complete': 'selesai', 'common.min': 'mnt', 'common.path': 'jalur',
     'layout.skip': 'Lewati ke konten', 'layout.search': 'Cari', 'layout.searchLabel': 'Cari (Control atau Command K)', 'layout.progressSettings': 'Pengaturan progres belajar', 'layout.openMenu': 'Buka navigasi', 'layout.closeMenu': 'Tutup navigasi',
