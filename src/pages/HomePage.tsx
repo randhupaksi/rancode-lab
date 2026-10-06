@@ -2,8 +2,7 @@ import { ArrowDown, ArrowRight, BookOpen, Layers3 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import TextLink from '../components/ui/TextLink'
 import HomeDemo from '../features/home/BeginnerDemo'
-import AiCodingEntry from '../features/ai-coding/AiCodingEntry'
-import TailwindEntry from '../features/tailwind/TailwindEntry'
+import HomeLearningTracks from '../features/home/HomeLearningTracks'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { recommendNext } from '../features/journey/recommendation'
 import { courseCount, lessons, getLesson, lessonPath, journey } from '../content/navigation'
@@ -31,9 +30,9 @@ export default function HomePage() {
   const completed = lessons.filter(lesson => completedLessons.includes(lesson.id)).length
   return <div className="home-page page-width">
     <section className="home-intro" aria-labelledby="home-heading">
-      <p className="eyebrow"><span className="small-rule" aria-hidden="true"/> {t('home.eyebrow')}</p>
+      <p className="eyebrow"><span className="small-rule" aria-hidden="true"/>{t('home.eyebrow')}<span className="small-rule" aria-hidden="true"/></p>
       <h1 id="home-heading">{t('home.heading')}<br/>{t('home.headingEmphasis').split(' ')[0]} <span className="serif-emphasis">{t('home.headingEmphasis').split(' ').slice(1).join(' ')}</span></h1>
-      <p className="home-hero-lead">{c('At Rancode Lab, you learn programming by trying things out. Start with logic and build your first web page, then keep going toward React and Next.js.', 'Di Rancode Lab, kamu belajar coding sambil langsung mencoba. Mulai dari logika, buat halaman web pertamamu, lalu lanjut ke React dan Next.js.')}</p>
+      <p className="home-hero-lead">{c('At Rancode Lab, you learn programming by trying ideas as you go. Start with logic and web fundamentals, then turn what you learn into projects of your own.', 'Di Rancode Lab, kamu belajar coding sambil langsung mencoba. Mulai dari logika dan dasar web, lalu kembangkan idemu lewat proyek yang kamu bangun sendiri.')}</p>
       <div className="home-intro-actions">
         <Link className="button primary" to={learningProfile ? next.url : '/start'}>{learningProfile ? t('course.continueLearning') : c('Choose where to start', 'Pilih titik awal')}<ArrowRight size={16}/></Link>
         <Link className="button secondary" to="/learn">{c('Explore the learning path', 'Lihat jalur belajar')}<Layers3 size={15}/></Link>
@@ -46,10 +45,9 @@ export default function HomePage() {
     {resume && <Link className="resume-strip" to={resume.url}><div><span className="eyebrow">{t('home.resume')}</span><strong>{resume.title}</strong></div><span>{t('home.lessonsComplete', { completed, total: lessons.length })} <ArrowRight size={18}/></span></Link>}
     <section className="home-course">
       <div className="course-intro"><span className="eyebrow">{t('home.stack')}</span><h2>{t('home.fromTypes')}<br/>{t('home.toApps')}</h2><p>{t('home.stackLead')}</p><TextLink to="/learn">{t('home.everyPath')} <ArrowRight size={16}/></TextLink><div className="course-facts"><span><BookOpen size={15}/>{lessons.length} {t('home.focusedLessons')}</span><span><Layers3 size={15}/>{courseCount} {t('home.connectedPaths')}</span></div></div>
-      <div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17}/></Link>)}<TextLink className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14}/></TextLink></div>
+      <div className="course-roadmap"><div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17} aria-hidden="true"/></Link>)}</div><TextLink className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14} aria-hidden="true"/></TextLink></div>
     </section>
-    <TailwindEntry/>
-    <AiCodingEntry/>
+    <HomeLearningTracks/>
     <section className="learning-rhythm"><span className="eyebrow">{t('home.rhythm')}</span><div>{[['home.seeIdea', 'home.seeIdeaBody'], ['home.changeTitle', 'home.changeBody'], ['home.ownTitle', 'home.ownBody']].map(([title, body], i) => <article key={title}><span className="rhythm-number">0{i + 1}</span><h3>{t(title)}</h3><p>{t(body)}</p></article>)}</div></section>
   </div>
 }

@@ -1,0 +1,119 @@
+.home-learning-tracks {
+  border-block: 1px solid var(--border);
+  padding: 36px 0 0;
+  margin-bottom: 56px;
+}
+
+.home-learning-tracks-heading {
+  max-width: 760px;
+  margin-bottom: 26px;
+}
+
+.home-learning-tracks-heading h2 {
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -.04em;
+  margin: 12px 0;
+}
+
+.home-learning-tracks-heading p {
+  max-width: 690px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.home-learning-tracks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--border);
+}
+
+.home-learning-tracks-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.home-learning-track {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 17px;
+  padding: 19px 0;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.home-learning-track > .number-label {
+  font-size: 10px;
+}
+
+.home-learning-track-copy {
+  display: grid;
+  gap: 5px;
+}
+
+.home-learning-track-label {
+  font: 9px var(--font-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.home-learning-track-copy strong {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  transition: color .15s;
+}
+
+.home-learning-track-description {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.home-learning-track > svg {
+  color: var(--subtle);
+  transition: color .15s, transform .15s;
+}
+
+.home-learning-track:hover .home-learning-track-copy strong,
+.home-learning-track:focus-visible .home-learning-track-copy strong {
+  color: var(--primary);
+}
+
+.home-learning-track:hover > svg,
+.home-learning-track:focus-visible > svg {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+@media (max-width: 760px) {
+  .home-learning-tracks {
+    padding-top: 28px;
+    margin-bottom: 40px;
+  }
+
+  .home-learning-tracks-heading {
+    margin-bottom: 20px;
+  }
+
+  .home-learning-tracks-heading h2 {
+    font-size: 25px;
+  }
+
+  .home-learning-track {
+    grid-template-columns: 32px minmax(0, 1fr) 16px;
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .home-learning-track-copy strong {
+    font-size: 14px;
+  }
+
+  .home-learning-track-description {
+    font-size: 10px;
+  }
+}

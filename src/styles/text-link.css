@@ -26,12 +26,13 @@ a.text-link[data-tone='muted']:focus-visible {
   color: var(--primary);
 }
 
-.course-preview a.text-link.course-preview-rest {
+.course-roadmap > a.text-link.course-preview-rest {
+  margin-top: 22px;
   font-size: 12px;
   line-height: 1.5;
 }
 
-.course-preview a.text-link.course-preview-rest:hover,
-.course-preview a.text-link.course-preview-rest:focus-visible {
+.course-roadmap > a.text-link.course-preview-rest:hover,
+.course-roadmap > a.text-link.course-preview-rest:focus-visible {
   color: var(--foreground);
 }
