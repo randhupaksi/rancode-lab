@@ -1,7 +1,9 @@
 import { lazy, Suspense, useState } from 'react'
-import { ArrowLeft, ArrowRight, CheckCircle2, Download } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Download } from 'lucide-react'
 import { Navigate, useParams } from 'react-router-dom'
 import TextLink from '../components/ui/TextLink'
+import HistoryBackLink from '../components/ui/HistoryBackLink'
+import { SectionLoadingSkeleton } from '../components/ui/LoadingSkeleton'
 import { getCourse, getNextCourse } from '../content/runtime/catalog'
 import { getStage } from '../content/runtime/catalog'
 import type { JourneyStage } from '../content/runtime/catalog'
@@ -42,13 +44,13 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `rancode-lab-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return <div className="page-width journey-page project-page">
-    <TextLink to="/learn"><ArrowLeft size={14}/>{c('My learning path', 'Jalur belajarku')}</TextLink>
+    <HistoryBackLink fallbackTo="/learn"/>
     <header className="journey-heading"><p className="eyebrow">{course.title} / {course.id === 'ai-coding' ? c('Build journal', 'Jurnal pembangunan') : course.id === 'nextjs' ? c('Final project', 'Proyek akhir') : c('Stage project', 'Proyek tahap ini')}</p><h1>{project.title}</h1><p className="page-lead">{project.brief}</p></header>
     <div className="project-layout"><div className="project-main"><section className="project-brief"><h2>{c('Build it in steps', 'Bangun secara bertahap')}</h2><ol>{project.steps.map(step => <li key={step}>{step}</li>)}</ol></section>
       {(project.mode === 'react' || project.mode === 'nextjs') && <p className="feedback">{c('Draft your component here. Run and check the complete app in your local React or Next.js workspace; this editor does not run framework projects.', 'Tulis draf komponenmu di sini. Jalankan dan periksa aplikasi React atau Next.js secara lengkap di ruang kerja lokal; editor ini tidak menjalankan proyek framework.')}</p>}
       {(project.mode === 'react' || project.mode === 'nextjs') && <FrameworkSetup framework={project.mode}/>}
       {course.id === 'ai-coding' && <p className="feedback">{c('Build and run the app in your own AI agent workspace. Record your actual prompts and results here. This journal is a self-review of your work; it does not run or automatically verify the external app.', 'Bangun dan jalankan aplikasi di ruang kerja AI agent-mu. Catat prompt nyata dan hasilnya di sini. Jurnal ini adalah tinjauan mandiri; aplikasi di luar situs ini tidak dijalankan atau diverifikasi otomatis.')}</p>}
-      <Suspense fallback={<p role="status">{c('Opening the project tools…', 'Menyiapkan alat proyek…')}</p>}>
+      <Suspense fallback={<SectionLoadingSkeleton variant={project.mode === 'web' || project.mode === 'tailwind' ? 'preview' : course.id === 'ai-coding' ? 'prompt' : 'code'} label={c('Opening the project tools…', 'Menyiapkan alat proyek…')}/> }>
         {course.id === 'ai-coding' ? <label className="ai-project-journal" htmlFor="build-journal"><span>{c('Your build journal', 'Jurnal pembangunanmu')}</span><textarea id="build-journal" className="field" value={draft.code} maxLength={100000} onChange={event => update({ code: event.target.value })}/></label> : course.id === 'typescript' ? <LazyLab initialCode={project.starter} value={draft.code} onChange={code => update({ code: code.slice(0, 100000) })} title="project.ts"/> : project.mode === 'tailwind' ? <TailwindLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : project.mode === 'web' ? <WebLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : project.mode === 'console' ? <ConsoleLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })} title={course.id === 'typescript' ? 'project.ts' : 'project.js'}/> : <CodeEditor value={draft.code} onChange={code => update({ code: code.slice(0, 100000) })} label={c('Project artifact', 'Hasil proyek')} minHeight={320}/>}
       </Suspense>
       <div className="project-save-row"><span role="status" className="quiet-note">{progress.storageAvailable ? draft.updatedAt ? c('Draft and review saved in this browser.', 'Draf dan tinjauan tersimpan di browser ini.') : c('Changes are saved as you work.', 'Perubahanmu tersimpan otomatis.') : c('Session only. Download a copy to keep your work.', 'Tersimpan selama sesi ini saja. Unduh salinannya agar pekerjaanmu tetap aman.')}</span><button className="text-link" onClick={download}><Download size={15}/>{c('Download a copy', 'Unduh salinan')}</button></div>
@@ -58,7 +60,7 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
       <button className="button primary" disabled={!ready || !passed || draft.completed} onClick={() => { update({ completed: true }); setSavedNotice(true) }}>{draft.completed ? <><CheckCircle2 size={16}/>{c('Project reviewed', 'Proyek sudah ditinjau')}</> : c('Finish project review', 'Tuntaskan tinjauan proyek')}</button>
       {!ready && <p className="quiet-note">{c('Add your project work and notes, then check every item to finish.', 'Tambahkan hasil proyek dan catatanmu, lalu centang semua poin untuk menyelesaikan tahap ini.')}</p>}
       {savedNotice && <p role="status" className="feedback success">{c('Project review saved. Stage complete.', 'Tinjauan proyek tersimpan. Tahap ini selesai.')}</p>}
-      {draft.completed && <div className="stage-bridge"><p>{stage.bridge}</p><TextLink to={next ? `/learn/${next.id}` : '/learn'}>{localizedNext ? `${c('Next', 'Berikutnya')}: ${localizedNext.title}` : course.path === 'companion' ? c('Back to the main learning path', 'Kembali ke jalur belajar utama') : c('View your completed journey', 'Lihat perjalananmu')}<ArrowRight size={14}/></TextLink></div>}
+      {draft.completed && <div className="stage-bridge"><p>{stage.bridge}</p>{localizedNext && next ? <TextLink to={`/learn/${next.id}`}>{c('Next', 'Berikutnya')}: {localizedNext.title}<ArrowRight size={14}/></TextLink> : course.path === 'companion' ? <HistoryBackLink fallbackTo="/learn"/> : <TextLink to="/learn">{c('View your completed journey', 'Lihat perjalananmu')}<ArrowRight size={14}/></TextLink>}</div>}
     </aside></div>
   </div>
 }
