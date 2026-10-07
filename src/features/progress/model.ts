@@ -1,6 +1,6 @@
 import * as z from 'zod/mini'
 
-export const projectSchema = z.object({ code: z.string().check(z.maxLength(100000)), notes: z.string().check(z.maxLength(20000)), criteria: z.array(z.string()).check(z.maxLength(30)), completed: z.boolean(), updatedAt: z.string() })
+export const projectSchema = z.object({ code: z.string().check(z.maxLength(100000)), notes: z.string().check(z.maxLength(20000)), criteria: z.array(z.string()).check(z.maxLength(30)), completed: z.boolean(), updatedAt: z.string(), labState: z.optional(z.string().check(z.maxLength(100000))), promptDraft: z.optional(z.string().check(z.maxLength(50000))) })
 export type ProjectDraft = z.infer<typeof projectSchema>
 
 // Additive defaults preserve the existing v1 data and validation limits.

@@ -12,7 +12,6 @@ import type { ProjectDraft } from '../features/progress/ProgressProvider'
 import { useLearningCopy } from '../features/journey/useLearningCopy'
 import { usePageTitle } from '../hooks/usePageTitle'
 import LazyLab from '../components/learning/LazyLab'
-import FrameworkSetup from '../features/journey/FrameworkSetup'
 import { useLocale } from '../features/locale/LocaleProvider'
 import { localizeCourse } from '../content/runtime/localize'
 import { localizeJourneyStage } from '../content/runtime/localize'
@@ -20,7 +19,35 @@ import '../features/ai-coding/ai-coding.css'
 const WebLab = lazy(() => import('../components/learning/WebLab'))
 const TailwindLab = lazy(() => import('../components/learning/TailwindLab'))
 const ConsoleLab = lazy(() => import('../components/learning/ConsoleLab'))
-const CodeEditor = lazy(() => import('../features/editor/CodeEditor'))
+const WorkspaceProjectLab = lazy(() => import('../features/projects/WorkspaceProjectLab'))
+const ReactProjectLab = lazy(() => import('../features/projects/ReactProjectLab'))
+const NextProjectLab = lazy(() => import('../features/projects/NextProjectLab'))
+const VibeProjectLab = lazy(() => import('../features/projects/VibeProjectLab'))
+
+function isLegacyVibeJournal(value: string) { return value.startsWith('STUDY SPRINT / BUILD JOURNAL') || value.startsWith('STUDY SPRINT / CATATAN PEMBANGUNAN') }
+
+function downloadableProjectWork(mode: JourneyStage['project']['mode'], code: string, labState?: string) {
+  const source = labState || code
+  if (mode === 'workspace') {
+    try {
+      const parsed = JSON.parse(source) as { files?: { html?: unknown; css?: unknown; js?: unknown }; git?: { staged?: boolean; committed?: boolean; pushed?: boolean } }
+      const files = parsed.files
+      if (typeof files?.html === 'string' && typeof files.css === 'string' && typeof files.js === 'string') {
+        const git = parsed.git
+        return [
+          `--- index.html ---\n${files.html}`,
+          `--- styles.css ---\n${files.css}`,
+          `--- app.js ---\n${files.js}`,
+          `--- Git practice ---\nStaged: ${git?.staged === true}\nCommitted: ${git?.committed === true}\nPush simulated: ${git?.pushed === true}`,
+        ].join('\n\n')
+      }
+    } catch { /* Preserve an older plain-text draft below. */ }
+  }
+  if (mode === 'nextjs') {
+    try { return JSON.stringify(JSON.parse(source), null, 2) } catch { /* Keep the earlier draft readable. */ }
+  }
+  return code
+}
 
 function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceStage: JourneyStage }) {
   const c = useLearningCopy()
@@ -32,26 +59,29 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
   const course = localizeCourse(getCourse(stage.courseId)!, locale)
   const next = getNextCourse(course.id)
   const localizedNext = next ? localizeCourse(next, locale) : undefined
-  const ready = sourceStage.project.criteria.every(criterion => draft.criteria.includes(criterion)) && Boolean(draft.code.trim()) && Boolean(draft.notes.trim())
+  const workingCode = course.id === 'ai-coding' && isLegacyVibeJournal(draft.code) ? project.starter : draft.code
+  const workArtifact = project.mode === 'workspace' || project.mode === 'nextjs' ? draft.labState ?? project.starter : workingCode
+  const ready = sourceStage.project.criteria.every(criterion => draft.criteria.includes(criterion)) && Boolean(workArtifact.trim()) && Boolean(draft.notes.trim())
   const passed = progress.checkpoints[course.id]?.passed
   function update(change: Partial<ProjectDraft>) {
-    const nextDraft = { ...draft, ...(change.code !== undefined && change.code !== draft.code ? { criteria: [] } : {}), ...change, completed: change.completed ?? false, updatedAt: new Date().toISOString() }
+    const projectWorkChanged = (change.code !== undefined && change.code !== draft.code) || (change.labState !== undefined && change.labState !== draft.labState) || (change.promptDraft !== undefined && change.promptDraft !== draft.promptDraft)
+    const nextDraft = { ...draft, ...(projectWorkChanged ? { criteria: [] } : {}), ...change, completed: change.completed ?? false, updatedAt: new Date().toISOString() }
     progress.saveProject(course.id, nextDraft); setSavedNotice(false)
   }
   function download() {
-    const text = `${project.title}\n\n${project.brief}\n\n${c('CODE / PROJECT WORK', 'KODE / HASIL PROYEK')}\n${draft.code}\n\n${c('REVIEW NOTES', 'CATATAN TINJAUAN')}\n${draft.notes}\n\n${c('SELF REVIEW', 'TINJAUAN MANDIRI')}\n${project.criteria.map((item, index) => `${draft.criteria.includes(sourceStage.project.criteria[index]) ? '[x]' : '[ ]'} ${item}`).join('\n')}`
+    const projectWork = downloadableProjectWork(project.mode, workingCode, draft.labState)
+    const prompt = draft.promptDraft ? (() => { try { const parsed = JSON.parse(draft.promptDraft!); return typeof parsed.prompt === 'string' ? parsed.prompt : draft.promptDraft! } catch { return draft.promptDraft! } })() : ''
+    const projectLabel = project.mode === 'workspace' ? c('PROJECT FILES', 'FILE PROYEK') : c('CODE / PROJECT WORK', 'KODE / HASIL PROYEK')
+    const text = `${project.title}\n\n${project.brief}\n\n${projectLabel}\n${projectWork}${prompt ? `\n\n${c('PROMPT DRAFT', 'DRAF PROMPT')}\n${prompt}` : ''}\n\n${c('REVIEW NOTES', 'CATATAN TINJAUAN')}\n${draft.notes}\n\n${c('SELF REVIEW', 'TINJAUAN MANDIRI')}\n${project.criteria.map((item, index) => `${draft.criteria.includes(sourceStage.project.criteria[index]) ? '[x]' : '[ ]'} ${item}`).join('\n')}`
     const url = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }))
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `rancode-lab-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return <div className="page-width journey-page project-page">
     <HistoryBackLink fallbackTo="/learn"/>
-    <header className="journey-heading"><p className="eyebrow">{course.title} / {course.id === 'ai-coding' ? c('Build journal', 'Jurnal pembangunan') : course.id === 'nextjs' ? c('Final project', 'Proyek akhir') : c('Stage project', 'Proyek tahap ini')}</p><h1>{project.title}</h1><p className="page-lead">{project.brief}</p></header>
+    <header className="journey-heading"><p className="eyebrow">{course.title} / {course.id === 'nextjs' ? c('Final project lab', 'Lab proyek akhir') : c('Interactive project lab', 'Lab proyek interaktif')}</p><h1>{project.title}</h1><p className="page-lead">{project.brief}</p></header>
     <div className="project-layout"><div className="project-main"><section className="project-brief"><h2>{c('Build it in steps', 'Bangun secara bertahap')}</h2><ol>{project.steps.map(step => <li key={step}>{step}</li>)}</ol></section>
-      {(project.mode === 'react' || project.mode === 'nextjs') && <p className="feedback">{c('Draft your component here. Run and check the complete app in your local React or Next.js workspace; this editor does not run framework projects.', 'Tulis draf komponenmu di sini. Jalankan dan periksa aplikasi React atau Next.js secara lengkap di ruang kerja lokal; editor ini tidak menjalankan proyek framework.')}</p>}
-      {(project.mode === 'react' || project.mode === 'nextjs') && <FrameworkSetup framework={project.mode}/>}
-      {course.id === 'ai-coding' && <p className="feedback">{c('Build and run the app in your own AI agent workspace. Record your actual prompts and results here. This journal is a self-review of your work; it does not run or automatically verify the external app.', 'Bangun dan jalankan aplikasi di ruang kerja AI agent-mu. Catat prompt nyata dan hasilnya di sini. Jurnal ini adalah tinjauan mandiri; aplikasi di luar situs ini tidak dijalankan atau diverifikasi otomatis.')}</p>}
-      <Suspense fallback={<SectionLoadingSkeleton variant={project.mode === 'web' || project.mode === 'tailwind' ? 'preview' : course.id === 'ai-coding' ? 'prompt' : 'code'} label={c('Opening the project tools…', 'Menyiapkan alat proyek…')}/> }>
-        {course.id === 'ai-coding' ? <label className="ai-project-journal" htmlFor="build-journal"><span>{c('Your build journal', 'Jurnal pembangunanmu')}</span><textarea id="build-journal" className="field" value={draft.code} maxLength={100000} onChange={event => update({ code: event.target.value })}/></label> : course.id === 'typescript' ? <LazyLab initialCode={project.starter} value={draft.code} onChange={code => update({ code: code.slice(0, 100000) })} title="project.ts"/> : project.mode === 'tailwind' ? <TailwindLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : project.mode === 'web' ? <WebLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : project.mode === 'console' ? <ConsoleLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })} title={course.id === 'typescript' ? 'project.ts' : 'project.js'}/> : <CodeEditor value={draft.code} onChange={code => update({ code: code.slice(0, 100000) })} label={c('Project artifact', 'Hasil proyek')} minHeight={320}/>}
+      <Suspense fallback={<SectionLoadingSkeleton variant={project.mode === 'web' || project.mode === 'tailwind' || project.mode === 'workspace' || project.mode === 'vibe' || project.mode === 'nextjs' ? 'preview' : 'code'} label={c('Opening the project tools…', 'Menyiapkan alat proyek…')}/> }>
+        {course.id === 'ai-coding' ? <VibeProjectLab initialCode={project.starter} value={workingCode} onChangeCode={code => update({ code })} promptValue={draft.promptDraft} onPromptChange={promptDraft => update({ promptDraft })}/> : project.mode === 'workspace' ? <WorkspaceProjectLab initialCode={project.starter} value={draft.labState ?? project.starter} legacyDraft={draft.code === project.starter ? '' : draft.code} onChange={labState => update({ labState })}/> : project.mode === 'nextjs' ? <NextProjectLab initialCode={project.starter} value={draft.labState ?? project.starter} legacyCode={draft.code === project.starter ? '' : draft.code} onChange={labState => update({ labState })}/> : project.mode === 'react' ? <ReactProjectLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : course.id === 'typescript' ? <LazyLab initialCode={project.starter} value={draft.code} onChange={code => update({ code: code.slice(0, 100000) })} title="project.ts"/> : project.mode === 'tailwind' ? <TailwindLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : project.mode === 'web' ? <WebLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })}/> : <ConsoleLab initialCode={project.starter} value={draft.code} onChange={code => update({ code })} title="project.js"/>}
       </Suspense>
       <div className="project-save-row"><span role="status" className="quiet-note">{progress.storageAvailable ? draft.updatedAt ? c('Draft and review saved in this browser.', 'Draf dan tinjauan tersimpan di browser ini.') : c('Changes are saved as you work.', 'Perubahanmu tersimpan otomatis.') : c('Session only. Download a copy to keep your work.', 'Tersimpan selama sesi ini saja. Unduh salinannya agar pekerjaanmu tetap aman.')}</span><button className="text-link" onClick={download}><Download size={15}/>{c('Download a copy', 'Unduh salinan')}</button></div>
       <label className="project-notes-label" htmlFor="project-notes">{c('Your review notes', 'Catatan tinjauanmu')}</label><p className="quiet-note">{c('What did you check? What happened? What would you improve? Note what you observed in the running project.', 'Apa yang kamu periksa? Apa hasilnya? Apa yang ingin kamu perbaiki? Catat hal yang kamu amati saat proyek dijalankan.')}</p><textarea id="project-notes" className="field project-notes" value={draft.notes} maxLength={20000} onChange={event => update({ notes: event.target.value })}/>

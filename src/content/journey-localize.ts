@@ -3,6 +3,7 @@ import type { JourneyStage } from './journey'
 import { aiCodingStageCopyId } from './ai-coding/stage'
 import { tailwindStageCopyId } from './tailwind/stage'
 import { translateLessonCopy } from './locales/id'
+import { nextProjectStarterId, reactStudyListStarterId, workspaceProjectStarterId } from './project-starters'
 
 type StageCopy = Pick<JourneyStage, 'outcome' | 'bridge'> & {
   project: Pick<JourneyStage['project'], 'title' | 'brief' | 'starter' | 'steps' | 'criteria'>
@@ -15,7 +16,7 @@ const stageCopy: Record<string, StageCopy> = {
     project: {
       title: 'Rancang kalkulator keranjang belanja',
       brief: 'Buat rancangan kalkulator sederhana untuk keranjang belanja. Jumlahkan harga barang, berikan ongkir gratis mulai subtotal 50, lalu jelaskan total akhirnya.',
-      starter: 'const prices = [15, 20, 10];\n// 1. Jumlahkan harga.\n// 2. Tentukan ongkir: 0 jika subtotal minimal 50, selain itu 5.\n// 3. Cetak total akhirnya.\n',
+      starter: 'const prices = [15, 20, 10];\nconsole.log("Harga awal:", prices);\n// 1. Jumlahkan harga.\n// 2. Tentukan ongkir: 0 jika subtotal minimal 50, selain itu 5.\n// 3. Cetak total akhirnya.\n',
       steps: ['Catat input dan hasil yang diharapkan.', 'Susun perhitungannya satu langkah demi satu langkah.', 'Coba keranjang kosong dan subtotal tepat 50.'],
       criteria: ['Setiap harga masuk ke subtotal.', 'Subtotal tepat 50 mendapat ongkir gratis.', 'Keranjang kosong ditangani dengan sengaja.', 'Aku bisa menjelaskan langkahnya tanpa membaca kode.'],
     },
@@ -25,10 +26,10 @@ const stageCopy: Record<string, StageCopy> = {
     bridge: 'Alat dasarmu sudah siap. Gunakan HTML untuk memberi struktur yang bermakna pada halaman pertamamu.',
     project: {
       title: 'Siapkan ruang kerja web pertamamu',
-      brief: 'Rancang website tiga file dan berlatih mencari petunjuk melalui developer tools di browser. Catat struktur folder dan jelaskan cara menyimpan versi yang bermakna.',
-      starter: 'Folder proyek:\n  index.html\n  styles.css\n  app.js\n\nFungsi tiap file:\n\nSatu pengamatan dari panel Elements:\n\nSatu pengamatan dari panel Network:\n\nCara meninjau perubahan sebelum commit lokal:\n',
-      steps: ['Buat folder proyek atau tuliskan strukturnya.', 'Periksa halaman publik lewat panel Elements dan Network.', 'Jelaskan perbedaan commit lokal dan push.'],
-      criteria: ['Tiap file punya tanggung jawab yang jelas.', 'Lokasi stylesheet sesuai dengan struktur folder.', 'Ada satu pengamatan nyata dari developer tools.', 'Aku bisa membedakan menyimpan, commit, dan push.'],
+      brief: 'Bangun halaman kecil dari tiga file di Rancode, periksa struktur dan request file lokalnya, lalu praktikkan alur perubahan melalui Git.',
+      starter: workspaceProjectStarterId,
+      steps: ['Edit index.html, styles.css, dan app.js. Pastikan halaman langsung merespons perubahanmu.', 'Gunakan panel Elements untuk memeriksa DOM buatanmu, lalu lihat baris file lokal di Network.', 'Ikuti simulasi Git: stage perubahan, buat commit lokal, lalu simulasikan push.'],
+      criteria: ['Setiap file punya tugas yang jelas dan preview memakai ketiganya.', 'Aku memeriksa satu elemen dari HTML-ku sendiri.', 'Aku bisa menjelaskan bahwa baris Network adalah model belajar lokal, bukan request HTTP sungguhan.', 'Aku bisa membedakan edit, staging, commit lokal, dan push.'],
     },
   },
   html: {
@@ -59,7 +60,7 @@ const stageCopy: Record<string, StageCopy> = {
     project: {
       title: 'Rancang data daftar tugas belajar',
       brief: 'Representasikan tugas belajar dengan ID, judul, dan status selesai. Buat functions untuk mencari tugas yang tersisa dan mengembalikan daftar baru saat status tugas berubah. Lalu muat tugas lewat simulasi async lokal dan tampilkan pesan yang membantu saat berhasil maupun gagal.',
-      starter: 'const tasks = [\n  { id: "read", title: "Baca pelajaran", done: true },\n  { id: "build", title: "Buat proyek", done: false },\n];\n\n// Tulis remainingTasks(tasks) dan toggleTask(tasks, id).\n// Cetak daftar awal dan daftar setelah diperbarui.\n\nasync function loadTasks(shouldFail = false) {\n  if (shouldFail) throw new Error("Simulated load failure");\n  return tasks.map(task => ({ ...task }));\n}\n\nasync function showTasks(shouldFail) {\n  // Await loadTasks(shouldFail) di dalam try/catch.\n  // Cetak tugas tersisa saat berhasil dan pesan yang membantu saat gagal.\n}\nawait showTasks(false);\nawait showTasks(true);\n',
+      starter: 'const tasks = [\n  { id: "read", title: "Baca pelajaran", done: true },\n  { id: "build", title: "Buat proyek", done: false },\n];\nconsole.log("Daftar tugas awal:", tasks);\n\n// Tulis remainingTasks(tasks) dan toggleTask(tasks, id).\n// Cetak daftar awal dan daftar setelah diperbarui.\n\nasync function loadTasks(shouldFail = false) {\n  if (shouldFail) throw new Error("Simulated load failure");\n  return tasks.map(task => ({ ...task }));\n}\n\nasync function showTasks(shouldFail) {\n  // Await loadTasks(shouldFail) di dalam try/catch.\n  // Cetak tugas tersisa saat berhasil dan pesan yang membantu saat gagal.\n}\nawait showTasks(false);\nawait showTasks(true);\n',
       steps: ['Modelkan tugas sebagai object dengan ID yang stabil.', 'Gunakan filter untuk menemukan tugas yang belum selesai.', 'Gunakan map dan object spread untuk mengubah satu tugas tanpa mengubah data awal.', 'Await pemuatan simulasi di dalam try/catch, lalu jalankan kasus berhasil dan gagal.'],
       criteria: ['Tugas memiliki ID stabil dan properti yang jelas.', 'Pencarian tugas tersisa berjalan pada daftar kosong.', 'Perubahan status menghasilkan array baru.', 'Nilai tugas lain tetap sama.', 'Data awal tidak ikut berubah.', 'Pemuatan async yang berhasil menampilkan tugas tersisa.', 'Pemuatan async yang gagal menampilkan pesan yang membantu tanpa Promise rejection yang tidak ditangani.'],
     },
@@ -80,10 +81,10 @@ const stageCopy: Record<string, StageCopy> = {
     bridge: 'Model React-mu sudah terbentuk. TypeScript bisa menjelaskan kontrak komponen dan data yang sudah kamu pahami.',
     project: {
       title: 'Bangun ulang daftar belajar dengan React',
-      brief: 'Gunakan proyek browser sebagai acuan perilaku. Bangun versi React dengan components, props, dan state di proyek lokal. Simpan rancangan komponen dan catatan review di sini.',
-      starter: 'import { useState } from "react";\n\nexport default function StudyList() {\n  const [tasks, setTasks] = useState([]);\n  // Tambahkan form terkontrol dan tampilkan tugas dengan key yang stabil.\n  return <main><h1>Daftar belajarku</h1></main>;\n}',
-      steps: ['Buat proyek React lokal dengan build tool yang didukung.', 'Pisahkan form dan item tugas saat keduanya punya tanggung jawab berbeda.', 'Uji keyboard, validasi, dan kondisi kosong seperti pada versi browser.'],
-      criteria: ['Setiap komponen punya tanggung jawab yang terarah.', 'Props diperlakukan sebagai data yang tidak diubah.', 'Pembaruan state menghasilkan nilai baru.', 'Daftar berulang memakai key dari ID stabil.', 'Perilaku keyboard, validasi, dan kondisi kosong sudah diuji di aplikasi yang berjalan.'],
+      brief: 'Bangun dan jalankan daftar belajar di Rancode. Gunakan components, props, dan state untuk menambah tugas, menandainya selesai, serta menangani input kosong.',
+      starter: reactStudyListStarterId,
+      steps: ['Mulai dari preview daftar belajar yang sudah berfungsi dan ikuti bagaimana data tugas diteruskan ke setiap komponen.', 'Kembangkan form, TaskItem, dan daftar sambil menjaga props tetap read-only dan pembaruan state immutable.', 'Coba submit dengan keyboard, input kosong, selesaikan tugas, dan preview sempit.'],
+      criteria: ['TaskItem menerima tugas dan aksi melalui props.', 'Props tidak diubah dan pembaruan state menghasilkan nilai baru.', 'Daftar berulang memakai key dari ID stabil.', 'Keyboard, validasi, dan kondisi kosong berfungsi di preview React.'],
     },
   },
   typescript: {
@@ -102,10 +103,10 @@ const stageCopy: Record<string, StageCopy> = {
     bridge: 'Akhiri dengan review proyek: jelaskan keputusanmu, tunjukkan pemulihan saat gagal, dan catat perbaikan berikutnya.',
     project: {
       title: 'Rangkai pengalaman daftar belajar',
-      brief: 'Satukan aplikasi daftar belajar dengan routes Next.js, pilihan server/client, loading, kondisi kosong, error, metadata, dan interaksi keyboard. Gunakan catatan proyek sebagai panduan membangun serta mereview aplikasi lokal.',
-      starter: '// app/page.tsx\nexport default function Page() {\n  return <main><h1>Dashboard belajar</h1></main>;\n}\n\n// Rencanakan route detail dan Client Component interaktif.\n// Kerjakan proyek di workspace Next.js lokal.\n',
-      steps: ['Petakan route dan komponen server/client sebelum coding.', 'Rancang loading, kosong, sukses, dan error untuk setiap alur data.', 'Jalankan aplikasi lokal dan periksa navigasi langsung, keyboard, serta metadata.'],
-      criteria: ['Dashboard dan route detail bisa dibuka langsung.', 'Komponen interaktif memiliki batas client yang terencana.', 'Tampilan loading, kosong, error, dan sukses mudah dipahami.', 'Input yang belum tepercaya divalidasi pada batas yang sesuai.', 'Aplikasi sudah diperiksa dengan keyboard dan layar sempit.', 'Review menjelaskan pertimbangan serta perbaikan berikutnya.'],
+      brief: 'Gunakan lab App Router interaktif untuk menyusun dashboard, membuka dynamic route proyek, mencoba loading, kosong, sukses, dan error, lalu menguji kontrol tugas.',
+      starter: nextProjectStarterId,
+      steps: ['Buka dashboard, route detail proyek, dan route yang tidak dikenal. Ganti slug dinamis lalu periksa path-nya.', 'Coba status loading, sukses, kosong, dan error. Pulihkan error, lalu tambahkan atau selesaikan tugas.', 'Tinjau bagian yang cocok berada di Server Component dan interaksi yang perlu Client Component. Periksa layout sempit serta kontrol keyboard.'],
+      criteria: ['Dashboard, detail dinamis, dan route yang tidak dikenal menampilkan pengalaman berbeda.', 'Status loading, kosong, error, dan sukses menjelaskan situasinya.', 'Tambah, filter, dan selesaikan tugas berfungsi di preview.', 'Aku bisa menjelaskan tanggung jawab server dan client yang ditunjukkan lab.', 'Aku paham lab ini simulator route, bukan server Next.js yang benar-benar berjalan.'],
     },
   },
 }
