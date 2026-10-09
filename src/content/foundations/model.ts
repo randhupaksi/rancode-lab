@@ -1,4 +1,4 @@
-import type { Concept, Course, CourseModule, Lesson } from '../types'
+import type { Concept, ConceptVisual, Course, CourseModule, Lesson } from '../types'
 
 export interface FoundationSeed {
   id: string
@@ -16,6 +16,7 @@ export interface FoundationSeed {
   recap: [string, string]
   lab?: Lesson['lab']
   language?: Lesson['language']
+  visual?: ConceptVisual
 }
 
 export function foundation(course: Course, seeds: FoundationSeed[]) {
@@ -24,7 +25,7 @@ export function foundation(course: Course, seeds: FoundationSeed[]) {
     id: seed.id, courseId: course.id, moduleId: module.id, title: seed.title,
     minutes: 8, description: seed.idea, explanation: [seed.idea, seed.explain],
     code: seed.code, inspectSymbols: [], language: seed.language ?? 'javascript', lab: seed.lab ?? 'console', practice: seed.practice,
-    visual: { title: seed.title, description: 'Follow each step, then try changing the example.',
+    visual: seed.visual ?? { title: seed.title, description: 'Follow each step, then try changing the example.',
       nodes: seed.flow.map((label, i) => ({ id: `step-${i}`, label, detail: [seed.idea, seed.explain, seed.reason][i] })),
       edges: [{ from: 'step-0', to: 'step-1' }, { from: 'step-1', to: 'step-2' }] },
     challenge: { id: `${seed.id}-check`, title: `Check: ${seed.title}`, topic: course.title, kind: 'choice', difficulty: 'Beginner', language: seed.language ?? 'javascript', code: seed.code, prompt: seed.question, options: [...seed.options.slice(index % 3), ...seed.options.slice(0, index % 3)], answer: seed.answer, explanation: seed.reason, hint: seed.hint },

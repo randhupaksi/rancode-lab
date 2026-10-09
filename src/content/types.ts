@@ -3,13 +3,29 @@ export interface CanvasNode {
   label: string
   detail: string
   tone?: 'type' | 'value' | 'neutral' | 'error'
+  /** A compact visual cue for an operation, such as × or >=. */
+  symbol?: string
+}
+
+export interface CanvasEdge {
+  from: string
+  to: string
+  label?: string
+  detail?: string
+}
+
+export interface CanvasSimulation {
+  kind: 'multiply'
+  inputs: { nodeId: string; initial: number; min: number; max: number; step: number }[]
+  outputNodeId: string
 }
 
 export interface ConceptVisual {
   title: string
   description: string
   nodes: CanvasNode[]
-  edges: { from: string; to: string; label?: string }[]
+  edges: CanvasEdge[]
+  simulation?: CanvasSimulation
 }
 
 export interface Challenge {

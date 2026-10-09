@@ -3,6 +3,7 @@ import type { Challenge, Lesson } from './types'
 
 type LessonCopy = Pick<Lesson, 'title' | 'description' | 'explanation' | 'practice' | 'recap'> & {
   flow: [string, string, string]
+  visual?: Lesson['visual']
   challenge: Pick<Challenge, 'title' | 'prompt' | 'explanation' | 'hint'> & {
     options: Record<string, string>
   }
@@ -18,6 +19,22 @@ const indonesianLogicLessons: Record<string, LessonCopy> = {
     ],
     practice: 'Prediksi totalnya. Jalankan kode, lalu ubah quantity menjadi 5 dan prediksi lagi.',
     flow: ['Harga + jumlah barang', 'Kalikan', 'Total belanja'],
+    visual: {
+      title: 'Ubah dua input menjadi total',
+      description: 'Ubah nilainya, lalu ikuti bagaimana setiap input sampai ke hasil akhir.',
+      nodes: [
+        { id: 'price', label: 'Harga', detail: 'Ini biaya untuk satu barang.', tone: 'value' },
+        { id: 'quantity', label: 'Jumlah barang', detail: 'Ini jumlah barang yang akan dibeli.', tone: 'value' },
+        { id: 'multiply', label: 'Kalikan', symbol: '×', detail: 'Langkah perkalian menggabungkan harga dan jumlah barang.' },
+        { id: 'total', label: 'Total belanja', detail: 'Ini hasil setelah kedua input dikalikan.', tone: 'value' },
+      ],
+      edges: [
+        { from: 'price', to: 'multiply', label: 'harga', detail: 'Harga masuk ke langkah perkalian.' },
+        { from: 'quantity', to: 'multiply', label: 'jumlah', detail: 'Jumlah barang menjadi input kedua untuk perkalian.' },
+        { from: 'multiply', to: 'total', label: 'hasil', detail: 'Perkalian menghasilkan total belanja.' },
+      ],
+      simulation: { kind: 'multiply', inputs: [{ nodeId: 'price', initial: 12, min: 1, max: 50, step: 1 }, { nodeId: 'quantity', initial: 3, min: 1, max: 12, step: 1 }], outputNodeId: 'total' },
+    },
     challenge: {
       title: 'Cek pemahaman: Instruksi dan Algoritma',
       prompt: 'Berapa output saat price bernilai 12 dan quantity bernilai 3?',
@@ -235,7 +252,7 @@ export function localizeLogicLesson(lesson: Lesson, locale: Locale): Lesson {
   return {
     ...lesson,
     ...copy,
-    visual: {
+    visual: copy.visual ?? {
       ...lesson.visual,
       title: copy.title,
       description: 'Ikuti tiap langkah, lalu coba ubah contohnya.',

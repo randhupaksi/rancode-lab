@@ -86,3 +86,108 @@ samp {
   outline: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
   outline-offset: 1px;
 }
+
+.concept-canvas .canvas-edge-label rect {
+  fill: var(--surface);
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.concept-canvas .canvas-edge-label text {
+  fill: var(--muted);
+  font: 8px var(--font-mono);
+  letter-spacing: .02em;
+  stroke: none;
+}
+
+.concept-canvas .canvas-edge.active .canvas-edge-label rect {
+  fill: var(--surface-raised);
+  stroke: #628066;
+}
+
+.concept-canvas .canvas-edge.active .canvas-edge-label text {
+  fill: var(--primary);
+}
+
+.concept-canvas .concept-graph-mobile {
+  display: none;
+}
+
+@container (max-width: 520px) {
+  .concept-canvas .concept-graph {
+    display: none;
+  }
+
+  .concept-canvas .concept-graph-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 16px 14px;
+  }
+
+  .mobile-graph-stage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .mobile-graph-stage.single {
+    grid-template-columns: minmax(0, 180px);
+    justify-content: center;
+  }
+
+  .mobile-graph-stage.multiple,
+  .mobile-graph-transitions.multiple {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-graph-stage .canvas-node {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 150px;
+    min-height: 48px;
+    justify-self: center;
+    transform: none;
+  }
+
+  .mobile-graph-stage .canvas-node:hover {
+    transform: translateY(-1px);
+  }
+
+  .mobile-graph-transitions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+    align-items: center;
+    gap: 8px;
+    padding-block: 5px;
+  }
+
+  .mobile-graph-transitions.single {
+    grid-template-columns: minmax(0, 180px);
+    justify-content: center;
+  }
+
+  .mobile-graph-transitions button {
+    display: flex;
+    min-width: 58px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 3px 8px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--muted);
+    font: 9px var(--font-mono);
+  }
+
+  .mobile-graph-transitions button:hover,
+  .mobile-graph-transitions button:focus-visible,
+  .mobile-graph-transitions button.active {
+    border-color: var(--border);
+    color: var(--primary);
+  }
+}

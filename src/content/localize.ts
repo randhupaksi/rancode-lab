@@ -102,7 +102,7 @@ export function localizeLesson(lesson: Lesson, locale: Locale): Lesson {
       title: lesson.visual.title === lesson.title ? title : tr(lesson.visual.title),
       description: tr(lesson.visual.description),
       nodes: lesson.visual.nodes.map(node => ({ ...node, label: tr(node.label), detail: tr(node.detail) })),
-      edges: lesson.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined })),
+      edges: lesson.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined, detail: edge.detail ? tr(edge.detail) : undefined })),
     },
     challenge: {
       ...lesson.challenge,
@@ -141,7 +141,7 @@ export function localizeConcept(concept: Concept, lesson: Lesson, locale: Locale
       title: concept.visual.title === lesson.visual.title ? localized.visual.title : tr(concept.visual.title),
       description: tr(concept.visual.description),
       nodes: concept.visual.nodes.map(node => ({ ...node, label: tr(node.label), detail: tr(node.detail) })),
-      edges: concept.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined })),
+      edges: concept.visual.edges.map(edge => ({ ...edge, label: edge.label ? tr(edge.label) : undefined, detail: edge.detail ? tr(edge.detail) : undefined })),
     } : undefined,
   }
 }
