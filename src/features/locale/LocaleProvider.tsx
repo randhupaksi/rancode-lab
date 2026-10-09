@@ -58,8 +58,8 @@ const legacyStorageKey = 'undercode-locale'
 function readSavedLocale(): Locale {
   try {
     const saved = localStorage.getItem(storageKey) ?? localStorage.getItem(legacyStorageKey)
-    return saved === 'id' ? 'id' : 'en'
-  } catch { return 'en' }
+    return saved === 'en' ? 'en' : 'id'
+  } catch { return 'id' }
 }
 
 function interpolate(message: string, values?: Record<string, string | number>) {

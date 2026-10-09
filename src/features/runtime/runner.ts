@@ -3,7 +3,6 @@ import { serializeConsoleValue } from './serializeConsole'
 
 export interface RunResult { output: string[]; error?: string }
 
-/** User code only runs in a disposable worker inside an opaque-origin sandbox. */
 export async function runCode(code: string, options: { signal?: AbortSignal } = {}): Promise<RunResult> {
   const { signal } = options
   if (signal?.aborted) return { output: [], error: 'Execution cancelled.' }
@@ -123,7 +122,7 @@ export async function runCode(code: string, options: { signal?: AbortSignal } = 
           executionTimeout = setTimeout(() => stop({ error: 'Execution stopped after 3 seconds. Check for an infinite loop or unresolved async work.' }), 3000);
         } catch (error) { stop({ output: [], error: String(error.message || error) }); }
       });
-      send({ kind: 'ready' });
+      send({ kind: 'sready' });
     `
     iframe.srcdoc = `<!doctype html><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${nonce}' blob:; worker-src blob:; connect-src 'none'; img-src 'none'; style-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'"><script nonce="${nonce}">${bootstrap}</script>`
     window.addEventListener('message', receive)
@@ -132,4 +131,6 @@ export async function runCode(code: string, options: { signal?: AbortSignal } = 
     if (signal?.aborted) { abort(); return }
     document.body.append(iframe)
   })
+
+
 }

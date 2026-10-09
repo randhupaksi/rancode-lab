@@ -27,6 +27,11 @@ export default function HomePage() {
     { range: '03–06', courseId: 'html', title: c('Build your first website', 'Buat website pertamamu'), description: c('HTML, CSS, JavaScript, and browser interactions.', 'HTML, CSS, JavaScript, dan interaksi di browser.') },
     { range: '07–09', courseId: 'react', title: c('Build a complete application', 'Bangun aplikasi yang utuh'), description: c('React components, TypeScript contracts, and Next.js routes.', 'Components React, kontrak TypeScript, dan routes Next.js.') },
   ]
+  const learningSteps = [
+    { title: c('Get the idea', 'Pahami idenya'), body: c('A short explanation and visual model to make the concept click.', 'Penjelasan singkat dan visual biar konsepnya lebih kebayang.') },
+    { title: c('Try it yourself', 'Coba langsung'), body: c('Change a value and see how the result changes.', 'Ubah satu nilai, lalu lihat bagaimana hasilnya berubah.') },
+    { title: c('Check what clicked', 'Cek pemahamanmu'), body: c('Try a quick question before moving to the next step.', 'Jawab pertanyaan singkat sebelum lanjut ke langkah berikutnya.') },
+  ]
   const completed = lessons.filter(lesson => completedLessons.includes(lesson.id)).length
   return <div className="home-page page-width">
     <section className="home-intro" aria-labelledby="home-heading">
@@ -48,6 +53,22 @@ export default function HomePage() {
       <div className="course-roadmap"><div className="course-preview">{previews.map(preview => <Link key={preview.courseId} to={`/learn/${preview.courseId}`}><span className="number-label">{preview.range}</span><div><h3>{preview.title}</h3><p>{preview.description}</p></div><ArrowRight size={17} aria-hidden="true"/></Link>)}</div><TextLink className="course-preview-rest" to="/explore">{t('home.browseConcepts')} <ArrowRight size={14} aria-hidden="true"/></TextLink></div>
     </section>
     <HomeLearningTracks/>
-    <section className="learning-rhythm"><span className="eyebrow">{t('home.rhythm')}</span><div>{[['home.seeIdea', 'home.seeIdeaBody'], ['home.changeTitle', 'home.changeBody'], ['home.ownTitle', 'home.ownBody']].map(([title, body], i) => <article key={title}><span className="rhythm-number">0{i + 1}</span><h3>{t(title)}</h3><p>{t(body)}</p></article>)}</div></section>
+    <section className="home-closing-cta" aria-labelledby="learning-rhythm-title">
+      <div className="home-closing-copy">
+        <span className="eyebrow">{c('A rhythm that makes coding click', 'Belajar coding selangkah demi selangkah')}</span>
+        <h2 id="learning-rhythm-title">{c('One idea at a time, Then try it yourself.', 'Satu konsep dulu, Lalu coba sendiri')}</h2>
+        <p>{c('Follow a clear explanation, change the example code, and see what happens. Move on when it clicks.', 'Ikuti penjelasannya, ubah contoh kodenya, lalu lihat hasilnya. Kalau sudah paham, lanjut ke langkah berikutnya.')}</p>
+        <Link className="button primary" to={learningProfile ? next.url : '/start'}>
+          {learningProfile ? t('course.continueLearning') : c('Choose where to start', 'Pilih titik awal')}
+          <ArrowRight size={16} aria-hidden="true"/>
+        </Link>
+      </div>
+      <ol className="home-closing-steps">
+        {learningSteps.map((step, index) => <li key={step.title}>
+          <span className="rhythm-number" aria-hidden="true">0{index + 1}</span>
+          <div><h3>{step.title}</h3><p>{step.body}</p></div>
+        </li>)}
+      </ol>
+    </section>
   </div>
 }

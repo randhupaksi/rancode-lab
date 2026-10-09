@@ -79,3 +79,10 @@ samp {
     transition-duration: 0.01ms !important;
   }
 }
+
+.search-trigger:hover:not(:focus-visible),
+.search-input-wrap:hover:not(:focus-within),
+.reference-search:hover:not(:focus-within) {
+  outline: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
+  outline-offset: 1px;
+}

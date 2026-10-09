@@ -26,3 +26,90 @@
   .beginner-demo-controls .field { max-width: none; }
   .beginner-demo-note { padding: 13px 18px; }
 }
+
+.home-closing-cta {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 100px);
+  margin-bottom: 52px;
+  padding: clamp(36px, 5vw, 58px) 0;
+  border-block: 1px solid var(--border);
+}
+
+.home-closing-copy {
+  min-width: 0;
+}
+
+.home-closing-copy > .eyebrow {
+  color: var(--primary);
+}
+
+.home-closing-copy h2 {
+  max-width: 540px;
+  margin: 16px 0 15px;
+  font-size: clamp(31px, 4.2vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+
+.home-closing-copy > p {
+  max-width: 440px;
+  margin-bottom: 23px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.home-closing-copy .button {
+  min-height: 46px;
+}
+
+.home-closing-steps {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.home-closing-steps li {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.home-closing-steps .rhythm-number {
+  padding-top: 3px;
+}
+
+.home-closing-steps h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.home-closing-steps p {
+  max-width: none;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .home-closing-cta {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 38px;
+    padding: 32px 0 38px;
+  }
+
+  .home-closing-copy h2 {
+    max-width: 440px;
+    font-size: clamp(32px, 8vw, 42px);
+  }
+}
