@@ -11,6 +11,63 @@ a.text-link {
   text-underline-offset: 4px;
 }
 
+a.text-link.history-back-link {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 8px;
+  text-decoration: none;
+}
+
+a.text-link.history-back-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .16s ease;
+}
+
+a.text-link.history-back-link:hover::after,
+a.text-link.history-back-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+a.text-link.history-back-link:hover,
+a.text-link.history-back-link:focus-visible {
+  text-decoration: none;
+}
+
+a.text-link.history-back-link svg {
+  flex: 0 0 auto;
+}
+
+a.text-link.history-back-link .history-back-link-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  color: inherit;
+  font: inherit;
+}
+
+.lesson-pagination > div > a.history-back-link {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+}
+
+.lesson-pagination > div > a.history-back-link .history-back-link-content {
+  margin: 0;
+}
+
 a.text-link:hover,
 a.text-link:focus-visible {
   color: var(--foreground);

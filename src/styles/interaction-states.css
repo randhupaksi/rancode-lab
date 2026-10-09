@@ -1,0 +1,329 @@
+/* Shared interaction states. Keep feature layouts and persistent selections intact. */
+:root {
+  --interaction-hover-surface: color-mix(in srgb, var(--primary) 6%, var(--surface));
+  --interaction-pressed-surface: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  --interaction-hover-border: color-mix(in srgb, var(--primary) 35%, var(--border));
+  --interaction-pressed-border: color-mix(in srgb, var(--primary) 65%, var(--border));
+}
+
+/* Text actions, including actions implemented as buttons. */
+button.text-link:enabled:not([aria-disabled='true']):hover,
+button.text-link:enabled:not([aria-disabled='true']):focus-visible {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+:is(button, a).text-link:not(:disabled):not([aria-disabled='true']):active {
+  color: var(--primary);
+}
+
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:hover,
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:active {
+  color: var(--foreground);
+}
+
+.brand:hover,
+.brand:focus-visible {
+  color: var(--primary);
+}
+
+.brand:active .brand-mark {
+  scale: .96;
+}
+
+.primary-nav > a:hover,
+.primary-nav > a:focus-visible,
+.lesson-section-nav > a:hover,
+.lesson-section-nav > a:focus-visible {
+  color: var(--primary);
+}
+
+.primary-nav > a:active,
+.lesson-section-nav > a:active {
+  color: var(--primary);
+  background: var(--interaction-pressed-surface);
+}
+
+/* Clickable rows and cards: background feedback without moving surrounding content. */
+:is(
+  .resume-strip,
+  .home-learning-track,
+  .project-index-row,
+  .milestone-actions > a,
+  .course-preview > a:not(.text-link),
+  .module-lessons a,
+  .lesson-navigation li > a,
+  .concept-link,
+  .challenge-list-item,
+  .related-concepts a,
+  .lesson-pagination > div > a:not(.text-link)
+) {
+  transition: background-color .15s, border-color .15s, color .15s, filter .12s;
+}
+
+:is(
+  .resume-strip,
+  .home-learning-track,
+  .project-index-row,
+  .milestone-actions > a,
+  .course-preview > a:not(.text-link),
+  .module-lessons a,
+  .lesson-navigation li > a,
+  .concept-link,
+  .challenge-list-item,
+  .related-concepts a,
+  .lesson-pagination > div > a:not(.text-link)
+):is(:hover, :focus-visible) {
+  background-color: var(--interaction-hover-surface);
+}
+
+:is(
+  .resume-strip,
+  .home-learning-track,
+  .project-index-row,
+  .milestone-actions > a,
+  .course-preview > a:not(.text-link),
+  .module-lessons a,
+  .lesson-navigation li > a,
+  .concept-link,
+  .challenge-list-item,
+  .related-concepts a,
+  .lesson-pagination > div > a:not(.text-link)
+):active {
+  background-color: var(--interaction-pressed-surface);
+  border-color: var(--interaction-pressed-border);
+}
+
+/* Tabs, symbol inspectors, and segmented controls keep their current selection. */
+:is(
+  .project-file-tabs,
+  .project-tool-tabs,
+  .segmented-control,
+  .next-task-filters,
+  .demo-tabs,
+  .value-options,
+  .inspector-symbols,
+  .inspector-tree,
+  .mobile-graph-transitions
+) button:enabled:not([aria-disabled='true']):is(:hover, :focus-visible) {
+  background-color: var(--interaction-hover-surface);
+  border-color: var(--interaction-hover-border);
+  color: var(--foreground);
+}
+
+:is(
+  .project-file-tabs,
+  .project-tool-tabs,
+  .segmented-control,
+  .next-task-filters,
+  .demo-tabs,
+  .value-options,
+  .inspector-symbols,
+  .inspector-tree,
+  .mobile-graph-transitions
+) button:enabled:not([aria-disabled='true']):active {
+  background-color: var(--interaction-pressed-surface);
+  border-color: var(--interaction-pressed-border);
+  color: var(--primary);
+}
+
+.search-result:enabled:is(:hover, :focus-visible) {
+  background-color: var(--interaction-hover-surface);
+}
+
+.search-result:enabled:active,
+.experience-option:enabled:active {
+  background-color: var(--interaction-pressed-surface);
+}
+
+button.button[aria-pressed='true']:enabled {
+  border-color: var(--interaction-pressed-border);
+  background-color: var(--interaction-hover-surface);
+  color: var(--primary);
+}
+
+button.text-link[aria-pressed='true']:enabled {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.button.danger:enabled:hover {
+  background: color-mix(in srgb, var(--error) 20%, var(--surface));
+  border-color: var(--error);
+}
+
+.button:enabled:not([aria-disabled='true']):not([data-disabled]):active,
+a.button:not([aria-disabled='true']):active,
+.icon-button:enabled:active,
+.search-trigger:enabled:active,
+.locale-switcher:enabled:active {
+  box-shadow: inset 0 0 0 1px var(--interaction-pressed-border);
+}
+
+.select-trigger:enabled:not([data-disabled]):active,
+.select-item:not([data-disabled]):active {
+  background-color: var(--interaction-pressed-surface);
+  color: var(--foreground);
+}
+
+.select-item:not([data-disabled]):hover {
+  background-color: var(--interaction-hover-surface);
+  color: var(--foreground);
+}
+
+.select-item[data-disabled] {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+/* Native disclosures and editable controls use stable boundaries, not a scale effect. */
+summary:is(:hover, :focus-visible) {
+  color: var(--primary);
+  background-color: var(--interaction-hover-surface);
+}
+
+summary:active {
+  color: var(--primary);
+  background-color: var(--interaction-pressed-surface);
+}
+
+/* Module headers need an inset hit area and a stable number column. */
+.lesson-sidebar .lesson-navigation details > summary {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 8px;
+  border-radius: var(--radius);
+  line-height: 1.6;
+}
+
+.lesson-navigation details > summary > .number-label {
+  align-self: start;
+  line-height: inherit;
+}
+
+.lesson-module-title {
+  min-width: 0;
+}
+
+.lesson-navigation details > ol {
+  margin-left: 18px;
+}
+
+.field:enabled:not([readonly]):hover {
+  border-color: var(--interaction-hover-border);
+}
+
+.field:enabled:not([readonly]):is(:active, :focus) {
+  border-color: var(--interaction-pressed-border);
+}
+
+:is(.web-code-editor, .project-file-editor):enabled:hover {
+  box-shadow: inset 0 0 0 1px var(--interaction-hover-border);
+}
+
+:is(.web-code-editor, .project-file-editor):enabled:is(:active, :focus) {
+  box-shadow: inset 0 0 0 1px var(--interaction-pressed-border);
+}
+
+.code-editor .cm-editor:hover {
+  background-color: color-mix(in srgb, var(--foreground) 2%, transparent);
+}
+
+.code-editor .cm-editor:focus-within,
+.code-editor .cm-content:active {
+  background-color: color-mix(in srgb, var(--foreground) 3%, transparent);
+}
+
+.code-editor .cm-textfield:hover {
+  border-color: var(--interaction-hover-border);
+}
+
+.code-editor .cm-textfield:is(:active, :focus) {
+  border-color: var(--interaction-pressed-border);
+}
+
+:is(.reference-search, .search-input-wrap):has(input:enabled):active {
+  border-color: var(--interaction-pressed-border);
+}
+
+/* Radio and checkbox labels: the whole option is clickable, so highlight the whole option. */
+:is(.challenge-option, .checkpoint-option, .project-criteria label, .challenge-hide-completed, .next-task-list label):has(input:enabled):is(:hover, :focus-within) {
+  background-color: var(--interaction-hover-surface);
+  border-color: var(--interaction-hover-border);
+}
+
+:is(.challenge-option, .checkpoint-option, .project-criteria label, .challenge-hide-completed, .next-task-list label):has(input:enabled):active {
+  background-color: var(--interaction-pressed-surface);
+  border-color: var(--interaction-pressed-border);
+}
+
+:is(.challenge-option, .checkpoint-option):has(input:disabled) {
+  cursor: default;
+}
+
+input:is([type='checkbox'], [type='radio'], [type='range']):enabled:hover {
+  filter: brightness(1.18);
+}
+
+input:is([type='checkbox'], [type='radio'], [type='range']):enabled {
+  cursor: pointer;
+}
+
+input:is([type='checkbox'], [type='radio'], [type='range']):enabled:active {
+  filter: brightness(.85);
+}
+
+/* SVG graph controls must keep their geometry while responding to a press. */
+.canvas-edge:active path:not(.canvas-edge-hitbox) {
+  stroke: var(--primary);
+  stroke-width: 2.5;
+}
+
+.canvas-edge:active .canvas-edge-label rect {
+  stroke: var(--primary);
+}
+
+/* The simulated app has a light canvas; interaction colors inherit this local palette. */
+.next-app-preview {
+  --interaction-hover-surface: #edf5ed;
+  --interaction-pressed-surface: #d9ebdc;
+  --interaction-hover-border: #86a88d;
+  --interaction-pressed-border: #286a3d;
+}
+
+.next-app-preview .next-task-filters button:enabled:is(:hover, :focus-visible, :active) {
+  color: #17261b;
+}
+
+.next-app-preview .next-task-filters button[aria-pressed='true'] {
+  background: var(--interaction-pressed-surface);
+  border-color: var(--interaction-pressed-border);
+  color: #17261b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:active,
+  a:active,
+  .brand:active .brand-mark {
+    transform: none;
+    scale: none;
+  }
+
+  button.canvas-node:active {
+    transform: translate(-50%, -50%);
+  }
+
+  .concept-graph-mobile button.canvas-node:active {
+    transform: none;
+  }
+}

@@ -13,6 +13,7 @@ type HistoryBackLinkProps = {
 export default function HistoryBackLink({ fallbackTo, className, tone }: HistoryBackLinkProps) {
   const navigate = useNavigate()
   const { locale } = useLocale()
+  const classes = ['history-back-link', className].filter(Boolean).join(' ')
 
   function goBack(event: MouseEvent<HTMLAnchorElement>) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -22,7 +23,7 @@ export default function HistoryBackLink({ fallbackTo, className, tone }: History
     else navigate(fallbackTo)
   }
 
-  return <TextLink to={fallbackTo} onClick={goBack} className={className} tone={tone}>
-    <ArrowLeft size={14} aria-hidden="true"/>{locale === 'id' ? 'Kembali' : 'Back'}
+  return <TextLink to={fallbackTo} onClick={goBack} className={classes} tone={tone}>
+    <span className="history-back-link-content"><ArrowLeft size={14} aria-hidden="true"/><span>{locale === 'id' ? 'Kembali' : 'Back'}</span></span>
   </TextLink>
 }

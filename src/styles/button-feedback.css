@@ -1,6 +1,6 @@
 /* Give button-like controls a small tactile response while preserving their existing color transitions. */
 button:not(:disabled):not([aria-disabled='true']):not([data-disabled]):not(.canvas-node):not(.text-link) {
-  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+  transition: background .15s, color .15s, border-color .15s, filter .12s, transform .11s ease-out;
 }
 
 button:not(:disabled):not([aria-disabled='true']):not([data-disabled]):not(.canvas-node):not(.text-link):active,
@@ -9,12 +9,12 @@ a.button:not([aria-disabled='true']):active {
 }
 
 a.button:not([aria-disabled='true']) {
-  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+  transition: background .15s, color .15s, border-color .15s, filter .12s, transform .11s ease-out;
 }
 
 button.text-link:not(:disabled):not([aria-disabled='true']),
 a.text-link:not([aria-disabled='true']) {
-  transition: background .15s, color .15s, border-color .15s, transform .11s ease-out;
+  transition: background .15s, color .15s, border-color .15s, filter .12s, transform .11s ease-out;
 }
 
 button.text-link:not(:disabled):not([aria-disabled='true']):active,
@@ -30,8 +30,42 @@ button.canvas-node:not(:disabled):active {
   filter: brightness(.88);
 }
 
-.button.primary:hover {
+.button.primary:hover:not(:disabled):not([aria-disabled='true']):not([data-disabled]) {
   background: #356b42;
   border-color: #82b98a;
   color: var(--foreground);
+}
+
+/* Contrast feedback is the fallback for controls with feature-owned colors.
+   It preserves selected states and the positioning transforms of canvas nodes. */
+:where(
+  button:enabled:not([aria-disabled='true']):not([data-disabled]),
+  a[href]:not([aria-disabled='true']):not([data-disabled]),
+  summary,
+  [role='button']:not([aria-disabled='true']):not([data-disabled]),
+  .select-item:not([data-disabled])
+) {
+  transition: background-color .15s, color .15s, border-color .15s, filter .12s;
+}
+
+@media (hover: hover) {
+  :where(
+    button:enabled:not([aria-disabled='true']):not([data-disabled]),
+    a[href]:not([aria-disabled='true']):not([data-disabled]),
+    summary,
+    [role='button']:not([aria-disabled='true']):not([data-disabled]),
+    .select-item:not([data-disabled])
+  ):hover {
+    filter: brightness(1.08);
+  }
+}
+
+:where(
+  button:enabled:not([aria-disabled='true']):not([data-disabled]),
+  a[href]:not([aria-disabled='true']):not([data-disabled]),
+  summary,
+  [role='button']:not([aria-disabled='true']):not([data-disabled]),
+  .select-item:not([data-disabled])
+):active {
+  filter: brightness(.9);
 }
