@@ -52,6 +52,23 @@ button.text-link:enabled:not([aria-disabled='true']):focus-visible {
 }
 
 /* Clickable rows and cards: background feedback without moving surrounding content. */
+/* Keep row content inset from the hover surface so text and arrows do not hug its edge. */
+body :is(
+  .resume-strip,
+  .home-learning-track,
+  .project-index-row,
+  .course-preview > a:not(.text-link),
+  .module-lessons a
+) {
+  padding-inline: clamp(12px, 1.4vw, 18px);
+  border-radius: var(--radius);
+}
+
+body .lesson-pagination > div > a {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+}
+
 :is(
   .resume-strip,
   .home-learning-track,

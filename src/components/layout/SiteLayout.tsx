@@ -1,11 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { ArrowUpRight, Check, Languages, Menu, Search, SlidersHorizontal, X } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Check, Languages, Menu, Search, SlidersHorizontal, X } from 'lucide-react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useProgress } from '../../features/progress/ProgressProvider'
 import Dialog from '../ui/Dialog'
 import ErrorBoundary from '../ui/ErrorBoundary'
 import { RouteSkeleton } from '../ui/LoadingSkeleton'
 import { useLocale } from '../../features/locale/LocaleProvider'
+import { useLearningCopy } from '../../features/journey/useLearningCopy'
 
 import { routeLoader } from '../../routeLoaders'
 const ContentBoundary = lazy(() => import('../../content/runtime/ContentBoundary'))
@@ -36,6 +37,7 @@ export default function SiteLayout() {
   const location = useLocation()
   const progress = useProgress()
   const { locale, toggleLocale, t } = useLocale()
+  const c = useLearningCopy()
   useEffect(() => {
     const shortcut = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); setSearchOpen(value => !value) }
@@ -89,7 +91,51 @@ export default function SiteLayout() {
     </div></header>
     {!progress.storageAvailable && <div className="storage-notice" role="status">{t('layout.storageBlocked')}</div>}
     <main id="main-content" tabIndex={-1}><ErrorBoundary key={location.pathname}><Suspense fallback={<RouteLoadingFallback pathname={location.pathname} label={t('layout.loading')}/>}>{location.pathname === '/' ? <Outlet/> : <ContentBoundary><Outlet/></ContentBoundary>}</Suspense></ErrorBoundary></main>
-    <footer className="site-footer page-width"><Link className="footer-brand" translate="no" to="/">Rancode Lab</Link><p>{t('layout.footer')}</p><div><span><span className="status-dot"/> {t('layout.progressStays')}</span><a href="https://github.com/randhupaksi/rancode-lab" target="_blank" rel="noreferrer">{t('layout.source')} <ArrowUpRight size={13}/></a></div><small className="brand-attribution">{t('layout.trademarkNotice')}</small></footer>
+    <footer className="site-footer">
+      <div className="site-footer-inner page-width">
+        <div className="footer-main-grid">
+          <section className="footer-intro" aria-label="Rancode Lab">
+            <Link className="footer-brand" translate="no" to="/" aria-label={t('layout.brandHome')}><span className="brand-mark" aria-hidden="true">r<span>_</span></span><span>Rancode Lab</span></Link>
+            <p>{t('layout.footer')}</p>
+            <div className="footer-progress">
+              <span className="footer-progress-label">{c('Your learning snapshot', 'Ringkasan belajarmu')}</span>
+              <div className="footer-progress-stats">
+                <div><strong>{progress.completedLessons.length}</strong><span>{c('lessons', 'pelajaran')}</span></div>
+                <div><strong>{progress.completedChallenges.length}</strong><span>{c('challenges', 'tantangan')}</span></div>
+              </div>
+            </div>
+            <div className="footer-meta">
+              <span><span className="status-dot" aria-hidden="true"/>{t('layout.progressStays')}</span>
+              <a href="https://github.com/randhupaksi/rancode-lab" target="_blank" rel="noreferrer">{t('layout.source')} <ArrowUpRight size={13} aria-hidden="true"/></a>
+            </div>
+          </section>
+          <nav className="footer-explore" aria-label={c('Explore the site', 'Jelajahi RanCode Lab')}>
+            <h2 className="footer-section-label">{c('Explore', 'Jelajahi')}</h2>
+            <div className="footer-explore-links">
+              <Link to="/">{t('nav.home')}</Link>
+              <Link to="/learn">{t('nav.learn')}</Link>
+              <Link to="/projects">{t('nav.projects')}</Link>
+              <Link to="/explore">{t('nav.explore')}</Link>
+              <Link to="/playground">{t('nav.playground')}</Link>
+              <Link to="/challenges">{t('nav.challenges')}</Link>
+              <Link to="/cheat-sheet">{t('nav.cheatSheet')}</Link>
+            </div>
+          </nav>
+          <section className="footer-featured" aria-labelledby="footer-featured-title">
+            <h2 className="footer-section-label">{c('Start learning', 'Mulai belajar')}</h2>
+            <h3 id="footer-featured-title">{c('Understand coding by trying it yourself', 'Pahami coding sambil langsung mencoba')}</h3>
+            <p>{c('Follow a learning path, experiment with code, and bring ideas into small projects.', 'Ikuti jalur belajar, utak-atik kode, lalu bawa idenya ke proyek kecil.')}</p>
+            <ol className="footer-learning-flow" aria-label={c('A simple learning rhythm', 'Ritme belajar sederhana')}>
+              <li><small>01</small>{c('Understand', 'Pahami')}</li>
+              <li><small>02</small>{c('Experiment', 'Coba')}</li>
+              <li><small>03</small>{c('Build', 'Bangun')}</li>
+            </ol>
+            <Link className="footer-feature-link" to="/learn">{c('Browse learning paths', 'Lihat jalur belajar')} <ArrowRight size={16} aria-hidden="true"/></Link>
+          </section>
+        </div>
+        <div className="footer-bottom"><small className="brand-attribution">{c('© 2026 Randhu Paksi Membumi. All rights reserved.', '© 2026 Randhu Paksi Membumi. Hak cipta dilindungi.')}</small></div>
+      </div>
+    </footer>
     {searchOpen && <Suspense fallback={<Dialog open title={t('layout.search')} onClose={() => setSearchOpen(false)}><p role="status">{t('layout.loading')}</p></Dialog>}><ErrorBoundary><SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)}/></ErrorBoundary></Suspense>}
     <Dialog open={settingsOpen} onClose={() => setSettingsOpen(false)} title={t('settings.title')}><p className="muted">{t('settings.lead')}</p><div className="settings-counts"><div><strong>{progress.completedLessons.length}</strong><span>{t('settings.lessons')}</span></div><div><strong>{progress.completedChallenges.length}</strong><span>{t('settings.challenges')}</span></div></div>{resetDone && <p className="feedback success" role="status"><Check size={16}/>{t('settings.resetDone')}</p>}{confirmReset ? <div className="reset-confirmation"><h3>{t('settings.resetPrompt')}</h3><p>{t('settings.resetLead')}</p><div className="button-row"><button className="button danger" onClick={() => { progress.resetProgress(); setConfirmReset(false); setResetDone(true) }}>{t('settings.reset')}</button><button className="button secondary" onClick={() => setConfirmReset(false)}>{t('settings.keep')}</button></div></div> : <button className="button secondary" onClick={() => setConfirmReset(true)}>{t('settings.resetLocal')}</button>}</Dialog>
   </>
