@@ -1,4 +1,6 @@
 /* Preserve the existing learning cascade, loaded with content routes rather than the home shell. */
+@import './loading.css';
+@import './interaction-states.css';
 @import './learning.css';
 @import './course-details.css';
 @import './course-hub.css';

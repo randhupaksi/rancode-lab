@@ -1,0 +1,63 @@
+/* Interactions needed by the eager app shell and home page. Route states are loaded with content.css. */
+:root {
+  --interaction-hover-surface: color-mix(in srgb, var(--primary) 6%, var(--surface));
+  --interaction-pressed-surface: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  --interaction-pressed-border: color-mix(in srgb, var(--primary) 65%, var(--border));
+}
+
+.brand:hover,
+.brand:focus-visible {
+  color: var(--primary);
+}
+
+.primary-nav > a:hover,
+.primary-nav > a:focus-visible {
+  color: var(--primary);
+}
+
+.primary-nav > a:active {
+  color: var(--primary);
+  background: var(--interaction-pressed-surface);
+}
+
+body :is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)) {
+  padding-inline: clamp(12px, 1.4vw, 18px);
+  border-radius: var(--radius);
+}
+
+:is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)) {
+  transition: background-color .15s, border-color .15s, color .15s, filter .12s;
+}
+
+:is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)):is(:hover, :focus-visible) {
+  background-color: var(--interaction-hover-surface);
+}
+
+:is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)):active {
+  background-color: var(--interaction-pressed-surface);
+  border-color: var(--interaction-pressed-border);
+}
+
+.site-footer a[href]:is(:hover, :focus-visible) {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.button:enabled:not([aria-disabled='true']):not([data-disabled]):active,
+a.button:not([aria-disabled='true']):active,
+.icon-button:enabled:active,
+.search-trigger:enabled:active,
+.locale-switcher:enabled:active {
+  box-shadow: inset 0 0 0 1px var(--interaction-pressed-border);
+}
+
+button.button[aria-pressed='true']:enabled {
+  border-color: var(--interaction-pressed-border);
+  background-color: var(--interaction-hover-surface);
+  color: var(--primary);
+}
+
+.field:enabled:not([readonly]):is(:active, :focus) {
+  border-color: var(--interaction-pressed-border);
+}
