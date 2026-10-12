@@ -7,6 +7,7 @@ import { concepts, getCourse, getCourseLessons, getCourseModules, getLesson, get
 import type { Lesson } from '../content/runtime/catalog'
 import ConceptCanvas from '../components/learning/ConceptCanvas'
 import ExecutionStepper from '../components/learning/ExecutionStepper'
+import LessonReading, { InlineLearningText, LessonPractice } from '../components/learning/LessonReading'
 import LessonLab from '../components/learning/LessonLab'
 import StageMilestone from '../features/journey/StageMilestone'
 import FrameworkSetup from '../features/journey/FrameworkSetup'
@@ -61,20 +62,20 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
       <nav className="lesson-section-nav" aria-label={lesson.title}>{[['explain', 'lesson.explain'], ['visualize', 'lesson.visualize'], ['play', 'lesson.play'], ['challenge', 'lesson.challenge'], ['recap', 'lesson.recap']].map(([section, label]) => <TextLink href={`#${section}`} key={section}>{section === 'play' && lesson.promptExample ? c('Write a prompt', 'Tulis prompt') : t(label)}</TextLink>)}</nav>
     </header>
 
-    <section className="lesson-section" id="explain" aria-labelledby="explain-title"><span className="lesson-section-label">01 / {t('lesson.understand')}</span><h2 id="explain-title">{t('lesson.idea')}</h2><div className="lesson-prose">{lesson.explanation.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>{lesson.comparison && <div className="code-comparison"><div><h3>{lesson.comparison.beforeLabel}</h3><CodeBlock code={lesson.comparison.before} language={lesson.language ?? (lesson.comparison.beforeLabel === 'JavaScript' ? 'javascript' : 'typescript')}/></div><div><h3>{lesson.comparison.afterLabel}</h3><CodeBlock code={lesson.comparison.after} language={lesson.courseId === 'react' ? 'jsx' : lesson.courseId === 'nextjs' || lesson.comparison.afterLabel.includes('TSX') ? 'tsx' : 'typescript'}/></div></div>}</section>
+    <section className="lesson-section" id="explain" aria-labelledby="explain-title"><span className="lesson-section-label">01 / {t('lesson.understand')}</span><h2 id="explain-title">{t('lesson.idea')}</h2><LessonReading lesson={lesson}/>{lesson.comparison && <div className="code-comparison"><div><h3>{lesson.comparison.beforeLabel}</h3><CodeBlock code={lesson.comparison.before} language={lesson.language ?? (lesson.comparison.beforeLabel === 'JavaScript' ? 'javascript' : 'typescript')}/></div><div><h3>{lesson.comparison.afterLabel}</h3><CodeBlock code={lesson.comparison.after} language={lesson.courseId === 'react' ? 'jsx' : lesson.courseId === 'nextjs' || lesson.comparison.afterLabel.includes('TSX') ? 'tsx' : 'typescript'}/></div></div>}</section>
 
     <section className="lesson-section" id="visualize" aria-labelledby="visualize-title"><span className="lesson-section-label">02 / {t('lesson.relationship')}</span><h2 id="visualize-title">{lesson.visual.title}</h2><p className="section-description">{lesson.visual.description}</p><ConceptCanvas visual={lesson.visual}/>{lesson.steps && <ExecutionStepper code={lesson.code} steps={lesson.steps}/>}</section>
 
     <section className="lesson-section" id="play" aria-labelledby="play-title">
       <span className="lesson-section-label">03 / {t('lesson.try')}</span>
       <h2 id="play-title">{lesson.promptExample ? c('Make this prompt your own', 'Sesuaikan prompt ini untuk idemu') : lesson.practice ? c('Try it, then explain what changed', 'Coba, lalu jelaskan perubahannya') : t('lesson.change')}</h2>
-      <p className="section-description">{lesson.practice ?? t('lesson.editorLead')}</p>
+      <LessonPractice lesson={lesson}/>
       {(lesson.courseId === 'react' || lesson.courseId === 'nextjs') && (
         <>
           <FrameworkSetup framework={lesson.courseId}/>
           {lesson.courseId === 'nextjs' && (
             <p className="quiet-note">
-              {c('New to the type annotations in these examples?', 'Belum kenal anotasi type di contoh ini?')}{' '}
+              {c('New to the type annotations in these examples?', 'Belum kenal anotasi tipe di contoh ini?')}{' '}
               <TextLink to="/learn/typescript">{c('Review the TypeScript path', 'Pelajari dasar TypeScript')}</TextLink>.
             </p>
           )}
@@ -90,7 +91,7 @@ function LessonContent({ lesson }: { lesson: Lesson }) {
 
     <section className="lesson-section" id="challenge" aria-labelledby="challenge-title"><span className="lesson-section-label">04 / {t('lesson.checkUnderstanding')}</span><h2 id="challenge-title">{lesson.challenge.title}</h2>{done && <p className="quiet-note">{t('lesson.completed')}</p>}<ErrorBoundary compact><Suspense fallback={<SectionLoadingSkeleton variant="challenge" label={t('layout.loading')}/>}><DeferredContent fallback={<p className="quiet-note">{lesson.challenge.prompt}</p>}><ChallengeBlock challenge={lesson.challenge} onComplete={() => completeLesson(lesson.id)}/></DeferredContent></Suspense></ErrorBoundary></section>
 
-    <section className="lesson-section lesson-recap" id="recap" aria-labelledby="recap-title"><span className="lesson-section-label">05 / {t('lesson.takeWithYou')}</span><h2 id="recap-title">{t('lesson.remember')}</h2><ul>{lesson.recap.map(item => <li key={item}><Check size={15} aria-hidden="true"/><span>{item}</span></li>)}</ul><div className="lesson-completion-note" role="status">{done ? <><CheckCircle2 size={16} aria-hidden="true"/><span>{storageAvailable ? t('lesson.done') : t('lesson.doneSession')}</span></> : <span>{t('lesson.completePrompt')}</span>}</div><div className="related-concepts"><span className="eyebrow">{t('lesson.exploreFurther')}</span><div>{lesson.relatedConcepts.map(id => { const concept = concepts.find(item => item.id === id); const conceptLesson = concept ? getLesson(concept.lessonId) : undefined; const localizedConcept = concept && conceptLesson ? localizeConcept(concept, conceptLesson, locale) : concept; return localizedConcept ? <Link to={`/explore/${id}`} key={id}>{localizedConcept.title}<ArrowRight size={12} aria-hidden="true"/></Link> : null })}</div></div></section>
+    <section className="lesson-section lesson-recap" id="recap" aria-labelledby="recap-title"><span className="lesson-section-label">05 / {t('lesson.takeWithYou')}</span><h2 id="recap-title">{t('lesson.remember')}</h2><ul>{lesson.recap.map(item => <li key={item}><Check size={15} aria-hidden="true"/><span><InlineLearningText text={item}/></span></li>)}</ul><div className="lesson-completion-note" role="status">{done ? <><CheckCircle2 size={16} aria-hidden="true"/><span>{storageAvailable ? t('lesson.done') : t('lesson.doneSession')}</span></> : <span>{t('lesson.completePrompt')}</span>}</div><div className="related-concepts"><span className="eyebrow">{t('lesson.exploreFurther')}</span><div>{lesson.relatedConcepts.map(id => { const concept = concepts.find(item => item.id === id); const conceptLesson = concept ? getLesson(concept.lessonId) : undefined; const localizedConcept = concept && conceptLesson ? localizeConcept(concept, conceptLesson, locale) : concept; return localizedConcept ? <Link to={`/explore/${id}`} key={id}>{localizedConcept.title}<ArrowRight size={12} aria-hidden="true"/></Link> : null })}</div></div></section>
 
     {!next && <StageMilestone courseId={lesson.courseId!}/>}
     <nav className="lesson-pagination" aria-label={t('lesson.paths')}><div>{previous ? <Link to={lessonPath(previous)}><span><ArrowLeft size={13} aria-hidden="true"/>{t('lesson.previous')}</span><strong>{previous.title}</strong></Link> : <HistoryBackLink fallbackTo={`/learn/${lesson.courseId}`}/>}</div><div>{next ? <Link to={lessonPath(next)}><span>{t('lesson.next')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{next.title}</strong></Link> : <Link to={`/learn/${lesson.courseId}/checkpoint`}><span>{c('Next step', 'Langkah berikutnya')}<ArrowRight size={13} aria-hidden="true"/></span><strong>{c('Stage knowledge check', 'Cek pemahaman tahap ini')}</strong></Link>}</div></nav>
