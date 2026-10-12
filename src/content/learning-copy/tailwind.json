@@ -1,0 +1,1074 @@
+{
+  "tw-why": {
+    "id": {
+      "practiceSteps": [
+        "Ganti p-6 menjadi p-10 dan text-2xl menjadi text-3xl.",
+        "Jelaskan dua tanggung jawab CSS-nya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tailwind menyediakan class utilitas: class kecil untuk satu tugas tampilan. Kamu menggabungkannya di HTML untuk membentuk desain."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "p-6 memberi padding di dalam kotak.",
+            "text-2xl menentukan ukuran teks, dan font-semibold menentukan ketebalannya.",
+            "mt-3 memberi jarak di atas paragraf; tiap class bisa dicoba terpisah agar efeknya terlihat."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Tailwind menghasilkan CSS dari class yang ditemukan pada file sumber. Ia tidak menggantikan HTML semantik atau pemahaman box model."
+        }
+      ],
+      "hint": "Class mana mengatur ruang dan mana mengatur teks?",
+      "recap": [
+        "Tailwind menghasilkan utility CSS. Ia tidak menambah logika interaksi atau mengubah semantik HTML.",
+        "Tailwind menghasilkan CSS dari class yang ditemukan pada file sumber."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change p-6 to p-10 and text-2xl to text-3xl.",
+        "Explain the two CSS responsibilities."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tailwind provides utility classes: small classes for individual presentation tasks. Combine them in HTML to form a design."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "p-6 adds inner box padding.",
+            "text-2xl sets text size and font-semibold sets its weight.",
+            "mt-3 adds spacing above the paragraph; try classes separately to see their effects."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Tailwind generates CSS from classes found in source files. It does not replace semantic HTML or box-model knowledge."
+        }
+      ],
+      "hint": "Which classes control space and which control text?",
+      "recap": [
+        "Tailwind produces CSS utilities. It does not add interaction logic or change HTML semantics.",
+        "Tailwind generates CSS from classes found in source files."
+      ]
+    }
+  },
+  "tw-vite-install": {
+    "id": {
+      "practiceSteps": [
+        "Buat proyek secara lokal dan pasang text-3xl pada heading.",
+        "Periksa impor stylesheet jika ukurannya tidak berubah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Untuk memakai Tailwind pada proyek Vite lokal, hubungkan proses build dan stylesheet. Terminal menjalankan perintah; file konfigurasi menyimpan integrasinya."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Buat proyek dan pasang paket pada foldernya, sesuai perintah terminal di contoh.",
+            "Tambahkan plugin Tailwind ke vite.config.js tanpa menghapus plugin yang sudah dibutuhkan.",
+            "Impor Tailwind pada CSS, muat CSS dari main.js, lalu jalankan dev server dan periksa gaya heading."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Bagian terminal, konfigurasi, CSS, dan JavaScript tidak boleh ditempel seluruhnya ke satu file. Ikuti penanda lokasi pada contoh."
+        }
+      ],
+      "hint": "Telusuri rantai plugin, impor CSS, lalu pemuatan stylesheet oleh aplikasi.",
+      "recap": [
+        "Plugin mengompilasi Tailwind dan impor stylesheet membawa output-nya ke halaman.",
+        "Bagian terminal, konfigurasi, CSS, dan JavaScript tidak boleh ditempel seluruhnya ke satu file."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create the project locally and put text-3xl on a heading.",
+        "Check the stylesheet import if the size does not change."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "To use Tailwind in a local Vite project, connect the build process and stylesheet. Commands run in the terminal; configuration files hold the integration."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Create the project and install packages in its folder using the sample terminal commands.",
+            "Add the Tailwind plugin to vite.config.js while retaining required existing plugins.",
+            "Import Tailwind in CSS, load that CSS from main.js, then start the dev server and inspect the heading."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Terminal commands, configuration, CSS, and JavaScript must not all be pasted into one file. Follow the example's location markers."
+        }
+      ],
+      "hint": "Trace the plugin, CSS import, and stylesheet loading chain.",
+      "recap": [
+        "The plugin compiles Tailwind and the stylesheet import brings its output into the page.",
+        "Terminal commands, configuration, CSS, and JavaScript must not all be pasted into one file."
+      ]
+    }
+  },
+  "tw-cli-install": {
+    "id": {
+      "practiceSteps": [
+        "Bangun output secara lokal, tautkan di HTML, lalu coba mode watch sambil mengganti utility."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "CLI adalah alat yang dijalankan dari terminal. Pada alur ini, Tailwind membaca CSS input dan menulis CSS output yang dipakai HTML."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Pasang paket CLI dan siapkan file input dengan impor Tailwind.",
+            "Jalankan perintah watch untuk membangun ulang saat file berubah.",
+            "Hubungkan output.css melalui link di HTML dan coba class pada heading."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Input dan output harus berbeda. Mode watch tetap berjalan di terminal; perintah build minify biasa menghasilkan satu build lalu selesai."
+        }
+      ],
+      "hint": "File mana dibaca alat, dan file mana dimuat browser?",
+      "recap": [
+        "Browser membutuhkan stylesheet hasil kompilasi. Input berisi directive Tailwind yang perlu dikompilasi.",
+        "Input dan output harus berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Build the output locally, link it in HTML, then try watch mode while changing a utility."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A CLI is a terminal tool. Here, Tailwind reads input CSS and writes output CSS used by HTML."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Install the CLI package and prepare input CSS with a Tailwind import.",
+            "Run watch to rebuild when files change.",
+            "Link output.css from HTML and try heading classes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Input and output must differ. Watch keeps running in the terminal; a regular minified build writes once and finishes."
+        }
+      ],
+      "hint": "Which file does the tool read and which does the browser load?",
+      "recap": [
+        "The browser needs the compiled stylesheet. The input contains Tailwind directives that require compilation.",
+        "Input and output must differ."
+      ]
+    }
+  },
+  "tw-next-install": {
+    "id": {
+      "practiceSteps": [
+        "Periksa konfigurasi PostCSS, impor CSS, dan root layout pada proyek Next.js lokal.",
+        "Catat bagian yang sudah tersedia."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Integrasi Next.js memakai CSS global dan proses PostCSS. Periksa setup yang sudah dibuat sebelum menambahkan paket atau konfigurasi kedua."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Periksa apakah proyek baru sudah memiliki Tailwind.",
+            "Jika belum, ikuti paket dan plugin PostCSS v4 pada contoh.",
+            "Impor Tailwind di globals.css dan muat file itu dari root layout sebelum mencoba class pada page."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Contoh ini dikerjakan di proyek Next.js lokal. Pratinjau Tailwind Rancode sudah memiliki compiler sendiri dan tidak menjalankan npm."
+        }
+      ],
+      "hint": "Bagian mana sudah disediakan proyek dan bagian mana belum terhubung?",
+      "recap": [
+        "@tailwindcss/postcss menghubungkan compiler ke PostCSS; plugin Vite dipakai pada alur Vite.",
+        "Contoh ini dikerjakan di proyek Next.js lokal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Inspect a local Next.js project for its PostCSS config, CSS import, and root layout.",
+        "Record which parts already exist."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Next.js integration uses global CSS and PostCSS. Inspect the existing setup before adding duplicate packages or configuration."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Check whether the new project already has Tailwind.",
+            "If not, follow the example's v4 packages and PostCSS plugin.",
+            "Import Tailwind in globals.css and load it from the root layout before trying page classes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This example belongs in a local Next.js project. Rancode's Tailwind preview already has its own compiler and does not run npm."
+        }
+      ],
+      "hint": "Which parts already exist and which remain disconnected?",
+      "recap": [
+        "@tailwindcss/postcss integrates the compiler with PostCSS; the Vite plugin belongs to the Vite route.",
+        "This example belongs in a local Next.js project."
+      ]
+    }
+  },
+  "tw-preflight": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan kedua heading lalu atur heading pertama dengan class utilitas untuk ukuran dan ketebalan teks.",
+        "Periksa aturan border di browser lokalmu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Preflight adalah aturan dasar Tailwind yang merapikan gaya bawaan browser. Akibatnya, beberapa elemen tidak lagi memiliki tampilan bawaan yang biasa kamu lihat."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Heading tetap memiliki makna HTML meski ukuran dan ketebalannya perlu diberi class.",
+            "Margin, padding, dan border perlu diatur secara sengaja sesuai desain.",
+            "Daftar tetap memakai ul atau ol; tambahkan gaya penanda dan jarak jika ingin titik atau angka terlihat."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Hilangnya penanda visual tidak berarti elemen kehilangan makna. Periksa gaya, jangan mengganti daftar menjadi paragraf untuk mengakali reset."
+        }
+      ],
+      "hint": "Makna elemen berubah atau hanya gaya bawaannya yang dihapus?",
+      "recap": [
+        "Preflight memengaruhi tampilan, sedangkan h1 tetap punya semantik heading. Terapkan hierarki teks yang kamu inginkan secara eksplisit.",
+        "Hilangnya penanda visual tidak berarti elemen kehilangan makna."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare the two headings, then style the first with size and weight utilities.",
+        "Inspect the border rule in your local browser."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Preflight is Tailwind's base-style reset. Some elements consequently lose familiar browser-default presentation."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Headings retain HTML meaning even when size and weight need classes.",
+            "Margins, padding, and borders need deliberate styling.",
+            "Lists still use ul or ol; add marker styles and spacing for visible bullets or numbers."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Missing visual markers do not remove semantics. Inspect styles instead of replacing lists with paragraphs to bypass the reset."
+        }
+      ],
+      "hint": "Did the element's meaning change or only its default styles?",
+      "recap": [
+        "Preflight affects appearance, while h1 retains heading semantics. Apply the intended type hierarchy explicitly.",
+        "Missing visual markers do not remove semantics."
+      ]
+    }
+  },
+  "tw-spacing": {
+    "id": {
+      "practiceSteps": [
+        "Ganti gap-4 menjadi gap-8, lalu p-4 menjadi p-8.",
+        "Bandingkan ruang yang berubah."
+      ],
+      "recap": [
+        "gap memberi jarak antaranak; padding berada di dalam elemen dan margin di luarnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change gap-4 to gap-8, then p-4 to p-8.",
+        "Compare which space changes."
+      ],
+      "recap": [
+        "gap spaces children; padding is inside an element and margin is outside it."
+      ]
+    }
+  },
+  "tw-sizing": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan preview sempit memakai w-full max-w-xl dengan w-[700px]."
+      ],
+      "recap": [
+        "Lebar fleksibel beserta batas maksimum mengikuti parent tanpa mewajibkan lebar tetap yang besar."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare the narrow preview with w-full max-w-xl and with w-[700px]."
+      ],
+      "recap": [
+        "A flexible width plus a maximum grows with its parent without requiring a fixed large width."
+      ]
+    }
+  },
+  "tw-typography": {
+    "id": {
+      "practiceSteps": [
+        "Ubah weight heading dan line height paragraf secara terpisah.",
+        "Bandingkan kenyamanan baca."
+      ],
+      "recap": [
+        "font-semibold mengubah weight; utility text mengatur ukuran dan leading mengatur line height."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change heading weight and paragraph line height separately.",
+        "Compare readability."
+      ],
+      "recap": [
+        "font-semibold changes weight; text utilities set size and leading utilities set line height."
+      ]
+    }
+  },
+  "tw-colors": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan alpha background dan opacity seluruh elemen.",
+        "Jaga kedua contoh tetap terbaca."
+      ],
+      "recap": [
+        "Modifier garis miring mengubah alpha utility warna; opacity memengaruhi tampilan seluruh elemen."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare background alpha and whole-element opacity.",
+        "Keep both examples readable."
+      ],
+      "recap": [
+        "The slash modifier changes the color utility alpha; opacity affects the composited element."
+      ]
+    }
+  },
+  "tw-surfaces": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan kelompok dengan border saja dan shadow saja.",
+        "Jelaskan tujuannya."
+      ],
+      "recap": [
+        "Warna eksplisit menghindari ketergantungan pada default border yang diwarisi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare a border-only group with a shadow-only group.",
+        "Explain each purpose."
+      ],
+      "recap": [
+        "An explicit color avoids relying on an inherited border default."
+      ]
+    }
+  },
+  "tw-display": {
+    "id": {
+      "practiceSteps": [
+        "Ganti invisible menjadi hidden lalu bandingkan ruang yang ditempati."
+      ],
+      "recap": [
+        "hidden memakai display: none; invisible menjaga ruang dan sr-only punya tujuan aksesibilitas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change invisible to hidden and compare the occupied space."
+      ],
+      "recap": [
+        "hidden uses display: none; invisible keeps space and sr-only has an accessibility purpose."
+      ]
+    }
+  },
+  "tw-flex": {
+    "id": {
+      "practiceSteps": [
+        "Ganti menjadi flex-col lalu jelaskan perubahan sumbunya."
+      ],
+      "recap": [
+        "items-center mengatur align-items; justify-between bekerja pada sumbu utama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Switch to flex-col and explain how the axes change."
+      ],
+      "recap": [
+        "items-center controls align-items; justify-between works on the main axis."
+      ]
+    }
+  },
+  "tw-flex-shrink": {
+    "id": {
+      "practiceSteps": [
+        "Hapus lalu kembalikan min-w-0 pada preview sempit dengan judul panjang."
+      ],
+      "recap": [
+        "min-w-0 mengizinkan penyusutan di bawah minimum intrinsik sementara flex-1 membagi ruang."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove and restore min-w-0 in the narrow preview with a long title."
+      ],
+      "recap": [
+        "min-w-0 allows shrinking below the intrinsic minimum while flex-1 shares space."
+      ]
+    }
+  },
+  "tw-grid": {
+    "id": {
+      "practiceSteps": [
+        "Ubah rasio track dan satu span anak lalu bandingkan urutan DOM."
+      ],
+      "recap": [
+        "Container menentukan track; utility anak mengatur penempatan di dalamnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the track ratio and one child span, then compare the DOM order."
+      ],
+      "recap": [
+        "The container defines tracks; child utilities control their placement within them."
+      ]
+    }
+  },
+  "tw-position-overflow": {
+    "id": {
+      "practiceSteps": [
+        "Pindahkan label memakai utility inset lalu coba baris panjang pada preview sempit."
+      ],
+      "recap": [
+        "Ancestor berposisi yang sesuai menjadi containing block anak absolute."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Move the label with inset utilities and try the long line in a narrow preview."
+      ],
+      "recap": [
+        "The appropriate positioned ancestor supplies the absolute child’s containing block."
+      ]
+    }
+  },
+  "tw-mobile-first": {
+    "id": {
+      "practiceSteps": [
+        "Pakai preview lebar dan sempit lalu kenali layout dasar sebelum breakpoint."
+      ],
+      "recap": [
+        "Variant md adalah kondisi lebar minimum; layout tanpa prefix tetap berlaku di bawahnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Use wide and narrow previews and identify the base layout before the breakpoint."
+      ],
+      "recap": [
+        "The md variant is a minimum-width condition; the unprefixed layout remains below it."
+      ]
+    }
+  },
+  "tw-breakpoint-ranges": {
+    "id": {
+      "practiceSteps": [
+        "Coba max-md dan md:max-lg secara lokal pada lebar sekitar batasnya."
+      ],
+      "recap": [
+        "Variant yang digabung menggabungkan kondisinya sehingga menghasilkan rentang lebar terbatas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try max-md and md:max-lg locally at widths around their boundaries."
+      ],
+      "recap": [
+        "Stacked variants combine their conditions, producing a bounded width range."
+      ]
+    }
+  },
+  "tw-container-queries": {
+    "id": {
+      "practiceSteps": [
+        "Ubah max-width host pertama lalu bandingkan kedua salinan pada viewport yang sama."
+      ],
+      "recap": [
+        "Ancestor container memberi konteks inline-size untuk query pada keturunannya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the first host max-width and compare both copies in the same viewport."
+      ],
+      "recap": [
+        "The container ancestor provides the inline-size context for its descendant query."
+      ]
+    }
+  },
+  "tw-fluid-layout": {
+    "id": {
+      "practiceSteps": [
+        "Ubah minimum clamp lalu coba heading panjang dengan zoom browser secara lokal."
+      ],
+      "recap": [
+        "clamp membatasi nilai pilihan; konten nyata dan zoom tetap perlu ditinjau."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the clamp minimum and test a long heading with browser zoom locally."
+      ],
+      "recap": [
+        "clamp bounds the preferred value; actual content and zoom still require review."
+      ]
+    }
+  },
+  "tw-media": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan object-cover dengan object-contain lalu ubah aspect ratio."
+      ],
+      "recap": [
+        "object-contain menjaga gambar di dalam kotak tanpa memotongnya untuk memenuhi frame."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare object-cover with object-contain and change the aspect ratio."
+      ],
+      "recap": [
+        "object-contain preserves the image within the box instead of cropping to fill it."
+      ]
+    }
+  },
+  "tw-hover-focus": {
+    "id": {
+      "practiceSteps": [
+        "Coba hover lalu gunakan Tab ke tombol.",
+        "Bandingkan kedua state tanpa menghapus fokus."
+      ],
+      "recap": [
+        "Tampilan fokus terlihat membantu pengguna mengenali kontrol keyboard yang aktif."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Hover, then Tab to the button.",
+        "Compare both feedback states without removing focus."
+      ],
+      "recap": [
+        "A visible focus treatment helps users locate the active keyboard control."
+      ]
+    }
+  },
+  "tw-group-peer": {
+    "id": {
+      "practiceSteps": [
+        "Centang checkbox lalu pindahkan span sebelum input dan jelaskan mengapa style peer berhenti cocok."
+      ],
+      "recap": [
+        "Variant peer mengikuti hubungan saudara sebelumnya. Urutan DOM berpengaruh."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Toggle the checkbox, then move the span before the input and explain why peer styling stops matching."
+      ],
+      "recap": [
+        "The peer variant follows a preceding-sibling relationship. DOM order matters."
+      ]
+    }
+  },
+  "tw-forms": {
+    "id": {
+      "practiceSteps": [
+        "Ketik email tidak valid lalu yang valid.",
+        "Periksa fokus dari label dan tombol disabled."
+      ],
+      "recap": [
+        "Atribut mengatur perilaku native. Tampilan saja tidak menegakkan state disabled."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Type an invalid email, then a valid one.",
+        "Check label focus and the disabled button."
+      ],
+      "recap": [
+        "The attribute controls native behavior. Appearance alone cannot enforce a disabled state."
+      ]
+    }
+  },
+  "tw-data-aria": {
+    "id": {
+      "practiceSteps": [
+        "Ubah nilai data-state lalu buka disclosure native dengan keyboard."
+      ],
+      "recap": [
+        "ARIA menyampaikan state alih-alih membuat perilaku. Isinya perlu menggambarkan antarmuka nyata."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the data-state value and use keyboard activation on the native disclosure."
+      ],
+      "recap": [
+        "ARIA communicates state rather than implementing behavior. It must describe the real interface."
+      ]
+    }
+  },
+  "tw-motion": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan transisi hover dengan reduced motion aktif di sistem atau alat browser lokal."
+      ],
+      "recap": [
+        "motion-reduce berlaku ketika pengguna memilih lebih sedikit motion sehingga feedback state penting tetap perlu bekerja."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare the hover transition with reduced motion enabled in your local system or browser tools."
+      ],
+      "recap": [
+        "motion-reduce applies when the user prefers less motion, so essential state feedback should still work."
+      ]
+    }
+  },
+  "tw-theme": {
+    "id": {
+      "practiceSteps": [
+        "Ubah --color-brand sekali lalu amati semua utility brand."
+      ],
+      "recap": [
+        "Variabel @theme pada namespace yang dikenali menghubungkan token desain dengan utility yang dihasilkan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change --color-brand once and observe every brand utility."
+      ],
+      "recap": [
+        "@theme variables in recognized namespaces connect design tokens to generated utilities."
+      ]
+    }
+  },
+  "tw-arbitrary": {
+    "id": {
+      "practiceSteps": [
+        "Ubah lebar maksimum dan custom property secara terpisah.",
+        "Jelaskan yang perlu menjadi token berulang."
+      ],
+      "recap": [
+        "Token bernama memusatkan keputusan berulang dan memudahkan perubahan yang konsisten."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the maximum width and the custom property independently.",
+        "Explain which should become a reusable token."
+      ],
+      "recap": [
+        "A named token centralizes a repeated decision and lets you change it consistently."
+      ]
+    }
+  },
+  "tw-dark": {
+    "id": {
+      "practiceSteps": [
+        "Hapus lalu kembalikan dark pada main.",
+        "Periksa kontras teks dan border."
+      ],
+      "recap": [
+        "Variant dark bawaan memakai preferensi color scheme sistem; override selector mengubah pemicunya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove and restore dark on the main element.",
+        "Check both text and border contrast."
+      ],
+      "recap": [
+        "The default dark variant uses system color-scheme preference; a selector override changes its activation."
+      ]
+    }
+  },
+  "tw-custom-variants": {
+    "id": {
+      "practiceSteps": [
+        "Ubah data-study dari ready menjadi waiting lalu amati kondisi variant."
+      ],
+      "recap": [
+        "Variant menjelaskan kondisi selector; aplikasi menyediakan state nyata."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change data-study from ready to waiting and observe the variant condition."
+      ],
+      "recap": [
+        "The variant describes a selector condition; the application supplies the actual state."
+      ]
+    }
+  },
+  "tw-custom-utilities": {
+    "id": {
+      "practiceSteps": [
+        "Ubah utility khusus lalu bandingkan dengan aturan @apply.",
+        "Jelaskan tanggung jawab masing-masing."
+      ],
+      "recap": [
+        "@apply menggabungkan deklarasi style; ia tidak membuat struktur atau perilaku."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Modify the custom utility and compare it with the @apply rule.",
+        "Explain which responsibility each covers."
+      ],
+      "recap": [
+        "@apply combines styling declarations; it cannot implement structure or behavior."
+      ]
+    }
+  },
+  "tw-react-classname": {
+    "id": {
+      "practiceSteps": [
+        "Pindahkan kartu ke proyek React lokal, lalu pastikan CSS diimpor dari main.tsx."
+      ],
+      "recap": [
+        "React memakai className untuk class HTML; Tailwind memproses string class tersebut saat build."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Move the card into a local React project and confirm its CSS import reaches main.tsx."
+      ],
+      "recap": [
+        "React uses className for HTML classes; Tailwind handles the resulting class strings during the build."
+      ]
+    }
+  },
+  "tw-variant-map": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan varian warning dengan string utility utuh, bukan nama warna yang dirangkai."
+      ],
+      "recap": [
+        "Deteksi membutuhkan utility utuh seperti bg-emerald-700, bukan template yang baru menghasilkan nama itu saat runtime."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a warning variant using complete utility strings instead of interpolated color names."
+      ],
+      "recap": [
+        "Detection needs complete utilities such as bg-emerald-700, not a template that only produces them at runtime."
+      ]
+    }
+  },
+  "tw-component-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Jadikan dua kartu yang berulang sebagai satu komponen, sambil menjaga heading dan isinya tetap bermakna."
+      ],
+      "recap": [
+        "Batas komponen mengikuti tanggung jawab yang berulang, bukan batas jumlah class yang dibuat-buat."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Extract two repeated cards into one component while keeping their headings and content meaningful."
+      ],
+      "recap": [
+        "A reusable boundary follows repeated responsibility, rather than an arbitrary class-count limit."
+      ]
+    }
+  },
+  "tw-class-conflicts": {
+    "id": {
+      "practiceSteps": [
+        "Hapus satu konflik padding dasar, lalu jelaskan apakah varian breakpoint yang tersisa memang disengaja."
+      ],
+      "recap": [
+        "Urutan atribut class tidak mengatur urutan aturan CSS. Pilih satu nilai yang memang diinginkan untuk tiap state."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove one base padding conflict and explain whether the remaining breakpoint variant is intentional."
+      ],
+      "recap": [
+        "Class attribute order does not control CSS rule order. Choose a single intended value per state."
+      ]
+    }
+  },
+  "tw-next-components": {
+    "id": {
+      "practiceSteps": [
+        "Buat halaman Next.js statis dengan utility, lalu sebutkan satu fitur yang membutuhkan Client Component."
+      ],
+      "recap": [
+        "Batas client mengikuti kebutuhan JavaScript interaktif, bukan penggunaan utility CSS."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Build a static Next.js page with utilities and identify one feature that would need a Client Component."
+      ],
+      "recap": [
+        "The client boundary follows interactive JavaScript needs, rather than CSS utility usage."
+      ]
+    }
+  },
+  "tw-source-detection": {
+    "id": {
+      "practiceSteps": [
+        "Periksa apakah stylesheet Tailwind benar-benar dimuat oleh halaman.",
+        "Cari satu class lengkap yang dikenal dan pastikan gaya tersebut bekerja.",
+        "Telusuri class background yang hilang: apakah string-nya lengkap dan file sumbernya ikut dipindai?"
+      ],
+      "recap": [
+        "Kalau stylesheet tidak pernah sampai ke halaman, pendaftaran source tidak bisa memperbaiki style yang hilang."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Check that the page actually loads the Tailwind stylesheet.",
+        "Try one known complete class and verify its style works.",
+        "Trace the missing background class: is its string complete and its source file scanned?"
+      ],
+      "recap": [
+        "If the stylesheet never reaches the page, source registration cannot fix the missing styles."
+      ]
+    }
+  },
+  "tw-explicit-sources": {
+    "id": {
+      "practiceSteps": [
+        "Gambarkan path dari stylesheet ke folder komponen eksternal, lalu daftarkan source itu saja."
+      ],
+      "recap": [
+        "Aturan itu meminta Tailwind menghasilkan kandidat yang disebutkan saat kompilasi, meskipun file source tidak memuatnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Sketch the path from your stylesheet to an external component folder, then register only that source."
+      ],
+      "recap": [
+        "It tells Tailwind to generate the specified candidates during compilation, even if source files do not contain them."
+      ]
+    }
+  },
+  "tw-reference-layers": {
+    "id": {
+      "practiceSteps": [
+        "Jelaskan kenapa CSS module mereferensikan globals.css dan di mana aplikasi benar-benar memuat CSS globalnya."
+      ],
+      "recap": [
+        "Reference memberi konteks theme dan utility untuk kompilasi. Stylesheet global tetap membutuhkan impor biasa di aplikasi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Explain why the CSS module references globals.css and where the app actually loads its global CSS."
+      ],
+      "recap": [
+        "Reference provides theme and utility context for compilation. The global stylesheet still needs its normal import in the app."
+      ]
+    }
+  },
+  "tw-v4-migration": {
+    "id": {
+      "practiceSteps": [
+        "Cek tanggal dan perintah sebuah tutorial, lalu tentukan langkah instalasi mana yang sesuai dengan v4."
+      ],
+      "recap": [
+        "Integrasi v4 dimulai dari impor CSS dan package build yang tepat. Migrasi adalah pekerjaan yang terpisah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Inspect a tutorial date and commands, then identify which installation steps belong to v4."
+      ],
+      "recap": [
+        "The v4 integration starts from the CSS import and the correct build package. Migration is a separate task."
+      ]
+    }
+  },
+  "tw-production-build": {
+    "id": {
+      "practiceSteps": [
+        "Tulis checklist deployment: build berhasil, CSS dimuat, class yang dibutuhkan muncul, dan layout tetap berfungsi."
+      ],
+      "recap": [
+        "Menghasilkan CSS saat build menjaga deployment sesuai dengan integrasi framework yang dipilih."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a deployment checklist: build succeeds, CSS loads, intended classes appear, and the layout still works."
+      ],
+      "recap": [
+        "Generating CSS during the build keeps the deployment aligned with the selected framework integration."
+      ]
+    }
+  },
+  "tw-navigation-project": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan link Resources dan section tujuannya, lalu coba preview sempit dan navigasi keyboard."
+      ],
+      "recap": [
+        "Navigasi membutuhkan tujuan nyata dan label yang mudah dipakai, bukan hanya utility class yang menarik."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a Resources link and its matching section, then try the narrow preview and keyboard navigation."
+      ],
+      "recap": [
+        "Navigation needs a real destination and usable labels, not only attractive utility classes."
+      ]
+    }
+  },
+  "tw-form-project": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan input nama dengan label, dan pastikan pesan status tetap menjelaskan bahwa demo hanya berjalan lokal."
+      ],
+      "recap": [
+        "Style form terpisah dari logika validasi, request jaringan, dan penyimpanan permanen."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a labeled name field and keep the local-only status message accurate."
+      ],
+      "recap": [
+        "Form styling is separate from validation logic, network requests, and persistent storage."
+      ]
+    }
+  },
+  "tw-task-project": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu label tugas yang panjang, centang, dan pastikan teksnya membungkus tanpa mendorong checkbox keluar."
+      ],
+      "recap": [
+        "Peer yang punya state berada sebelum sibling yang ditarget utility peer-checked."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add one long task label, check it, and confirm it wraps without pushing the checkbox out of view."
+      ],
+      "recap": [
+        "The stateful peer precedes the sibling targeted by peer-checked utilities."
+      ]
+    }
+  },
+  "tw-dashboard-project": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan section Resources dan link-nya.",
+        "Periksa urutan baca saat sidebar berubah menjadi navigasi yang membungkus."
+      ],
+      "recap": [
+        "Minimum nol membantu kolom fleksibel mengikuti ruang yang tersedia. Isi tetap membutuhkan pengaturan pembungkusan dan overflow yang sesuai."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a Resources section and link.",
+        "Check the reading order when the sidebar becomes a wrapped navigation."
+      ],
+      "recap": [
+        "A zero minimum helps the flexible column fit available space. Content still needs appropriate wrapping and overflow handling."
+      ]
+    }
+  },
+  "tw-capstone": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan kartu latihan ketiga, sesuaikan grid responsif, dan tulis tiga keputusan yang bisa kamu jelaskan sebelum lanjut ke proyek pendamping."
+      ],
+      "recap": [
+        "Preview visual membantu layout, tetapi peninjauan lengkap juga mencakup interaksi, isi, dan build aplikasi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a third practice card, tune the responsive grid, and write three decisions you can explain before moving to the companion project."
+      ],
+      "recap": [
+        "A visual preview helps with layout, but a complete review also covers interaction, content, and the app build."
+      ]
+    }
+  }
+}

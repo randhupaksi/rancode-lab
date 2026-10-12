@@ -1,0 +1,792 @@
+{
+  "ai-agent-role": {
+    "id": {
+      "practiceSteps": [
+        "Ubah prompt ini untuk aplikasi yang ingin kamu pakai.",
+        "Tambahkan satu aksi yang bisa kamu periksa langsung di aplikasi."
+      ],
+      "recap": [
+        "Pesan selesai adalah klaim. Mencoba alur yang sebenarnya memberi kamu bukti tentang bagian yang bekerja."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Rewrite this prompt for an app you would actually use.",
+        "Add one action you can verify in the running app."
+      ],
+      "recap": [
+        "A completion message is a claim. Trying the actual flow gives you evidence of what works."
+      ]
+    }
+  },
+  "ai-tool-access": {
+    "id": {
+      "practiceSteps": [
+        "Catat tindakan yang dibutuhkan tugasmu berikutnya.",
+        "Tandai yang membutuhkan izin tambahan di sesi agent-mu."
+      ],
+      "recap": [
+        "Verifikasi harus sesuai akses alat yang sebenarnya. Checklist bisa membantu kamu memeriksa browser ketika agent tidak bisa melakukannya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "List the actions your next task needs.",
+        "Mark which require extra permission in your actual agent session."
+      ],
+      "recap": [
+        "Verification should match actual tool access. A checklist can help you check the browser when the agent cannot."
+      ]
+    }
+  },
+  "ai-small-first-app": {
+    "id": {
+      "practiceSteps": [
+        "Pilih tiga aksi untuk aplikasi pertamamu.",
+        "Masukkan ide lainnya ke daftar nanti."
+      ],
+      "recap": [
+        "Daftar tugas lokal punya alur yang terbatas dan hasil yang bisa diamati, sehingga feedback dan debugging lebih mudah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Pick three actions for your first app.",
+        "Put every other idea into a later list."
+      ],
+      "recap": [
+        "A small local task list has a bounded flow and observable outcomes, making feedback and debugging easier."
+      ]
+    }
+  },
+  "ai-foundations": {
+    "id": {
+      "practiceSteps": [
+        "Buka halaman yang sudah kamu buat.",
+        "Kenali struktur, aturan layout, dan satu event handler-nya."
+      ],
+      "recap": [
+        "Jumlah itu bergantung pada pembaruan data dan alur render. Fondasi JavaScript dan browser membantu kamu menelusurinya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Open a page you have built.",
+        "Identify its structure, layout rules, and one event handler."
+      ],
+      "recap": [
+        "The count depends on the data update and rendering flow. JavaScript and browser foundations help you trace it."
+      ]
+    }
+  },
+  "ai-product-brief": {
+    "id": {
+      "practiceSteps": [
+        "Tulis brief empat baris untuk aplikasimu.",
+        "Jelaskan momen pengguna tanpa membuat daftar dekorasi UI."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Brief adalah ringkasan kebutuhan produk sebelum meminta AI menulis kode. Ia memberi tujuan yang bisa dipakai untuk menilai hasil, bukan sekadar nama aplikasi."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Sebutkan siapa pengguna dan masalah yang ingin diselesaikan.",
+            "Pilih satu alur utama serta data yang benar-benar diperlukan.",
+            "Tuliskan batas pekerjaan dan kriteria selesai yang dapat diperiksa."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Permintaan seperti “buat aplikasi keren” memberi sedikit petunjuk untuk menentukan fitur atau menilai hasil."
+        }
+      ],
+      "hint": "Jika AI selesai, bukti apa yang membuatmu bisa mengatakan tujuan pengguna tercapai?",
+      "recap": [
+        "Pengguna, momen, dan hasil membantu menentukan layout serta aksi utama dengan lebih jelas daripada kata sifat yang samar.",
+        "Permintaan seperti “buat aplikasi keren” memberi sedikit petunjuk untuk menentukan fitur atau menilai hasil."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a four-line brief for your own app.",
+        "Explain the user moment without listing UI decorations."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A brief summarizes product needs before asking AI to code. It provides a basis for judging results rather than only an app name."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "State the users and the problem to solve.",
+            "Choose one main flow and the data actually needed.",
+            "Write scope limits and verifiable completion criteria."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A request such as “make a cool app” gives little guidance for choosing features or judging results."
+        }
+      ],
+      "hint": "After AI finishes, what evidence shows the user goal was met?",
+      "recap": [
+        "Audience, moment, and outcome guide the layout and main action better than a vague style adjective.",
+        "A request such as “make a cool app” gives little guidance for choosing features or judging results."
+      ]
+    }
+  },
+  "ai-prompt-structure": {
+    "id": {
+      "practiceSteps": [
+        "Tulis ulang “buat aplikasiku lebih bagus” memakai empat bagian ini dan satu hasil yang bisa diamati."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Prompt adalah instruksi untuk agen AI. Prompt yang jelas menghubungkan tujuan, konteks proyek, pekerjaan yang diminta, dan cara memeriksa hasil."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Jelaskan hasil yang dibutuhkan pengguna.",
+            "Sertakan file, stack, atau perilaku yang relevan agar agen tidak menebak.",
+            "Minta langkah pemeriksaan dan hasil konkret, lalu baca kembali apakah instruksinya bisa diikuti."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Menambah panjang prompt tidak selalu menambah kejelasan. Informasi relevan dan batas yang tepat lebih membantu."
+        }
+      ],
+      "hint": "Apakah tujuan, konteks, tugas, dan bukti selesai sudah dapat ditemukan?",
+      "recap": [
+        "Tugas dan hasil yang bisa diperiksa memberi agent arah sekaligus dasar untuk kamu meninjau hasilnya.",
+        "Menambah panjang prompt tidak selalu menambah kejelasan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Rewrite “make my app better” with these four parts and one observable success condition."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A prompt instructs an AI agent. Clear prompts connect goals, project context, requested work, and verification."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Explain the user outcome.",
+            "Include relevant files, stack, or behavior to reduce guessing.",
+            "Request verification and concrete results, then check that the instructions are actionable."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Longer prompts are not always clearer. Relevant information and precise boundaries help more."
+        }
+      ],
+      "hint": "Can the goal, context, task, and completion evidence be found?",
+      "recap": [
+        "A task and a checkable result give the agent a direction and give you a basis for review.",
+        "Longer prompts are not always clearer."
+      ]
+    }
+  },
+  "ai-context-budget": {
+    "id": {
+      "practiceSteps": [
+        "Ambil permintaan panjang yang pernah kamu tulis.",
+        "Hapus riwayat yang tidak relevan sambil menjaga tujuan, bukti, dan batasannya."
+      ],
+      "recap": [
+        "Path dan langkah reproduksi yang relevan mengarahkan penyelidikan tanpa memenuhi konteks dengan detail yang tidak terkait."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Take a long request you have written.",
+        "Remove unrelated history while keeping the goal, evidence, and constraints."
+      ],
+      "recap": [
+        "Relevant paths and reproduction steps focus the investigation without filling the context with unrelated details."
+      ]
+    }
+  },
+  "ai-acceptance": {
+    "id": {
+      "practiceSteps": [
+        "Tulis tiga pemeriksaan untuk aksi utamamu, termasuk satu input yang tidak valid."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kriteria penerimaan menjelaskan bukti bahwa fitur memenuhi kebutuhan. Gunakan perilaku yang dapat diamati, bukan hanya penilaian “bagus”."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Tentukan kondisi awal dan tindakan pengguna.",
+            "Tuliskan hasil yang seharusnya terlihat setelah tindakan itu.",
+            "Sertakan keadaan kosong atau gagal yang relevan agar hasil tidak hanya dinilai dari satu jalur sukses."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Kriteria bukan laporan bahwa tes sudah dilakukan. Kamu masih perlu mencoba hasil dan mencatat apa yang benar-benar terjadi."
+        }
+      ],
+      "hint": "Bisakah orang lain memeriksa kriteria itu dan mendapatkan penilaian yang sama?",
+      "recap": [
+        "Input, aksi, dan hasil yang diharapkan sudah jelas, sehingga perilakunya bisa kamu ulang dan periksa.",
+        "Kriteria bukan laporan bahwa tes sudah dilakukan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write three checks for your main action, including one invalid input."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Acceptance criteria describe evidence that a feature meets needs. Use observable behavior rather than simply judging it “good”."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Define initial conditions and user actions.",
+            "Write the observable result expected afterward.",
+            "Include relevant empty or failed states rather than judging one success path only."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Criteria are not proof of completed tests. You still need to try results and record what actually happened."
+        }
+      ],
+      "hint": "Could another person check the criterion and reach the same judgment?",
+      "recap": [
+        "The input, action, and expected outcome are explicit, so you can reproduce and verify the behavior.",
+        "Criteria are not proof of completed tests."
+      ]
+    }
+  },
+  "ai-user-flow": {
+    "id": {
+      "practiceSteps": [
+        "Uraikan alur empat langkah untuk aplikasimu.",
+        "Tentukan hal yang perlu terlihat pada tiap langkah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Alur pengguna menghubungkan tujuan dengan urutan tindakan. Mulai dari masuk ke halaman sampai pengguna mendapatkan hasil yang dicari."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Tuliskan titik masuk dan informasi yang terlihat pertama.",
+            "Pilih satu tindakan utama yang dapat ditemukan pengguna.",
+            "Jelaskan hasil, jalan kembali, dan pemulihan jika tindakan gagal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Daftar fitur belum menjelaskan bagaimana orang memakainya. Periksa perpindahan antarbagian, bukan halaman secara terpisah saja."
+        }
+      ],
+      "hint": "Apa langkah berikutnya yang masuk akal bagi pengguna pada titik ini?",
+      "recap": [
+        "Layout perlu membantu tujuan utama pengguna. Menampilkan tugas yang relevan dan aksinya mengurangi pencarian yang tidak perlu.",
+        "Daftar fitur belum menjelaskan bagaimana orang memakainya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Describe a four-step user flow for your app.",
+        "Identify what users should see at each step."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "User flows connect goals with action sequences. Start at page entry and end at the needed result."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Write the entry point and initial information.",
+            "Choose a discoverable primary action.",
+            "Explain the result, return path, and recovery after failure."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Feature lists do not explain usage. Check transitions between regions rather than pages only in isolation."
+        }
+      ],
+      "hint": "What is the user's sensible next step here?",
+      "recap": [
+        "The layout should help the main user job. Showing the relevant tasks and action reduces unnecessary searching.",
+        "Feature lists do not explain usage."
+      ]
+    }
+  },
+  "ai-visual-direction": {
+    "id": {
+      "practiceSteps": [
+        "Ganti tiga kata sifat yang samar dalam permintaan desainmu dengan keputusan konkret beserta tujuannya."
+      ],
+      "recap": [
+        "Keputusan konkret memberi arah desain sambil menghubungkan tampilannya dengan tugas yang perlu diselesaikan pengguna."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace three vague adjectives in your design request with concrete decisions and their purpose."
+      ],
+      "recap": [
+        "Concrete decisions constrain the design while tying the treatment to a task users need to complete."
+      ]
+    }
+  },
+  "ai-references": {
+    "id": {
+      "practiceSteps": [
+        "Pilih satu referensi lalu catat dua hal yang berguna dan dua bagian yang tidak akan kamu bawa."
+      ],
+      "recap": [
+        "Ciri yang jelas dan tujuan khusus produk membantu adaptasi sambil menjaga konten serta identitas yang sesuai."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Choose one reference and write down two useful traits and two parts you will not carry over."
+      ],
+      "recap": [
+        "A named trait and a product-specific purpose guide adaptation while keeping the content and identity appropriate."
+      ]
+    }
+  },
+  "ai-avoid-slop": {
+    "id": {
+      "practiceSteps": [
+        "Tinjau satu layar buatan agent.",
+        "Sebutkan satu tampilan yang berguna dan satu elemen yang tujuannya belum bisa kamu jelaskan."
+      ],
+      "recap": [
+        "Bukti yang tidak nyata menyesatkan pengguna. Konten nyata yang berguna menjadi dasar kepercayaan dan tinjauan desain yang lebih baik."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Review one generated screen.",
+        "Name one useful treatment and one element whose purpose you cannot explain."
+      ],
+      "recap": [
+        "Unsupported proof misleads users. Useful real content is a better foundation for trust and design review."
+      ]
+    }
+  },
+  "ai-plan-first": {
+    "id": {
+      "practiceSteps": [
+        "Bagi fitur menjadi tiga bagian.",
+        "Pastikan tiap bagian punya hasil terlihat yang bisa kamu coba."
+      ],
+      "recap": [
+        "Aksi pengguna yang bisa dijalankan menunjukkan perilaku nyata sejak awal dan memberi titik mulai yang jelas untuk iterasi berikutnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Break a feature into three slices.",
+        "Make sure each has a visible result you can try."
+      ],
+      "recap": [
+        "A runnable user action exposes real behavior early and gives the next iteration a stable starting point."
+      ]
+    }
+  },
+  "ai-existing-project": {
+    "id": {
+      "practiceSteps": [
+        "Pilih satu komponen yang perlu digunakan kembali oleh fitur berikutnya dan jelaskan kontraknya."
+      ],
+      "recap": [
+        "Memakai kontrak yang ada membantu perilaku dan style tetap konsisten tanpa dependency yang tidak diperlukan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Choose one existing component your next feature should reuse and explain the contract it provides."
+      ],
+      "recap": [
+        "Reusing an existing contract supports consistent behavior and styling without unnecessary dependencies."
+      ]
+    }
+  },
+  "ai-feedback": {
+    "id": {
+      "practiceSteps": [
+        "Tulis feedback untuk satu masalah dengan lokasi, hasil aktual, hasil yang diharapkan, dan pemeriksaan yang bisa diulang."
+      ],
+      "recap": [
+        "Viewport, lokasi, masalah, dan hasil yang diharapkan membuat feedback bisa ditindaklanjuti serta diperiksa."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write feedback for one issue using location, actual result, expected result, and a repeatable check."
+      ],
+      "recap": [
+        "The viewport, location, problem, and expected result make the feedback actionable and checkable."
+      ]
+    }
+  },
+  "ai-debugging": {
+    "id": {
+      "practiceSteps": [
+        "Ubah error yang pernah kamu lihat menjadi prompt debugging.",
+        "Samarkan nilai privat dulu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Saat hasil AI bermasalah, beri bukti yang dapat ditelusuri. Gejala, harapan, dan cara mengulang masalah membantu menemukan penyebab."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Catat tindakan yang memicu masalah dan hasil aktualnya.",
+            "Sertakan error atau request yang relevan tanpa data rahasia.",
+            "Minta perubahan terfokus lalu ulangi skenario yang sama untuk membandingkan hasil."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "“Tidak jalan” belum menjelaskan apa yang gagal. Pisahkan kesalahan kode, konfigurasi, dan asumsi alur pengguna."
+        }
+      ],
+      "hint": "Informasi mana membuat orang lain dapat mengulang masalah tanpa menebak?",
+      "recap": [
+        "Memperbaiki kontrak data menangani penyebabnya. Menyembunyikan bukti bisa membuat perilaku rusak tetap ada.",
+        "“Tidak jalan” belum menjelaskan apa yang gagal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Turn an error you have seen into a debugging prompt.",
+        "Redact any private values first."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "When AI output fails, provide traceable evidence. Symptoms, expectations, and reproduction steps help locate causes."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Record the triggering action and actual result.",
+            "Include relevant errors or requests without secrets.",
+            "Request a focused change and repeat the same scenario to compare outcomes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "“It does not work” does not identify the failure. Separate code errors, configuration, and user-flow assumptions."
+        }
+      ],
+      "hint": "Which information lets another person reproduce the problem without guessing?",
+      "recap": [
+        "Fixing the data contract addresses the cause. Silencing evidence can leave the broken behavior in place.",
+        "“It does not work” does not identify the failure."
+      ]
+    }
+  },
+  "ai-diff-review": {
+    "id": {
+      "practiceSteps": [
+        "Baca diff kecil di proyekmu.",
+        "Jelaskan satu baris yang berubah berdasarkan dampaknya pada pengguna."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Diff menunjukkan perbedaan sebelum dan sesudah perubahan. Meninjaunya membantu memahami apa yang diubah agen sebelum menerima hasil."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Cocokkan perubahan dengan tugas yang diminta.",
+            "Periksa aturan data, kondisi gagal, dan file yang tidak seharusnya terkena.",
+            "Coba perilaku yang berubah, lalu catat hasil dan bagian yang belum diperiksa."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Diff yang terlihat rapi belum membuktikan fitur bekerja. Tinjauan kode dan percobaan perilaku saling melengkapi."
+        }
+      ],
+      "hint": "Perubahan mana berhubungan langsung dengan tujuan dan mana yang memerlukan penjelasan tambahan?",
+      "recap": [
+        "Perubahan yang tidak terkait dan pemeriksaan yang dilemahkan bisa menimbulkan regresi. Tinjau tujuan dan dampaknya sebelum menerima.",
+        "Diff yang terlihat rapi belum membuktikan fitur bekerja."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Read a small diff in your project.",
+        "Explain one changed line in terms of its effect on the user."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A diff shows before-and-after changes. Reviewing it explains what the agent changed before accepting results."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Match changes with the requested task.",
+            "Inspect data rules, failure cases, and unrelated affected files.",
+            "Try changed behavior, then record outcomes and unchecked areas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A tidy diff does not prove functionality. Code review and behavior checks complement each other."
+        }
+      ],
+      "hint": "Which changes directly serve the goal and which need more explanation?",
+      "recap": [
+        "Unrelated changes and weakened checks can create regressions. Review their purpose and impact before accepting them.",
+        "A tidy diff does not prove functionality."
+      ]
+    }
+  },
+  "ai-behavior-checks": {
+    "id": {
+      "practiceSteps": [
+        "Buat tabel lima kasus untuk aplikasimu dengan input, aksi, dan hasil yang diharapkan."
+      ],
+      "recap": [
+        "Kompilasi dan perilaku pengguna membutuhkan pemeriksaan yang berbeda. Interaksi yang gagal tetap perlu ditelusuri."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Make a five-case check table for your app with input, action, and expected result."
+      ],
+      "recap": [
+        "Compilation and user behavior are different checks. The failing interaction still needs investigation."
+      ]
+    }
+  },
+  "ai-accessibility": {
+    "id": {
+      "practiceSteps": [
+        "Pakai keyboard saja untuk menambah dan menyelesaikan tugas.",
+        "Catat bagian ketika fokus hilang atau terjebak."
+      ],
+      "recap": [
+        "Kontrol native memberi semantik dan perilaku keyboard yang sesuai; interaksinya tetap perlu diperiksa."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Use only the keyboard to add and complete a task.",
+        "Note any point where focus disappears or gets stuck."
+      ],
+      "recap": [
+        "A native control provides semantics and expected keyboard behavior; the interaction still needs to be checked."
+      ]
+    }
+  },
+  "ai-responsive-performance": {
+    "id": {
+      "practiceSteps": [
+        "Uji konten terpanjang yang mungkin dipakai pada dua lebar.",
+        "Catat satu masalah layout dan satu perbaikan berdasarkan bukti."
+      ],
+      "recap": [
+        "Klaim performa membutuhkan bukti dari skenario yang bisa dibandingkan. Perubahan warna saja tidak membuktikan peningkatan kecepatan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Test your longest likely content at two widths.",
+        "Record a layout problem and one evidence-based improvement."
+      ],
+      "recap": [
+        "A performance claim needs evidence from a comparable scenario. A color change alone does not establish a speedup."
+      ]
+    }
+  },
+  "ai-safe-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Tinjau integrasi yang kamu rencanakan.",
+        "Kenali satu rahasia atau tindakan sensitif dan letak batasnya."
+      ],
+      "recap": [
+        "Nilai yang dikirim ke client bisa diakses pengguna. Kredensial privat membutuhkan batas server yang tepat."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Review your planned integrations.",
+        "Identify one secret or sensitive action and where its boundary belongs."
+      ],
+      "recap": [
+        "Client-delivered values are accessible to users. Private credentials require an appropriate server-side boundary."
+      ]
+    }
+  },
+  "ai-handoff": {
+    "id": {
+      "practiceSteps": [
+        "Tulis catatan serah terima proyekmu kurang dari sepuluh baris.",
+        "Bedakan bagian yang dibuat, diperiksa, dan masih tersisa."
+      ],
+      "recap": [
+        "Catatan faktual yang ringkas menjaga keputusan dan bukti yang dibutuhkan tugas berikutnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a handoff for your current project in fewer than ten lines.",
+        "Separate made, checked, and remaining work."
+      ],
+      "recap": [
+        "A compact factual handoff preserves the decisions and evidence that the next task depends on."
+      ]
+    }
+  },
+  "ai-release-review": {
+    "id": {
+      "practiceSteps": [
+        "Tulis catatan rilis singkat dengan satu perilaku terverifikasi, satu batas yang diketahui, dan satu tindakan pemulihan."
+      ],
+      "recap": [
+        "Hasil lokal yang siap membantu keputusan rilis, sedangkan publikasi tetap membutuhkan izin untuk tindakan jarak jauh."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a short release note with one verified behavior, one known limit, and a recovery action."
+      ],
+      "recap": [
+        "A ready local artifact supports a release decision, while publishing still requires authorization for the remote action."
+      ]
+    }
+  },
+  "ai-capstone": {
+    "id": {
+      "practiceSteps": [
+        "Siapkan brief aplikasi kecil untuk menambah tugas, menandai selesai, dan menyaring tugas tersisa.",
+        "Gunakan prompt pada agen AI pilihanmu, lalu tinjau kode hasilnya dan terapkan file di ruang proyek Rancode.",
+        "Coba aplikasi pada pratinjau, periksa keadaan kosong dan interaksi, lalu catat keputusan serta bukti pemeriksaan di jurnal proyek."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Proyek akhir Study Sprint menggabungkan brief, prompt, perubahan kode, dan pemeriksaan aplikasi. Ruang proyek Rancode dapat menjalankan hasil web agar kamu bisa mencoba perilakunya."
+        },
+        {
+          "kind": "list",
+          "title": "Langkah yang perlu dipahami",
+          "ordered": true,
+          "items": [
+            "Siapkan brief aplikasi kecil untuk menambah tugas, menandai selesai, dan menyaring tugas tersisa.",
+            "Gunakan prompt pada agen AI pilihanmu, lalu tinjau kode hasilnya dan terapkan file di ruang proyek Rancode.",
+            "Coba aplikasi pada pratinjau, periksa keadaan kosong dan interaksi, lalu catat keputusan serta bukti pemeriksaan di jurnal proyek."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Rancode tidak mengirim prompt ke agen AI secara otomatis. Kamu tetap memilih alat AI dan meninjau hasilnya; unduhan memungkinkan melanjutkan di proyek lokal bila dibutuhkan."
+        }
+      ],
+      "hint": "Apa bukti dari aplikasi yang dijalankan, bukan hanya jawaban agen, bahwa tugas bisa ditambah dan diselesaikan?",
+      "recap": [
+        "Aplikasi dan tinjauannya menghubungkan tujuan yang diminta dengan keputusan implementasi serta bukti.",
+        "Rancode tidak mengirim prompt ke agen AI secara otomatis."
+      ],
+      "description": "Bangun dan tinjau Study Sprint di ruang proyek Rancode: gunakan brief dan prompt, coba aplikasi, lalu catat bukti hasilnya."
+    },
+    "en": {
+      "practiceSteps": [
+        "Prepare a small-app brief for adding tasks, marking completion, and filtering remaining tasks.",
+        "Use the prompt with your chosen AI agent, review its code, and apply files in Rancode's project workspace.",
+        "Try the preview, check empty states and interactions, then record decisions and verification evidence in the project journal."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "The Study Sprint capstone combines briefs, prompts, code changes, and app review. Rancode's project workspace can run web results so you can try behavior."
+        },
+        {
+          "kind": "list",
+          "title": "Steps to understand",
+          "ordered": true,
+          "items": [
+            "Prepare a small-app brief for adding tasks, marking completion, and filtering remaining tasks.",
+            "Use the prompt with your chosen AI agent, review its code, and apply files in Rancode's project workspace.",
+            "Try the preview, check empty states and interactions, then record decisions and verification evidence in the project journal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Rancode does not automatically send prompts to AI agents. You choose the tool and review its result; downloads let you continue locally if needed."
+        }
+      ],
+      "hint": "What evidence from the running app, rather than the agent's reply, shows tasks can be added and completed?",
+      "recap": [
+        "The app and review connect the requested outcome to implementation decisions and evidence.",
+        "Rancode does not automatically send prompts to AI agents."
+      ],
+      "description": "Build and review Study Sprint in Rancode: use a brief and prompt, try the app, and record outcome evidence."
+    }
+  }
+}

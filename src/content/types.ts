@@ -54,7 +54,20 @@ export interface Challenge {
   runtimeChecks?: { expression: string; expected: string | number | boolean | null | Record<string, number> }[]
 }
 
+export type LessonReadingBlock =
+  | { kind: 'paragraph'; text: string }
+  | { kind: 'list'; title?: string; ordered?: boolean; items: string[] }
+  | { kind: 'note'; title?: string; text: string }
+
+export interface LessonReadingGuide {
+  blocks: LessonReadingBlock[]
+  practiceSteps?: string[]
+  expected?: string
+}
+
 export interface Lesson {
+  /** Authored reading structure; generated per course and locale, never parsed in the browser. */
+  reading?: LessonReadingGuide
   /** A localized writing exercise, kept separate from executable source code. */
   promptExample?: string
   lab?: 'console' | 'web' | 'read' | 'tailwind'

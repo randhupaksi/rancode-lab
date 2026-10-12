@@ -1,0 +1,1204 @@
+{
+  "html-document": {
+    "id": {
+      "practiceSteps": [
+        "Ganti nama dan deskripsinya.",
+        "Tambahkan paragraf kedua, lalu perbarui pratinjau."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "HTML memberi struktur pada sebuah dokumen. Bayangkan kerangka halaman yang memisahkan informasi tentang dokumen dari konten yang dibaca pengguna."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`<!doctype html>` memilih mode standar HTML modern.",
+            "`<html>` membungkus dokumen. `<head>` memuat metadata, misalnya judul tab melalui `<title>`.",
+            "`<body>` memuat konten halaman, seperti `<h1>` untuk judul utama dan `<p>` untuk paragraf."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Kebanyakan elemen memiliki tag pembuka dan penutup. Browser dapat memulihkan HTML yang salah, tetapi hasil yang terlihat belum membuktikan struktur sudah benar."
+        }
+      ],
+      "hint": "Bedakan judul pada tab browser dengan judul yang dibaca di dalam halaman.",
+      "recap": [
+        "Tag menjelaskan peran sebuah konten.",
+        "Gunakan judul utama yang jelas.",
+        "Kebanyakan elemen memiliki tag pembuka dan penutup."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace the name and description.",
+        "Add a second paragraph and update the preview."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "HTML gives a document its structure. Think of a page skeleton separating information about the document from content read by users."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`<!doctype html>` selects modern HTML standards mode.",
+            "`<html>` wraps the document. `<head>` holds metadata, such as the tab title in `<title>`.",
+            "`<body>` contains page content, such as `<h1>` for the main heading and `<p>` for a paragraph."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Most elements have opening and closing tags. Browsers can recover from malformed HTML, but visible output does not prove the structure is correct."
+        }
+      ],
+      "hint": "Distinguish the browser tab title from the heading read within the page.",
+      "recap": [
+        "Tags describe the role of content.",
+        "Use a clear main heading.",
+        "Most elements have opening and closing tags."
+      ]
+    }
+  },
+  "html-semantics": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan bagian kedua dengan h2 dan tautan navigasi yang mengarah ke id bagian itu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "HTML semantik memakai elemen sesuai makna kontennya. Makna ini membantu pembaca, alat bantu, dan developer memahami bagian halaman."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "`<nav>` mengelompokkan tautan navigasi utama.",
+            "`<main>` menandai konten utama halaman; `<footer>` menandai informasi penutup yang relevan.",
+            "Heading membentuk hierarki judul. Pilih tingkatnya berdasarkan struktur, lalu atur ukuran lewat CSS."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "div hanya pembungkus umum. Jangan memilih elemen semantik hanya karena gaya bawaannya terlihat cocok."
+        }
+      ],
+      "hint": "Bagian mana yang mewakili isi utama, bukan navigasi atau informasi penutup?",
+      "recap": [
+        "Pilih tag sesuai maknanya.",
+        "Susun tingkat heading secara logis.",
+        "div hanya pembungkus umum."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a second section with an h2 and a navigation link pointing to its id."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Semantic HTML uses elements according to content meaning. That meaning helps readers, assistive tools, and developers understand page regions."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "`<nav>` groups major navigation links.",
+            "`<main>` marks the main page content; `<footer>` marks relevant closing information.",
+            "Headings form a title hierarchy. Choose their level from the structure, then style their size with CSS."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "div is a generic wrapper. Do not choose a semantic element merely because its default style looks suitable."
+        }
+      ],
+      "hint": "Which region represents the main content rather than navigation or closing information?",
+      "recap": [
+        "Choose tags for meaning.",
+        "Keep heading levels in a logical order.",
+        "div is a generic wrapper."
+      ]
+    }
+  },
+  "html-links-images": {
+    "id": {
+      "practiceSteps": [
+        "Ubah tujuan tautan dan id bagiannya bersamaan.",
+        "Tulis deskripsi alt yang sesuai untuk tangkapan layar proyek yang ingin kamu buat."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tautan membuka tujuan; gambar menyampaikan konten visual. Keduanya membutuhkan alamat yang benar, tetapi makna dan atributnya berbeda."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "href pada a menentukan tujuan tautan.",
+            "src pada img menentukan sumber gambar.",
+            "alt menyampaikan makna gambar jika tidak dapat dilihat; teks tautan menjelaskan tujuan bagi pembaca."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan memilih teks tautan yang hanya berbunyi klik di sini jika tujuannya bisa dijelaskan. Gambar dekoratif dapat memiliki alt kosong."
+        }
+      ],
+      "hint": "Alamat ini dipakai untuk membuka tujuan atau memuat isi gambar?",
+      "recap": [
+        "Tujuan tautan harus cocok dengan ID yang dituju.",
+        "Tulis teks alt berdasarkan makna yang disampaikan gambar.",
+        "Jangan memilih teks tautan yang hanya berbunyi klik di sini jika tujuannya bisa dijelaskan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the link destination and section id together.",
+        "Write an appropriate alt description for a screenshot of your future project."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Links open destinations; images convey visual content. Both need valid addresses but have different roles and attributes."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "An a element's href determines its destination.",
+            "An img element's src determines its source.",
+            "alt communicates image meaning when unseen; link text explains destinations."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Avoid only saying click here when the destination can be explained. Decorative images may have empty alt text."
+        }
+      ],
+      "hint": "Does the address open a destination or load an image?",
+      "recap": [
+        "Link targets and IDs must agree.",
+        "Write alt text for the meaning an image contributes.",
+        "Avoid only saying click here when the destination can be explained."
+      ]
+    }
+  },
+  "html-lists": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan langkah keempat pada daftar berurutan dan alat ketiga pada daftar tanpa urutan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Daftar menyatakan bahwa beberapa item saling berhubungan. Jenis daftar dipilih berdasarkan apakah urutan item memiliki makna."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "`<ul>` cocok untuk kumpulan tanpa urutan wajib, seperti daftar minat.",
+            "`<ol>` cocok untuk langkah berurutan, seperti petunjuk memasak.",
+            "Setiap item ditulis di dalam `<li>`. Mengganti ul dengan ol mengubah makna daftar, bukan hanya penandanya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Penanda daftar bisa diatur CSS. Jika angka atau titik tidak muncul, periksa gaya list-style dan jaraknya tanpa menghapus struktur HTML daftarnya."
+        }
+      ],
+      "hint": "Apakah menukar urutan langkah mengubah hasil atau membuat petunjuknya salah?",
+      "recap": [
+        "Tempatkan item daftar di dalam elemen li.",
+        "Gunakan ol jika urutannya penting.",
+        "Penanda daftar bisa diatur CSS."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a fourth step to the ordered list and a third tool to the unordered list."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A list says that several items belong together. Choose its type based on whether their order matters."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "`<ul>` suits a collection with no required order, such as interests.",
+            "`<ol>` suits ordered steps, such as cooking instructions.",
+            "Write each item inside `<li>`. Switching ul to ol changes the list meaning, not just its marker."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "CSS can style list markers. If numbers or bullets are missing, inspect list-style and spacing while keeping the list structure."
+        }
+      ],
+      "hint": "Would swapping the steps change the result or make the instructions wrong?",
+      "recap": [
+        "List items belong in li elements.",
+        "Use ol when sequence matters.",
+        "CSS can style list markers."
+      ]
+    }
+  },
+  "html-forms": {
+    "id": {
+      "practiceSteps": [
+        "Coba kosongkan field dan masukkan email yang tidak valid.",
+        "Tambahkan field nama dengan label.",
+        "Pratinjau ini mencegah perpindahan halaman dan tidak pernah mengirim formulir."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Formulir mengumpulkan input dengan nama yang jelas. Label menjelaskan kontrol kepada pengguna; nama field menjelaskan data ketika dikirim."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Hubungkan `<label for=\"email\">` dengan input yang punya `id=\"email\"`.",
+            "`name=\"email\"` menjadi nama data saat formulir dikirim. id dan name punya tugas berbeda.",
+            "`type=\"email\"` memberi perilaku input email, sedangkan required meminta pengguna mengisinya sebelum pengiriman biasa."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Validasi browser membantu pengguna, tetapi data tetap perlu diperiksa di server. Coba mengklik label untuk memastikan hubungan label dan input bekerja."
+        }
+      ],
+      "hint": "Atribut mana yang menghubungkan label, dan mana yang menjadi nama data saat dikirim?",
+      "recap": [
+        "Berikan label yang terlihat untuk setiap input.",
+        "Gunakan tipe input yang sesuai dan tentukan perilaku tombol secara jelas.",
+        "Validasi browser membantu pengguna, tetapi data tetap perlu diperiksa di server."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an empty field and an invalid email.",
+        "Add a labeled name field.",
+        "The preview prevents navigation and never submits the form."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Forms collect input with clear names. Labels explain controls to users; field names identify submitted data."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Connect `<label for=\"email\">` with the input whose `id=\"email\"` matches.",
+            "`name=\"email\"` identifies the submitted data. id and name have different jobs.",
+            "`type=\"email\"` provides email-input behavior, while required asks users to fill it before normal submission."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Browser validation helps users, but the server must still check data. Click the label to verify its input connection."
+        }
+      ],
+      "hint": "Which attribute connects the label, and which names the submitted data?",
+      "recap": [
+        "Give each input a visible label.",
+        "Use appropriate types and explicit button behavior.",
+        "Browser validation helps users, but the server must still check data."
+      ]
+    }
+  },
+  "html-accessibility": {
+    "id": {
+      "practiceSteps": [
+        "Klik di dalam pratinjau, lalu gunakan Tab untuk menjangkau kedua kontrol.",
+        "Jelaskan mengapa satu berupa tombol dan satunya lagi berupa tautan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "HTML yang jelas membantu orang menggunakan halaman dengan mouse, keyboard, atau alat bantu. Mulai dari kontrol bawaan dan nama yang dapat dipahami."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Gunakan button untuk tindakan dan a dengan href untuk navigasi.",
+            "Beri label pada input serta teks alternatif yang sesuai pada gambar.",
+            "Coba Tab dan aktivasi keyboard, lalu periksa indikator fokus."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "ARIA melengkapi semantik ketika diperlukan; ia tidak otomatis memberi perilaku keyboard pada div."
+        }
+      ],
+      "hint": "Apakah elemen sudah punya perilaku dan nama bawaan yang sesuai tugasnya?",
+      "recap": [
+        "Gunakan tombol untuk tindakan dan anchor untuk tujuan navigasi.",
+        "Jangan hilangkan indikator fokus tanpa menyediakan penggantinya.",
+        "ARIA melengkapi semantik ketika diperlukan; ia tidak otomatis memberi perilaku keyboard pada div."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Click inside the preview, then use Tab to reach both controls.",
+        "Explain why one is a button and the other is a link."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Clear HTML helps people use pages with mice, keyboards, or assistive tools. Start with native controls and understandable names."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Use button for actions and a with href for navigation.",
+            "Label inputs and provide meaningful image alternatives.",
+            "Try Tab and keyboard activation, then inspect focus indicators."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "ARIA supplements semantics when needed; it does not automatically give a div keyboard behavior."
+        }
+      ],
+      "hint": "Does the element already have native behavior and a name appropriate to its job?",
+      "recap": [
+        "Use buttons for actions and anchors for destinations.",
+        "Never remove focus feedback without a replacement.",
+        "ARIA supplements semantics when needed; it does not automatically give a div keyboard behavior."
+      ]
+    }
+  },
+  "html-language-doctype": {
+    "id": {
+      "practiceSteps": [
+        "Buat index.html lokal berbahasa Indonesia dengan satu kutipan bahasa Inggris.",
+        "Tandai kedua bahasanya, lalu periksa elemen akar dokumen di DevTools."
+      ],
+      "hint": "Mengubah lang tidak mengganti kata dalam body. Siapa yang memakai informasi bahasa itu?",
+      "recap": [
+        "Metadata bahasa membantu alat memahami teks yang ada; kata-katanya tidak berubah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create a local index.html in Indonesian with one English quotation.",
+        "Mark both languages and inspect the document root in DevTools."
+      ],
+      "hint": "Changing lang does not replace body text. Who uses that language information?",
+      "recap": [
+        "Language metadata helps tools interpret existing text; it does not change its words."
+      ]
+    }
+  },
+  "html-head-metadata": {
+    "id": {
+      "practiceSteps": [
+        "Beri dua halaman pelajaran judul dan deskripsi yang berbeda.",
+        "Periksa tab keduanya di browser lokal."
+      ],
+      "hint": "Bedakan informasi di head dari heading yang terlihat di body.",
+      "recap": [
+        "Judul dokumen berbeda dari heading utama yang terlihat di halaman."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Give two lesson pages distinct titles and descriptions.",
+        "Inspect their browser tabs locally."
+      ],
+      "hint": "Distinguish head information from a visible body heading.",
+      "recap": [
+        "The document title is separate from the visible main heading."
+      ]
+    }
+  },
+  "html-heading-outline": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan subbagian media tanpa melompati tingkat heading."
+      ],
+      "hint": "Baca hubungan induk dan subbagian, bukan ukuran font yang diinginkan.",
+      "recap": [
+        "Tingkat heading menunjukkan struktur bersarang; CSS mengatur ukurannya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a media subsection without skipping a heading level."
+      ],
+      "hint": "Read parent and subsection relationships rather than desired font size.",
+      "recap": [
+        "Heading levels describe nesting; CSS controls size."
+      ]
+    }
+  },
+  "html-text-emphasis": {
+    "id": {
+      "practiceSteps": [
+        "Tulis satu kalimat yang maknanya berubah saat kata yang diberi penekanan diganti."
+      ],
+      "hint": "Bedakan penekanan makna penting dari pembungkus yang tidak memberi makna khusus.",
+      "recap": [
+        "Strong menyatakan pentingnya informasi; span hanyalah pembungkus netral."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write one sentence where changing the emphasized word changes the intended meaning."
+      ],
+      "hint": "Distinguish semantic importance from a wrapper with no special meaning.",
+      "recap": [
+        "Strong carries importance; a span is a neutral wrapper."
+      ]
+    }
+  },
+  "html-code-whitespace": {
+    "id": {
+      "practiceSteps": [
+        "Tampilkan elemen tautan sebagai teks kode, bukan sebagai tautan yang bisa dibuka."
+      ],
+      "hint": "Jika tanda < ditulis langsung, browser bisa menganggapnya awal tag. Cari cara menuliskannya sebagai karakter teks.",
+      "recap": [
+        "Referensi karakter ini menghasilkan teks, bukan memulai tag HTML."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Display a link element as source text rather than creating a live link."
+      ],
+      "hint": "A literal < may start a tag. Find how to write it as a text character.",
+      "recap": [
+        "The character reference produces text instead of beginning an HTML tag."
+      ]
+    }
+  },
+  "html-quotes-citations": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan tautan sumber yang terlihat di samping keterangan asal kutipan."
+      ],
+      "hint": "Periksa apakah atribut metadata juga menghasilkan elemen tautan yang bisa diklik.",
+      "recap": [
+        "Atribut bisa menyimpan metadata tanpa menampilkan navigasi bagi pembaca."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a visible source link next to a quotation attribution."
+      ],
+      "hint": "Check whether a metadata attribute also creates a clickable link.",
+      "recap": [
+        "Attributes can carry metadata without rendering navigation for the reader."
+      ]
+    }
+  },
+  "html-section-article": {
+    "id": {
+      "practiceSteps": [
+        "Cari satu pembungkus yang membutuhkan heading section dan satu yang sebaiknya tetap berupa div."
+      ],
+      "hint": "Bagian itu punya makna mandiri atau hanya dibutuhkan untuk susunan visual?",
+      "recap": [
+        "Pembungkus netral berguna saat kamu tidak ingin menambahkan makna baru pada struktur dokumen."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Identify one wrapper that needs a section heading and one that should remain a div."
+      ],
+      "hint": "Is the region meaningful on its own or only needed for visual layout?",
+      "recap": [
+        "A neutral container is useful when no additional document meaning is intended."
+      ]
+    }
+  },
+  "html-form-names": {
+    "id": {
+      "practiceSteps": [
+        "Hapus name dan kirim lagi, lalu kembalikan name dan bandingkan readonly dengan disabled."
+      ],
+      "hint": "Buka hasil FormData lalu cocokkan key-nya dengan atribut input, bukan teks label.",
+      "recap": [
+        "Name digunakan saat pengiriman; id menghubungkan label atau pencarian elemen di DOM."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Formulir mengirim data dengan nama field, bukan dengan teks labelnya. Bedakan penamaan data dari hubungan visual label dan input."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "name menjadi key ketika data form dibaca atau dikirim.",
+            "id mengidentifikasi satu elemen; for pada label merujuk ID itu.",
+            "value adalah isi yang dikirim, sehingga name yang hilang dapat membuat kontrol tidak menyumbang entri."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jaga ID unik. Beberapa checkbox boleh memakai name sama ketika memang mengirim lebih dari satu nilai."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove name and submit again, then restore it and compare readonly with disabled."
+      ],
+      "hint": "Inspect FormData keys and match them to input attributes rather than label text.",
+      "recap": [
+        "The name participates in submission; id associates a label or DOM lookup."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Forms submit data by field names, not label text. Distinguish data naming from label-input relationships."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "name becomes a key when form data is read or submitted.",
+            "id identifies one element; a label's for references that ID.",
+            "value supplies submitted content, so a missing name can leave a control out of the entries."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Keep IDs unique. Checkboxes may share a name when intentionally submitting multiple values."
+        }
+      ]
+    }
+  },
+  "html-select-options": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan pilihan ritme intensif dengan nilai yang stabil dan mudah diproses program."
+      ],
+      "hint": "Bandingkan label yang terlihat dengan value pada option yang dipilih.",
+      "recap": [
+        "Value pada option menentukan nilai yang dikirim; teksnya adalah label bagi pengguna."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Select membantu memilih satu nilai dari daftar alternatif. Teks opsi yang dibaca pengguna dapat berbeda dari nilai yang disimpan aplikasi."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "Label menjelaskan tujuan select.",
+            "Teks di antara tag option adalah nama pilihan yang terlihat.",
+            "Atribut value menentukan data yang dibaca saat pilihan itu dikirim."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan memakai teks tampilan sebagai identitas data jika label bisa berubah bahasa."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add an intensive pace while keeping a stable machine-readable value."
+      ],
+      "hint": "Compare the visible label with the selected option's value.",
+      "recap": [
+        "The option value defines the submitted value; its text is the human label."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Select helps choose a value from alternatives. User-visible option text may differ from stored application values."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "Labels explain a select's purpose.",
+            "Text between option tags is the visible choice name.",
+            "value determines data read when that choice is submitted."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not use display text as data identity when labels can change language."
+        }
+      ]
+    }
+  },
+  "html-radio-groups": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu opsi, lalu pastikan memilihnya membatalkan pilihan sebelumnya."
+      ],
+      "hint": "Bandingkan atribut yang sama pada radio dalam satu grup dengan ID yang harus unik.",
+      "recap": [
+        "Name yang sama menentukan grup; id yang diberikan harus tetap unik."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Radio button cocok ketika pengguna hanya boleh memilih satu alternatif dalam satu grup. Setiap pilihan tetap perlu nama yang jelas."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "name yang sama membuat radio saling terkait sebagai satu grup.",
+            "value membedakan data tiap pilihan; ID masing-masing tetap unik bila dipakai.",
+            "fieldset membungkus grup dan legend memberi nama pertanyaannya."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Label dapat membungkus input atau memakai for yang cocok dengan id. Mengklik label seharusnya memilih opsi yang tepat."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add an option and confirm selecting it clears the previous selection."
+      ],
+      "hint": "Compare the shared radio-group attribute with IDs that must be unique.",
+      "recap": [
+        "The shared name defines the group; ids must remain unique when provided."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Radio buttons suit exactly one choice within a group. Every option still needs a clear name."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "A shared name links radios into one group.",
+            "value distinguishes option data; IDs remain unique when used.",
+            "fieldset wraps the group and legend labels its question."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Labels can wrap inputs or use for matching id. Clicking a label should select the correct option."
+        }
+      ]
+    }
+  },
+  "html-checkbox-values": {
+    "id": {
+      "practiceSteps": [
+        "Pilih kedua opsi lalu kirim untuk membandingkan first dan all.",
+        "Coba pilih hanya CSS, lalu kosongkan semua pilihan.",
+        "Amati kapan hasilnya berupa string, null, atau array.",
+        "Biarkan script yang disediakan apa adanya."
+      ],
+      "hint": "Coba memilih dua checkbox dengan name sama. Apakah pembacaan satu nilai mempertahankan keduanya?",
+      "recap": [
+        "getAll mempertahankan beberapa entri terpilih yang memiliki nama field sama."
+      ],
+      "expected": "get membaca nilai pertama atau null; getAll mempertahankan semua pilihan sebagai array, termasuk array kosong.",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Checkbox adalah pilihan independen. Pengguna dapat memilih beberapa topik sekaligus, dan checkbox yang tidak dicentang tidak menambahkan entri pada pengiriman biasa."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "Beberapa checkbox memakai name sama untuk mengirim beberapa nilai topik.",
+            "FormData.get membaca nilai pertama atau null jika tidak ada pilihan.",
+            "FormData.getAll membaca semua nilai sebagai array; tanpa pilihan, hasilnya array kosong."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Script contoh sudah menampilkan kedua hasil. Mengubah entri berulang langsung menjadi objek biasa bisa membuang sebagian nilai."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Select both options and submit to compare first with all.",
+        "Try only CSS, then neither option.",
+        "Notice when the result is a string, null, or an array.",
+        "Keep the supplied script unchanged."
+      ],
+      "hint": "Select two checkboxes with the same name. Does a single-value read preserve both?",
+      "recap": [
+        "getAll preserves multiple selected entries for the same field name."
+      ],
+      "expected": "get reads the first value or null; getAll keeps all selections as an array, including an empty array.",
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Checkboxes are independent choices. Users can choose several topics, and unchecked checkboxes add no entries in ordinary submission."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "Several checkboxes share a name to submit multiple topic values.",
+            "FormData.get reads the first value or null when none exists.",
+            "FormData.getAll reads all values as an array; no selection produces an empty array."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "The supplied script displays both results. Converting repeated entries directly to a plain object can discard values."
+        }
+      ]
+    }
+  },
+  "html-textarea": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan petunjuk kedua, lalu hubungkan id kedua petunjuk itu dengan kontrol."
+      ],
+      "hint": "Bandingkan isi antara tag textarea dengan atribut value pada input satu baris.",
+      "recap": [
+        "Textarea memakai isi teks di dalam elemennya sebagai nilai awal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a second instruction and connect both instruction ids to the control."
+      ],
+      "hint": "Compare content between textarea tags with a single-line input's value attribute.",
+      "recap": [
+        "Textarea uses its text content as the initial value."
+      ]
+    }
+  },
+  "html-native-validation": {
+    "id": {
+      "practiceSteps": [
+        "Coba nilai kosong, nilai di luar batas, dan nilai valid.",
+        "Jelaskan pemeriksaan mana yang harus diulang server."
+      ],
+      "hint": "Bayangkan data dikirim lewat request langsung tanpa melewati kontrol form browser.",
+      "recap": [
+        "Kontrol browser membantu pengalaman pengguna, tetapi bukan batas keamanan yang bisa dipercaya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Browser memiliki batasan input untuk membantu pengguna memperbaiki data sebelum formulir dikirim. Pilih batasan berdasarkan aturan yang nyata."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "required meminta nilai tersedia.",
+            "minlength membatasi panjang teks; min dan max memberi batas untuk kontrol yang sesuai.",
+            "type seperti email menentukan aturan bentuk input tertentu."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Validasi browser dapat dilewati. Server memeriksa ulang; format email valid juga tidak membuktikan kepemilikan alamat."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try empty, out-of-range, and valid values.",
+        "Explain which checks the server must repeat."
+      ],
+      "hint": "Imagine data sent through a direct request without passing browser form controls.",
+      "recap": [
+        "Browser controls are a user experience feature, not a trusted boundary."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Browsers provide input constraints to help users correct data before submission. Choose constraints from real rules."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "required asks for an available value.",
+            "minlength limits text length; min and max bound applicable controls.",
+            "Types such as email define certain input-format rules."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Browser validation can be bypassed. Servers recheck; valid email formatting does not prove address ownership."
+        }
+      ]
+    }
+  },
+  "html-fieldset-legend": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan grup terpisah untuk memilih hari belajar."
+      ],
+      "hint": "Cari elemen yang memberi konteks untuk keseluruhan grup, bukan satu input saja.",
+      "recap": [
+        "Legend memberi label grup yang menjelaskan konteksnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a separate group for preferred learning days."
+      ],
+      "hint": "Find the element labeling the whole group rather than one input.",
+      "recap": [
+        "The legend supplies the contextual group label."
+      ]
+    }
+  },
+  "html-alt-decisions": {
+    "id": {
+      "practiceSteps": [
+        "Tulis teks alternatif untuk banner dekoratif, foto produk, dan tautan beranda yang hanya berupa gambar."
+      ],
+      "hint": "Apakah gambar memberi informasi baru atau hanya hiasan yang boleh dilewati pembaca layar?",
+      "recap": [
+        "Alt yang sengaja dikosongkan menandai gambar dekoratif; alt yang tidak disertakan tidak memberi makna yang sama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write alternatives for a decorative banner, a product photo, and an image-only home link."
+      ],
+      "hint": "Does the image add information or only decoration screen readers may skip?",
+      "recap": [
+        "An explicit empty alternative communicates decoration; a missing alternative does not."
+      ]
+    }
+  },
+  "html-image-dimensions": {
+    "id": {
+      "practiceSteps": [
+        "Gunakan gambar lokal yang dimensinya diketahui, lalu amati tata letak saat pemuatan jaringan diperlambat."
+      ],
+      "hint": "Apa yang perlu diketahui sebelum gambar tiba agar teks di bawahnya tidak bergeser?",
+      "recap": [
+        "Browser bisa menyiapkan ruang dengan proporsi yang tepat sebelum piksel gambar diterima."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Use a local image with known dimensions and inspect layout while network loading is slowed."
+      ],
+      "hint": "What must be known before the image arrives to keep text below from shifting?",
+      "recap": [
+        "The browser can reserve proportional space before image pixels arrive."
+      ]
+    }
+  },
+  "html-responsive-images": {
+    "id": {
+      "practiceSteps": [
+        "Buat potongan gambar sempit dan lebar, lalu periksa sumber yang dipilih pada setiap breakpoint."
+      ],
+      "hint": "Cari elemen gambar yang tetap menjadi fallback ketika source tidak dipilih.",
+      "recap": [
+        "Elemen img mewakili gambar yang ditampilkan dan menyediakan teks alternatifnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create narrow and wide crops and inspect which source is chosen at each breakpoint."
+      ],
+      "hint": "Find the image element remaining as fallback when no source is selected.",
+      "recap": [
+        "The img element represents the rendered image and provides its alternative."
+      ]
+    }
+  },
+  "html-figure-caption": {
+    "id": {
+      "practiceSteps": [
+        "Ubah potongan kode menjadi figure dengan caption yang menjelaskan tujuannya."
+      ],
+      "hint": "Bedakan konten dalam figure dengan teks yang menjelaskan konteksnya.",
+      "recap": [
+        "Caption pada figure memberi konteks untuk konten yang dikelompokkan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Turn a code listing into a figure with a caption explaining its purpose."
+      ],
+      "hint": "Distinguish figure content from text explaining its context.",
+      "recap": [
+        "A figure caption contextualizes the grouped content."
+      ]
+    }
+  },
+  "html-audio-video": {
+    "id": {
+      "practiceSteps": [
+        "Buat file caption WebVTT singkat dan pastikan caption bisa diaktifkan pada pemutar video lokal."
+      ],
+      "hint": "Pisahkan file media yang diputar dari teks yang ditampilkan pada waktu tertentu.",
+      "recap": [
+        "Track menghubungkan teks dengan waktu tampilnya; source menghubungkan sumber media yang diputar."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create a short WebVTT caption file and confirm it can be enabled in a local video player."
+      ],
+      "hint": "Separate playable media files from text displayed at specific times.",
+      "recap": [
+        "Track links timed text; source links the actual media resource."
+      ]
+    }
+  },
+  "html-iframe-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan ini pada file HTML lokal; pratinjau pelajaran memblokir frame bersarang.",
+        "Coba tambahkan script pada dokumen yang disematkan, lalu jelaskan mengapa sandbox kosong mencegahnya berjalan."
+      ],
+      "hint": "Bandingkan sandbox kosong dengan sandbox yang menambahkan izin secara eksplisit.",
+      "recap": [
+        "Izin ditambahkan secara eksplisit lewat token sandbox; nilai kosong menerapkan pembatasan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run this in a local HTML file; nested frames are blocked by the lesson preview.",
+        "Try a script in the embedded document and explain why its empty sandbox prevents it running."
+      ],
+      "hint": "Compare an empty sandbox with one adding explicit permissions.",
+      "recap": [
+        "Permissions are added explicitly through sandbox tokens; an empty value is restrictive."
+      ]
+    }
+  },
+  "html-table-headers": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan kolom menit dan satu jalur belajar lagi sambil menjaga hubungan antarheader."
+      ],
+      "hint": "Header ini menjelaskan satu baris atau satu kolom? Cocokkan scope dengan arah hubungannya.",
+      "recap": [
+        "Header dengan scope baris menjelaskan sel-sel pada baris tersebut."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a minutes column and another course while preserving header relationships."
+      ],
+      "hint": "Does this header describe a row or a column? Match scope to that relationship.",
+      "recap": [
+        "A row-scoped header describes the cells across its row."
+      ]
+    }
+  },
+  "html-table-groups": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan baris CSS dengan id header baris yang unik dan referensi headers yang tepat."
+      ],
+      "hint": "Cocokkan setiap token headers dengan id pada sel header yang relevan.",
+      "recap": [
+        "Id yang eksplisit menghubungkan sel data dengan header yang menjelaskannya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tabel kompleks menghubungkan data dengan lebih dari satu header. Gunakan hubungan yang eksplisit agar maknanya tetap bisa ditelusuri."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "items": [
+            "colspan memperluas sel melewati beberapa kolom; rowspan melewati beberapa baris.",
+            "Beri ID pada header yang perlu dirujuk.",
+            "headers pada sel data mencantumkan ID header relevan, dipisahkan spasi."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jika hubungan terlalu sulit dijelaskan, sederhanakan tabel. Jangan menggabungkan sel hanya untuk mendapatkan tampilan tertentu."
+        }
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a CSS row with unique row-header ids and correct headers references."
+      ],
+      "hint": "Match each headers token to the relevant header cell's id.",
+      "recap": [
+        "Explicit ids connect a data cell to the headers that describe it."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Complex tables relate data to multiple headers. Use explicit relationships so meaning remains traceable."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "items": [
+            "colspan extends cells across columns; rowspan across rows.",
+            "Give IDs to headers needing references.",
+            "A data cell's headers lists relevant header IDs separated by spaces."
+          ],
+          "ordered": false
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Simplify tables when relationships become hard to explain. Do not merge cells merely for visual effect."
+        }
+      ]
+    }
+  },
+  "html-details-summary": {
+    "id": {
+      "practiceSteps": [
+        "Buka dan tutup kedua bagian hanya dengan keyboard, lalu pilih bagian mana yang sebaiknya terbuka sejak awal."
+      ],
+      "hint": "Periksa apakah keadaan awal ditentukan atribut boolean atau isi teks summary.",
+      "recap": [
+        "Open adalah atribut boolean bawaan yang menandai bagian sedang terbuka."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Operate both disclosures using only the keyboard and choose which should start open."
+      ],
+      "hint": "Check whether initial state comes from a boolean attribute or summary text.",
+      "recap": [
+        "Open is the native boolean attribute for an expanded disclosure."
+      ]
+    }
+  },
+  "html-dialog": {
+    "id": {
+      "practiceSteps": [
+        "Buka dengan keyboard, tutup lewat tombol Close, lalu pastikan fokus kembali ke tombol pembuka.",
+        "Buka sekali lagi dan coba Escape."
+      ],
+      "hint": "Bedakan dialog biasa dengan dialog modal yang membatasi interaksi di luar dirinya.",
+      "recap": [
+        "ShowModal menerapkan perilaku modal dan menempatkan dialog di top layer."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Open with a keyboard, close with the Close button, and confirm focus returns to the opening button.",
+        "Open it again and try Escape."
+      ],
+      "hint": "Distinguish a regular dialog from a modal restricting outside interaction.",
+      "recap": [
+        "ShowModal applies modal behavior and top-layer placement."
+      ]
+    }
+  },
+  "html-data-attributes": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan data-course-id=\"html\" pada tombol, lalu klik.",
+        "Ubah data-minutes menjadi \"20\" dan klik lagi.",
+        "Jelaskan mengapa script menambahkan angka 3.",
+        "Biarkan script yang disediakan apa adanya."
+      ],
+      "hint": "Cetak typeof dari dataset sebelum menggunakannya dalam penjumlahan.",
+      "recap": [
+        "Nilai atribut HTML berupa string, jadi operasi hitung memerlukan konversi yang disengaja."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add data-course-id=\"html\" to the button and click it.",
+        "Change data-minutes to \"20\" and click again.",
+        "Explain why the script adds 3 numerically.",
+        "Keep the supplied script unchanged."
+      ],
+      "hint": "Print the dataset value's typeof before adding it.",
+      "recap": [
+        "HTML attribute values are strings, so arithmetic requires an intentional conversion."
+      ]
+    }
+  },
+  "html-progressive-enhancement": {
+    "id": {
+      "practiceSteps": [
+        "Rancang halaman hasil pencarian, lalu jelaskan bagaimana autocomplete bisa meningkatkan formulir yang sama."
+      ],
+      "hint": "Dengan JavaScript dimatikan, ke alamat mana browser mengirim formulir dan siapa yang menangani request?",
+      "recap": [
+        "Browser bisa mengirim formulir bawaan, tetapi alamat tujuannya harus benar-benar menangani permintaan tersebut."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Design a search response page, then describe how autocomplete could enhance the same form."
+      ],
+      "hint": "With JavaScript disabled, where does the browser submit and who handles the request?",
+      "recap": [
+        "The browser can submit a native form, but its destination must actually handle the request."
+      ]
+    }
+  }
+}

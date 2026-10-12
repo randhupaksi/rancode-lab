@@ -1,0 +1,2866 @@
+{
+  "react-components": {
+    "id": {
+      "practiceSteps": [
+        "Tampilkan dua Profile lokal dengan nama dan peran berbeda.",
+        "Jalankan model label dengan input yang sama lalu tentukan tanggung jawab komponennya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Komponen adalah function dengan tugas yang jelas: mengubah input menjadi satu bagian antarmuka yang bermakna. Tentukan batas tanggung jawabnya sebelum memecah markup."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Bayangkan kartu profil: nama dan peran menjadi input, tampilan kartu menjadi output.",
+            "Model membuat label dari objek profil; komponen React mengembalikan JSX untuk menampilkannya.",
+            "Pakai komponen yang sama untuk dua profil dengan input berbeda."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Pilih tugas yang dapat dijelaskan dengan satu kalimat."
+        }
+      ],
+      "hint": "Bagian antarmuka mana yang memiliki input dan tugas sendiri?",
+      "recap": [
+        "Komponen menjelaskan bagian UI dengan tugas yang jelas.",
+        "Komponen menerima data dan mengembalikan tampilan.",
+        "Tentukan batas komponen berdasarkan makna dan kebutuhan penggunaan ulang.",
+        "Pilih tugas yang dapat dijelaskan dengan satu kalimat."
+      ],
+      "quizExplanation": "Komponen yang baik mewakili bagian antarmuka dengan tanggung jawab jelas. Pemisahan mengikuti tugas dan input, bukan jumlah baris markup.",
+      "visualDetails": [
+        "Bayangkan kartu profil: nama dan peran menjadi input, tampilan kartu menjadi output.",
+        "Model membuat label dari objek profil; komponen React mengembalikan JSX untuk menampilkannya.",
+        "Pakai komponen yang sama untuk dua profil dengan input berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Render two Profile components locally with different names and roles.",
+        "Run the label model with the same inputs and identify the component’s responsibility."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A component is a focused function that turns inputs into one meaningful part of an interface. Find product boundaries before splitting markup."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Think of a profile card: name and role are inputs; the card is output.",
+            "The model creates a profile label; the React component returns JSX to display it.",
+            "Use the same component for two profiles with different inputs."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Choose a job you can describe in one sentence."
+        }
+      ],
+      "hint": "Which part of the interface has its own inputs and job?",
+      "recap": [
+        "Components describe focused pieces of UI.",
+        "They receive data and return a view.",
+        "Choose boundaries based on meaning and reuse.",
+        "Choose a job you can describe in one sentence."
+      ],
+      "quizExplanation": "A well-scoped component represents UI with a clear responsibility. Splitting follows its job and inputs, not markup line count.",
+      "visualDetails": [
+        "Think of a profile card: name and role are inputs; the card is output.",
+        "The model creates a profile label; the React component returns JSX to display it.",
+        "Use the same component for two profiles with different inputs."
+      ]
+    }
+  },
+  "react-jsx-props": {
+    "id": {
+      "practiceSteps": [
+        "Ubah title dan minutes pada model lalu prediksi ringkasan console-nya.",
+        "Di proyek lokal, kirim props baru ke LessonCard tanpa mengubah implementasinya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "JSX menjelaskan struktur UI, sementara props memungkinkan parent memberikan nilai yang dibutuhkan child. Kurung kurawal membawa ekspresi JavaScript ke dalam JSX."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Parent memakai komponen lain; komponen yang dipakai itu disebut child.",
+            "Props adalah nilai yang dikirim parent, seperti title dan minutes.",
+            "Kurung kurawal dalam JSX membaca ekspresi JavaScript untuk menampilkan nilai props."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Child membaca props sebagai input; jangan mengubah objek props milik parent."
+        }
+      ],
+      "hint": "Siapa yang mengisi atribut saat komponen dipakai di JSX?",
+      "recap": [
+        "JSX menjelaskan struktur UI.",
+        "Props adalah input dari parent yang hanya boleh dibaca.",
+        "Props memperjelas input yang dibutuhkan komponen.",
+        "Child membaca props sebagai input; jangan mengubah objek props milik parent."
+      ],
+      "quizExplanation": "Parent memasok props ketika memakai child di JSX. Child membaca nilai tersebut untuk menyusun tampilan.",
+      "visualDetails": [
+        "Parent memakai komponen lain; komponen yang dipakai itu disebut child.",
+        "Props adalah nilai yang dikirim parent, seperti title dan minutes.",
+        "Kurung kurawal dalam JSX membaca ekspresi JavaScript untuk menampilkan nilai props."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change title and minutes in the model and predict its logged summary.",
+        "Locally, pass new props to LessonCard without changing its implementation."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "JSX describes a UI tree, while props let a parent provide the values a child needs. Curly braces bring JavaScript expressions into JSX."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "A parent uses another component, called its child.",
+            "Props are values supplied by the parent, such as title and minutes.",
+            "Curly braces in JSX read JavaScript expressions to display prop values."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A child reads props as inputs; do not mutate the parent's props object."
+        }
+      ],
+      "hint": "Who supplies attributes when the component is used in JSX?",
+      "recap": [
+        "JSX describes a UI tree.",
+        "Props are read-only inputs from a parent.",
+        "Props make the component’s inputs explicit.",
+        "A child reads props as inputs; do not mutate the parent's props object."
+      ],
+      "quizExplanation": "Parents supply props when using children in JSX. Children read those values to compose their views.",
+      "visualDetails": [
+        "A parent uses another component, called its child.",
+        "Props are values supplied by the parent, such as title and minutes.",
+        "Curly braces in JSX read JavaScript expressions to display prop values."
+      ]
+    }
+  },
+  "react-conditional-rendering": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan screen dengan signedIn true dan false.",
+        "Di proyek lokal, tampilkan Results dengan array kosong dan berisi lalu periksa kedua cabang."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Gunakan kondisi JavaScript biasa untuk memilih UI yang sesuai dengan data saat ini. Buat setiap cabang tetap bermakna dan mudah dibaca sendiri."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Model screen memilih Dashboard saat signedIn true dan Sign in saat false.",
+            "Kondisi yang sama dapat memilih elemen JSX berbeda.",
+            "Coba data kosong dan berisi agar kedua cabang punya tampilan yang jelas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Tampilan login tidak membuktikan izin server sudah diperiksa."
+        }
+      ],
+      "hint": "Nilai apa yang berubah saat pengguna masuk atau daftar menjadi kosong?",
+      "recap": [
+        "Kondisi memilih tampilan yang sesuai.",
+        "Jaga setiap cabang tetap mudah dibaca.",
+        "Jangan gunakan effect untuk menentukan UI berdasarkan kondisi.",
+        "Tampilan login tidak membuktikan izin server sudah diperiksa."
+      ],
+      "quizExplanation": "Cabang tampilan mengikuti data saat ini. Kondisi JavaScript memilih konten yang sesuai untuk setiap keadaan.",
+      "visualDetails": [
+        "Model screen memilih Dashboard saat signedIn true dan Sign in saat false.",
+        "Kondisi yang sama dapat memilih elemen JSX berbeda.",
+        "Coba data kosong dan berisi agar kedua cabang punya tampilan yang jelas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run screen with signedIn true and false.",
+        "Locally, render Results with empty and populated arrays and check both branches."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Use ordinary JavaScript conditions to choose the UI that matches the current data. Keep each branch meaningful enough to read on its own."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "The screen model chooses Dashboard when signedIn is true and Sign in when false.",
+            "The same condition can select different JSX elements.",
+            "Try empty and populated data so both branches have meaningful views."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A login view does not prove server permissions were checked."
+        }
+      ],
+      "hint": "Which value changes when the user signs in or a list becomes empty?",
+      "recap": [
+        "Conditions select the appropriate view.",
+        "Keep branches readable.",
+        "Do not use effects to derive conditional UI.",
+        "A login view does not prove server permissions were checked."
+      ],
+      "quizExplanation": "Rendering branches follow current data. JavaScript conditions select content appropriate to each state.",
+      "visualDetails": [
+        "The screen model chooses Dashboard when signedIn is true and Sign in when false.",
+        "The same condition can select different JSX elements.",
+        "Try empty and populated data so both branches have meaningful views."
+      ]
+    }
+  },
+  "react-component-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Ubah heading model.",
+        "Di proyek lokal, ubah ProfileHeader sambil mempertahankan Biography lalu jelaskan props dan tanggung jawab masing-masing."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pisahkan komponen saat suatu bagian punya tanggung jawab, state, atau kebutuhan penggunaan ulang sendiri. Tujuannya membuat susunan ide yang jelas, bukan file sekecil mungkin."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Kenali bagian yang punya tugas sendiri, misalnya header profil dan biografi.",
+            "Tentukan input tiap bagian sebelum memindahkan markup.",
+            "Pisahkan ketika tanggung jawab, state, atau penggunaan ulangnya jelas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Banyak file kecil belum tentu lebih mudah dipahami. Ikuti ide dalam produk."
+        }
+      ],
+      "hint": "Apakah bagian itu punya tugas atau penggunaan ulang yang bisa dijelaskan?",
+      "recap": [
+        "Setiap komponen perlu punya tugas yang jelas.",
+        "Pisahkan berdasarkan makna, bukan sekadar kedalaman markup.",
+        "Simpan kode yang erat kaitannya berdekatan.",
+        "Banyak file kecil belum tentu lebih mudah dipahami."
+      ],
+      "quizExplanation": "Tanggung jawab, state, atau kebutuhan penggunaan ulang yang mandiri memberi alasan untuk memisahkan komponen.",
+      "visualDetails": [
+        "Kenali bagian yang punya tugas sendiri, misalnya header profil dan biografi.",
+        "Tentukan input tiap bagian sebelum memindahkan markup.",
+        "Pisahkan ketika tanggung jawab, state, atau penggunaan ulangnya jelas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the model’s heading.",
+        "Locally, change ProfileHeader while retaining Biography and explain their separate props and responsibilities."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Split a component when a part has its own responsibility, state, or reuse value. The goal is a map of clear ideas, not the smallest possible files."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Identify independently meaningful parts, such as a profile header and biography.",
+            "Decide their inputs before moving markup.",
+            "Split when responsibility, state, or reuse is clear."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Many tiny files are not necessarily clearer. Follow product ideas."
+        }
+      ],
+      "hint": "Does that part have an explainable job or reuse need?",
+      "recap": [
+        "Components should have a clear job.",
+        "Split by meaning, not by arbitrary markup depth.",
+        "Keep closely related code together.",
+        "Many tiny files are not necessarily clearer."
+      ],
+      "quizExplanation": "Independent responsibility, state, or reuse needs justify splitting a component.",
+      "visualDetails": [
+        "Identify independently meaningful parts, such as a profile header and biography.",
+        "Decide their inputs before moving markup.",
+        "Split when responsibility, state, or reuse is clear."
+      ]
+    }
+  },
+  "react-styling-ui": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan cardClass dengan dua tone.",
+        "Di proyek lokal, ubah prop done pada Status lalu beri style task/task-complete agar teks dan kondisi visual sesuai."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Style sebaiknya memperjelas state dan hierarki komponen. Susun nama class dari variasi yang bermakna, alih-alih menggantungkan tampilan pada struktur DOM yang mudah berubah."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Model cardClass menyusun class berdasarkan tone.",
+            "Prop done dapat menentukan teks dan class kondisi selesai sekaligus.",
+            "Pastikan aturan CSS untuk setiap variasi benar-benar tersedia."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Nama class saja tidak membuat gaya; aturan CSS tetap diperlukan."
+        }
+      ],
+      "hint": "Kondisi atau tujuan apa yang ingin dibedakan oleh variasi ini?",
+      "recap": [
+        "Gunakan nama yang menjelaskan tujuan.",
+        "Buat setiap kondisi visual terlihat jelas.",
+        "Gunakan struktur komponen untuk menentukan lingkup style.",
+        "Nama class saja tidak membuat gaya; aturan CSS tetap diperlukan."
+      ],
+      "quizExplanation": "Variasi gaya menjelaskan tujuan atau keadaan komponen, sehingga teks dan penampilan tetap menyampaikan makna yang sama.",
+      "visualDetails": [
+        "Model cardClass menyusun class berdasarkan tone.",
+        "Prop done dapat menentukan teks dan class kondisi selesai sekaligus.",
+        "Pastikan aturan CSS untuk setiap variasi benar-benar tersedia."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run cardClass with two tones.",
+        "Locally, toggle Status’s done prop and style task/task-complete so the text and visual state agree."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Styles should reinforce component states and hierarchy. Build class names from meaningful variants instead of tying style decisions to fragile DOM structure."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "The cardClass model builds classes from tone.",
+            "A done prop can control both text and completed-state classes.",
+            "Make sure CSS for every variant actually exists."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Class names alone do not create styles; CSS rules are still required."
+        }
+      ],
+      "hint": "Which state or purpose should this variant distinguish?",
+      "recap": [
+        "Use names that describe purpose.",
+        "Keep visual states explicit.",
+        "Let component structure guide styling boundaries.",
+        "Class names alone do not create styles; CSS rules are still required."
+      ],
+      "quizExplanation": "Styling variants describe component purpose or state so text and presentation convey the same meaning.",
+      "visualDetails": [
+        "The cardClass model builds classes from tone.",
+        "A done prop can control both text and completed-state classes.",
+        "Make sure CSS for every variant actually exists."
+      ]
+    }
+  },
+  "react-state-events": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan increment dengan count 0 dan 2.",
+        "Di proyek lokal, klik Counter dua kali lalu jelaskan snapshot render dan updater antrean.",
+        "Letakkan useState sebelum early return."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "State adalah data komponen yang bisa berubah, misalnya jumlah klik. Event menghubungkan tindakan pengguna dengan pembaruan itu."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "State adalah data yang diingat komponen. useState memberi nilai saat ini dan setter untuk meminta pembaruan.",
+            "Event handler menanggapi tindakan pengguna. Gunakan `setCount(n => n + 1)` jika nilai baru bergantung pada nilai sebelumnya.",
+            "Setiap render membaca snapshot sendiri. Setter menjadwalkan pembaruan tanpa mengubah variabel pada handler yang sedang berjalan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Hook adalah fungsi React seperti useState. Panggil di tingkat teratas komponen atau custom Hook, sebelum return bersyarat; jangan di dalam kondisi, perulangan, atau event handler."
+        }
+      ],
+      "hint": "React perlu membaca Hook dalam urutan tetap. Apakah lokasi pemanggilanmu selalu dilewati?",
+      "recap": [
+        "Pertahankan urutan pemanggilan Hook yang sama pada setiap render.",
+        "Setiap render melihat snapshot state-nya sendiri.",
+        "Gunakan updater murni dan buat nilai state baru.",
+        "Hook adalah fungsi React seperti useState."
+      ],
+      "quizExplanation": "useState dipanggil pada tingkat teratas komponen React atau custom Hook. Urutan Hook harus tetap konsisten sebelum return bersyarat.",
+      "visualDetails": [
+        "State adalah data yang diingat komponen. useState memberi nilai saat ini dan setter untuk meminta pembaruan.",
+        "Event handler menanggapi tindakan pengguna. Gunakan `setCount(n => n + 1)` jika nilai baru bergantung pada nilai sebelumnya.",
+        "Setiap render membaca snapshot sendiri. Setter menjadwalkan pembaruan tanpa mengubah variabel pada handler yang sedang berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run increment with count 0 and 2.",
+        "Locally, click Counter twice and explain the render snapshot and queued updater.",
+        "Keep useState before any early return."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "State is changing component data, such as a click count. Events connect user actions with those updates."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "State is data remembered by a component. useState provides its current value and a setter.",
+            "An event handler responds to user actions. Use `setCount(n => n + 1)` when the next value depends on the previous one.",
+            "Each render reads its own snapshot. Setters schedule updates without changing variables in the running handler."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A Hook is a React function such as useState. Call it at the top level of components or custom Hooks, before conditional returns; never in conditions, loops, or event handlers."
+        }
+      ],
+      "hint": "React needs a stable Hook order. Is the call location reached consistently?",
+      "recap": [
+        "Keep Hook calls in a stable order on every render.",
+        "Each render sees its own state snapshot.",
+        "Use pure updaters and create new state values.",
+        "A Hook is a React function such as useState."
+      ],
+      "quizExplanation": "Call useState at the top level of React components or custom Hooks. Hook order must stay consistent before conditional returns.",
+      "visualDetails": [
+        "State is data remembered by a component. useState provides its current value and a setter.",
+        "An event handler responds to user actions. Use `setCount(n => n + 1)` when the next value depends on the previous one.",
+        "Each render reads its own snapshot. Setters schedule updates without changing variables in the running handler."
+      ]
+    }
+  },
+  "react-lists-keys": {
+    "id": {
+      "practiceSteps": [
+        "Balik urutan array todo lalu periksa label console.",
+        "Di proyek lokal, ubah urutan TaskList sambil mempertahankan key task.id; jelaskan mengapa indeks mengenali posisi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "List memetakan data menjadi UI berulang. Key yang stabil membantu React mengenali item yang sama saat daftar berubah."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "map mengubah objek tugas menjadi item tampilan.",
+            "key memberi identitas agar React mengenali item setelah urutan berubah.",
+            "Pakai ID stabil dan balik urutan daftar untuk memeriksa identitasnya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Indeks menunjukkan posisi yang bisa berubah. Jangan membuat key acak pada setiap render."
+        }
+      ],
+      "hint": "Apakah identitas tetap sama ketika item berpindah posisi?",
+      "recap": [
+        "Petakan data menjadi UI berulang.",
+        "Key mengenali elemen yang sejajar antar-render.",
+        "Gunakan ID yang stabil jika urutannya bisa berubah.",
+        "Indeks menunjukkan posisi yang bisa berubah."
+      ],
+      "quizExplanation": "ID stabil dari data mempertahankan identitas item setelah daftar berubah. Indeks hanya mengidentifikasi posisi yang dapat ditempati item lain.",
+      "visualDetails": [
+        "map mengubah objek tugas menjadi item tampilan.",
+        "key memberi identitas agar React mengenali item setelah urutan berubah.",
+        "Pakai ID stabil dan balik urutan daftar untuk memeriksa identitasnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Reverse the todo array and inspect the logged labels.",
+        "Locally, reorder TaskList while retaining each task.id key; explain why indices identify positions."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A list maps data to repeated UI. A stable key lets React recognize the same item when the list changes."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "map turns task objects into display items.",
+            "A key identifies an item so React recognizes it after reordering.",
+            "Use stable IDs and reverse the list to inspect identity."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Indices identify positions that can change. Do not create random keys each render."
+        }
+      ],
+      "hint": "Does the identity remain the same when an item moves?",
+      "recap": [
+        "Map data to repeated UI.",
+        "Keys identify siblings between renders.",
+        "Use stable IDs when order can change.",
+        "Indices identify positions that can change."
+      ],
+      "quizExplanation": "Stable data IDs preserve item identity after list changes. Indices only identify positions that other items may occupy.",
+      "visualDetails": [
+        "map turns task objects into display items.",
+        "A key identifies an item so React recognizes it after reordering.",
+        "Use stable IDs and reverse the list to inspect identity."
+      ]
+    }
+  },
+  "react-updating-objects": {
+    "id": {
+      "practiceSteps": [
+        "Tampilkan profile asli bersama hasil subscribe.",
+        "Di proyek lokal, edit nama Profile lalu pastikan city tetap sama dan object asli tidak berubah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pembaruan state mengganti nilai lama dengan nilai baru. Salin object, lalu ubah hanya field yang menjadi tanggung jawab event tersebut."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Baca state lama sebagai input, bukan tempat menulis perubahan.",
+            "Spread menyalin properti tingkat luar ke objek baru.",
+            "Timpa properti yang berubah, lalu kirim objek baru ke setter."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Spread adalah salinan dangkal. Salin juga objek bersarang pada jalur yang diubah."
+        }
+      ],
+      "hint": "Cara mana yang menjaga objek input sebelumnya tetap utuh?",
+      "recap": [
+        "Perlakukan state sebagai nilai yang tidak diubah langsung.",
+        "Salin object sebelum mengubah field-nya.",
+        "Setiap event sebaiknya menghasilkan satu perubahan yang jelas.",
+        "Spread adalah salinan dangkal."
+      ],
+      "quizExplanation": "Buat objek baru dan salin field yang perlu dipertahankan. Mengubah state lama secara langsung dapat merusak snapshot sebelumnya.",
+      "visualDetails": [
+        "Baca state lama sebagai input, bukan tempat menulis perubahan.",
+        "Spread menyalin properti tingkat luar ke objek baru.",
+        "Timpa properti yang berubah, lalu kirim objek baru ke setter."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Print the original profile beside subscribe’s result.",
+        "Locally, edit Profile’s name and verify city remains unchanged and the original object is preserved."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "State updates replace the old value with a new one. Copy the object and change only the field that the event is responsible for."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Read old state as input rather than writing changes into it.",
+            "Spread copies top-level properties into a new object.",
+            "Replace the changed property, then pass the new object to the setter."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Spread is shallow. Also copy nested objects along the changed path."
+        }
+      ],
+      "hint": "Which approach preserves the previous input object?",
+      "recap": [
+        "Treat state as immutable.",
+        "Copy before changing a field.",
+        "Each event should make one clear transition.",
+        "Spread is shallow."
+      ],
+      "quizExplanation": "Create a new object and copy fields that should remain. Direct mutation can damage previous state snapshots.",
+      "visualDetails": [
+        "Read old state as input rather than writing changes into it.",
+        "Spread copies top-level properties into a new object.",
+        "Replace the changed property, then pass the new object to the setter."
+      ]
+    }
+  },
+  "react-updating-arrays": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan tugas kedua lalu selesaikan hanya read; bandingkan array asli dan hasilnya.",
+        "Di proyek lokal, ubah salah satu tugas sambil mempertahankan item lain dan ID-nya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Operasi seperti map, filter, dan spread membuat array baru. Dengan begitu, penambahan, perubahan, dan penghapusan item lebih mudah ditelusuri."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "map membaca tiap tugas dan membuat array hasil baru.",
+            "Jika ID cocok, kembalikan objek tugas baru; jika tidak, pertahankan item.",
+            "filter dapat menghapus item, dan spread dapat menambah item tanpa mengubah array lama."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Array baru dapat masih berisi objek lama. Objek yang diubah juga perlu disalin."
+        }
+      ],
+      "hint": "Operasi mana yang mempertahankan jumlah item tetapi mengganti item yang cocok?",
+      "recap": [
+        "map bisa memperbarui item yang cocok.",
+        "filter bisa menyisihkan item.",
+        "Array baru menjaga pola pembaruan state React.",
+        "Array baru dapat masih berisi objek lama."
+      ],
+      "quizExplanation": "map menghasilkan array baru dan dapat mengganti hanya item yang cocok. Salin juga objek item yang berubah.",
+      "visualDetails": [
+        "map membaca tiap tugas dan membuat array hasil baru.",
+        "Jika ID cocok, kembalikan objek tugas baru; jika tidak, pertahankan item.",
+        "filter dapat menghapus item, dan spread dapat menambah item tanpa mengubah array lama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a second task and finish only read; compare original and returned arrays.",
+        "Locally, toggle either task while preserving unrelated items and IDs."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Array operations such as map, filter, and spread create a new collection. They make adding, changing, and removing items predictable."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "map reads each task and creates a result array.",
+            "Return a new task object for the matching ID; keep other items.",
+            "filter can remove items and spread can add them without mutating the old array."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A new array can still contain old objects. Changed objects also need copying."
+        }
+      ],
+      "hint": "Which operation keeps item count but replaces matching items?",
+      "recap": [
+        "Map changes matching items.",
+        "Filter removes items.",
+        "New arrays preserve React state updates.",
+        "A new array can still contain old objects."
+      ],
+      "quizExplanation": "map creates a new array and can replace only matching items. Copy changed item objects too.",
+      "visualDetails": [
+        "map reads each task and creates a result array.",
+        "Return a new task object for the matching ID; keep other items.",
+        "filter can remove items and spread can add them without mutating the old array."
+      ]
+    }
+  },
+  "react-controlled-inputs": {
+    "id": {
+      "practiceSteps": [
+        "Periksa salinan form hasil changeEmail.",
+        "Di proyek lokal, ketik pada Search, tambahkan tombol pengosong query, lalu pastikan input mengikuti state."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Controlled input menampilkan nilai dari state dan melaporkan perubahan lewat event. Dengan begitu, UI punya satu sumber nilai yang bisa diandalkan."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "State menyimpan teks yang ditampilkan input.",
+            "value membaca state, sedangkan onChange menerima teks terbaru.",
+            "Setter memperbarui state; render berikutnya menampilkan hasilnya, termasuk saat input dikosongkan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Gunakan string kosong sebagai nilai awal input teks yang dikontrol."
+        }
+      ],
+      "hint": "Telusuri atribut value: data dari mana yang menentukan isi input?",
+      "recap": [
+        "State menjadi sumber nilai yang ditampilkan.",
+        "Event menghasilkan nilai berikutnya.",
+        "Controlled input memudahkan validasi.",
+        "Gunakan string kosong sebagai nilai awal input teks yang dikontrol."
+      ],
+      "quizExplanation": "value berasal dari state. onChange memperbarui state, lalu render berikutnya memperbarui input.",
+      "visualDetails": [
+        "State menyimpan teks yang ditampilkan input.",
+        "value membaca state, sedangkan onChange menerima teks terbaru.",
+        "Setter memperbarui state; render berikutnya menampilkan hasilnya, termasuk saat input dikosongkan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Inspect changeEmail’s copied form.",
+        "Locally, type into Search, add a button that clears query, and confirm the displayed input follows state."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A controlled input displays a value from state and reports changes through an event. This gives the UI one dependable source of truth."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "State stores displayed input text.",
+            "value reads state while onChange receives the latest text.",
+            "Setters update state; the next render shows it, including when the field is cleared."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Use an empty string as the initial value of a controlled text input."
+        }
+      ],
+      "hint": "Trace value: which data determines the input contents?",
+      "recap": [
+        "State owns the displayed value.",
+        "Events create the next value.",
+        "Controlled inputs make validation easier.",
+        "Use an empty string as the initial value of a controlled text input."
+      ],
+      "quizExplanation": "value comes from state. onChange updates state, and the next render updates the input.",
+      "visualDetails": [
+        "State stores displayed input text.",
+        "value reads state while onChange receives the latest text.",
+        "Setters update state; the next render shows it, including when the field is cleared."
+      ]
+    }
+  },
+  "react-effects": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan model koneksi.",
+        "Di proyek lokal, aktifkan mode offline browser saat OnlineStatus terpasang; lepas komponen lalu jelaskan cara cleanup listener mencerminkan setup."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Effect menyelaraskan komponen dengan sesuatu di luar React, seperti API browser, timer, subscription, atau request. Nilai turunan biasa cukup dihitung saat render."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Bedakan perhitungan tampilan dari hubungan ke sistem luar, seperti listener browser.",
+            "Effect memasang hubungan setelah render sesuai nilai yang dibacanya.",
+            "Cleanup melepas hubungan lama ketika perlu diperbarui atau komponen dilepas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Menghitung total dari data yang tersedia biasanya cukup saat render. Tidak semua perubahan membutuhkan effect."
+        }
+      ],
+      "hint": "Tugasnya menghitung data yang ada atau menghubungkan sistem luar?",
+      "recap": [
+        "Effect menghubungkan React dengan sistem eksternal.",
+        "Nilai turunan biasanya cukup dihitung saat render.",
+        "Bersihkan subscription dan timer setelah tidak dibutuhkan.",
+        "Menghitung total dari data yang tersedia biasanya cukup saat render."
+      ],
+      "quizExplanation": "Effect menyelaraskan komponen dengan sistem eksternal. Nilai yang dapat dihitung dari props atau state biasanya cukup dihitung saat render.",
+      "visualDetails": [
+        "Bedakan perhitungan tampilan dari hubungan ke sistem luar, seperti listener browser.",
+        "Effect memasang hubungan setelah render sesuai nilai yang dibacanya.",
+        "Cleanup melepas hubungan lama ketika perlu diperbarui atau komponen dilepas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run the connection model.",
+        "Locally, toggle browser offline mode with OnlineStatus mounted; unmount it and explain how listener cleanup mirrors setup."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Effects synchronize a component with something outside React, such as a browser API, timer, subscription, or request. Ordinary derived values belong in render."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Separate view calculations from external connections such as browser listeners.",
+            "Effects establish connections after rendering based on the values they read.",
+            "Cleanup removes old connections when updating or unmounting."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Totals from available data usually belong in render. Not every change requires an effect."
+        }
+      ],
+      "hint": "Is the task computing existing data or connecting an external system?",
+      "recap": [
+        "Effects connect React to external systems.",
+        "Derived values usually belong in render.",
+        "Clean up subscriptions and timers.",
+        "Totals from available data usually belong in render."
+      ],
+      "quizExplanation": "Effects synchronize components with external systems. Values derived from props or state usually belong in render.",
+      "visualDetails": [
+        "Separate view calculations from external connections such as browser listeners.",
+        "Effects establish connections after rendering based on the values they read.",
+        "Cleanup removes old connections when updating or unmounting."
+      ]
+    }
+  },
+  "react-composition-hooks": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan toggle dua kali memakai nilai hasil sebelumnya.",
+        "Di proyek lokal, tampilkan dua Details dan pastikan membuka satu tidak membuka yang lain."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Composition memungkinkan satu komponen menyediakan struktur dan komponen lain menyediakan konten. Custom Hook mengemas logika state yang bisa dipakai ulang tanpa berbagi state antarkomponen."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Composition menyusun kerangka dan konten melalui komponen serta children.",
+            "Custom Hook adalah fungsi use... untuk memakai ulang logika yang melibatkan Hook.",
+            "Setiap pemanggilan memiliki state sendiri; dua Details tidak otomatis berbagi keadaan terbuka."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Memakai ulang logika berbeda dari berbagi satu state. Tentukan pemilik state bersama secara eksplisit."
+        }
+      ],
+      "hint": "Yang digunakan ulang itu fungsi logikanya atau data state yang sama?",
+      "recap": [
+        "Composition menggabungkan bagian-bagian dengan tugas yang jelas.",
+        "Custom Hook mengemas logika yang memakai state.",
+        "Setiap pemanggilan mendapat state-nya sendiri.",
+        "Memakai ulang logika berbeda dari berbagi satu state."
+      ],
+      "quizExplanation": "Custom Hook memakai ulang logika stateful, bukan menyatukan state semua pemanggil. Setiap pemanggilan tetap memiliki state sendiri.",
+      "visualDetails": [
+        "Composition menyusun kerangka dan konten melalui komponen serta children.",
+        "Custom Hook adalah fungsi use... untuk memakai ulang logika yang melibatkan Hook.",
+        "Setiap pemanggilan memiliki state sendiri; dua Details tidak otomatis berbagi keadaan terbuka."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run toggle twice using each returned value.",
+        "Locally, render two Details components and confirm opening one leaves the other closed."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Composition gives one component structure while another provides content. A custom Hook packages reusable stateful logic without sharing component state."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Composition combines structure and content through components and children.",
+            "Custom Hooks are use... functions for reusing logic involving Hooks.",
+            "Each call owns its state; two Details do not automatically share their open state."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Reusing logic differs from sharing one state. Choose an explicit owner for shared state."
+        }
+      ],
+      "hint": "Is the reused part the logic or the same state data?",
+      "recap": [
+        "Composition combines focused pieces.",
+        "Custom Hooks package stateful logic.",
+        "Each use receives its own state.",
+        "Reusing logic differs from sharing one state."
+      ],
+      "quizExplanation": "Custom Hooks reuse stateful logic rather than merging all callers' state. Each call keeps its own state.",
+      "visualDetails": [
+        "Composition combines structure and content through components and children.",
+        "Custom Hooks are use... functions for reusing logic involving Hooks.",
+        "Each call owns its state; two Details do not automatically share their open state."
+      ]
+    }
+  },
+  "react-refs": {
+    "id": {
+      "practiceSteps": [
+        "Ubah current pada model ref.",
+        "Di proyek lokal, aktifkan FocusInput lewat keyboard; pastikan fokus berpindah lalu jelaskan mengapa pembaruan ref tidak merender UI."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Ref menyimpan nilai yang tidak perlu dirender React, seperti node DOM, ID timer, atau nilai sebelumnya. Memperbaruinya tidak memicu render."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Ref menyimpan nilai di current dan bertahan antar-render.",
+            "Ref input menyimpan elemen DOM agar handler dapat memanggil focus.",
+            "Mengubah current tidak meminta render baru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Data yang menentukan tampilan biasanya memerlukan state, bukan ref."
+        }
+      ],
+      "hint": "Apakah perubahan harus memperbarui tampilan atau hanya menyimpan pegangan elemen?",
+      "recap": [
+        "Ref bertahan antar-render.",
+        "Mengubah ref tidak memicu render ulang.",
+        "Gunakan ref untuk DOM dan integrasi imperatif.",
+        "Data yang menentukan tampilan biasanya memerlukan state, bukan ref."
+      ],
+      "quizExplanation": "Ref menyimpan nilai yang bertahan antar-render tanpa meminta render saat current berubah. Cocok untuk elemen DOM atau ID timer.",
+      "visualDetails": [
+        "Ref menyimpan nilai di current dan bertahan antar-render.",
+        "Ref input menyimpan elemen DOM agar handler dapat memanggil focus.",
+        "Mengubah current tidak meminta render baru."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change current in the ref model.",
+        "Locally, activate FocusInput with the keyboard; verify focus moves and explain why ref updates do not render UI."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A ref stores a value that React does not need to render, such as a DOM node, timer ID, or previous value. Updating it does not trigger a render."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Refs store values in current and persist across renders.",
+            "Input refs hold DOM elements so handlers can call focus.",
+            "Changing current does not request a render."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Data determining the view usually needs state rather than a ref."
+        }
+      ],
+      "hint": "Should the change update the view or only store an element handle?",
+      "recap": [
+        "Refs persist between renders.",
+        "Changing a ref does not re-render.",
+        "Use refs for DOM and imperative integrations.",
+        "Data determining the view usually needs state rather than a ref."
+      ],
+      "quizExplanation": "Refs persist values across renders without triggering a render when current changes. They suit DOM nodes and timer IDs.",
+      "visualDetails": [
+        "Refs store values in current and persist across renders.",
+        "Input refs hold DOM elements so handlers can call focus.",
+        "Changing current does not request a render."
+      ]
+    }
+  },
+  "react-effect-dependencies": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan requestKey dengan dua kata.",
+        "Di proyek lokal, ubah prop title pada PageTitle dan pastikan document.title berubah; jelaskan dependency title."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Effect harus mencantumkan setiap nilai reaktif yang dibacanya. Daftar dependency memberi tahu React kapan sistem eksternal perlu diselaraskan lagi."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Kenali props dan state yang dibaca effect, misalnya title.",
+            "Cantumkan nilai reaktif tersebut dalam dependency.",
+            "Ketika dependency berubah, cleanup lama berjalan sebelum effect memakai nilai baru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Daftar kosong bukan cara menghindari pembaruan yang diperlukan; nilai yang hilang bisa membuat effect membaca data lama."
+        }
+      ],
+      "hint": "Props atau state mana yang dibaca di dalam effect?",
+      "recap": [
+        "Dependency menjelaskan input untuk sinkronisasi.",
+        "Jangan menghilangkan nilai hanya agar effect tidak berjalan lagi.",
+        "Pindahkan pekerjaan yang tidak reaktif ke luar effect jika memungkinkan.",
+        "Daftar kosong bukan cara menghindari pembaruan yang diperlukan; nilai yang hilang bisa membuat effect membaca data lama."
+      ],
+      "quizExplanation": "Dependency memuat nilai reaktif yang dibaca effect. Dengan itu, sinkronisasi mengikuti perubahan input yang relevan.",
+      "visualDetails": [
+        "Kenali props dan state yang dibaca effect, misalnya title.",
+        "Cantumkan nilai reaktif tersebut dalam dependency.",
+        "Ketika dependency berubah, cleanup lama berjalan sebelum effect memakai nilai baru."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run requestKey with two terms.",
+        "Locally, change PageTitle’s title prop and verify document.title changes; explain the title dependency."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "An effect must declare every reactive value it reads. The dependency list communicates when React needs to synchronize the external system again."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Identify props and state read by the effect, such as title.",
+            "Include those reactive values in dependencies.",
+            "When dependencies change, old cleanup runs before the effect uses new values."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "An empty list does not avoid required updates; missing values can leave effects reading stale data."
+        }
+      ],
+      "hint": "Which props or state does the effect read?",
+      "recap": [
+        "Dependencies describe synchronization inputs.",
+        "Do not omit values to silence a rerun.",
+        "Move non-reactive work outside the effect when possible.",
+        "An empty list does not avoid required updates; missing values can leave effects reading stale data."
+      ],
+      "quizExplanation": "Dependencies contain reactive values read by an effect, letting synchronization follow relevant input changes.",
+      "visualDetails": [
+        "Identify props and state read by the effect, such as title.",
+        "Include those reactive values in dependencies.",
+        "When dependencies change, old cleanup runs before the effect uses new values."
+      ]
+    }
+  },
+  "react-effect-cleanup": {
+    "id": {
+      "practiceSteps": [
+        "Periksa hasil stop di console.",
+        "Di proyek lokal, pasang dan lepas Timer berulang kali; pastikan satu timer aktif per pemasangan lalu jelaskan pemeriksaan cleanup Strict Mode."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Subscription, timer, dan listener membutuhkan function cleanup agar koneksi lama tidak terus berjalan setelah komponen berubah atau meninggalkan halaman."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Setup membuat timer, listener, atau subscription.",
+            "Cleanup mengembalikan fungsi untuk melepas sumber daya itu.",
+            "React menjalankan cleanup ketika dependency berubah dan ketika komponen dilepas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Strict Mode dapat mencoba setup dan cleanup tambahan saat pengembangan; buat pasangan keduanya aman diulang."
+        }
+      ],
+      "hint": "Pikirkan saat koneksi perlu diganti dan saat komponen tidak lagi dipakai.",
+      "recap": [
+        "Bersihkan resource eksternal.",
+        "Hindari subscription ganda.",
+        "Pasangkan tanggung jawab setup dengan cleanup-nya.",
+        "Strict Mode dapat mencoba setup dan cleanup tambahan saat pengembangan; buat pasangan keduanya aman diulang."
+      ],
+      "quizExplanation": "Cleanup berjalan sebelum effect disiapkan ulang karena dependency berubah dan ketika komponen dilepas. Ia melepas sumber daya lama.",
+      "visualDetails": [
+        "Setup membuat timer, listener, atau subscription.",
+        "Cleanup mengembalikan fungsi untuk melepas sumber daya itu.",
+        "React menjalankan cleanup ketika dependency berubah dan ketika komponen dilepas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Inspect stop’s logged result.",
+        "Locally, repeatedly mount and unmount Timer; verify one active timer per mount and explain Strict Mode’s development cleanup check."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Subscriptions, timers, and listeners need a cleanup function so an old connection cannot keep running after the component changes or leaves the page."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Setup creates a timer, listener, or subscription.",
+            "Cleanup returns a function releasing that resource.",
+            "React runs cleanup when dependencies change and when the component unmounts."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Strict Mode may run an extra setup and cleanup cycle during development; make the pair repeatable."
+        }
+      ],
+      "hint": "Consider when a connection needs replacing and when the component is no longer used.",
+      "recap": [
+        "Clean up external resources.",
+        "Avoid duplicate subscriptions.",
+        "Match setup and cleanup responsibilities.",
+        "Strict Mode may run an extra setup and cleanup cycle during development; make the pair repeatable."
+      ],
+      "quizExplanation": "Cleanup runs before dependency-driven effect setup and on unmount, releasing old resources.",
+      "visualDetails": [
+        "Setup creates a timer, listener, or subscription.",
+        "Cleanup returns a function releasing that resource.",
+        "React runs cleanup when dependencies change and when the component unmounts."
+      ]
+    }
+  },
+  "react-lifting-state": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan select dengan dua ID.",
+        "Di proyek lokal, tambahkan Input lain memakai name milik Parent; mengedit salah satu harus memperbarui keduanya serta sapaan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Saat dua komponen harus memakai nilai yang sama, pindahkan state ke parent bersama yang paling dekat. Teruskan nilainya dan callback event ke bawah lewat props."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Cari parent terdekat yang menaungi komponen terkait.",
+            "Simpan satu state di parent dan kirim nilainya lewat props.",
+            "Kirim callback agar child meminta pembaruan, bukan menyimpan salinan sendiri."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Nilai awal yang sama tidak membuat dua state terpisah selalu sinkron."
+        }
+      ],
+      "hint": "Di mana kedua komponen bertemu dalam pohon React?",
+      "recap": [
+        "Satu pemilik state menjaga UI bersama tetap selaras.",
+        "Child menerima nilai lewat props.",
+        "Child menyampaikan tindakan lewat callback.",
+        "Nilai awal yang sama tidak membuat dua state terpisah selalu sinkron."
+      ],
+      "quizExplanation": "Parent bersama menjadi pemilik satu state. Child menerima nilai dan callback, sehingga perubahan tidak menghasilkan salinan yang saling berbeda.",
+      "visualDetails": [
+        "Cari parent terdekat yang menaungi komponen terkait.",
+        "Simpan satu state di parent dan kirim nilainya lewat props.",
+        "Kirim callback agar child meminta pembaruan, bukan menyimpan salinan sendiri."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run select with two IDs.",
+        "Locally, add another Input bound to Parent’s name; editing either must update both inputs and the greeting."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "When two components must agree on a value, move that state to their closest shared parent. Pass the value and event callbacks down as props."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Find the nearest parent containing related components.",
+            "Store one state there and pass values through props.",
+            "Pass callbacks for children to request updates instead of keeping copies."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Equal initial values do not keep two separate states synchronized."
+        }
+      ],
+      "hint": "Where do the two components meet in the React tree?",
+      "recap": [
+        "One owner keeps shared UI in sync.",
+        "Children receive values through props.",
+        "Children report intent through callbacks.",
+        "Equal initial values do not keep two separate states synchronized."
+      ],
+      "quizExplanation": "A shared parent owns one state. Children receive values and callbacks, avoiding divergent copies.",
+      "visualDetails": [
+        "Find the nearest parent containing related components.",
+        "Store one state there and pass values through props.",
+        "Pass callbacks for children to request updates instead of keeping copies."
+      ]
+    }
+  },
+  "react-context": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan label dengan light dan dark.",
+        "Di proyek lokal, tempatkan Label di bawah komponen perantara lalu ubah nilai provider dan pastikan consumer ikut berubah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Context menyediakan nilai yang stabil untuk bagian pohon komponen yang jauh. Context cocok untuk kebutuhan luas seperti tema, bahasa, atau informasi pengguna yang sudah login."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Provider menentukan nilai untuk cabang pohon komponen.",
+            "Consumer membaca melalui useContext tanpa meneruskan props di tiap perantara.",
+            "Ketika nilai provider berubah, consumer yang membacanya mendapat pembaruan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Context tidak menggantikan semua props. Gunakan saat kebutuhan berbagi luas dan pemilik data jelas."
+        }
+      ],
+      "hint": "Nilai dibutuhkan satu child atau banyak komponen yang berjauhan?",
+      "recap": [
+        "Context menghindari penerusan nilai lewat banyak lapisan.",
+        "Jaga setiap provider tetap punya fokus.",
+        "Jangan masukkan semua nilai yang berubah ke satu context.",
+        "Context tidak menggantikan semua props."
+      ],
+      "quizExplanation": "Context membawa nilai provider ke consumer dalam cabangnya tanpa penerusan props pada setiap perantara.",
+      "visualDetails": [
+        "Provider menentukan nilai untuk cabang pohon komponen.",
+        "Consumer membaca melalui useContext tanpa meneruskan props di tiap perantara.",
+        "Ketika nilai provider berubah, consumer yang membacanya mendapat pembaruan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run label with light and dark.",
+        "Locally, nest Label under an intermediate component, then change the provider value and verify the consumer updates."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Context makes a stable value available to a distant subtree. It works best for broadly needed concerns such as theme, locale, or authenticated user information."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Providers supply values for a component-tree branch.",
+            "Consumers read them through useContext without passing props through every intermediate component.",
+            "Consumers reading a changed provider value receive updates."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Context does not replace all props. Use it when sharing is broad and ownership is clear."
+        }
+      ],
+      "hint": "Is the value needed by one child or many distant components?",
+      "recap": [
+        "Context avoids passing a value through many layers.",
+        "Keep providers focused.",
+        "Do not put every changing value in one context.",
+        "Context does not replace all props."
+      ],
+      "quizExplanation": "Context carries provider values to consumers in its branch without passing props through every intermediate component.",
+      "visualDetails": [
+        "Providers supply values for a component-tree branch.",
+        "Consumers read them through useContext without passing props through every intermediate component.",
+        "Consumers reading a changed provider value receive updates."
+      ]
+    }
+  },
+  "react-reducer": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan increment dan action yang tidak dikenal dengan state yang sama.",
+        "Di proyek lokal, tambahkan tombol Reset yang mengirim reset lalu jaga reducer tanpa side effect."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Reducer mengumpulkan perubahan state yang saling terkait dalam satu function. Action menjelaskan apa yang terjadi, sedangkan reducer menentukan state berikutnya."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Action menjelaskan kejadian, seperti increment atau reset.",
+            "Reducer menerima state lama dan action, lalu menghitung state baru.",
+            "Dispatch mengirim action agar aturan pembaruan terkait berada di satu tempat."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Reducer harus murni: jangan membuat request atau mengubah langsung state lama."
+        }
+      ],
+      "hint": "Apa yang menjelaskan kejadian dan apa yang menentukan state berikutnya?",
+      "recap": [
+        "Action menjelaskan event yang terjadi.",
+        "Reducer memusatkan perubahan yang saling terkait.",
+        "Jaga reducer tetap murni dan hasilnya bisa diprediksi.",
+        "Reducer harus murni: jangan membuat request atau mengubah langsung state lama."
+      ],
+      "quizExplanation": "Action menjelaskan kejadian; reducer menghitung state berikutnya dari state sebelumnya dan action tersebut.",
+      "visualDetails": [
+        "Action menjelaskan kejadian, seperti increment atau reset.",
+        "Reducer menerima state lama dan action, lalu menghitung state baru.",
+        "Dispatch mengirim action agar aturan pembaruan terkait berada di satu tempat."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run increment and an unknown action with the same state.",
+        "Locally, add a Reset button dispatching reset and keep the reducer free of side effects."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A reducer gathers related state transitions in one function. Actions describe what happened, while the reducer decides the next state."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Actions describe events such as increment or reset.",
+            "Reducers receive old state and an action, then compute new state.",
+            "Dispatch sends actions so related update rules stay together."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Reducers must be pure: do not make requests or mutate old state."
+        }
+      ],
+      "hint": "What describes the event and what determines the next state?",
+      "recap": [
+        "Actions describe events.",
+        "Reducers centralize related transitions.",
+        "Keep reducers pure and predictable.",
+        "Reducers must be pure: do not make requests or mutate old state."
+      ],
+      "quizExplanation": "Actions describe events; reducers compute next state from prior state and the action.",
+      "visualDetails": [
+        "Actions describe events such as increment or reset.",
+        "Reducers receive old state and an action, then compute new state.",
+        "Dispatch sends actions so related update rules stay together."
+      ]
+    }
+  },
+  "react-derived-state": {
+    "id": {
+      "practiceSteps": [
+        "Ubah quantity keranjang lalu periksa total.",
+        "Di proyek lokal, ubah tasks pada TaskSummary dan pastikan remaining berubah tanpa state duplikat atau effect."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kalau suatu nilai bisa dihitung dari props atau state, hitung saat render. Menyimpan salinannya menambah nilai kedua yang bisa kehilangan sinkronisasi."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Tugas tersisa dapat dihitung dari tasks yang sudah tersedia.",
+            "Hitung nilai turunan saat render agar selalu mengikuti sumbernya.",
+            "Ubah tasks dan periksa ringkasan tanpa membuat state atau effect kedua."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Salinan total menambah nilai kedua yang harus dijaga tetap sinkron."
+        }
+      ],
+      "hint": "Bisakah nilai ini dihitung dari props atau state yang sudah ada?",
+      "recap": [
+        "Hitung nilai turunan jika memungkinkan.",
+        "Hindari state duplikat.",
+        "Gunakan event saat tindakan pengguna memang mengubah data yang disimpan.",
+        "Salinan total menambah nilai kedua yang harus dijaga tetap sinkron."
+      ],
+      "quizExplanation": "Nilai yang bisa dihitung dari data tersedia tidak perlu disimpan sebagai state kedua. Perhitungan saat render menjaga hasil mengikuti sumbernya.",
+      "visualDetails": [
+        "Tugas tersisa dapat dihitung dari tasks yang sudah tersedia.",
+        "Hitung nilai turunan saat render agar selalu mengikuti sumbernya.",
+        "Ubah tasks dan periksa ringkasan tanpa membuat state atau effect kedua."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change cart quantities and inspect total.",
+        "Locally, change TaskSummary’s tasks and verify remaining updates without duplicate state or an effect."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "If a value can be calculated from props or state, calculate it during render. Storing a duplicate introduces a second value that can fall out of sync."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Remaining tasks can be calculated from existing tasks.",
+            "Compute derived values during render so they follow their source.",
+            "Change tasks and check the summary without a second state or effect."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A stored total copy adds a second value to keep synchronized."
+        }
+      ],
+      "hint": "Can this value be computed from existing props or state?",
+      "recap": [
+        "Derive values when possible.",
+        "Avoid duplicated state.",
+        "Use an event only when user intent changes stored data.",
+        "A stored total copy adds a second value to keep synchronized."
+      ],
+      "quizExplanation": "Values computable from available data need not be stored as a second state. Rendering calculations keep them aligned with their source.",
+      "visualDetails": [
+        "Remaining tasks can be calculated from existing tasks.",
+        "Compute derived values during render so they follow their source.",
+        "Change tasks and check the summary without a second state or effect."
+      ]
+    }
+  },
+  "react-preserving-state": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan editorKey dengan dua ID.",
+        "Di proyek lokal, ketik draf, ubah person.id, lalu bandingkan Draft dengan dan tanpa key."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "React mempertahankan state komponen selama posisinya dalam pohon tetap sama. Ubah key saat identitas baru memang perlu dimulai dengan state baru."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "React mencocokkan tipe dan posisi komponen, termasuk key jika ada.",
+            "Identitas tetap dapat mempertahankan draf saat parent merender ulang.",
+            "Key berbeda menandai identitas baru sehingga state di bawahnya dimulai ulang."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Key acak dapat membuang draf tanpa sengaja. Reset hanya ketika identitas produk memang berubah."
+        }
+      ],
+      "hint": "Bandingkan identitas komponen sebelum dan sesudah pergantian item.",
+      "recap": [
+        "State melekat pada posisi dalam pohon komponen.",
+        "Key menentukan identitas komponen.",
+        "Reset hanya saat kamu memang menginginkan identitas baru.",
+        "Key acak dapat membuang draf tanpa sengaja."
+      ],
+      "quizExplanation": "Tipe dan posisi, termasuk key, menentukan identitas komponen. Identitas baru dapat mereset state; render ulang biasa tidak selalu meresetnya.",
+      "visualDetails": [
+        "React mencocokkan tipe dan posisi komponen, termasuk key jika ada.",
+        "Identitas tetap dapat mempertahankan draf saat parent merender ulang.",
+        "Key berbeda menandai identitas baru sehingga state di bawahnya dimulai ulang."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run editorKey with two IDs.",
+        "Locally, type a draft, change person.id, and compare Draft with and without the key."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "React preserves state for a component in the same position in the tree. Change a key when a new identity should begin with fresh state."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "React matches component type and position, including keys when present.",
+            "Stable identity can preserve drafts when a parent rerenders.",
+            "A different key marks a new identity so state below it restarts."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Random keys can discard drafts unintentionally. Reset when product identity really changes."
+        }
+      ],
+      "hint": "Compare component identity before and after changing items.",
+      "recap": [
+        "State belongs to a tree position.",
+        "Keys establish component identity.",
+        "Reset only when a new identity is intended.",
+        "Random keys can discard drafts unintentionally."
+      ],
+      "quizExplanation": "Type and position, including keys, determine component identity. New identities can reset state; ordinary rerenders do not necessarily reset it.",
+      "visualDetails": [
+        "React matches component type and position, including keys when present.",
+        "Stable identity can preserve drafts when a parent rerenders.",
+        "A different key marks a new identity so state below it restarts."
+      ]
+    }
+  },
+  "react-memo": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan expensiveTotal dengan array lebih besar.",
+        "Di proyek lokal, ukur Results sebelum memoization lalu ubah items/query agar kedua dependency mengendalikan cache."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Memoization adalah optimasi terarah untuk perhitungan yang terasa berat. Mulai dengan menjaga render tetap murni dan mengukur bagian yang benar-benar memakan waktu."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Ukur perhitungan lambat pada skenario yang sama.",
+            "useMemo menyimpan hasil selama dependency tidak berubah.",
+            "Jika items atau query berubah, hitung ulang agar hasil tidak kedaluwarsa."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Memoization adalah optimasi, bukan syarat kebenaran. Perhitungan harus tetap benar saat diulang."
+        }
+      ],
+      "hint": "Ada pekerjaan mahal yang terukur atau hanya dugaan tiap render lambat?",
+      "recap": [
+        "Ukur sebelum mengoptimalkan.",
+        "Memoization menyimpan hasil perhitungan.",
+        "Jaga input dan output tetap bisa diprediksi.",
+        "Memoization adalah optimasi, bukan syarat kebenaran."
+      ],
+      "quizExplanation": "Memoization sesuai untuk pekerjaan mahal yang sudah terukur atau kebutuhan referensi yang jelas. Ia bukan jaminan otomatis semua render menjadi lebih cepat.",
+      "visualDetails": [
+        "Ukur perhitungan lambat pada skenario yang sama.",
+        "useMemo menyimpan hasil selama dependency tidak berubah.",
+        "Jika items atau query berubah, hitung ulang agar hasil tidak kedaluwarsa."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run expensiveTotal with a larger array.",
+        "Locally, measure Results before memoizing, then change items/query to verify both dependencies control the cache."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Memoization is a targeted optimization for calculations that are noticeably expensive. First keep renders pure and measure where the actual cost lives."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Measure slow calculations in the same scenario.",
+            "useMemo caches results while dependencies stay unchanged.",
+            "Recompute when items or query changes to avoid stale results."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Memoization is an optimization, not a correctness requirement. Calculations must remain correct when repeated."
+        }
+      ],
+      "hint": "Is there measured expensive work or only an assumption that renders are slow?",
+      "recap": [
+        "Measure before optimizing.",
+        "Memoization caches a calculation.",
+        "Keep inputs and outputs predictable.",
+        "Memoization is an optimization, not a correctness requirement."
+      ],
+      "quizExplanation": "Memoization suits measured expensive work or clear identity needs. It does not automatically speed up every render.",
+      "visualDetails": [
+        "Measure slow calculations in the same scenario.",
+        "useMemo caches results while dependencies stay unchanged.",
+        "Recompute when items or query changes to avoid stale results."
+      ]
+    }
+  },
+  "react-callbacks": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan identitas dua arrow function baru.",
+        "Di proyek lokal, ubah state Counter yang tidak terkait lalu bandingkan render AddButton dengan dan tanpa useCallback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Callback mendapat identitas baru saat dibuat ulang. Stabilkan referensinya hanya jika child yang dimemoisasi atau kontrak Hook membutuhkannya."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Dua fungsi baru dengan isi sama memiliki referensi berbeda.",
+            "useCallback menjaga referensi selama dependency sama.",
+            "Gunakan ketika identitas memengaruhi child yang dimemoisasi atau kontrak Hook."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Callback tidak otomatis membuat pekerjaan asinkron. Ukur dampak memoization sebelum menambahkannya."
+        }
+      ],
+      "hint": "Pemakai fungsi membandingkan referensinya atau hanya memanggilnya?",
+      "recap": [
+        "Function juga merupakan nilai.",
+        "Callback stabil adalah bentuk optimasi.",
+        "Jangan menambahkannya secara otomatis di mana-mana.",
+        "Callback tidak otomatis membuat pekerjaan asinkron."
+      ],
+      "quizExplanation": "Referensi callback yang stabil berguna ketika pemakai membandingkan identitasnya, misalnya child yang dimemoisasi.",
+      "visualDetails": [
+        "Dua fungsi baru dengan isi sama memiliki referensi berbeda.",
+        "useCallback menjaga referensi selama dependency sama.",
+        "Gunakan ketika identitas memengaruhi child yang dimemoisasi atau kontrak Hook."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare two newly created arrow functions by identity.",
+        "Locally, change unrelated Counter state and compare AddButton renders with and without useCallback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A callback changes identity when it is created again. Stabilize one only when a memoized child or Hook contract needs that stable reference."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Two new functions with the same body have different references.",
+            "useCallback preserves references while dependencies remain the same.",
+            "Use it when identity affects a memoized child or Hook contract."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Callbacks do not automatically make work asynchronous. Measure memoization before adding it."
+        }
+      ],
+      "hint": "Does the consumer compare references or simply call the function?",
+      "recap": [
+        "Functions are values too.",
+        "Stable callbacks are an optimization.",
+        "Do not add them by default.",
+        "Callbacks do not automatically make work asynchronous."
+      ],
+      "quizExplanation": "Stable callback references help when consumers compare identity, such as memoized children.",
+      "visualDetails": [
+        "Two new functions with the same body have different references.",
+        "useCallback preserves references while dependencies remain the same.",
+        "Use it when identity affects a memoized child or Hook contract."
+      ]
+    }
+  },
+  "react-transitions": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan beginSearch dengan kata lain.",
+        "Di proyek lokal, ketik pada Search dengan daftar besar; pertahankan update input mendesak lalu bandingkan transition daftar dengan update biasa."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Transition menandai pembaruan state sebagai pekerjaan yang tidak mendesak. Input ketikan dan respons langsung bisa tetap cepat sambil tampilan yang lebih besar menyusul."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Teks input perlu langsung mengikuti ketikan.",
+            "Transition menandai pembaruan tampilan lain sebagai kurang mendesak.",
+            "Periksa status pending dan pastikan hasil akhir mengikuti pencarian terbaru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Transition mengatur prioritas React; ia tidak mengurangi biaya perhitungan atau menggantikan debounce request."
+        }
+      ],
+      "hint": "Pembaruan mana yang wajib langsung dan mana yang dapat menyusul?",
+      "recap": [
+        "Input yang mendesak harus tetap responsif.",
+        "Transition menyampaikan prioritas pembaruan.",
+        "Gunakan untuk pekerjaan yang bebannya terasa.",
+        "Transition mengatur prioritas React; ia tidak mengurangi biaya perhitungan atau menggantikan debounce request."
+      ],
+      "quizExplanation": "Transition memberi prioritas lebih rendah pada pembaruan yang boleh menyusul. Nilai input yang diketik tetap memerlukan pembaruan langsung.",
+      "visualDetails": [
+        "Teks input perlu langsung mengikuti ketikan.",
+        "Transition menandai pembaruan tampilan lain sebagai kurang mendesak.",
+        "Periksa status pending dan pastikan hasil akhir mengikuti pencarian terbaru."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run beginSearch with another term.",
+        "Locally, type into Search with a large list; keep input updates urgent and compare the list transition with an ordinary update."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A transition marks a state update as non-urgent so typing and direct feedback can remain responsive while a larger view catches up."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Input text should follow typing immediately.",
+            "Transitions mark other view updates as less urgent.",
+            "Check pending status and ensure final results follow the latest search."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Transitions prioritize React updates; they do not reduce computation cost or replace request debouncing."
+        }
+      ],
+      "hint": "Which update must be immediate and which can follow?",
+      "recap": [
+        "Urgent input should stay responsive.",
+        "Transitions communicate priority.",
+        "Use them around noticeable work.",
+        "Transitions prioritize React updates; they do not reduce computation cost or replace request debouncing."
+      ],
+      "quizExplanation": "Transitions lower the priority of updates that may follow. Typed input values still require immediate updates.",
+      "visualDetails": [
+        "Input text should follow typing immediately.",
+        "Transitions mark other view updates as less urgent.",
+        "Check pending status and ensure final results follow the latest search."
+      ]
+    }
+  },
+  "react-accessibility": {
+    "id": {
+      "practiceSteps": [
+        "Coba canSubmit dengan label kosong dan disabled true.",
+        "Di proyek lokal, gunakan keyboard pada EmailField lalu pastikan label terlihat memfokuskan input."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Gunakan elemen bawaan sesuai fungsinya, lalu periksa fokus keyboard, label yang terlihat, dan umpan baliknya. Aksesibilitas adalah bagian dari kontrak komponen."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Pakai button untuk tindakan dan label terlihat untuk input.",
+            "Hubungkan label agar klik dan alat bantu menunjuk kontrol yang benar.",
+            "Coba Tab, Enter, dan Space; periksa fokus serta pesan hasil."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Kontrol yang bisa diklik mouse belum tentu bisa digunakan dengan keyboard."
+        }
+      ],
+      "hint": "Kontrol punya nama jelas dan perilaku keyboard bawaan?",
+      "recap": [
+        "Utamakan HTML semantik.",
+        "Setiap kontrol membutuhkan nama yang bisa dipahami.",
+        "Periksa interaksi keyboard dan perpindahan fokus.",
+        "Kontrol yang bisa diklik mouse belum tentu bisa digunakan dengan keyboard."
+      ],
+      "quizExplanation": "Elemen bawaan menyediakan semantik dan perilaku keyboard. Label serta fokus yang jelas membantu pengguna mengenali dan memakai kontrol.",
+      "visualDetails": [
+        "Pakai button untuk tindakan dan label terlihat untuk input.",
+        "Hubungkan label agar klik dan alat bantu menunjuk kontrol yang benar.",
+        "Coba Tab, Enter, dan Space; periksa fokus serta pesan hasil."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try canSubmit with an empty label and disabled true.",
+        "Locally, navigate EmailField with the keyboard and confirm its visible label focuses the input."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Use native elements for their native jobs, then verify keyboard focus, visible labels, and feedback. Accessibility is part of a component contract."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Use buttons for actions and visible labels for inputs.",
+            "Connect labels so clicks and assistive tools identify the right control.",
+            "Try Tab, Enter, and Space; inspect focus and feedback."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A mouse-clickable control is not necessarily keyboard-usable."
+        }
+      ],
+      "hint": "Does the control have a clear name and native keyboard behavior?",
+      "recap": [
+        "Prefer semantic HTML.",
+        "Every control needs a usable name.",
+        "Test keyboard and focus behavior.",
+        "A mouse-clickable control is not necessarily keyboard-usable."
+      ],
+      "quizExplanation": "Native elements provide semantics and keyboard behavior. Clear labels and focus help users identify and operate controls.",
+      "visualDetails": [
+        "Use buttons for actions and visible labels for inputs.",
+        "Connect labels so clicks and assistive tools identify the right control.",
+        "Try Tab, Enter, and Space; inspect focus and feedback."
+      ]
+    }
+  },
+  "react-virtualized-lists": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan visible dengan jendela pada kedua ujung array.",
+        "Di proyek lokal, ubah start/count pada VisibleRows lalu tentukan geometri scroll, overscan, dan perilaku keyboard yang masih dibutuhkan virtualizer lengkap."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Daftar yang sangat panjang bisa memperlambat interaksi karena browser harus membuat dan memperbarui banyak node. Gunakan virtualisasi saat bagian yang terlihat hanya sebagian kecil dari seluruh daftar."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Jendela data mengambil sebagian item dengan start dan count.",
+            "Virtualisasi lengkap menyisakan ruang untuk item yang tidak dirender agar posisi gulir tepat.",
+            "Ukur node dan interaksi, lalu atur overscan serta fokus."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "slice pada contoh hanya model jendela data, bukan virtualizer lengkap."
+        }
+      ],
+      "hint": "Berapa item terlihat dibanding seluruh daftar dan berapa node perlu dibuat?",
+      "recap": [
+        "Ukur beban daftar lebih dulu.",
+        "Render bagian yang terlihat jika memang dibutuhkan.",
+        "Jaga navigasi keyboard dan makna elemennya.",
+        "slice pada contoh hanya model jendela data, bukan virtualizer lengkap."
+      ],
+      "quizExplanation": "Virtualisasi mengurangi node yang dirender pada daftar panjang dengan menampilkan jendela item yang diperlukan. Geometri gulir dan fokus tetap harus dijaga.",
+      "visualDetails": [
+        "Jendela data mengambil sebagian item dengan start dan count.",
+        "Virtualisasi lengkap menyisakan ruang untuk item yang tidak dirender agar posisi gulir tepat.",
+        "Ukur node dan interaksi, lalu atur overscan serta fokus."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run visible with windows at both array ends.",
+        "Locally, change VisibleRows’s start/count and identify the scroll geometry, overscan, and keyboard behavior a complete virtualizer still needs."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A very long list can make interaction slow because the browser must create and update many nodes. Virtualize only when the visible window is a small part of the full collection."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "A data window selects items with start and count.",
+            "Full virtualization reserves space for unrendered items to preserve scrolling positions.",
+            "Measure nodes and interactions, then handle overscan and focus."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "The example's slice only models a data window, not a complete virtualizer."
+        }
+      ],
+      "hint": "How many items are visible compared with the full list and how many nodes need rendering?",
+      "recap": [
+        "Measure list cost first.",
+        "Render the visible window when needed.",
+        "Keep keyboard navigation and semantics intact.",
+        "The example's slice only models a data window, not a complete virtualizer."
+      ],
+      "quizExplanation": "Virtualization reduces rendered nodes in long lists by showing needed item windows. Scroll geometry and focus still require care.",
+      "visualDetails": [
+        "A data window selects items with start and count.",
+        "Full virtualization reserves space for unrendered items to preserve scrolling positions.",
+        "Measure nodes and interactions, then handle overscan and focus."
+      ]
+    }
+  },
+  "react-state-queue": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan komponen React secara lokal dan ganti function updater dengan setCount(count + 1).",
+        "Bandingkan hasil satu klik."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Setiap render melihat snapshot state. Memanggil setter tidak mengubah variabel state di dalam handler yang sedang berjalan."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Tiga replacement dihitung dari snapshot sama, sehingga semuanya 1.",
+            "Tiga updater berurutan memakai hasil sebelumnya, sehingga model menghasilkan 3.",
+            "Gunakan updater ketika nilai berikutnya bergantung pada state dalam antrean."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Setter tidak mengubah count dalam handler yang sedang berjalan."
+        }
+      ],
+      "hint": "Tiap pemanggilan memakai snapshot sama atau hasil pembaruan sebelumnya?",
+      "recap": [
+        "Function updater dalam antrean bekerja berurutan, bukan berulang kali membaca snapshot render yang sama.",
+        "Setter tidak mengubah count dalam handler yang sedang berjalan."
+      ],
+      "quizExplanation": "Updater berurutan menerima hasil updater sebelumnya. Nilai replacement yang dihitung dari snapshot sama tidak menambahkan tiga kenaikan secara berantai."
+    },
+    "en": {
+      "practiceSteps": [
+        "Run the React component locally and replace updater functions with setCount(count + 1).",
+        "Compare one click."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Each render sees a snapshot of state. Calling a setter does not change the state variable inside the already running handler."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Three replacements use one snapshot, so all become 1.",
+            "Three sequential updaters use prior results, producing 3.",
+            "Use updaters when the next value depends on queued state."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Setters do not change count within the running handler."
+        }
+      ],
+      "hint": "Does each call use the same snapshot or the previous update's result?",
+      "recap": [
+        "Queued updater functions compose in order rather than repeatedly reading the same render snapshot.",
+        "Setters do not change count within the running handler."
+      ],
+      "quizExplanation": "Sequential updaters receive previous updater results. Replacements computed from one snapshot do not chain three increments."
+    }
+  },
+  "react-lazy-initial-state": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan state filter terpisah. Jelaskan kenapa mengubah filter seharusnya tidak membuat ulang draft."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Memberikan function initializer ke useState memungkinkan React mengambil nilai awal saat komponen diinisialisasi, alih-alih mengevaluasi ekspresi pembuat nilai pada setiap render."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Initializer fungsi menghitung nilai awal ketika state diinisialisasi.",
+            "Render berikutnya memakai state tersimpan, bukan membuat draf baru.",
+            "Perubahan initialTitles tidak otomatis mengganti state; rancang reset jika dibutuhkan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Initializer harus murni. Strict Mode dapat memanggilnya dua kali saat pengembangan."
+        }
+      ],
+      "hint": "Bedakan meneruskan fungsi pembuat nilai dengan memanggilnya pada setiap render.",
+      "recap": [
+        "Inisialisasi seharusnya menghitung state awal tanpa efek samping eksternal.",
+        "Initializer harus murni."
+      ],
+      "quizExplanation": "Initializer fungsi dipakai ketika state diinisialisasi. State lain yang berubah tidak mengharuskan draf awal dibuat ulang."
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a separate filter state and explain why changing the filter should not rebuild the draft."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Passing an initializer function to useState lets React obtain the initial value when the component initializes, rather than evaluating a factory expression during every render."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "A function initializer computes the initial value when state initializes.",
+            "Later renders use stored state instead of creating a new draft.",
+            "Changing initialTitles does not automatically replace state; design a reset if needed."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Initializers must be pure. Strict Mode may call them twice during development."
+        }
+      ],
+      "hint": "Distinguish passing a value-producing function from calling it every render.",
+      "recap": [
+        "Initialization should calculate initial state without external side effects.",
+        "Initializers must be pure."
+      ],
+      "quizExplanation": "Function initializers are used when state initializes. Changes to other state do not require rebuilding the initial draft."
+    }
+  },
+  "react-accessible-ids": {
+    "id": {
+      "practiceSteps": [
+        "Render dua salinan field React dan pastikan setiap label memfokuskan input-nya sendiri."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "useId membuat ID untuk menghubungkan atribut aksesibilitas di dalam komponen. Setiap instance field bisa menghubungkan label dan petunjuknya sendiri tanpa bentrok."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "useId memberi ID pada instance komponen.",
+            "Pakai ID itu pada input dan htmlFor label.",
+            "Turunkan ID petunjuk dan rujuk melalui aria-describedby."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "useId bukan alat key daftar; gunakan identitas dari data item."
+        }
+      ],
+      "hint": "Hubungan atribut mana yang perlu unik pada tiap salinan field?",
+      "recap": [
+        "ID aksesibilitas dan identitas data menyelesaikan masalah yang berbeda.",
+        "useId bukan alat key daftar; gunakan identitas dari data item."
+      ],
+      "quizExplanation": "useId menghubungkan input, label, dan petunjuk secara unik per instance. Key daftar tetap berasal dari identitas data."
+    },
+    "en": {
+      "practiceSteps": [
+        "Render two copies of the React field and confirm each label focuses its own input."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "UseId creates an id suitable for connecting accessibility attributes within a component. Reusable field instances can connect their own labels and instructions without colliding."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "useId gives an ID to a component instance.",
+            "Use it for the input and label's htmlFor.",
+            "Derive a hint ID and reference it with aria-describedby."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "useId is not for list keys; use identity from item data."
+        }
+      ],
+      "hint": "Which attribute relationships need uniqueness in every field copy?",
+      "recap": [
+        "Accessibility ids and data identity solve different problems.",
+        "useId is not for list keys; use identity from item data."
+      ],
+      "quizExplanation": "useId uniquely connects inputs, labels, and hints per instance. List keys still come from data identity."
+    }
+  },
+  "react-stale-effect-results": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan contoh lokal dan ganti lessonId sebelum simulasi pemuatan selesai.",
+        "Tambahkan alur saat promise ditolak."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pekerjaan async yang dimulai effect bisa selesai setelah props pemicunya berubah. Cleanup bisa menandai hasilnya sebagai kedaluwarsa agar respons lama tidak menimpa state baru."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Pemuatan pertama bisa selesai setelah pemuatan kedua dimulai.",
+            "Cleanup menandai pekerjaan lama agar tidak memperbarui state terbaru.",
+            "Periksa hasil berhasil dan gagal agar error lama juga tidak menimpa UI."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mengabaikan hasil berbeda dari membatalkan request. Gunakan pembatalan bila API mendukungnya."
+        }
+      ],
+      "hint": "Hasil mana yang relevan jika pengguna sudah memilih item baru?",
+      "recap": [
+        "Flag menentukan apakah operasi yang selesai masih berhak memperbarui UI saat ini.",
+        "Mengabaikan hasil berbeda dari membatalkan request."
+      ],
+      "quizExplanation": "Cleanup menandai hasil lama agar tidak memperbarui state setelah input berubah. UI tetap mengikuti pilihan terbaru, bukan urutan respons tiba."
+    },
+    "en": {
+      "practiceSteps": [
+        "Run the local example and switch lessonId before the simulated load finishes.",
+        "Add a rejection path."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "An effect that starts asynchronous work can outlive the props that started it. Cleanup can mark its result obsolete so an older response does not replace newer state."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "The first load can finish after a second starts.",
+            "Cleanup marks old work so it cannot update current state.",
+            "Check success and failure so old errors cannot overwrite the UI."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Ignoring a result differs from canceling a request. Cancel when supported by the API."
+        }
+      ],
+      "hint": "Which result is relevant after the user selects a new item?",
+      "recap": [
+        "The flag controls whether a completed operation still owns the current UI.",
+        "Ignoring a result differs from canceling a request."
+      ],
+      "quizExplanation": "Cleanup marks old results so they cannot update state after inputs change. UI follows the newest selection rather than response arrival order."
+    }
+  },
+  "react-portals": {
+    "id": {
+      "practiceSteps": [
+        "Buat notice-root di sebelah root aplikasi secara lokal, lalu periksa lokasi pemberitahuan di DOM."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Portal menempatkan node yang dirender ke container DOM lain sambil menjaga hubungannya dengan pohon React. Context dan propagasi event React tetap mengikuti hierarki React."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Portal tetap berada dalam hierarki React milik pemanggil.",
+            "Node DOM berada pada container tujuan berbeda.",
+            "Periksa kedua hubungan saat menelusuri context dan event."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Portal tidak otomatis menyediakan semantik dialog, pengelolaan fokus, atau tombol tutup."
+        }
+      ],
+      "hint": "Bedakan lokasi node di DOM dengan pemiliknya di pohon React.",
+      "recap": [
+        "Tujuan DOM yang berbeda tidak otomatis memberikan perilaku interaksi modal.",
+        "Portal tidak otomatis menyediakan semantik dialog, pengelolaan fokus, atau tombol tutup."
+      ],
+      "quizExplanation": "Portal memindahkan lokasi DOM tanpa mengubah hubungan dalam pohon React. Context dan event React tetap mengikuti hierarki React."
+    },
+    "en": {
+      "practiceSteps": [
+        "Create a notice-root next to the app root locally, then inspect where the notice appears in the DOM."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A portal places rendered nodes into another DOM container while preserving their relationship to the React tree. Context and React event propagation still follow the React hierarchy."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "A portal stays within its caller's React hierarchy.",
+            "Its DOM nodes occupy a different target container.",
+            "Inspect both relationships when tracing context and events."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Portals do not automatically provide dialog semantics, focus management, or dismissal."
+        }
+      ],
+      "hint": "Distinguish DOM location from ownership in the React tree.",
+      "recap": [
+        "A different DOM destination is separate from modal interaction semantics.",
+        "Portals do not automatically provide dialog semantics, focus management, or dismissal."
+      ],
+      "quizExplanation": "Portals change DOM placement without changing React-tree relationships. React context and events still follow React hierarchy."
+    }
+  },
+  "react-external-store": {
+    "id": {
+      "practiceSteps": [
+        "Render dua penghitung dengan external store yang sama dan pastikan keduanya ikut berubah.",
+        "Jaga hasil getSnapshot tetap sama jika tidak ada perubahan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "useSyncExternalStore menghubungkan React ke sumber yang berubah di luar React. Sediakan subscription beserta cleanup dan function untuk membaca snapshot saat ini."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "subscribe mendaftarkan listener dan menyediakan cleanup.",
+            "getSnapshot membaca nilai store saat ini.",
+            "Listener memberi tahu React ketika perlu membaca ulang dan memperbarui tampilan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Snapshot perlu stabil ketika data tidak berubah; jangan selalu membuat objek baru."
+        }
+      ],
+      "hint": "Kontrak mana memberi pemberitahuan dan mana membaca nilai terbaru?",
+      "recap": [
+        "Cleanup melepas listener saat subscription berakhir.",
+        "Snapshot perlu stabil ketika data tidak berubah; jangan selalu membuat objek baru."
+      ],
+      "quizExplanation": "useSyncExternalStore memakai subscribe untuk pemberitahuan dan getSnapshot untuk membaca nilai. Snapshot yang tidak berubah perlu tetap stabil."
+    },
+    "en": {
+      "practiceSteps": [
+        "Render two counters using the same external store and confirm both update.",
+        "Keep getSnapshot stable when nothing changes."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "UseSyncExternalStore connects React to a changing source owned outside React. Supply a subscription with cleanup and a function that reads the current snapshot."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "subscribe registers listeners and provides cleanup.",
+            "getSnapshot reads the current store value.",
+            "Listeners notify React when it should reread and update the view."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Snapshots should stay stable when data is unchanged; do not always create a new object."
+        }
+      ],
+      "hint": "Which contract notifies changes and which reads current values?",
+      "recap": [
+        "Cleanup detaches the listener when the subscription ends.",
+        "Snapshots should stay stable when data is unchanged; do not always create a new object."
+      ],
+      "quizExplanation": "useSyncExternalStore uses subscribe for notifications and getSnapshot for reading values. Unchanged snapshots need stable identity."
+    }
+  },
+  "react-form-validation": {
+    "id": {
+      "practiceSteps": [
+        "Coba @, a@, a b@example.com, dan learner@example.com pada model email.",
+        "Di proyek lokal, kirim NameForm kosong dan terisi lalu periksa pesan yang terhubung ke field."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Validasi memberi tahu pengguna field yang perlu diperbaiki dan cara memperbaikinya."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Tentukan syarat input valid.",
+            "Simpan pesan per field dan hubungkan ke kontrol terkait.",
+            "Coba kosong, tidak valid, dan valid, lalu pastikan pesan pulih setelah koreksi."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Aturan email model ini terbatas: satu @, tanpa spasi, domain bertitik, maksimal 254 karakter. Ini bukan pemeriksaan lengkap standar email; server tetap perlu validasi."
+        }
+      ],
+      "hint": "Valid berarti memenuhi aturan atau hanya tidak kosong?",
+      "recap": [
+        "Validasi input pengguna dengan aturan yang jelas.",
+        "Hubungkan error dengan field-nya.",
+        "Jelaskan kondisi pengiriman form.",
+        "Aturan email model ini terbatas: satu @, tanpa spasi, domain bertitik, maksimal 254 karakter."
+      ],
+      "quizExplanation": "Kondisi valid ditentukan aturan data, lalu error dikaitkan dengan field terkait. Teks tidak kosong saja belum tentu memenuhi aturan.",
+      "visualDetails": [
+        "Tentukan syarat input valid.",
+        "Simpan pesan per field dan hubungkan ke kontrol terkait.",
+        "Coba kosong, tidak valid, dan valid, lalu pastikan pesan pulih setelah koreksi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try @, a@, a b@example.com, and learner@example.com in the email model.",
+        "Locally, submit NameForm empty and populated; inspect associated field feedback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Validation tells users which fields need correction and how to correct them."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Define valid-input requirements.",
+            "Keep per-field messages and connect them to controls.",
+            "Try empty, invalid, and valid input; check recovery after correction."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This model's email rule is limited: one @, no spaces, a dotted domain, at most 254 characters. It is not a complete email-standards check; server validation remains necessary."
+        }
+      ],
+      "hint": "Does valid mean meeting requirements or merely being nonempty?",
+      "recap": [
+        "Validate user input deliberately.",
+        "Connect errors to their fields.",
+        "Keep submission state explicit.",
+        "This model's email rule is limited: one @, no spaces, a dotted domain, at most 254 characters."
+      ],
+      "quizExplanation": "Validity follows data rules, with errors attached to relevant fields. Nonempty text alone need not meet those rules.",
+      "visualDetails": [
+        "Define valid-input requirements.",
+        "Keep per-field messages and connect them to controls.",
+        "Try empty, invalid, and valid input; check recovery after correction."
+      ]
+    }
+  },
+  "react-request-states": {
+    "id": {
+      "practiceSteps": [
+        "Perluas message agar membedakan error dan hasil kosong.",
+        "Di proyek lokal, tampilkan Results dengan fixture loading, error, sukses kosong, dan sukses berisi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Request bisa belum dimulai, sedang dimuat, berhasil, kosong, atau gagal. Modelkan kondisi itu dengan jelas agar pengguna tahu apa yang sedang terjadi."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Idle berarti belum dimulai; loading berarti menunggu.",
+            "Sukses dengan daftar kosong berbeda dari kegagalan request.",
+            "Data berisi membutuhkan hasil; error membutuhkan pesan dan pemulihan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan menganggap semua keadaan selain loading sebagai sukses."
+        }
+      ],
+      "hint": "Request berhasil tanpa item itu error atau hasil kosong?",
+      "recap": [
+        "Request punya lifecycle.",
+        "Siapkan tampilan untuk hasil kosong juga.",
+        "Buat cara mencoba lagi dan memulihkan kondisi mudah ditemukan.",
+        "Jangan menganggap semua keadaan selain loading sebagai sukses."
+      ],
+      "quizExplanation": "Loading, sukses kosong, sukses berisi, dan error adalah keadaan berbeda. Masing-masing membutuhkan pesan atau tampilan yang sesuai.",
+      "visualDetails": [
+        "Idle berarti belum dimulai; loading berarti menunggu.",
+        "Sukses dengan daftar kosong berbeda dari kegagalan request.",
+        "Data berisi membutuhkan hasil; error membutuhkan pesan dan pemulihan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Extend message to distinguish error and empty results.",
+        "Locally, render Results with loading, error, empty success, and populated success fixtures."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A request can be idle, loading, successful, empty, or failed. Model those states clearly so the interface never leaves people guessing."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Idle means not started; loading means waiting.",
+            "Successful empty data differs from a failed request.",
+            "Populated data needs results; errors need messages and recovery."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not treat every non-loading state as success."
+        }
+      ],
+      "hint": "Is a successful request with no items an error or an empty result?",
+      "recap": [
+        "Requests have a lifecycle.",
+        "Plan empty results too.",
+        "Keep retry and recovery visible.",
+        "Do not treat every non-loading state as success."
+      ],
+      "quizExplanation": "Loading, empty success, populated success, and errors are different states needing suitable views or messages.",
+      "visualDetails": [
+        "Idle means not started; loading means waiting.",
+        "Successful empty data differs from a failed request.",
+        "Populated data needs results; errors need messages and recovery."
+      ]
+    }
+  },
+  "react-error-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan fallback dengan error dan value.",
+        "Di proyek lokal, bungkus child yang melempar error saat render dengan ErrorBoundary lalu tambahkan tombol pemulihan reset/remount."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Error Boundary menyediakan tampilan pengganti untuk bagian antarmuka yang gagal. Lengkapi dengan tindakan pemulihan yang berguna dan konteks yang cukup untuk debugging."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Boundary menangkap kegagalan render pada subtree yang dibungkus.",
+            "Fallback memberi pesan dan jalan pemulihan.",
+            "Letakkan batas sesuai area yang dapat gagal tanpa merusak seluruh halaman."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Boundary tidak otomatis menangkap error event handler atau semua promise; request perlu penanganan sendiri."
+        }
+      ],
+      "hint": "Bagian UI mana masih bisa dipakai jika satu child gagal saat render?",
+      "recap": [
+        "Batasi dampak kegagalan jika memungkinkan.",
+        "Berikan cara untuk pulih kepada pengguna.",
+        "Catat konteks yang cukup untuk menyelidiki error.",
+        "Boundary tidak otomatis menangkap error event handler atau semua promise; request perlu penanganan sendiri."
+      ],
+      "quizExplanation": "Error Boundary menyediakan fallback untuk kegagalan render pada subtree-nya. Kegagalan handler dan request perlu penanganan tersendiri.",
+      "visualDetails": [
+        "Boundary menangkap kegagalan render pada subtree yang dibungkus.",
+        "Fallback memberi pesan dan jalan pemulihan.",
+        "Letakkan batas sesuai area yang dapat gagal tanpa merusak seluruh halaman."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run fallback with an error and a value.",
+        "Locally, wrap a child that throws during render in ErrorBoundary and add a reset/remount recovery button."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "An Error Boundary gives a failed part of the interface a contained fallback. Pair it with a useful recovery action and enough context for debugging."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Boundaries catch rendering failures in wrapped subtrees.",
+            "Fallbacks provide messages and recovery paths.",
+            "Place boundaries around areas that can fail without breaking the page."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Boundaries do not automatically catch event-handler errors or every promise; requests need their own handling."
+        }
+      ],
+      "hint": "Which UI can remain usable when one child fails during rendering?",
+      "recap": [
+        "Contain failures when possible.",
+        "Give people a recovery path.",
+        "Log enough context to diagnose errors.",
+        "Boundaries do not automatically catch event-handler errors or every promise; requests need their own handling."
+      ],
+      "quizExplanation": "Error Boundaries provide fallbacks for subtree rendering failures. Handler and request failures need separate handling.",
+      "visualDetails": [
+        "Boundaries catch rendering failures in wrapped subtrees.",
+        "Fallbacks provide messages and recovery paths.",
+        "Place boundaries around areas that can fail without breaking the page."
+      ]
+    }
+  },
+  "react-testing-behavior": {
+    "id": {
+      "practiceSteps": [
+        "Jalankan model skenario.",
+        "Di proyek lokal, lakukan skenario Counter pada perbandingan lalu periksa pengiriman gagal dan aktivasi keyboard melalui hasil UI yang terlihat."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Test komponen yang berguna memeriksa hal yang bisa dilihat dan dilakukan pengguna: tampilkan suatu kondisi, lakukan interaksi, lalu amati hasilnya. Ini menjaga perilaku saat kode direfaktor."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Siapkan kondisi awal yang diketahui.",
+            "Lakukan tindakan pengguna.",
+            "Periksa perubahan terlihat, bukan hanya state atau nama fungsi internal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Tes perilaku lebih tahan refactor ketika kontrak pengguna tetap sama."
+        }
+      ],
+      "hint": "Apa yang terlihat oleh pengguna setelah tindakan itu?",
+      "recap": [
+        "Uji perilaku yang terlihat, bukan detail implementasi.",
+        "Cakup kondisi yang penting.",
+        "Buat test mudah dibaca sebagai dokumentasi perilaku produk.",
+        "Tes perilaku lebih tahan refactor ketika kontrak pengguna tetap sama."
+      ],
+      "quizExplanation": "Tes perilaku menilai hasil yang dapat diamati setelah tindakan pengguna. Kontrak ini tetap berguna ketika implementasi direfaktor.",
+      "visualDetails": [
+        "Siapkan kondisi awal yang diketahui.",
+        "Lakukan tindakan pengguna.",
+        "Periksa perubahan terlihat, bukan hanya state atau nama fungsi internal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run the scenario model.",
+        "Locally, perform the Counter scenario in the comparison, then check failed submission and keyboard activation through visible UI outcomes."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A useful component test checks what a person can see and do: render a state, interact, and observe the result. This protects behavior through refactors."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Prepare a known initial state.",
+            "Perform a user action.",
+            "Check visible changes rather than only internal state or function names."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Behavior tests better survive refactoring when user contracts stay the same."
+        }
+      ],
+      "hint": "What can the user observe after that action?",
+      "recap": [
+        "Test behavior over implementation details.",
+        "Cover important states.",
+        "Keep tests readable as product documentation.",
+        "Behavior tests better survive refactoring when user contracts stay the same."
+      ],
+      "quizExplanation": "Behavior tests check observable results after user actions. This contract remains useful when implementation is refactored.",
+      "visualDetails": [
+        "Prepare a known initial state.",
+        "Perform a user action.",
+        "Check visible changes rather than only internal state or function names."
+      ]
+    }
+  },
+  "react-feature-architecture": {
+    "id": {
+      "practiceSteps": [
+        "Periksa file fitur pada model.",
+        "Di proyek lokal, biarkan parent memiliki tasks/onToggle sementara TaskList menampilkannya; tentukan kontrak data dan event publik."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kelompokkan fitur berdasarkan tanggung jawabnya: UI, logika state, batas data, dan test. Struktur folder sebaiknya membantu pembaca baru menemukan jawaban berikutnya dengan cepat."
+        },
+        {
+          "kind": "list",
+          "title": "Cara membaca contohnya",
+          "ordered": true,
+          "items": [
+            "Dekatkan UI dengan kontrak props dan event-nya.",
+            "Pisahkan aturan data dari detail markup jika tanggung jawab berbeda.",
+            "Uji perilaku lewat batas publik yang jelas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Folder bukan tujuan akhir; pembaca perlu menemukan pemilik data dan sumber perubahan."
+        }
+      ],
+      "hint": "Apakah aturan pembaruan tugas mudah ditemukan tanpa membaca seluruh UI?",
+      "recap": [
+        "Susun kode berdasarkan tanggung jawab produk.",
+        "Jaga antarmuka publik tetap ringkas.",
+        "Tempatkan kode yang saling terkait berdekatan.",
+        "Folder bukan tujuan akhir; pembaca perlu menemukan pemilik data dan sumber perubahan."
+      ],
+      "quizExplanation": "Batas fitur memperjelas UI, pemilik state, dan alur data serta event. Struktur yang baik membantu menemukan tanggung jawab tersebut.",
+      "visualDetails": [
+        "Dekatkan UI dengan kontrak props dan event-nya.",
+        "Pisahkan aturan data dari detail markup jika tanggung jawab berbeda.",
+        "Uji perilaku lewat batas publik yang jelas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Inspect the model’s feature files.",
+        "Locally, let a parent own tasks/onToggle while TaskList renders them; identify the public data and event contract."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Group a feature around the work it owns: UI, stateful logic, data boundary, and tests. The folder should help a new reader find the next question quickly."
+        },
+        {
+          "kind": "list",
+          "title": "How to read the example",
+          "ordered": true,
+          "items": [
+            "Keep UI near its props and event contracts.",
+            "Separate data rules from markup when responsibilities differ.",
+            "Test behavior through clear public boundaries."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Folders are not the end goal; readers need to find data ownership and change sources."
+        }
+      ],
+      "hint": "Can task-update rules be found without reading all the UI?",
+      "recap": [
+        "Organize around product responsibilities.",
+        "Keep public boundaries small.",
+        "Let related code live together.",
+        "Folders are not the end goal; readers need to find data ownership and change sources."
+      ],
+      "quizExplanation": "Feature boundaries clarify UI, state ownership, and data and event flow. Good structure makes these responsibilities discoverable.",
+      "visualDetails": [
+        "Keep UI near its props and event contracts.",
+        "Separate data rules from markup when responsibilities differ.",
+        "Test behavior through clear public boundaries."
+      ]
+    }
+  }
+}

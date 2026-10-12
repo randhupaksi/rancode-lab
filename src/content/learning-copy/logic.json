@@ -1,0 +1,828 @@
+{
+  "logic-instructions": {
+    "id": {
+      "practiceSteps": [
+        "Prediksi totalnya.",
+        "Jalankan kode, lalu ubah quantity menjadi 5 dan prediksi lagi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Algoritma adalah urutan instruksi untuk menyelesaikan masalah. Untuk menghitung belanja, kita membutuhkan harga satu barang dan jumlah barang, lalu mencari totalnya."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`const price = 12` memberi nama price pada nilai 12. `const quantity = 3` menyimpan jumlah barang.",
+            "`price * quantity` berarti 12 dikali 3. Tanda `=` menetapkan hasilnya ke nama total; ini bukan tanda perbandingan.",
+            "`console.log(total)` menampilkan hasil 36. Baca baris dari atas ke bawah: siapkan nilai, hitung, lalu tampilkan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Kamu belum perlu menghafal JavaScript. Cukup hubungkan setiap baris dengan satu langkah perhitungan; titik koma menandai akhir pernyataan pada contoh ini."
+        }
+      ],
+      "hint": "Nilai mana yang menyatakan jumlah barang, dan simbol mana yang mengalikannya dengan harga?",
+      "recap": [
+        "Algoritma menjelaskan langkah yang teratur.",
+        "Prediksi hasil sebelum menjalankan contoh.",
+        "Kamu belum perlu menghafal JavaScript."
+      ],
+      "expected": "Output awal 36; setelah quantity menjadi 5, output 60."
+    },
+    "en": {
+      "practiceSteps": [
+        "Predict the total.",
+        "Run the code, then change quantity to 5 and predict again."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "An algorithm is a sequence of instructions for solving a problem. To calculate a purchase, we need the price of one item and the number of items, then find the total."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`const price = 12` gives the value 12 the name price. `const quantity = 3` stores the item count.",
+            "`price * quantity` means 12 times 3. The `=` sign assigns the result to total; it is not a comparison.",
+            "`console.log(total)` displays 36. Read from top to bottom: prepare the values, calculate, then display."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "You do not need to memorize JavaScript yet. Connect each line to one calculation step; semicolons mark the end of statements in this example."
+        }
+      ],
+      "hint": "Which value represents the item count, and which symbol multiplies it by the price?",
+      "recap": [
+        "An algorithm describes precise steps.",
+        "Predict a result before running an example.",
+        "You do not need to memorize JavaScript yet."
+      ],
+      "expected": "The initial output is 36; with quantity 5, it is 60."
+    }
+  },
+  "logic-decisions": {
+    "id": {
+      "practiceSteps": [
+        "Coba total 49, 50, dan 51.",
+        "Jelaskan mengapa nilai 50 mendapat ongkir gratis."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kondisi adalah pertanyaan yang menghasilkan true atau false. Program memakai hasil itu untuk memilih tindakan, seperti menentukan apakah pembeli mendapat ongkir gratis."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`total >= 50` bertanya apakah total lebih besar dari atau sama dengan 50.",
+            "Jika hasilnya `true`, isi blok `if` dijalankan dan ongkir gratis ditampilkan.",
+            "Jika hasilnya `false`, isi blok `else` dijalankan. Dalam contoh ini hanya satu cabang yang dipilih."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "true berarti kondisi terpenuhi, bukan berarti semua data atau jawaban pengguna sudah benar. Nilai tepat di batas perlu dicoba secara khusus."
+        }
+      ],
+      "hint": "Perhatikan tanda sama dengan pada `>=`. Apakah batasnya ikut diterima?",
+      "description": "Gunakan kondisi true atau false untuk memilih tindakan yang sesuai.",
+      "recap": [
+        "Kondisi menghasilkan keputusan bernilai boolean.",
+        "Periksa juga nilai yang tepat berada di batas.",
+        "true berarti kondisi terpenuhi, bukan berarti semua data atau jawaban pengguna sudah benar."
+      ],
+      "expected": "49 masih membayar ongkir; 50 dan 51 mendapat ongkir gratis."
+    },
+    "en": {
+      "practiceSteps": [
+        "Try totals of 49, 50, and 51.",
+        "Explain why 50 receives free delivery."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A condition is a question that produces true or false. A program uses that result to choose an action, such as deciding whether delivery is free."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`total >= 50` asks whether the total is greater than or equal to 50.",
+            "If the result is `true`, the `if` block runs and displays free delivery.",
+            "If the result is `false`, the `else` block runs. Only one branch is selected in this example."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "true means that a condition holds, not that all data or user answers are correct. Test the exact boundary separately."
+        }
+      ],
+      "hint": "Look at the equals sign in `>=`. Is the boundary included?",
+      "description": "Use a true or false condition to choose the appropriate action.",
+      "recap": [
+        "Conditions produce a boolean decision.",
+        "Check the value exactly on a boundary.",
+        "true means that a condition holds, not that all data or user answers are correct."
+      ],
+      "expected": "49 pays delivery; 50 and 51 receive free delivery."
+    }
+  },
+  "logic-repetition": {
+    "id": {
+      "practiceSteps": [
+        "Ubah batas terakhir menjadi 5.",
+        "Hitung jumlah baris output dan bandingkan dengan prediksimu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Perulangan menjalankan langkah yang sama beberapa kali. Bayangkan memberi label pada tiga barang: tiap putaran menangani satu barang."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`let item = 1` menentukan nomor awal. let mengizinkan nomor ini berubah.",
+            "`item <= 3` diperiksa sebelum tiap putaran. Selama kondisi true, pesan dicetak.",
+            "`item++` menambah nomor satu. Setelah nomor menjadi 4, kondisinya false dan perulangan berhenti."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Perulangan perlu bergerak menuju kondisi berhenti. Batas yang tidak pernah tercapai bisa membuat program terus berjalan."
+        }
+      ],
+      "hint": "Tulis nomor awal dan nomor terakhir yang masih memenuhi kondisi, lalu hitung jumlah putarannya.",
+      "recap": [
+        "Loop membuat pekerjaan berulang menjadi jelas.",
+        "Kondisi berhenti mencegah pengulangan tanpa akhir.",
+        "Perulangan perlu bergerak menuju kondisi berhenti."
+      ],
+      "expected": "Batas 3 menghasilkan tiga pesan; batas 5 menghasilkan lima pesan."
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the last item to 5.",
+        "Count the output lines and compare with your prediction."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A loop runs the same step several times. Imagine labeling three items: each iteration handles one item."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`let item = 1` sets the starting number. let allows that number to change.",
+            "`item <= 3` is checked before each iteration. While it is true, the message is printed.",
+            "`item++` adds one. When the number reaches 4, the condition is false and the loop stops."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A loop must move toward its stopping condition. A boundary that is never reached can keep a program running."
+        }
+      ],
+      "hint": "Write the first and last numbers that satisfy the condition, then count the iterations.",
+      "recap": [
+        "Loops make repeated work explicit.",
+        "A stopping condition prevents endless work.",
+        "A loop must move toward its stopping condition."
+      ],
+      "expected": "A limit of 3 produces three messages; 5 produces five."
+    }
+  },
+  "logic-decomposition": {
+    "id": {
+      "practiceSteps": [
+        "Prediksi kedua output.",
+        "Coba keranjang berisi satu barang, lalu jelaskan mengapa keranjang kosong menghasilkan 0."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Memecah masalah berarti memberi setiap bagian satu tugas yang jelas. Saat checkout, perhitungan total harga bisa dipisahkan dari perhitungan ongkir."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`function basketTotal(prices)` menamai kelompok langkah. prices adalah masukan berupa daftar harga, misalnya `[10, 15, 5]`.",
+            "`let total = 0` menyiapkan jumlah awal. `for...of` membaca setiap harga, dan `total += price` menambahkan harga itu ke total.",
+            "`return total` mengirim hasil ke kode yang memanggil fungsi. Pemanggilan dengan daftar tadi menghasilkan 30."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "`[]` adalah daftar kosong. Tidak ada harga yang ditambahkan, sehingga nilai awal 0 langsung dikembalikan. return mengirim nilai; console.log yang menampilkannya."
+        }
+      ],
+      "hint": "Telusuri nilai awal total. Apa yang terjadi jika daftar tidak punya harga untuk dibaca?",
+      "recap": [
+        "Berikan tiap bagian satu tugas yang mudah dipahami.",
+        "Coba input normal, kosong, dan yang berada di batas.",
+        "`[]` adalah daftar kosong."
+      ],
+      "expected": "Keranjang contoh menghasilkan 30; keranjang kosong menghasilkan 0."
+    },
+    "en": {
+      "practiceSteps": [
+        "Predict both outputs.",
+        "Try a basket with one item, then explain why an empty basket returns 0."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Decomposing a problem means giving each part one clear job. At checkout, summing prices can be separated from calculating delivery."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`function basketTotal(prices)` names a group of steps. prices is an input list of prices, such as `[10, 15, 5]`.",
+            "`let total = 0` prepares the initial sum. `for...of` reads each price, and `total += price` adds it to the total.",
+            "`return total` sends the result back to the calling code. Calling it with that list produces 30."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "`[]` is an empty list. No price is added, so the initial 0 is returned. return sends a value back; console.log displays it."
+        }
+      ],
+      "hint": "Trace the initial total. What happens if there are no prices to read?",
+      "recap": [
+        "Give each part one understandable job.",
+        "Try normal, empty, and boundary inputs.",
+        "`[]` is an empty list."
+      ],
+      "expected": "The sample basket produces 30; an empty basket produces 0."
+    }
+  },
+  "logic-input-output": {
+    "id": {
+      "practiceSteps": [
+        "Catat satuan kedua input.",
+        "Coba nilai rate 0 dan 1."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Sebelum menghitung, tentukan arti dan satuan setiap nilai. Input adalah data yang masuk; output adalah hasil yang dibutuhkan."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`price = 80` adalah harga awal.",
+            "`rate = 0.25` menyatakan diskon 25% dalam bentuk pecahan. Bagian harga yang dibayar adalah `1 - rate`, yaitu 0.75.",
+            "`80 * 0.75` menghasilkan 60, lalu ditampilkan sebagai harga akhir."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan memasukkan 25 jika rumus membutuhkan 0.25. Nilai yang terlihat mirip bisa memiliki satuan berbeda."
+        }
+      ],
+      "hint": "Bandingkan rate dengan pecahan dari keseluruhan: apa arti 0, 0.25, dan 1?",
+      "recap": [
+        "Tentukan makna dan satuan setiap input.",
+        "Hubungkan input dengan output lewat aturan yang jelas.",
+        "Jangan memasukkan 25 jika rumus membutuhkan 0.25."
+      ],
+      "expected": "rate 0 memberi harga 80; rate 1 memberi harga 0."
+    },
+    "en": {
+      "practiceSteps": [
+        "Write down the units for both inputs.",
+        "Try rates of 0 and 1."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Before calculating, decide what each value means and which unit it uses. Input is the incoming data; output is the needed result."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`price = 80` is the original price.",
+            "`rate = 0.25` represents a 25% discount as a fraction. The payable fraction is `1 - rate`, or 0.75.",
+            "`80 * 0.75` produces 60, which is displayed as the final price."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not enter 25 when the formula expects 0.25. Similar-looking numbers may use different units."
+        }
+      ],
+      "hint": "Compare rate with a fraction of the whole: what do 0, 0.25, and 1 mean?",
+      "recap": [
+        "The rate is a fraction of the price, so 0.25 means one quarter.",
+        "Do not enter 25 when the formula expects 0.25."
+      ],
+      "expected": "rate 0 gives a price of 80; rate 1 gives 0."
+    }
+  },
+  "logic-pseudocode": {
+    "id": {
+      "practiceSteps": [
+        "Telusuri jumlah -1, 0, 2, dan 6 saat stok bernilai 5."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pseudocode adalah rancangan langkah dengan bahasa yang mudah dibaca. Tujuannya menjelaskan keputusan sebelum memikirkan sintaks kode."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "INPUT berarti menerima stok dan jumlah yang diminta.",
+            "IF memeriksa dua syarat: jumlah positif dan jumlah tidak melebihi stok. AND berarti keduanya harus terpenuhi.",
+            "OUTPUT menyatakan pesan hasil. ELSE menangani kasus ketika syarat gagal; END menutup rancangan keputusan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Ini bukan JavaScript yang bisa langsung dijalankan. Telusuri contoh secara manual dahulu, lalu tulis kode setelah aturannya jelas."
+        }
+      ],
+      "hint": "Jumlah tidak boleh hanya lebih kecil dari stok; periksa juga apakah jumlahnya positif.",
+      "recap": [
+        "Pseudocode membantu memeriksa logika sebelum menulis syntax.",
+        "Jelaskan cabang alternatif dan kondisi berhentinya.",
+        "Ini bukan JavaScript yang bisa langsung dijalankan."
+      ],
+      "expected": "Dengan stok 5, hanya jumlah 2 dari empat input latihan yang memenuhi kedua syarat."
+    },
+    "en": {
+      "practiceSteps": [
+        "Walk through quantities -1, 0, 2, and 6 when stock is 5."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pseudocode is a readable plan of steps. Its purpose is to explain decisions before dealing with code syntax."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "INPUT means receiving the stock and requested quantity.",
+            "IF checks two requirements: a positive quantity and a quantity no greater than stock. AND requires both to hold.",
+            "OUTPUT describes the result message. ELSE handles a failed condition; END closes the decision plan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This is not directly executable JavaScript. Trace it manually first, then write code once the rule is clear."
+        }
+      ],
+      "hint": "Being smaller than stock is not enough; also check whether the quantity is positive.",
+      "recap": [
+        "A stock upper limit alone does not reject zero or negative quantities.",
+        "This is not directly executable JavaScript."
+      ],
+      "expected": "With stock 5, only quantity 2 among the four practice inputs meets both requirements."
+    }
+  },
+  "logic-truth-tables": {
+    "id": {
+      "practiceSteps": [
+        "Ganti && menjadi || lalu cari baris mana saja yang berubah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Boolean hanya punya dua nilai: true dan false. Tabel kebenaran membantu memeriksa seluruh kombinasi agar sebuah aturan tidak hanya diuji pada satu contoh."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Tiket false dan tempat tutup: akses tidak diberikan.",
+            "Tiket false dan tempat buka, atau tiket true dan tempat tutup: AND masih menghasilkan false.",
+            "Tiket true dan tempat buka: kedua syarat terpenuhi, sehingga AND menghasilkan true."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Dua perulangan mencoba empat pasangan nilai. `&&` berarti AND; `||` berarti OR, yang cukup membutuhkan salah satu syarat true."
+        }
+      ],
+      "hint": "Bandingkan pasangan yang hanya punya satu nilai true. Bagaimana AND dan OR memperlakukannya?",
+      "recap": [
+        "Uji setiap kombinasi kondisi yang relevan.",
+        "AND dan OR menyatakan aturan yang berbeda.",
+        "Dua perulangan mencoba empat pasangan nilai. `&&` berarti AND; `||` berarti OR, yang cukup membutuhkan salah satu syarat true."
+      ],
+      "expected": "AND hanya menerima pasangan true/true. OR menerima semua pasangan kecuali false/false."
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace && with || and identify exactly which rows change."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A boolean has only two values: true and false. A truth table checks every combination so a rule is not tested with just one example."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "No ticket and a closed venue: access is denied.",
+            "No ticket with an open venue, or a ticket with a closed venue: AND still produces false.",
+            "A ticket with an open venue: both requirements hold, so AND produces true."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "The two loops try four pairs. `&&` means AND; `||` means OR, which needs at least one true condition."
+        }
+      ],
+      "hint": "Compare pairs with only one true value. How do AND and OR treat them?",
+      "recap": [
+        "Only the combination where both inputs are true passes an AND rule.",
+        "The two loops try four pairs. `&&` means AND; `||` means OR, which needs at least one true condition."
+      ],
+      "expected": "AND accepts only true/true. OR accepts every pair except false/false."
+    }
+  },
+  "logic-validation": {
+    "id": {
+      "practiceSteps": [
+        "Coba satu nilai dan daftar kosong.",
+        "Jelaskan mengapa null dan 0 punya arti berbeda."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Validasi memeriksa apakah input memenuhi syarat sebelum dipakai. Untuk menghitung rata-rata, kita perlu setidaknya satu nilai."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`scores.length` menghitung banyaknya nilai. Jika hasilnya 0, fungsi mengembalikan `null` sebagai tanda tidak ada hasil.",
+            "Jika ada nilai, perulangan menjumlahkannya. Untuk `[60, 80]`, totalnya 140.",
+            "Total dibagi banyaknya nilai: 140 dibagi 2 menghasilkan rata-rata 70."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "null tidak sama dengan 0. Nol bisa menjadi rata-rata yang sah; null meminta antarmuka menampilkan pesan seperti “Belum ada nilai”. Contoh ini memeriksa daftar kosong, bukan semua kemungkinan input rusak."
+        }
+      ],
+      "hint": "Apakah ada angka yang bisa dirata-ratakan pada daftar kosong? Bedakan tidak ada hasil dengan hasil nol.",
+      "recap": [
+        "Nyatakan asumsi sebelum melakukan perhitungan.",
+        "Bedakan nilai yang tidak tersedia dari angka nol.",
+        "null tidak sama dengan 0."
+      ],
+      "expected": "Daftar kosong menghasilkan null; [60, 80] menghasilkan 70."
+    },
+    "en": {
+      "practiceSteps": [
+        "Try one score and an empty list.",
+        "Explain why null and 0 mean different things."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Validation checks whether input meets requirements before using it. An average needs at least one value."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`scores.length` counts the values. If it is 0, the function returns `null` to indicate no result.",
+            "If values exist, the loop adds them. For `[60, 80]`, the total is 140.",
+            "The total is divided by the count: 140 divided by 2 gives an average of 70."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "null is not the same as 0. Zero can be a valid average; null asks the UI to show a message such as “No scores yet”. This example checks an empty list, not every possible invalid input."
+        }
+      ],
+      "hint": "Does an empty list contain numbers to average? Distinguish no result from a result of zero.",
+      "recap": [
+        "The guard separates an absent result from a legitimate numerical average.",
+        "null is not the same as 0."
+      ],
+      "expected": "An empty list produces null; [60, 80] produces 70."
+    }
+  },
+  "logic-linear-search": {
+    "id": {
+      "practiceSteps": [
+        "Cari item pertama, item terakhir, dan item yang tidak ada.",
+        "Hitung jumlah perbandingannya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pencarian linear memeriksa isi daftar satu per satu sampai target ditemukan. Data tidak perlu diurutkan terlebih dahulu."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Posisi dimulai dari 0. Pada `[8, 3, 5]`, angka 8 berada di posisi 0 dan angka 3 di posisi 1.",
+            "`items[i] === target` membandingkan item dengan target. Jika cocok, `return i` mengembalikan posisi dan menghentikan fungsi.",
+            "Jika semua item sudah diperiksa tanpa kecocokan, fungsi mengembalikan `-1`."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "-1 bukan posisi item terakhir pada contoh ini; ia tanda bahwa target tidak ditemukan. Jangan memakainya sebagai posisi hasil yang berhasil."
+        }
+      ],
+      "hint": "Perhatikan apakah yang dikembalikan adalah isi item atau posisinya, lalu lihat jalur setelah perulangan.",
+      "recap": [
+        "Linear search dapat bekerja pada data yang belum diurutkan.",
+        "Tentukan juga hasil saat kandidat tidak ditemukan.",
+        "-1 bukan posisi item terakhir pada contoh ini; ia tanda bahwa target tidak ditemukan."
+      ],
+      "expected": "Target 3 pada [8, 3, 5] berada di indeks 1; target yang tidak ada menghasilkan -1."
+    },
+    "en": {
+      "practiceSteps": [
+        "Search for the first item, last item, and a missing item.",
+        "Count comparisons."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Linear search checks list items one by one until it finds the target. The data does not need to be sorted first."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Positions start at 0. In `[8, 3, 5]`, 8 is at position 0 and 3 at position 1.",
+            "`items[i] === target` compares an item with the target. On a match, `return i` returns the position and stops the function.",
+            "If every item has been checked without a match, the function returns `-1`."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "-1 is not the last item position in this example; it means the target was not found. Do not treat it as a successful position."
+        }
+      ],
+      "hint": "Check whether the function returns an item or its position, then inspect the path after the loop.",
+      "recap": [
+        "The final return represents no match after all candidates were checked.",
+        "-1 is not the last item position in this example; it means the target was not found."
+      ],
+      "expected": "Target 3 in [8, 3, 5] is at index 1; missing targets produce -1."
+    }
+  },
+  "logic-binary-search": {
+    "id": {
+      "practiceSteps": [
+        "Telusuri nilai low, high, dan mid di kertas untuk target 8 dan 7."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pencarian biner memperkecil wilayah pencarian menjadi kira-kira separuh pada setiap langkah. Cara ini membutuhkan daftar yang sudah terurut."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "low dan high menandai batas posisi yang masih mungkin cocok. mid adalah posisi tengah yang dibulatkan ke bawah.",
+            "Jika nilai tengah sama dengan target, pencarian selesai. Jika lebih kecil, abaikan sisi kiri; jika lebih besar, abaikan sisi kanan.",
+            "Batas dipindah melewati mid dengan `mid + 1` atau `mid - 1`. Saat low melewati high, tidak ada kandidat tersisa."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Pada `[2, 4, 6, 8, 10]` dengan target 8, pemeriksaan pertama melihat 6 lalu membuang sisi kiri. Jika data acak, keputusan membuang separuh daftar bisa salah."
+        }
+      ],
+      "hint": "Aturan apa pada urutan angka yang membuat satu sisi pasti tidak berisi target?",
+      "recap": [
+        "Binary search memerlukan data terurut.",
+        "Majukan batas pada setiap langkah agar rentang terus mengecil.",
+        "Pada `[2, 4, 6, 8, 10]` dengan target 8, pemeriksaan pertama melihat 6 lalu membuang sisi kiri."
+      ],
+      "expected": "Target 8 ditemukan, target 7 tidak. Setiap langkah harus memperkecil rentang kandidat."
+    },
+    "en": {
+      "practiceSteps": [
+        "Trace low, high, and mid on paper for targets 8 and 7."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Binary search reduces the search range to roughly half at each step. It requires a sorted list."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "low and high mark the positions still eligible. mid is the middle position rounded down.",
+            "If the middle value matches the target, the search is done. If it is smaller, discard the left side; if larger, discard the right side.",
+            "Move the boundary past mid with `mid + 1` or `mid - 1`. When low passes high, no candidates remain."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "For `[2, 4, 6, 8, 10]` with target 8, the first check sees 6 and discards the left side. With unordered data, discarding half the list can be wrong."
+        }
+      ],
+      "hint": "Which ordering rule proves that one side cannot contain the target?",
+      "recap": [
+        "Ordering tells us that all values on one side cannot contain the target.",
+        "For `[2, 4, 6, 8, 10]` with target 8, the first check sees 6 and discards the left side."
+      ],
+      "expected": "Target 8 is found; 7 is not. Each step should shrink the candidate range."
+    }
+  },
+  "logic-complexity": {
+    "id": {
+      "practiceSteps": [
+        "Gandakan ukuran input dan bandingkan jumlah pemeriksaan, bukan waktu eksekusinya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kompleksitas menjelaskan pertumbuhan jumlah pekerjaan ketika input bertambah. Fokusnya pola pertumbuhan, bukan lama eksekusi pada satu komputer."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Satu perulangan atas n item melakukan kira-kira n langkah.",
+            "Dua perulangan bersarang pada contoh melakukan n dikali n pemeriksaan: ukuran 4 menghasilkan 16.",
+            "Ketika ukuran menjadi 8, pemeriksaan menjadi 64. Input dua kali lebih besar menghasilkan pekerjaan empat kali lebih banyak pada contoh ini."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Istilah linear dan kuadratik menjelaskan pola tersebut. Pengukuran waktu juga dipengaruhi perangkat, data, dan implementasi."
+        }
+      ],
+      "hint": "Hitung berapa kali perulangan dalam berjalan untuk setiap putaran perulangan luar.",
+      "recap": [
+        "Complexity membandingkan laju pertumbuhan pekerjaan.",
+        "Loop bersarang dapat membuat pekerjaan tumbuh jauh lebih cepat.",
+        "Istilah linear dan kuadratik menjelaskan pola tersebut."
+      ],
+      "expected": "Ukuran 4 melakukan 16 pemeriksaan; ukuran 8 melakukan 64."
+    },
+    "en": {
+      "practiceSteps": [
+        "Double the input and compare the number of checks, not execution time."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Complexity describes how work grows as input grows. It concerns the growth pattern, not execution time on one computer."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "A single loop over n items performs roughly n steps.",
+            "The two nested loops in the example perform n times n checks: a size of 4 produces 16.",
+            "At size 8, there are 64 checks. Doubling input produces four times the work in this example."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "The terms linear and quadratic describe these patterns. Timing also depends on the device, data, and implementation."
+        }
+      ],
+      "hint": "Count how many inner iterations occur for each outer iteration.",
+      "recap": [
+        "Both loop lengths double, giving 2 × 2 times as many pairs.",
+        "The terms linear and quadratic describe these patterns."
+      ],
+      "expected": "Size 4 performs 16 checks; size 8 performs 64."
+    }
+  },
+  "logic-test-cases": {
+    "id": {
+      "practiceSteps": [
+        "Ubah >= menjadi >.",
+        "Temukan satu kasus uji yang mendeteksi kesalahannya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kasus uji memasangkan input dengan hasil yang diharapkan. Kasus di dekat batas aturan membantu menemukan kesalahan yang tidak terlihat pada contoh biasa."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Tentukan aturan terlebih dahulu: usia minimal 18 berarti 18 ikut memenuhi syarat.",
+            "Pasangan `[17, false]`, `[18, true]`, dan `[19, true]` mencatat input dan harapan. Indeks 0 berisi usia; indeks 1 berisi hasil yang diharapkan.",
+            "Bandingkan actual dengan expected. Nilai terakhir pada output menunjukkan apakah hasilnya cocok."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mengubah `>=` menjadi `>` membuat kasus usia 18 gagal. Jangan mengubah hasil yang diharapkan hanya agar tes terlihat lolos; pastikan dulu aturan produknya."
+        }
+      ],
+      "hint": "Pilih nilai yang membedakan “lebih besar” dari “lebih besar atau sama dengan”.",
+      "recap": [
+        "Tuliskan hasil yang diharapkan sebelum menjalankan contoh.",
+        "Periksa nilai normal, batas, dan kondisi kosong.",
+        "Mengubah `>=` menjadi `>` membuat kasus usia 18 gagal."
+      ],
+      "expected": "Sesudah >= diubah menjadi >, hanya kasus usia 18 yang berbeda dari harapannya."
+    },
+    "en": {
+      "practiceSteps": [
+        "Change >= to >.",
+        "Identify the single test that detects the mistake."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A test case pairs input with an expected result. Cases near a rule boundary expose errors that ordinary examples may miss."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Define the rule first: a minimum age of 18 includes 18.",
+            "The pairs `[17, false]`, `[18, true]`, and `[19, true]` record inputs and expectations. Index 0 contains age; index 1 contains the expected result.",
+            "Compare actual with expected. The last output value shows whether they match."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Changing `>=` to `>` makes age 18 fail. Do not change expectations just to pass a test; confirm the product rule first."
+        }
+      ],
+      "hint": "Choose the value that distinguishes “greater than” from “greater than or equal to”.",
+      "recap": [
+        "Only the equality boundary behaves differently between these two rules.",
+        "Changing `>=` to `>` makes age 18 fail."
+      ],
+      "expected": "After changing >= to >, only the age-18 case differs from its expectation."
+    }
+  }
+}

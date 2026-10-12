@@ -1,0 +1,944 @@
+{
+  "why-typescript": {
+    "id": {
+      "practiceSteps": [
+        "Coba kirim \"19.5\" ke formatPrice dan baca pesan diagnostiknya.",
+        "Kembalikan ke number, lalu jelaskan kesalahan yang bisa ditangkap pemeriksa tipe sebelum kode dijalankan."
+      ],
+      "recap": [
+        "Tipe memperjelas nilai yang diharapkan kode.",
+        "Diagnostik memberi masukan sebelum kode dijalankan.",
+        "Tipe TypeScript dihapus dan tidak memvalidasi data dari luar."
+      ],
+      "expected": "Argumen teks memunculkan diagnostik; argumen angka sesuai kontrak parameter."
+    },
+    "en": {
+      "practiceSteps": [
+        "Pass \"19.5\" to formatPrice and read the diagnostic.",
+        "Restore a number, then explain what the checker can catch before execution."
+      ],
+      "recap": [
+        "Types make expectations explicit.",
+        "Diagnostics are feedback before execution.",
+        "TypeScript types are erased and do not validate external data."
+      ],
+      "expected": "A text argument produces a diagnostic; a numeric argument meets the parameter contract."
+    }
+  },
+  "javascript-vs-typescript": {
+    "id": {
+      "practiceSteps": [
+        "Coba add(4, \"2\") dan bandingkan pesan diagnostik dengan penggabungan string di JavaScript.",
+        "Kembalikan kedua argumen ke number, lalu periksa total."
+      ],
+      "recap": [
+        "TypeScript menambahkan pemeriksaan statis pada JavaScript.",
+        "Anotasi tipe dihapus dari JavaScript yang dihasilkan.",
+        "Kesalahan tipe berbeda dengan exception saat program berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try add(4, \"2\") and compare the diagnostic with JavaScript concatenation.",
+        "Restore two numbers and inspect total."
+      ],
+      "recap": [
+        "TypeScript extends JavaScript with static checks.",
+        "Type annotations are removed from emitted JavaScript.",
+        "A type error and a runtime exception are different things."
+      ]
+    }
+  },
+  "your-first-type": {
+    "id": {
+      "practiceSteps": [
+        "Ubah nilai yang punya anotasi menjadi teks, periksa error-nya, lalu kembalikan ke nilai yang sesuai.",
+        "Jelaskan apa yang dijanjikan anotasinya."
+      ],
+      "recap": [
+        "Anotasi ditulis setelah nama dan tanda titik dua.",
+        "Tipe menjelaskan kumpulan nilai yang valid.",
+        "Penugasan berikutnya harus mengikuti kontrak yang sama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the annotated value to text, inspect the error, and restore a valid value.",
+        "Explain what the annotation promises."
+      ],
+      "recap": [
+        "Annotations follow a name and a colon.",
+        "The type describes a set of valid values.",
+        "Later assignments must satisfy the same contract."
+      ]
+    }
+  },
+  "primitive-types": {
+    "id": {
+      "practiceSteps": [
+        "Isi lessons dengan string, lalu coba null pada title.",
+        "Kembalikan nilainya dan jelaskan mengapa subtitle boleh berisi null."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Mulai dari tiga jenis nilai sehari-hari: teks, angka, dan boolean. TypeScript memakai tipe untuk membatasi nilai yang diterima kode."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "`string` untuk teks, `number` untuk angka, dan `boolean` untuk true atau false. Gunakan nama tipe huruf kecil.",
+            "`null` dan `undefined` menandakan ketiadaan. Kontrak `string | null` mengizinkan teks atau null.",
+            "Pada contoh, incoming bertipe unknown. Pemeriksaan typeof memberi bukti sebelum toUpperCase dipakai."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "unknown meminta pemeriksaan sebelum penggunaan; any melewati banyak pemeriksaan. never menyatakan kasus yang tidak mungkin. Ketiganya dibahas lebih lanjut nanti, jadi fokus dahulu pada jenis nilai contoh."
+        }
+      ],
+      "hint": "Pada kontrak union, apa arti garis vertikal di antara dua tipe?",
+      "recap": [
+        "Gunakan nama tipe primitif dengan huruf kecil.",
+        "Tuliskan null dan undefined secara eksplisit saat memakai pemeriksaan ketat.",
+        "Pilih unknown daripada any jika bentuk nilainya memang belum diketahui.",
+        "unknown meminta pemeriksaan sebelum penggunaan; any melewati banyak pemeriksaan. never menyatakan kasus yang tidak mungkin."
+      ],
+      "expected": "title menolak null, tetapi subtitle mengizinkannya karena union string | null."
+    },
+    "en": {
+      "practiceSteps": [
+        "Assign a string to lessons, then null to title.",
+        "Restore the values and explain why subtitle permits null."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Start with three everyday values: text, numbers, and booleans. TypeScript uses types to constrain accepted values."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "`string` is for text, `number` for numbers, and `boolean` for true or false. Use lowercase type names.",
+            "`null` and `undefined` represent absence. `string | null` permits text or null.",
+            "In the example, incoming is unknown. A typeof check provides evidence before using toUpperCase."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "unknown requires checks before use; any bypasses many checks. never describes impossible cases. These are covered later, so first focus on the example's everyday values."
+        }
+      ],
+      "hint": "What does the vertical bar between two types mean in a union?",
+      "recap": [
+        "Use lowercase primitive names.",
+        "Model null and undefined explicitly under strict checking.",
+        "Prefer unknown over any when a value truly has an unknown shape.",
+        "unknown requires checks before use; any bypasses many checks. never describes impossible cases."
+      ],
+      "expected": "title rejects null, while subtitle permits it through string | null."
+    }
+  },
+  "type-inference": {
+    "id": {
+      "practiceSteps": [
+        "Isi score dengan teks dan periksa error-nya.",
+        "Bandingkan mode, settings.mode, dan fixedSettings.mode melalui type inspector."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Inferensi berarti TypeScript menyimpulkan tipe dari informasi yang sudah ada. Kamu tidak perlu menulis anotasi yang sama untuk setiap variabel."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`let score = 10` memberi tipe number: angka lain boleh, teks tidak.",
+            "Nilai primitif const tidak bisa ditugaskan ulang, sehingga mode dapat memiliki tipe literal spesifik.",
+            "Objek const tetap dapat berubah isinya; bandingkan settings dengan fixedSettings yang memakai as const."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Tipe literal adalah satu nilai spesifik, seperti teks learn, bukan semua string. as const mempertahankan literal dan readonly pada tingkat tipe; ia tidak menjalankan Object.freeze."
+        }
+      ],
+      "hint": "Bandingkan let yang dapat ditugaskan ulang dengan const yang mempertahankan satu nilai primitif.",
+      "recap": [
+        "Nilai awal sering kali sudah memberikan informasi tipe yang cukup.",
+        "let biasanya memperluas tipe literal primitif.",
+        "Deklarasi const tidak membekukan objek.",
+        "Tipe literal adalah satu nilai spesifik, seperti teks learn, bukan semua string. as const mempertahankan literal dan readonly pada tingkat tipe; ia tidak menjalankan Object.freeze."
+      ],
+      "expected": "score tetap bertipe number; mode mempertahankan literal, dan fixedSettings memiliki properti readonly pada tingkat tipe."
+    },
+    "en": {
+      "practiceSteps": [
+        "Assign text to score and inspect the error.",
+        "Compare mode, settings.mode, and fixedSettings.mode in the type inspector."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Inference means TypeScript derives types from existing information. You need not annotate every variable redundantly."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`let score = 10` infers number: other numbers fit, text does not.",
+            "Primitive const values cannot be reassigned, so mode can retain a specific literal type.",
+            "Const object contents can still change; compare settings with fixedSettings using as const."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A literal type is one specific value, such as learn, rather than every string. as const preserves literals and readonly at the type level; it does not execute Object.freeze."
+        }
+      ],
+      "hint": "Compare reassignable let with const retaining one primitive value.",
+      "recap": [
+        "Initializers often provide enough type information.",
+        "let commonly widens primitive literals.",
+        "A const binding does not freeze an object.",
+        "A literal type is one specific value, such as learn, rather than every string. as const preserves literals and readonly at the type level; it does not execute Object.freeze."
+      ],
+      "expected": "score remains number; mode retains a literal and fixedSettings has type-level readonly properties."
+    }
+  },
+  "arrays": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan string ke labels lewat push, lalu coba number.",
+        "Beri labels anotasi string[] dan Array<string>, lalu jelaskan kontrak yang sama pada keduanya."
+      ],
+      "recap": [
+        "T[] dan Array<T> menjelaskan tipe array yang sama.",
+        "map bisa mengubah satu tipe elemen menjadi tipe lain.",
+        "Periksa nilai hasil akses indeks yang mungkin tidak ada."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Push another string into labels, then try a number.",
+        "Annotate labels with string[] and Array<string> and explain the shared contract."
+      ],
+      "recap": [
+        "T[] and Array<T> describe the same array type.",
+        "map can transform one element type into another.",
+        "Check indexed values that may be absent."
+      ]
+    }
+  },
+  "objects": {
+    "id": {
+      "practiceSteps": [
+        "Hapus satu properti wajib dari learner, periksa pesan diagnostik, lalu kembalikan.",
+        "Ubah nilainya sambil mempertahankan bentuk objek yang sudah dideklarasikan."
+      ],
+      "recap": [
+        "Tipe objek menjelaskan bentuk properti yang wajib ada.",
+        "Kecocokan tipe terutama ditentukan oleh strukturnya.",
+        "Literal objek baru mendapat pemeriksaan tambahan untuk salah ketik."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove a required property from learner, inspect the diagnostic, then restore it.",
+        "Change a value while keeping the declared object shape."
+      ],
+      "recap": [
+        "Object types describe required property shapes.",
+        "Compatibility is primarily structural.",
+        "Fresh object literals receive extra typo checks."
+      ]
+    }
+  },
+  "union-types": {
+    "id": {
+      "practiceSteps": [
+        "Panggil displayId dengan number dan string.",
+        "Pindahkan toUpperCase ke luar guard, lalu jelaskan pesan diagnostiknya."
+      ],
+      "recap": [
+        "Union mewakili beberapa alternatif nilai.",
+        "Sebelum tipe dipersempit, hanya operasi yang didukung semua anggota yang aman.",
+        "Guard memberi bukti untuk satu cabang."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Call displayId with a number and a string.",
+        "Move toUpperCase outside the guard and explain the diagnostic."
+      ],
+      "recap": [
+        "A union represents alternative possibilities.",
+        "Only shared operations are safe before narrowing.",
+        "A guard provides evidence for one branch."
+      ]
+    }
+  },
+  "parameters": {
+    "id": {
+      "practiceSteps": [
+        "Coba argumen number dan string.",
+        "Kembalikan panggilan yang valid, lalu jelaskan bagaimana anotasi parameter menjaga batas function."
+      ],
+      "recap": [
+        "Parameter merupakan sisi masukan dari sebuah kontrak.",
+        "Parameter wajib harus diberikan.",
+        "Kategori tipe masih mungkin membutuhkan pemeriksaan nilai saat program berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try a numeric and a string argument.",
+        "Restore the valid call, then explain how the parameter annotation protects the function boundary."
+      ],
+      "recap": [
+        "Parameters are the input side of a contract.",
+        "Required parameters must be supplied.",
+        "A type category may still need a runtime value check."
+      ]
+    }
+  },
+  "return-types": {
+    "id": {
+      "practiceSteps": [
+        "Ubah remaining agar mengembalikan string lewat toString(), periksa error-nya, lalu kembalikan hasil number.",
+        "Bandingkan type pada count."
+      ],
+      "recap": [
+        "Anotasi hasil menjelaskan apa yang diterima pemanggil.",
+        "Semua jalur pengembalian yang bisa dicapai harus memenuhi kontrak.",
+        "void tidak menjanjikan hasil yang berguna; never tidak bisa mengembalikan hasil secara normal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change remaining to return a string with toString(), inspect the error, and restore the numeric result.",
+        "Compare the type of count."
+      ],
+      "recap": [
+        "Return annotations describe what callers receive.",
+        "All reachable return paths must satisfy the contract.",
+        "void has no promised useful result; never cannot return normally."
+      ]
+    }
+  },
+  "optional-parameters": {
+    "id": {
+      "practiceSteps": [
+        "Panggil greet tanpa nickname, dengan nickname kosong, dan dengan undefined.",
+        "Bandingkan ??",
+        "dengan ||, lalu jelaskan bedanya."
+      ],
+      "recap": [
+        "Di dalam fungsi, parameter opsional mencakup undefined.",
+        "Nilai default berlaku untuk argumen yang tidak diberikan atau bernilai undefined.",
+        "?? mempertahankan nilai falsy yang masih bermakna."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Call greet with no nickname, an empty nickname, and undefined.",
+        "Compare ??",
+        "with || and explain the difference."
+      ],
+      "recap": [
+        "An optional parameter includes undefined inside the body.",
+        "Defaults apply to omitted or undefined arguments.",
+        "?? preserves meaningful falsy values."
+      ]
+    }
+  },
+  "function-types": {
+    "id": {
+      "practiceSteps": [
+        "Ubah formatPercent agar mengembalikan number, bukan teks.",
+        "Baca pesan diagnostiknya, lalu kembalikan hasil string dan coba formatter lain."
+      ],
+      "recap": [
+        "Tipe fungsi menjelaskan nilai yang bisa dipanggil.",
+        "Callback bisa mendapatkan tipe parameter dari konteksnya.",
+        "Hubungan masukan dan keluaran penting saat meneruskan perilaku."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change formatPercent to return a number instead of text.",
+        "Read the diagnostic, then restore a string and try a different formatter."
+      ],
+      "recap": [
+        "Function types describe callable values.",
+        "Callbacks can inherit parameter types from context.",
+        "Input and output relationships matter when passing behavior."
+      ]
+    }
+  },
+  "type-aliases": {
+    "id": {
+      "practiceSteps": [
+        "Ubah LessonId dari string menjadi \"interfaces\" | \"unions\".",
+        "Coba id lain pada nextLesson, lalu tambahkan id itu dengan sengaja ke alias."
+      ],
+      "recap": [
+        "Alias memberi nama yang bisa dipakai ulang pada ekspresi tipe.",
+        "Alias tidak membuat nilai JavaScript.",
+        "Nama alias yang deskriptif saja tidak menjamin identitas khusus."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change LessonId from string to \"interfaces\" | \"unions\".",
+        "Try a different id in nextLesson, then add it deliberately to the alias."
+      ],
+      "recap": [
+        "Aliases give reusable names to type expressions.",
+        "They create no JavaScript value.",
+        "A descriptive alias alone does not enforce a special identity."
+      ]
+    }
+  },
+  "interfaces": {
+    "id": {
+      "practiceSteps": [
+        "Ubah course.title, lalu coba ubah course.id.",
+        "Jelaskan mengapa readonly bekerja saat pemeriksaan type tanpa membekukan object."
+      ],
+      "recap": [
+        "Interface menjelaskan kontrak objek.",
+        "Kecocokan bergantung pada struktur.",
+        "readonly membatasi penulisan pada tingkat tipe."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change course.title, then try changing course.id.",
+        "Explain why readonly affects type checking without freezing the object."
+      ],
+      "recap": [
+        "Interfaces describe object contracts.",
+        "Compatibility depends on structure.",
+        "readonly is a type-level write restriction."
+      ]
+    }
+  },
+  "optional-properties": {
+    "id": {
+      "practiceSteps": [
+        "Jangan isi field opsional, lalu isi dengan nilai dan coba undefined.",
+        "Bandingkan field yang tidak ada dengan undefined saat exact optional property checking aktif."
+      ],
+      "recap": [
+        "? mengizinkan properti tidak ada.",
+        "Membaca properti opsional membutuhkan penanganan undefined.",
+        "?. dan ?? membuat akses aman dan nilai cadangan lebih ringkas."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Omit the optional field, supply a value, and try undefined.",
+        "Compare omission with explicit undefined under exact optional property checking."
+      ],
+      "recap": [
+        "? allows a property to be absent.",
+        "Optional reads need undefined handling.",
+        "?. and ?? make safe access and fallbacks concise."
+      ]
+    }
+  },
+  "extending-interfaces": {
+    "id": {
+      "practiceSteps": [
+        "Hapus field yang diwarisi dari nilainya, periksa error-nya, lalu kembalikan.",
+        "Sebutkan field yang wajib ada pada interface hasil perluasan."
+      ],
+      "recap": [
+        "extends menggabungkan persyaratan objek.",
+        "Bentuk yang lebih spesifik bisa memenuhi kontrak dasarnya.",
+        "Perluasan interface tidak menghasilkan perilaku pewarisan saat runtime."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove an inherited field from the value, inspect the error, and restore it.",
+        "Name the fields required by the extended interface."
+      ],
+      "recap": [
+        "extends combines object requirements.",
+        "A more specific shape can satisfy its base contract.",
+        "Interface extension has no runtime inheritance behavior."
+      ]
+    }
+  },
+  "literal-types": {
+    "id": {
+      "practiceSteps": [
+        "Coba status di luar union, lalu tambahkan varian baru dengan sengaja.",
+        "Bandingkan object biasa dengan konfigurasi as const."
+      ],
+      "recap": [
+        "Tipe literal menggambarkan nilai yang persis.",
+        "Union literal membatasi pilihan nilai yang valid.",
+        "as const mempertahankan literal tanpa membekukan nilai saat program berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try a status outside the union, then add a deliberate new variant.",
+        "Compare a normal object with an as const configuration."
+      ],
+      "recap": [
+        "Literal types describe exact values.",
+        "Unions of literals express a controlled vocabulary.",
+        "as const preserves literals without runtime freezing."
+      ]
+    }
+  },
+  "narrowing": {
+    "id": {
+      "practiceSteps": [
+        "Coba varian sukses dan gagal.",
+        "Tambahkan varian baru, lalu jelaskan cabang yang perlu menanganinya."
+      ],
+      "recap": [
+        "Alur kontrol menyediakan bukti untuk narrowing.",
+        "Properti pembeda menghubungkan status dengan payload-nya.",
+        "never bisa mengungkap varian yang belum ditangani."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try both success and failure variants.",
+        "Add a new variant and explain which branch needs to handle it."
+      ],
+      "recap": [
+        "Control flow supplies evidence for narrowing.",
+        "A discriminant connects a state to its payload.",
+        "never can reveal an unhandled variant."
+      ]
+    }
+  },
+  "keyof": {
+    "id": {
+      "practiceSteps": [
+        "Ubah key dari \"title\" ke \"minutes\" dan periksa value.",
+        "Coba key yang salah eja, lalu jelaskan bagaimana keyof menolaknya."
+      ],
+      "recap": [
+        "keyof menghasilkan union nama properti.",
+        "T[K] mengambil tipe nilai pada properti K.",
+        "Mengambil nama properti pada tingkat tipe berbeda dari mendaftarkannya saat program berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change key from \"title\" to \"minutes\" and inspect value.",
+        "Try a misspelled key and explain how keyof rejects it."
+      ],
+      "recap": [
+        "keyof produces a union of keys.",
+        "T[K] selects the type stored at a key.",
+        "Type-level keys and runtime key enumeration are different operations."
+      ]
+    }
+  },
+  "typeof": {
+    "id": {
+      "practiceSteps": [
+        "Ubah defaults.fontSize menjadi string dan periksa type Settings yang diturunkan.",
+        "Kembalikan nilainya, lalu bandingkan typeof saat runtime dengan type query."
+      ],
+      "recap": [
+        "typeof dalam posisi tipe memakai kembali tipe statis yang sudah ada.",
+        "typeof dalam posisi ekspresi mengembalikan string saat program berjalan.",
+        "Hasil inferensi memengaruhi bentuk tipe yang diturunkan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change defaults.fontSize to a string and inspect the derived Settings type.",
+        "Restore it, then compare runtime typeof with the type query."
+      ],
+      "recap": [
+        "Type-position typeof reuses an existing static type.",
+        "Expression-position typeof returns a runtime string.",
+        "Inference choices affect the derived shape."
+      ]
+    }
+  },
+  "utility-types": {
+    "id": {
+      "practiceSteps": [
+        "Buat update yang hanya berisi satu properti, lalu coba properti yang tidak dikenal.",
+        "Jelaskan mengapa Partial mengubah kontrak tanpa menerapkan update."
+      ],
+      "recap": [
+        "Utility type mengubah deskripsi tipe.",
+        "Pick dan Omit memilih properti; Partial menjadikannya opsional.",
+        "Mengubah tipe tidak mengubah data saat program berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create an update containing just one property, then try an unrelated property.",
+        "Explain why Partial changes the contract but does not apply an update."
+      ],
+      "recap": [
+        "Utility types transform type descriptions.",
+        "Pick and Omit select fields; Partial makes them optional.",
+        "A type transformation does not transform runtime data."
+      ]
+    }
+  },
+  "why-generics": {
+    "id": {
+      "practiceSteps": [
+        "Kirim number dan object ke identity.",
+        "Periksa setiap hasil, lalu jelaskan bagaimana type-nya tetap terhubung dengan input."
+      ],
+      "recap": [
+        "Generic mempertahankan hubungan antartipe.",
+        "Setiap pemanggilan bisa menyimpulkan argumen tipe atau menerimanya secara eksplisit.",
+        "Parameter tipe dihapus saat kode menjadi JavaScript."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Pass a number and an object to identity.",
+        "Inspect each result and explain how its type stays connected to the input."
+      ],
+      "recap": [
+        "Generics preserve relationships across types.",
+        "Each call can infer or explicitly supply its type argument.",
+        "Type parameters are erased at runtime."
+      ]
+    }
+  },
+  "generic-functions": {
+    "id": {
+      "practiceSteps": [
+        "Coba first dengan daftar berisi item dan daftar kosong.",
+        "Tangani undefined sebelum memakai hasilnya."
+      ],
+      "recap": [
+        "Helper generic menjaga hubungan tipe elemen.",
+        "Sertakan kemungkinan nilai tidak ada dalam kontrak hasil.",
+        "Gunakan inferensi argumen tipe jika input sudah memberi cukup informasi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try first with a nonempty list and an empty one.",
+        "Handle undefined before using the returned value."
+      ],
+      "recap": [
+        "Generic helpers preserve element relationships.",
+        "Include real absence in the result contract.",
+        "Infer type arguments when the inputs provide enough information."
+      ]
+    }
+  },
+  "generic-constraints": {
+    "id": {
+      "practiceSteps": [
+        "Hapus id dari nilai yang dikirim ke withLabel.",
+        "Kembalikan id, lalu coba key yang tidak ada pada getProperty dan jelaskan kedua pesan diagnostiknya."
+      ],
+      "recap": [
+        "Constraint memberi akses aman ke struktur minimum.",
+        "Detail tambahan pada input tetap tersimpan dalam T.",
+        "K extends keyof T menghubungkan key dengan objeknya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Remove id from the value passed to withLabel.",
+        "Restore it, then try a missing key in getProperty and explain each diagnostic."
+      ],
+      "recap": [
+        "A constraint grants safe access to a minimum shape.",
+        "Additional input details stay preserved in T.",
+        "K extends keyof T connects a key to its object."
+      ]
+    }
+  },
+  "generic-interfaces": {
+    "id": {
+      "practiceSteps": [
+        "Buat Page<number> dengan items berisi number.",
+        "Coba item string dan periksa pesan diagnostiknya, lalu bandingkan dengan Page<Lesson>."
+      ],
+      "recap": [
+        "Interface generic membuat tipe isi wadah bisa disesuaikan.",
+        "Argumen tipe menggantikan setiap penggunaan T.",
+        "Gunakan tipe konkret untuk properti yang tidak berkaitan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create a Page<number> with numeric items.",
+        "Try a string item and inspect the diagnostic, then compare it with Page<Lesson>."
+      ],
+      "recap": [
+        "Generic interfaces parameterize reusable containers.",
+        "A type argument replaces every occurrence of T.",
+        "Keep unrelated fields concrete."
+      ]
+    }
+  },
+  "ts-satisfies-const": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan key kursus yang salah eja dan lihat pesan diagnostiknya, lalu kembalikan konfigurasi yang valid."
+      ],
+      "hint": "Bandingkan pemeriksaan ketika menulis kode dengan pemeriksaan data yang baru masuk saat program berjalan.",
+      "recap": [
+        "Pemeriksaan ini bagian dari analisis TypeScript dan tidak disertakan dalam JavaScript yang dihasilkan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a misspelled course key and inspect the diagnostic; then restore the valid configuration."
+      ],
+      "hint": "Compare authoring-time checks with checks on data arriving during execution.",
+      "recap": [
+        "The check is part of TypeScript analysis and disappears from emitted JavaScript."
+      ]
+    }
+  },
+  "ts-indexed-access": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan properti level yang wajib diisi pada model bersarang, lalu amati kontrak Lesson yang bergantung padanya."
+      ],
+      "hint": "Baca Course[\"lessons\"] dahulu, lalu tentukan apa arti indeks number pada array tersebut.",
+      "recap": [
+        "number mengindeks tipe array untuk menjelaskan tipe elemen yang mungkin ada di dalamnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a required level property to the nested model and observe the dependent Lesson contract."
+      ],
+      "hint": "Read Course[\"lessons\"] first, then determine the number index's meaning for that array.",
+      "recap": [
+        "Number indexes an array type to describe the type of its possible elements."
+      ]
+    }
+  },
+  "ts-mapped-types": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu preferensi dan lihat flag pelacakan mana yang menjadi wajib."
+      ],
+      "hint": "Tulis semua key asal sebelum memetakan tipe baru untuk masing-masing key.",
+      "recap": [
+        "keyof menghasilkan union key asal, lalu pemetaan memberi setiap key tipe boolean."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a preference and observe which tracking flag becomes required."
+      ],
+      "hint": "Write all original keys before mapping a new type to each.",
+      "recap": [
+        "Keyof produces the source key union and the mapping assigns a boolean to each."
+      ]
+    }
+  },
+  "ts-conditional-infer": {
+    "id": {
+      "practiceSteps": [
+        "Terapkan ElementOf pada array objek pelajaran serta union string[] dan number[]."
+      ],
+      "hint": "Apakah input cocok pola array? Pilih cabang conditional berdasarkan kecocokan itu.",
+      "recap": [
+        "Input tidak cocok dengan pola array, jadi cabang false yang dipilih."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Apply ElementOf to an array of lesson objects and to a union of string[] and number[]."
+      ],
+      "hint": "Does the input match an array pattern? Choose the conditional branch from that match.",
+      "recap": [
+        "The input does not match the array pattern, so the false branch is selected."
+      ]
+    }
+  },
+  "ts-exhaustive-never": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan varian empty dan gunakan pesan diagnostik untuk menemukan cabang yang belum ditangani."
+      ],
+      "hint": "Tambahkan satu varian yang tidak memiliki case. Tipe apa tersisa setelah switch?",
+      "recap": [
+        "Varian yang tersisa tidak cocok dengan never, sehingga switch yang belum lengkap terdeteksi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add an empty variant and use the diagnostic to identify the missing branch."
+      ],
+      "hint": "Add a variant with no case. Which type remains after the switch?",
+      "recap": [
+        "The remaining variant is not assignable to never, exposing the incomplete switch."
+      ]
+    }
+  },
+  "ts-unknown-guards": {
+    "id": {
+      "practiceSteps": [
+        "Coba null, nilai tanpa duration, dan duration berupa string.",
+        "Jelaskan mengapa assertion as Lesson tidak melakukan pemeriksaan ini."
+      ],
+      "hint": "Anotasi tidak membuktikan isi JSON. Pemeriksaan nyata apa yang memberi bukti bentuknya?",
+      "recap": [
+        "Pemeriksaan runtime memberi bukti untuk kontrak statisnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try null, a missing duration, and a string duration.",
+        "Explain why an as Lesson assertion would not perform these checks."
+      ],
+      "hint": "Annotations do not prove JSON contents. Which actual checks establish its shape?",
+      "recap": [
+        "The runtime checks establish evidence for the static contract."
+      ]
+    }
+  },
+  "typing-api-responses": {
+    "id": {
+      "practiceSteps": [
+        "Ubah JSON menjadi null, object tanpa name, dan id berupa string.",
+        "Bandingkan hasil guard dengan type assertion yang tidak melakukan pemeriksaan."
+      ],
+      "recap": [
+        "Perlakukan nilai dari luar yang belum tepercaya sebagai unknown.",
+        "Validasi runtime memberikan bukti tentang tipe nilai.",
+        "Type assertion tidak memvalidasi data."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the JSON to null, a missing name, and a string id.",
+        "Compare the guard results with a type assertion that performs no checks."
+      ],
+      "recap": [
+        "Treat untrusted external values as unknown.",
+        "Runtime validation provides evidence for a type.",
+        "A type assertion does not validate data."
+      ]
+    }
+  },
+  "async-functions": {
+    "id": {
+      "practiceSteps": [
+        "Buat loadLesson melempar Error dan ikuti alur pemulihannya.",
+        "Kembalikan ke kondisi sukses, lalu periksa type Promise dan nilai hasilnya."
+      ],
+      "recap": [
+        "Fungsi async selalu mengembalikan promise.",
+        "await mengambil nilai promise yang berhasil dipenuhi.",
+        "Tangani penolakan promise dan validasi payload dari luar secara terpisah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Make loadLesson throw an Error and follow the recovery path.",
+        "Restore success, then inspect the Promise and fulfilled-value types."
+      ],
+      "recap": [
+        "async functions always return promises.",
+        "await exposes a promise’s fulfilled value.",
+        "Handle rejection and validate external payloads separately."
+      ]
+    }
+  },
+  "practical-data-models": {
+    "id": {
+      "practiceSteps": [
+        "Panggil describe untuk idle, loading, ready, dan error.",
+        "Coba ready tanpa data, lalu jelaskan bentuk yang ditolak."
+      ],
+      "recap": [
+        "Hubungkan label status dengan payload yang diwajibkan.",
+        "Gunakan varian lengkap daripada properti opsional yang tidak saling terhubung.",
+        "Model membantu kode pemakainya menangani setiap kasus yang bermakna."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Call describe for idle, loading, ready, and error.",
+        "Try a ready state without data and explain the rejected shape."
+      ],
+      "recap": [
+        "Connect state labels to their required payloads.",
+        "Prefer complete variants over unrelated optional fields.",
+        "A model helps consumers handle every meaningful case."
+      ]
+    }
+  },
+  "react-props": {
+    "id": {
+      "practiceSteps": [
+        "Ubah type parameter callback dan periksa ketidakcocokannya.",
+        "Kembalikan type-nya, lalu jangan isi variant opsional dan jelaskan nilai penggantinya."
+      ],
+      "recap": [
+        "Props adalah kontrak objek biasa.",
+        "Tipe callback menjelaskan event yang dikirim ke parent.",
+        "Nilai opsional dan varian literal bisa langsung digunakan pada batas antar-komponen."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the callback parameter type and inspect the mismatch.",
+        "Restore it, then omit the optional variant and explain the fallback."
+      ],
+      "recap": [
+        "Props are ordinary object contracts.",
+        "Callback types describe events sent to a parent.",
+        "Optional values and literal variants work naturally at component boundaries."
+      ]
+    }
+  },
+  "final-challenge": {
+    "id": {
+      "practiceSteps": [
+        "Coba daftar kosong, semua lesson berstatus ready, dan semua berstatus complete.",
+        "Periksa bahwa total dan completed sesuai setiap input tanpa melemahkan type."
+      ],
+      "recap": [
+        "Model menghubungkan data yang valid dengan operasi yang berguna.",
+        "Perbaiki ketidakcocokan tanpa melemahkan kontrak.",
+        "Terus bereksperimen: ubah satu input dan jelaskan respons pemeriksa tipenya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an empty list, all-ready lessons, and all-complete lessons.",
+        "Check that total and completed match each input without weakening the types."
+      ],
+      "recap": [
+        "Models connect valid data to useful operations.",
+        "Fix mismatches without weakening the contract.",
+        "Keep experimenting: change one input and explain the type feedback."
+      ]
+    }
+  }
+}

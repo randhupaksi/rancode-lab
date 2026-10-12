@@ -1,0 +1,1188 @@
+{
+  "js-values": {
+    "id": {
+      "practiceSteps": [
+        "Ubah angka awalnya.",
+        "Tebak hasilnya sebelum menjalankan kode."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Variabel memberi nama pada nilai agar bisa dipakai kembali. JavaScript membedakan teks, angka, boolean, dan nilai yang tidak tersedia."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "Tanda kutip membuat string, misalnya `\"Ada\"`. Angka tanpa kutip seperti `3` bisa dipakai menghitung.",
+            "Boolean hanya `true` atau `false`. `typeof` membantu melihat jenis nilai.",
+            "`let` mengizinkan penugasan ulang. `const` melarang nama itu diberi nilai lain setelah deklarasi."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "const tidak membekukan isi objek. Larangan penugasan ulang dan larangan mengubah isi adalah hal berbeda."
+        }
+      ],
+      "hint": "Perhatikan tanda kutip dan deklarasi sebelum memutuskan jenis serta perubahan yang diizinkan.",
+      "recap": [
+        "Utamakan const, lalu gunakan let jika perlu mengisi ulang nilainya.",
+        "String dan angka punya perilaku yang berbeda.",
+        "const tidak membekukan isi objek."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the starting number.",
+        "Predict the result before running."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Variables name values so they can be reused. JavaScript distinguishes text, numbers, booleans, and missing values."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "Quotes create strings such as `\"Ada\"`. Unquoted numbers such as `3` can be used in calculations.",
+            "Booleans are `true` or `false`. `typeof` helps inspect value types.",
+            "`let` allows reassignment. `const` prevents assigning another value to that name after declaration."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "const does not freeze object contents. Preventing reassignment differs from preventing content changes."
+        }
+      ],
+      "hint": "Inspect quotes and declarations before deciding types and allowed changes.",
+      "recap": [
+        "Use const by default and let for reassignment.",
+        "Strings and numbers behave differently.",
+        "const does not freeze object contents."
+      ]
+    }
+  },
+  "js-conditions": {
+    "id": {
+      "practiceSteps": [
+        "Ubah age dan hasTicket secara bergantian.",
+        "Jelaskan kedua nilai yang dicetak."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Kondisi memilih jalur kode berdasarkan hasil pemeriksaan. Mulai dengan pertanyaan yang jelas, seperti apakah tugas sudah selesai."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Perbandingan menghasilkan boolean.",
+            "if menjalankan blok ketika kondisinya terpenuhi; else menangani alternatif.",
+            "Coba nilai di batas aturan agar kamu tahu apakah batasnya termasuk."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Bedakan `=` untuk penugasan dan `===` untuk perbandingan kesetaraan. Jangan menganggap semua nilai yang dipakai sebagai kondisi sudah berupa boolean."
+        }
+      ],
+      "hint": "Ubah satu input yang menentukan cabang dan telusuri blok yang dijalankan.",
+      "recap": [
+        "Gunakan kesetaraan ketat untuk menghindari konversi tipe otomatis.",
+        "Coba setiap bagian dari kondisi gabungan.",
+        "Bedakan `=` untuk penugasan dan `===` untuk perbandingan kesetaraan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change age and hasTicket separately.",
+        "Explain both printed values."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Conditions select code paths from a check. Start with a clear question such as whether a task is finished."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Comparisons produce booleans.",
+            "if runs a block when its condition holds; else handles alternatives.",
+            "Test boundary values to see whether the boundary is included."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Distinguish `=` assignment from `===` equality comparison. Not every condition value is already a boolean."
+        }
+      ],
+      "hint": "Change the input deciding the branch and trace the executed block.",
+      "recap": [
+        "Use strict equality to avoid implicit conversion.",
+        "Test each part of a compound condition.",
+        "Distinguish `=` assignment from `===` equality comparison."
+      ]
+    }
+  },
+  "js-functions": {
+    "id": {
+      "practiceSteps": [
+        "Panggil fungsi dengan ongkos kirim gratis.",
+        "Lalu gunakan hasilnya dalam sebuah pesan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Fungsi mengelompokkan langkah agar bisa dipanggil dengan input berbeda. Parameter menamai input; return mengirim hasil kepada pemanggil."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Baca nama fungsi dan parameter untuk mengetahui kebutuhannya.",
+            "Telusuri perhitungan dengan satu nilai input.",
+            "Tangkap nilai return, lalu tampilkan atau gunakan dalam langkah lain."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mencetak nilai dengan console.log tidak sama dengan mengembalikannya. Fungsi tanpa return nilai menghasilkan undefined."
+        }
+      ],
+      "hint": "Apa yang masuk melalui parameter dan apa yang keluar melalui return?",
+      "recap": [
+        "Parameter menjelaskan masukan fungsi.",
+        "Mengembalikan nilai dan mencetaknya adalah dua tindakan yang berbeda.",
+        "Mencetak nilai dengan console.log tidak sama dengan mengembalikannya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Call the function with free delivery.",
+        "Then reuse its result in a message."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Functions group steps for reuse with different inputs. Parameters name inputs; return sends results to callers."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Read the function name and parameters to see its needs.",
+            "Trace the calculation with one input.",
+            "Capture the returned value and display it or use it elsewhere."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Logging a value is not the same as returning it. A function without a value return produces undefined."
+        }
+      ],
+      "hint": "What enters through parameters and leaves through return?",
+      "recap": [
+        "Parameters describe inputs.",
+        "Returning and printing are different operations.",
+        "Logging a value is not the same as returning it."
+      ]
+    }
+  },
+  "js-arrays": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu topik, lalu coba array kosong.",
+        "Amati berapa kali perulangannya berjalan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Array menyimpan daftar nilai berurutan. Setiap elemen punya posisi yang disebut indeks, dimulai dari 0."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "`items[0]` membaca elemen pertama; length menghitung jumlah elemen.",
+            "Perulangan dapat membaca tiap elemen tanpa menyalin kode untuk setiap posisi.",
+            "Metode seperti map membuat daftar hasil, sedangkan filter memilih item yang memenuhi syarat."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Indeks di luar daftar menghasilkan undefined. Jangan menyamakan length dengan indeks item terakhir; indeks terakhir adalah length dikurangi satu."
+        }
+      ],
+      "hint": "Bedakan nilai item, posisi item, dan jumlah item.",
+      "recap": [
+        "Indeks array dimulai dari nol.",
+        "for...of mengunjungi nilai secara berurutan.",
+        "Indeks di luar daftar menghasilkan undefined."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a topic, then try an empty array.",
+        "Observe how many times the loop runs."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Arrays store ordered lists. Each element has a position called an index, starting at 0."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "`items[0]` reads the first item; length counts items.",
+            "Loops can read each item without copying code for every position.",
+            "Methods such as map produce result lists, while filter selects matching items."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Out-of-range indices produce undefined. length is not the last index; that is length minus one."
+        }
+      ],
+      "hint": "Distinguish item value, item position, and item count.",
+      "recap": [
+        "Arrays use zero-based indexes.",
+        "for...of visits values in order.",
+        "Out-of-range indices produce undefined. length is not the last index; that is length minus one."
+      ]
+    }
+  },
+  "js-objects": {
+    "id": {
+      "practiceSteps": [
+        "Ubah nama di profil hasil salinan.",
+        "Pastikan nama pada tingkat teratas di profil asli tetap sama."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Objek mengelompokkan data berdasarkan nama properti. Cocok untuk satu profil yang memiliki nama, peran, dan kemajuan."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Pasangan nama dan nilai ditulis dalam kurung kurawal.",
+            "Akses seperti profile.name membaca properti tertentu.",
+            "Spread seperti `{ ...profile }` membuat salinan tingkat luar yang bisa dipakai untuk menghasilkan versi baru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Destructuring mengambil properti ke variabel. Spread hanya salinan dangkal; objek bersarang dapat masih dipakai bersama. Pelajari mekanismenya satu per satu."
+        }
+      ],
+      "hint": "Data ini diakses berdasarkan nama properti atau nomor posisi?",
+      "recap": [
+        "Objek mengelompokkan properti yang berkaitan.",
+        "Spread objek membuat salinan dangkal.",
+        "Destructuring mengambil properti ke variabel."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the copied profile’s name.",
+        "Check that the original top-level name remains the same."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Objects group data by property names. They suit a profile containing name, role, and progress."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Name-value pairs are written within braces.",
+            "Access such as profile.name reads one property.",
+            "Spread such as `{ ...profile }` creates a top-level copy for producing a new version."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Destructuring extracts properties into variables. Spread is shallow; nested objects may still be shared. Learn these mechanisms one at a time."
+        }
+      ],
+      "hint": "Is this data accessed by property name or position?",
+      "recap": [
+        "Objects group related properties.",
+        "Object spread makes a shallow copy.",
+        "Destructuring extracts properties into variables."
+      ]
+    }
+  },
+  "js-transform": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu tugas yang belum selesai.",
+        "Lalu ubah filter agar memilih tugas yang sudah selesai."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Transformasi data mengubah bentuk kumpulan menjadi hasil yang dibutuhkan tampilan. Pilih operasi berdasarkan pertanyaan yang ingin dijawab."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "map membuat satu hasil untuk setiap item.",
+            "filter menyimpan item yang memenuhi kondisi.",
+            "reduce menggabungkan item menjadi satu hasil, seperti total."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mulai dengan satu operasi dan amati output. Rangkaian panjang lebih mudah dipahami setelah setiap tahapnya jelas."
+        }
+      ],
+      "hint": "Hasil yang dibutuhkan berupa daftar dengan jumlah sama, daftar terpilih, atau satu nilai?",
+      "recap": [
+        "filter memilih nilai; map mengubahnya.",
+        "Callback menjelaskan apa yang dilakukan pada tiap nilai.",
+        "Mulai dengan satu operasi dan amati output."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add another unfinished task.",
+        "Change filter to keep finished tasks instead."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Data transformation turns collections into the result needed by a view. Choose operations from the question you want answered."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "map creates one result per item.",
+            "filter keeps items satisfying a condition.",
+            "reduce combines items into one result, such as a total."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Start with one operation and inspect output. Long chains are easier after each stage is understood."
+        }
+      ],
+      "hint": "Do you need an equal-length list, selected items, or one value?",
+      "recap": [
+        "filter chooses values; map transforms them.",
+        "Callbacks describe what to do for each value.",
+        "Start with one operation and inspect output."
+      ]
+    }
+  },
+  "js-modules": {
+    "id": {
+      "practiceSteps": [
+        "Temukan fungsi publik dan file yang menggunakannya.",
+        "Jelaskan apa yang akan bermasalah jika nama ekspornya berubah."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Modul memisahkan tanggung jawab kode antarfile. export menentukan bagian yang tersedia untuk file lain; import memakai bagian itu."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Baca apa yang diekspor oleh file sumber.",
+            "Cocokkan nama import dengan ekspor bernama atau ekspor default.",
+            "Pastikan path menunjuk file yang benar sebelum mencoba memakainya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Contoh beberapa file perlu dipisahkan sesuai penandanya. Editor satu file belum tentu dapat menyelesaikan import proyek lokal."
+        }
+      ],
+      "hint": "Nama yang diimpor sesuai dengan ekspor mana di file sumber?",
+      "recap": [
+        "Import memperjelas dependensi yang digunakan.",
+        "Usahakan tiap modul punya tanggung jawab yang jelas.",
+        "Contoh beberapa file perlu dipisahkan sesuai penandanya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Identify the public function and the file that depends on it.",
+        "Explain what would break if the exported name changed."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Modules separate responsibilities across files. export makes parts available to other files; import uses them."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Read what the source file exports.",
+            "Match imports to named or default exports.",
+            "Check that the path points to the right file before using it."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Multi-file examples need splitting by file markers. A single-file editor may not resolve local project imports."
+        }
+      ],
+      "hint": "Which source export matches the imported name?",
+      "recap": [
+        "Imports make dependencies explicit.",
+        "Keep modules focused on a responsibility.",
+        "Multi-file examples need splitting by file markers."
+      ]
+    }
+  },
+  "js-async": {
+    "id": {
+      "practiceSteps": [
+        "Ganti return dalam loadProfile dengan throw new Error(\"Offline\").",
+        "Amati cabang mana yang dijalankan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Proses asinkron memberi hasil nanti, seperti menunggu data jaringan. Promise mewakili hasil yang masih ditunggu dan dapat berhasil atau gagal."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "async membuat fungsi mengembalikan Promise.",
+            "await menunggu hasil dalam fungsi async tanpa menjadikan semua pekerjaan aplikasi berhenti.",
+            "try/catch menangani kegagalan yang dilempar atau Promise yang ditolak pada bagian yang ditunggu."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Selalu pikirkan keadaan menunggu, berhasil, dan gagal. Kata async saja tidak otomatis membuat perhitungan berat berjalan di thread lain."
+        }
+      ],
+      "hint": "Telusuri baris sebelum await, hasil yang ditunggu, dan jalur kegagalannya.",
+      "recap": [
+        "Operasi asinkron perlu penanganan kegagalan.",
+        "await memberi nilai hasil Promise yang terpenuhi, atau melempar alasan penolakannya.",
+        "Selalu pikirkan keadaan menunggu, berhasil, dan gagal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace the return in loadProfile with throw new Error(\"Offline\").",
+        "Observe which branch runs."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Asynchronous operations yield results later, such as network data. Promises represent awaited outcomes that can succeed or fail."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "async makes a function return a Promise.",
+            "await waits within an async function without stopping all application work.",
+            "try/catch handles thrown failures or rejected Promises in awaited work."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Always consider pending, success, and failure. async alone does not move expensive calculations to another thread."
+        }
+      ],
+      "hint": "Trace lines before await, the awaited result, and its failure path.",
+      "recap": [
+        "Async operations need failure handling.",
+        "await gives you the resolved value or throws the rejection.",
+        "Always consider pending, success, and failure. async alone does not move expensive calculations to another thread."
+      ]
+    }
+  },
+  "js-coercion": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan teks kosong, spasi, dan string bukan angka sebelum merancang pengurai masukan angka."
+      ],
+      "hint": "Periksa tipe operand sebelum +; tanda kutip memengaruhi arti operasinya.",
+      "recap": [
+        "Adanya operand string membuat operasi tambah ini menggabungkan teks."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare empty text, whitespace, and a nonnumeric string before designing a numeric input parser."
+      ],
+      "hint": "Check operand types before +; quotes affect the operation's meaning.",
+      "recap": [
+        "A string operand causes this addition expression to concatenate."
+      ]
+    }
+  },
+  "js-truthiness": {
+    "id": {
+      "practiceSteps": [
+        "Tulis kondisi untuk membedakan daftar kursus kosong dari daftar yang berisi item."
+      ],
+      "hint": "Bedakan keberadaan objek array dengan jumlah elemen di dalamnya.",
+      "recap": [
+        "Array adalah objek, dan objek bersifat truthy apa pun isinya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a condition that distinguishes an empty course list from a nonempty one."
+      ],
+      "hint": "Distinguish the array object's existence from its item count.",
+      "recap": [
+        "Arrays are objects, and objects are truthy regardless of their contents."
+      ]
+    }
+  },
+  "js-nullish-defaults": {
+    "id": {
+      "practiceSteps": [
+        "Tentukan nilai bawaan untuk skor nol dan nama panggilan opsional. Jelaskan apakah teks kosong diperbolehkan."
+      ],
+      "hint": "Bandingkan null dan undefined dengan angka 0 serta string kosong. Mana yang berarti nilai tidak tersedia?",
+      "recap": [
+        "Nullish coalescing menganggap nol sebagai nilai yang tersedia."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Design defaults for a zero score and an optional nickname, explaining whether empty text is allowed."
+      ],
+      "hint": "Compare null and undefined with 0 and empty strings. Which indicate missing values?",
+      "recap": [
+        "Nullish coalescing treats zero as a present value."
+      ]
+    }
+  },
+  "js-optional-chaining": {
+    "id": {
+      "practiceSteps": [
+        "Coba array lessons yang kosong dan properti lessons yang tidak ada, lalu tambahkan label pengganti."
+      ],
+      "hint": "Telusuri titik pertama ketika objek perantara tidak tersedia. Apakah akses berikutnya masih diteruskan?",
+      "recap": [
+        "Akses opsional berhenti saat nilai dasarnya nullish."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an empty lessons array and a missing lessons property, then add a fallback label."
+      ],
+      "hint": "Trace the first missing intermediate object. Does the next access continue?",
+      "recap": [
+        "The optional access short-circuits at the nullish base."
+      ]
+    }
+  },
+  "js-lexical-scope": {
+    "id": {
+      "practiceSteps": [
+        "Pindahkan log dari dalam blok ke luar, lalu jelaskan deklarasi mana yang dibacanya."
+      ],
+      "hint": "Tandai batas kurung kurawal dan nama variabel yang hanya berlaku di dalamnya.",
+      "recap": [
+        "Binding di dalam hanya berlaku dalam bloknya dan tidak mengisi ulang binding di luar."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Move the inner log outside the block and explain which declaration it resolves to."
+      ],
+      "hint": "Mark brace boundaries and variables only visible inside them.",
+      "recap": [
+        "The inner binding belongs only to its block and does not reassign the outer binding."
+      ]
+    }
+  },
+  "js-temporal-dead-zone": {
+    "id": {
+      "practiceSteps": [
+        "Ganti deklarasi fungsi dengan arrow function dalam const setelah pemanggilannya, lalu tebak error yang muncul."
+      ],
+      "hint": "Baca urutan eksekusi. Apakah deklarasi let sudah diinisialisasi saat nilai pertama dibaca?",
+      "recap": [
+        "Binding belum diinisialisasi saat pernyataan sebelumnya mencoba membacanya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace the function declaration with a const arrow function after its call and predict the error."
+      ],
+      "hint": "Read execution order. Has the let declaration initialized before the first read?",
+      "recap": [
+        "The binding is not initialized when the earlier statement attempts to read it."
+      ]
+    }
+  },
+  "js-template-strings": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan kalimat tentang sisa pelajaran tanpa mengulang perhitungan total."
+      ],
+      "hint": "Menyisipkan teks ke string berbeda dari membuat teks aman untuk konteks HTML.",
+      "recap": [
+        "Menyusun string dan melakukan escaping sesuai konteks adalah dua tanggung jawab terpisah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a remaining-lessons sentence without duplicating the total calculation."
+      ],
+      "hint": "Inserting text into a string differs from making it safe for HTML.",
+      "recap": [
+        "String construction and context-specific escaping are separate responsibilities."
+      ]
+    }
+  },
+  "js-string-methods": {
+    "id": {
+      "practiceSteps": [
+        "Buat pencocokan tanpa membedakan huruf besar-kecil, tetapi tetap kembalikan judul pelajaran aslinya."
+      ],
+      "hint": "Bandingkan original setelah trim dengan nilai yang dikembalikan trim.",
+      "recap": [
+        "String tidak bisa dimutasi; hasil barunya perlu kamu simpan atau gunakan secara eksplisit."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Implement a case-insensitive match while returning the original lesson title."
+      ],
+      "hint": "Compare original after trim with trim's returned value.",
+      "recap": [
+        "Strings are immutable; the new result must be stored or used explicitly."
+      ]
+    }
+  },
+  "js-destructuring-defaults": {
+    "id": {
+      "practiceSteps": [
+        "Coba minutes:0 dan note:undefined, lalu tebak bagaimana kedua nilai bawaannya diterapkan."
+      ],
+      "hint": "Coba properti hilang, undefined, dan null secara terpisah.",
+      "recap": [
+        "Nilai bawaan destructuring hanya menggantikan undefined, bukan null."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try minutes:0 and note:undefined and predict both defaults."
+      ],
+      "hint": "Try a missing property, undefined, and null separately.",
+      "recap": [
+        "Destructuring defaults only replace undefined, not null."
+      ]
+    }
+  },
+  "js-rest-spread": {
+    "id": {
+      "practiceSteps": [
+        "Salin settings juga, lalu tunjukkan bahwa mengubah salinan tidak lagi mengubah objek asli."
+      ],
+      "hint": "Salinan tingkat luar tidak selalu menyalin objek bersarang. Bandingkan referensi settings.",
+      "recap": [
+        "Salinan dangkal tetap menyimpan referensi ke objek di dalamnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Copy settings as well and show that changing the copy no longer changes the original."
+      ],
+      "hint": "A top-level copy need not copy nested objects. Compare settings references.",
+      "recap": [
+        "A shallow copy retains references to nested objects."
+      ]
+    }
+  },
+  "js-reference-equality": {
+    "id": {
+      "practiceSteps": [
+        "Buat helper containsLesson yang membandingkan id, bukan seluruh referensi objek."
+      ],
+      "hint": "Dua objek berisi sama bisa berbeda identitas. Telusuri variabel yang menunjuk objek yang sama.",
+      "recap": [
+        "Alias menyimpan referensi objek yang sama dengan first."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a containsLesson helper that compares ids instead of whole object references."
+      ],
+      "hint": "Equal-content objects can differ in identity. Trace variables pointing to one object.",
+      "recap": [
+        "Alias holds the same object reference as first."
+      ]
+    }
+  },
+  "js-array-queries": {
+    "id": {
+      "practiceSteps": [
+        "Buat pemeriksaan semua-selesai yang menolak daftar kosong."
+      ],
+      "hint": "Untuk every, carilah item yang melanggar syarat. Bagaimana jika tidak ada item sama sekali?",
+      "recap": [
+        "Tidak ada elemen yang melanggar kondisi dalam koleksi kosong; syarat tidak kosong perlu diperiksa terpisah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write an all-complete check that rejects an empty list."
+      ],
+      "hint": "For every, look for a violating item. What if there are no items at all?",
+      "recap": [
+        "There is no counterexample in an empty collection; nonemptiness is a separate rule."
+      ]
+    }
+  },
+  "js-reduce-accumulators": {
+    "id": {
+      "practiceSteps": [
+        "Kelompokkan menit sesi per kursus menggunakan akumulator objek, lalu bandingkan dengan perulangan."
+      ],
+      "hint": "Mulai penelusuran sebelum item pertama. Nilai apa yang menjadi total ketika daftar kosong?",
+      "recap": [
+        "Akumulator awal membuat daftar kosong menghasilkan total nol yang valid."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Group session minutes by course using an object accumulator, then compare with a loop."
+      ],
+      "hint": "Start tracing before the first item. What becomes the total for an empty list?",
+      "recap": [
+        "The initial accumulator makes an empty list produce a valid zero total."
+      ]
+    }
+  },
+  "js-immutable-sort": {
+    "id": {
+      "practiceSteps": [
+        "Urutkan objek pelajaran berdasarkan menit, lalu gunakan judul sebagai pembanding tambahan saat durasinya sama."
+      ],
+      "hint": "Cetak array asli dan hasil pengurutan, lalu bandingkan urutannya.",
+      "recap": [
+        "toSorted membuat array baru dan mempertahankan urutan array asli."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Sort lesson objects by minutes and add a title tie-breaker for equal durations."
+      ],
+      "hint": "Print the original and sorted arrays, then compare their ordering.",
+      "recap": [
+        "ToSorted creates a new array and leaves source ordering intact."
+      ]
+    }
+  },
+  "js-map-set": {
+    "id": {
+      "practiceSteps": [
+        "Hilangkan duplikat id pelajaran dan buat tabel pencarian durasi tanpa memakai indeks array sebagai identitas."
+      ],
+      "hint": "Tuliskan nilai unik setelah duplikat diabaikan.",
+      "recap": [
+        "String primitif yang berulang hanya disimpan sekali dalam Set."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Deduplicate lesson ids and build a duration lookup without using array index as identity."
+      ],
+      "hint": "Write the unique values after ignoring duplicates.",
+      "recap": [
+        "The repeated primitive string is stored once in a Set."
+      ]
+    }
+  },
+  "js-json-boundary": {
+    "id": {
+      "practiceSteps": [
+        "Coba JSON yang sintaksnya rusak dan objek dengan format benar tetapi tipe properti yang salah."
+      ],
+      "hint": "JSON valid bisa berisi bentuk yang salah untuk aplikasi. Pemeriksaan apa masih diperlukan setelah parsing?",
+      "recap": [
+        "Penguraian dan validasi kebutuhan aplikasi melindungi dua batas yang berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try malformed JSON and a correctly formatted object with the wrong field type."
+      ],
+      "hint": "Valid JSON may have the wrong application shape. What is still needed after parsing?",
+      "recap": [
+        "Parsing and domain validation protect different boundaries."
+      ]
+    }
+  },
+  "js-closures": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan metode reset sambil menjaga setiap penghitung tetap mandiri."
+      ],
+      "hint": "Tandai count yang dibuat pada setiap pemanggilan pembuat counter; apakah keduanya berbagi variabel?",
+      "recap": [
+        "Second menangkap binding count terpisah yang dibuat oleh pemanggilan fungsi pembuat yang berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a reset method while keeping each counter independent."
+      ],
+      "hint": "Mark count created by each counter factory call; do both share one variable?",
+      "recap": [
+        "Second captures a separate count binding created by a separate factory call."
+      ]
+    }
+  },
+  "js-callback-contracts": {
+    "id": {
+      "practiceSteps": [
+        "Buat callback pemformat yang menerima data pelajaran dan mengembalikan label tampilannya."
+      ],
+      "hint": "Baca kontrak API yang memanggil callback: dijalankan sekarang atau dijadwalkan nanti?",
+      "recap": [
+        "Penjadwalan bergantung pada API yang dipanggil, bukan sintaks fungsinya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Write a formatter callback that accepts a lesson record and returns its display label."
+      ],
+      "hint": "Read the calling API's contract: does the callback run now or get scheduled later?",
+      "recap": [
+        "Scheduling depends on the called API, not on function syntax."
+      ]
+    }
+  },
+  "js-pure-functions": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan pembatasan rentang untuk jumlah yang tidak valid, lalu pertimbangkan apakah menolak masukan tersebut akan lebih jelas."
+      ],
+      "hint": "Apakah hasil hanya bergantung pada input yang eksplisit atau membaca data luar yang berubah?",
+      "recap": [
+        "Masukan yang eksplisit memperjelas hubungan antara pemanggilan dan hasilnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add clamping for invalid counts and decide whether rejecting invalid inputs would be clearer."
+      ],
+      "hint": "Does the result depend only on explicit input or on changing external data?",
+      "recap": [
+        "Explicit inputs make the relationship between call and result visible."
+      ]
+    }
+  },
+  "js-mutation-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan properti completedAt tanpa mengubah objek bersarang aslinya."
+      ],
+      "hint": "Telusuri objek pada setiap tingkat yang disalin sebelum perubahan dilakukan.",
+      "recap": [
+        "Menyalin objek progress di dalamnya memisahkan jalur yang diubah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a completedAt field without changing the original nested object."
+      ],
+      "hint": "Trace objects copied at each level before changing them.",
+      "recap": [
+        "Copying the nested progress object isolates the changed path."
+      ]
+    }
+  },
+  "js-default-parameters": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan opsi bahasa, lalu panggil fungsi dengan hanya memberikan opsi itu."
+      ],
+      "hint": "Coba input tidak diberikan, undefined, dan 0; jangan menyamakan ketiganya.",
+      "recap": [
+        "Nol adalah nilai yang diberikan; hanya undefined yang memicu nilai bawaan ini."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a language option and call the function with only that option."
+      ],
+      "hint": "Try omitted input, undefined, and 0; do not treat them as identical.",
+      "recap": [
+        "Zero is a supplied value; only undefined triggers this default."
+      ]
+    }
+  },
+  "js-recursion": {
+    "id": {
+      "practiceSteps": [
+        "Tulis ulang menjadi perulangan, lalu bandingkan ruang call stack yang dibutuhkan."
+      ],
+      "hint": "Apa yang menjadi lebih kecil pada setiap panggilan dan kapan kasus dasar tercapai?",
+      "recap": [
+        "Bagian sisanya semakin kecil pada setiap pemanggilan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Rewrite this as a loop and compare the amount of call-stack space needed."
+      ],
+      "hint": "What shrinks on each call and when is the base case reached?",
+      "recap": [
+        "The remaining suffix becomes smaller on every call."
+      ]
+    }
+  },
+  "js-this-arrow": {
+    "id": {
+      "practiceSteps": [
+        "Berikan metode yang sudah di-bind ke helper pemformat, lalu bandingkan dengan metode yang dilepas dari objeknya."
+      ],
+      "hint": "Bandingkan metode yang dipanggil melalui objek dengan metode yang dilepas; lihat penerima yang ditetapkan bind.",
+      "recap": [
+        "bind membuat fungsi dengan objek penerima tetap untuk pemanggilan biasa."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Pass a bound method into a formatting helper and compare it with a detached method."
+      ],
+      "hint": "Compare calling a method through its object with detaching it; inspect bind's receiver.",
+      "recap": [
+        "Bind creates a function with a fixed receiver for ordinary calls."
+      ]
+    }
+  },
+  "js-classes-prototypes": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan properti instance untuk id kursus dan metode yang membacanya."
+      ],
+      "hint": "Periksa apakah metode dibuat pada setiap instance atau ditemukan melalui prototype.",
+      "recap": [
+        "Metode class biasa berada di prototype dan dipakai bersama oleh para instance."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add an instance field for the course id and a method that reads it."
+      ],
+      "hint": "Check whether methods are created per instance or found through the prototype.",
+      "recap": [
+        "Ordinary class methods live on the prototype and are shared by instances."
+      ]
+    }
+  },
+  "js-microtasks": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan callback then kedua, lalu tebak seluruh urutan keluarannya."
+      ],
+      "hint": "Selesaikan baris sinkron dahulu sebelum memproses callback Promise yang mengantre.",
+      "recap": [
+        "Stack sinkron mencetak A dan C sebelum reaksi Promise berjalan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a second then callback and predict the complete output order."
+      ],
+      "hint": "Finish synchronous lines before processing queued Promise callbacks.",
+      "recap": [
+        "The synchronous stack logs A and C before the promise reaction runs."
+      ]
+    }
+  },
+  "js-promise-chains": {
+    "id": {
+      "practiceSteps": [
+        "Ganti ekspresi arrow pertama dengan blok dan tetap tulis return secara eksplisit."
+      ],
+      "hint": "Nilai yang dikembalikan satu then menjadi masukan langkah berikutnya. Telusuri perubahan tiap langkah.",
+      "recap": [
+        "Setiap callback yang berhasil meneruskan nilai kembaliannya ke langkah berikutnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace the first arrow expression with a block and preserve the explicit return."
+      ],
+      "hint": "A then return value becomes the next step's input. Trace each change.",
+      "recap": [
+        "Each successful callback passes its returned value into the next step."
+      ]
+    }
+  },
+  "js-promise-all": {
+    "id": {
+      "practiceSteps": [
+        "Buat satu operasi ditolak, tangani kegagalan gabungannya, lalu jelaskan apa yang terjadi pada operasi lain."
+      ],
+      "hint": "Bedakan urutan promise selesai dengan posisi hasil dalam array input.",
+      "recap": [
+        "Promise.all mempertahankan posisi hasil sesuai posisi masukannya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Make one operation reject, catch the combined failure, and explain what happens to the other operation."
+      ],
+      "hint": "Distinguish completion order from positions in the input array.",
+      "recap": [
+        "Promise.all preserves positional correspondence with its inputs."
+      ]
+    }
+  },
+  "js-promise-allsettled": {
+    "id": {
+      "practiceSteps": [
+        "Hitung pemuatan yang berhasil dan siapkan daftar percobaan ulang untuk yang gagal."
+      ],
+      "hint": "Baca status terlebih dahulu sebelum memilih properti hasil atau alasan gagal.",
+      "recap": [
+        "Status menentukan properti hasil mana yang tersedia."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Count successful loads and prepare a retry list for failures."
+      ],
+      "hint": "Read status before selecting the result or rejection property.",
+      "recap": [
+        "The status determines which outcome field is available."
+      ]
+    }
+  },
+  "js-finally-cleanup": {
+    "id": {
+      "practiceSteps": [
+        "Ganti kegagalan dengan keberhasilan dan pastikan busy kembali seperti semula di kedua jalur."
+      ],
+      "hint": "Telusuri jalur berhasil dan gagal; bagian mana menjadi jalur pembersihan bersama?",
+      "recap": [
+        "finally menyediakan jalur keluar bersama untuk pembersihan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Replace the failure with success and confirm busy resets in both paths."
+      ],
+      "hint": "Trace success and failure paths; which is their shared cleanup path?",
+      "recap": [
+        "Finally provides a shared exit path for cleanup."
+      ]
+    }
+  },
+  "js-error-context": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan error validasi bentuk data dan bedakan dari error sintaks JSON."
+      ],
+      "hint": "Pesan tingkat atas menjelaskan operasi, tetapi apa yang menyimpan penyebab awalnya?",
+      "recap": [
+        "Konteks dan penyebab awal membantu kamu menelusuri lapisan operasi yang berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a shape validation error and distinguish it from a JSON syntax error."
+      ],
+      "hint": "The outer message describes the operation; what preserves the original cause?",
+      "recap": [
+        "Context and the underlying failure help diagnose different layers of the operation."
+      ]
+    }
+  },
+  "js-intl-formatting": {
+    "id": {
+      "practiceSteps": [
+        "Format nilai yang sama untuk dua locale sambil mempertahankannya sebagai angka dalam model data."
+      ],
+      "hint": "Bandingkan 0.375 sebagai pecahan dengan 37.5 sebagai angka yang sudah berbentuk persen.",
+      "recap": [
+        "Gaya percent mengalikan nilai pecahan agar tampil sebagai persentase."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Format the same value for two locales while preserving it as a number in the data model."
+      ],
+      "hint": "Compare 0.375 as a fraction with 37.5 as a number already expressed in percent.",
+      "recap": [
+        "Percent style scales a fractional numeric value for display."
+      ]
+    }
+  },
+  "js-regex-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Ubah polanya agar huruf besar juga diperbolehkan.",
+        "Coba \"HTML\", \"html-forms\", \"-CSS\", dan \"React--State\"."
+      ],
+      "hint": "Coba menambahkan karakter tidak valid sebelum dan sesudah bagian yang cocok. Apakah seluruh input ikut diperiksa?",
+      "recap": [
+        "Anchor mencegah hanya bagian valid dari masukan yang lebih besar dan tidak valid ikut diterima."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Update the pattern to allow uppercase letters too.",
+        "Check \"HTML\", \"html-forms\", \"-CSS\", and \"React--State\"."
+      ],
+      "hint": "Add invalid characters before and after the matching part. Is the entire input checked?",
+      "recap": [
+        "Anchors prevent accepting only a valid substring of a larger invalid input."
+      ]
+    }
+  }
+}

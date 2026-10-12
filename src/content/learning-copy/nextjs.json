@@ -1,0 +1,2862 @@
+{
+  "next-file-routing": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat kedua file page lalu buka /learn dan /learn/react langsung.",
+        "Di proyek Next.js lokal: Ubah nama folder dan prediksi perubahan URL."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Di App Router, folder dan file khusus menjelaskan route. File page menjadi titik masuk UI untuk satu segmen URL."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Folder app menyusun segmen URL; page.tsx menampilkan isi untuk segmen itu.",
+            "app/learn/page.tsx menjadi /learn. app/learn/react/page.tsx menjadi /learn/react.",
+            "Buka kedua alamat langsung agar pemetaan folder dan URL terlihat."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Nama komponen tidak menentukan URL; lokasi file khusus dalam app yang menentukan."
+        }
+      ],
+      "hint": "Telusuri nama folder dari app sampai page.tsx.",
+      "recap": [
+        "Folder menjelaskan segmen URL.",
+        "page.tsx menampilkan sebuah route.",
+        "Simpan UI route dekat dengan route-nya.",
+        "Nama komponen tidak menentukan URL; lokasi file khusus dalam app yang menentukan."
+      ],
+      "quizExplanation": "page.tsx adalah titik masuk tampilan untuk segmen URL. Folder biasa di antara app dan page membentuk alamatnya.",
+      "visualDetails": [
+        "Folder app menyusun segmen URL; page.tsx menampilkan isi untuk segmen itu.",
+        "app/learn/page.tsx menjadi /learn. app/learn/react/page.tsx menjadi /learn/react.",
+        "Buka kedua alamat langsung agar pemetaan folder dan URL terlihat."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create both page files and open /learn and /learn/react directly.",
+        "In your local Next.js project: Rename a folder and predict the URL change."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "In the App Router, folders and special files describe routes. A page file is the UI entry point for one URL segment."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "The app folder defines URL segments; page.tsx displays a segment's content.",
+            "app/learn/page.tsx becomes /learn. app/learn/react/page.tsx becomes /learn/react.",
+            "Open both addresses directly to see how folders map to URLs."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Component names do not determine URLs; special file locations under app do."
+        }
+      ],
+      "hint": "Trace folder names from app to page.tsx.",
+      "recap": [
+        "Folders describe URL segments.",
+        "page.tsx renders a route.",
+        "Keep route UI close to its route.",
+        "Component names do not determine URLs; special file locations under app do."
+      ],
+      "quizExplanation": "page.tsx is the UI entry for a URL segment. Ordinary folders between app and page form its address.",
+      "visualDetails": [
+        "The app folder defines URL segments; page.tsx displays a segment's content.",
+        "app/learn/page.tsx becomes /learn. app/learn/react/page.tsx becomes /learn/react.",
+        "Open both addresses directly to see how folders map to URLs."
+      ]
+    }
+  },
+  "next-layouts-dynamic": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pertahankan root layout bawaan, tambahkan layout learn dan page [slug], lalu kunjungi dua slug.",
+        "Di proyek Next.js lokal: Await params dan periksa navigasi bersama."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Layout menyediakan struktur bersama untuk route yang terkait. Folder dengan tanda kurung siku menangkap nilai URL agar route bisa menemukan resource yang dibutuhkan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Layout membungkus children dengan bagian bersama, seperti navigasi.",
+            "Folder [slug] menangkap satu nilai URL yang bisa berbeda tiap kunjungan.",
+            "Halaman membaca params setelah await lalu menentukan konten untuk slug tersebut."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Segmen dinamis bukan bukti bahwa resource ada. Periksa data dan tangani slug tidak dikenal."
+        }
+      ],
+      "hint": "Bagian URL mana tetap, dan bagian mana berubah menjadi parameter?",
+      "recap": [
+        "Layout membungkus route child yang terkait.",
+        "Segmen dinamis menangkap nilai dari URL.",
+        "Periksa data yang hilang atau tidak valid.",
+        "Segmen dinamis bukan bukti bahwa resource ada."
+      ],
+      "quizExplanation": "Layout memberi struktur bersama, sedangkan folder [slug] menangkap nilai URL. Halaman memakai parameter itu untuk memilih resource.",
+      "visualDetails": [
+        "Layout membungkus children dengan bagian bersama, seperti navigasi.",
+        "Folder [slug] menangkap satu nilai URL yang bisa berbeda tiap kunjungan.",
+        "Halaman membaca params setelah await lalu menentukan konten untuk slug tersebut."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Keep the generated root layout, add the learn layout and [slug] page, then visit two slugs.",
+        "In your local Next.js project: Await params and verify the shared navigation."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Layouts provide shared structure for related routes. A bracketed folder captures a URL value so a route can find the resource it needs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Layouts wrap children with shared UI such as navigation.",
+            "A [slug] folder captures a URL value that can differ by visit.",
+            "The page awaits params and selects content for that slug."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Dynamic segments do not prove a resource exists. Check data and handle unknown slugs."
+        }
+      ],
+      "hint": "Which URL part is fixed and which becomes a parameter?",
+      "recap": [
+        "Layouts wrap related child routes.",
+        "Dynamic segments capture URL values.",
+        "Validate missing or invalid data.",
+        "Dynamic segments do not prove a resource exists."
+      ],
+      "quizExplanation": "Layouts supply shared structure while [slug] folders capture URL values. Pages use those parameters to select resources.",
+      "visualDetails": [
+        "Layouts wrap children with shared UI such as navigation.",
+        "A [slug] folder captures a URL value that can differ by visit.",
+        "The page awaits params and selects content for that slug."
+      ]
+    }
+  },
+  "next-link-navigation": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat kedua page lalu berpindah memakai Link, termasuk aktivasi keyboard.",
+        "Di proyek Next.js lokal: Buka setiap tujuan langsung dan periksa URL-nya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Gunakan Link untuk navigasi di dalam aplikasi agar Next.js bisa menjaga pengalaman perpindahan halaman dan melakukan prefetch tujuan yang mungkin dibuka jika sesuai."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Link menerima href tujuan dalam aplikasi.",
+            "Pengguna dapat mengaktifkan tautan dengan pointer atau keyboard.",
+            "Alamat tujuan tetap perlu bekerja saat dibuka langsung, bukan hanya setelah klik."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Prefetch adalah persiapan data atau kode tujuan sebelum kunjungan; perilakunya mengikuti jenis route dan konfigurasi."
+        }
+      ],
+      "hint": "Apakah perpindahan ini menuju alamat lain atau hanya menjalankan tindakan pada halaman sekarang?",
+      "recap": [
+        "Gunakan Link untuk navigasi internal.",
+        "Tulis path route dengan cermat.",
+        "Buat label navigasi menjelaskan tujuannya.",
+        "Prefetch adalah persiapan data atau kode tujuan sebelum kunjungan; perilakunya mengikuti jenis route dan konfigurasi."
+      ],
+      "quizExplanation": "Link menghubungkan tujuan dalam aplikasi dengan navigasi client yang disediakan Next.js. Tautan tetap perlu dapat diaktifkan melalui keyboard.",
+      "visualDetails": [
+        "Link menerima href tujuan dalam aplikasi.",
+        "Pengguna dapat mengaktifkan tautan dengan pointer atau keyboard.",
+        "Alamat tujuan tetap perlu bekerja saat dibuka langsung, bukan hanya setelah klik."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create both pages and navigate using Link, including keyboard activation.",
+        "In your local Next.js project: Open each destination directly and verify the URLs."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Use Link for in-app navigation so Next.js can preserve the application experience and prefetch likely destinations when appropriate."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Link receives an in-app destination href.",
+            "Users can activate links with a pointer or keyboard.",
+            "Destinations must also work when opened directly, not only after clicking."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Prefetch prepares destination data or code before a visit; behavior follows route type and configuration."
+        }
+      ],
+      "hint": "Does this move to another address or perform an action on the current page?",
+      "recap": [
+        "Use Link for internal navigation.",
+        "Write route paths deliberately.",
+        "Keep navigation labels descriptive.",
+        "Prefetch prepares destination data or code before a visit; behavior follows route type and configuration."
+      ],
+      "quizExplanation": "Link connects in-app destinations with Next.js client navigation. Links must remain keyboard-activatable.",
+      "visualDetails": [
+        "Link receives an in-app destination href.",
+        "Users can activate links with a pointer or keyboard.",
+        "Destinations must also work when opened directly, not only after clicking."
+      ]
+    }
+  },
+  "next-route-groups": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat (learning)/learn beserta layout grupnya.",
+        "Di proyek Next.js lokal: Pastikan URL tanpa tanda kurung dan hindari page kedua untuk route /learn yang sama."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Route group mengelompokkan folder tanpa menambah segmen URL. Ini berguna saat beberapa bagian membutuhkan layout atau tanggung jawab terpisah dengan URL yang tetap rapi."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Folder dengan tanda kurung, seperti (learning), mengelompokkan file.",
+            "Nama grup tidak masuk ke URL, jadi (learning)/learn tetap /learn.",
+            "Layout grup dapat memberi kerangka khusus pada route dalam kelompok itu."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Dua page berbeda tetap tidak boleh menghasilkan URL sama hanya karena berada di grup berbeda."
+        }
+      ],
+      "hint": "Bandingkan folder biasa dengan folder bertanda kurung saat menyusun URL.",
+      "recap": [
+        "Route group membantu menyusun file.",
+        "Route group tidak mengubah URL.",
+        "Gunakan untuk memisahkan layout dan tanggung jawab.",
+        "Dua page berbeda tetap tidak boleh menghasilkan URL sama hanya karena berada di grup berbeda."
+      ],
+      "quizExplanation": "Tanda kurung menunjukkan grup organisasi yang tidak menjadi segmen URL. Folder learn di dalamnya tetap menghasilkan /learn.",
+      "visualDetails": [
+        "Folder dengan tanda kurung, seperti (learning), mengelompokkan file.",
+        "Nama grup tidak masuk ke URL, jadi (learning)/learn tetap /learn.",
+        "Layout grup dapat memberi kerangka khusus pada route dalam kelompok itu."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create (learning)/learn with its group layout.",
+        "In your local Next.js project: Verify the URL excludes parentheses and avoid defining a second page for the same /learn route."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A route group organizes related folders without adding a URL segment. It is useful when sections need separate layouts or ownership while keeping clean URLs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Parenthesized folders such as (learning) group files.",
+            "Group names do not enter URLs, so (learning)/learn remains /learn.",
+            "Group layouts can provide a dedicated structure for contained routes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Two pages must not produce the same URL merely by belonging to different groups."
+        }
+      ],
+      "hint": "Compare ordinary and parenthesized folders when constructing URLs.",
+      "recap": [
+        "Route groups organize files.",
+        "They do not change the URL.",
+        "Use them for layout and ownership boundaries.",
+        "Two pages must not produce the same URL merely by belonging to different groups."
+      ],
+      "quizExplanation": "Parentheses mark organizational groups absent from URL segments. A learn folder inside still produces /learn.",
+      "visualDetails": [
+        "Parenthesized folders such as (learning) group files.",
+        "Group names do not enter URLs, so (learning)/learn remains /learn.",
+        "Group layouts can provide a dedicated structure for contained routes."
+      ]
+    }
+  },
+  "next-not-found": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buka /learn/react dan /learn/missing.",
+        "Di proyek Next.js lokal: Pastikan notFound menghentikan render dan fallback segmen menyediakan tautan pemulihan yang berfungsi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Panggil notFound saat resource yang diminta tidak ada atau tidak bisa ditampilkan. UI not-found khusus membantu pengguna memahami route yang tidak valid dan menemukan jalan kembali."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Halaman mencari resource dari slug yang diminta.",
+            "Jika tidak ditemukan, notFound menghentikan alur render segmen.",
+            "not-found.tsx menyediakan pesan serta tautan pemulihan yang relevan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Data kosong yang sah berbeda dari alamat resource yang tidak ada."
+        }
+      ],
+      "hint": "Apakah resource-nya tidak ada, atau ada tetapi belum memiliki item?",
+      "recap": [
+        "Data yang tidak ditemukan adalah kondisi route yang wajar.",
+        "Buat navigasi pemulihan mudah ditemukan.",
+        "Jangan tampilkan halaman kosong yang terlihat rusak.",
+        "Data kosong yang sah berbeda dari alamat resource yang tidak ada."
+      ],
+      "quizExplanation": "notFound menghentikan render saat resource tidak ditemukan dan memakai UI not-found yang sesuai. Data kosong yang sah berbeda dari resource hilang.",
+      "visualDetails": [
+        "Halaman mencari resource dari slug yang diminta.",
+        "Jika tidak ditemukan, notFound menghentikan alur render segmen.",
+        "not-found.tsx menyediakan pesan serta tautan pemulihan yang relevan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Open /learn/react and /learn/missing.",
+        "In your local Next.js project: Check that notFound stops rendering and that the segment fallback offers a working recovery link."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Call notFound when a requested resource does not exist or cannot be shown. A dedicated not-found UI makes an invalid route feel intentional and recoverable."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "The page looks up the requested slug.",
+            "If it is missing, notFound stops the segment's render flow.",
+            "not-found.tsx supplies a message and relevant recovery links."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Valid empty data differs from a missing resource address."
+        }
+      ],
+      "hint": "Is the resource missing, or present with no items yet?",
+      "recap": [
+        "Missing data is a normal route state.",
+        "Keep recovery navigation visible.",
+        "Do not render a broken empty page.",
+        "Valid empty data differs from a missing resource address."
+      ],
+      "quizExplanation": "notFound stops rendering for missing resources and uses the relevant not-found UI. Valid empty data differs from missing resources.",
+      "visualDetails": [
+        "The page looks up the requested slug.",
+        "If it is missing, notFound stops the segment's render flow.",
+        "not-found.tsx supplies a message and relevant recovery links."
+      ]
+    }
+  },
+  "next-server-components": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Jalankan page server async.",
+        "Di proyek Next.js lokal: Ganti helper sintetisnya dengan pembacaan server lalu jelaskan field yang aman dikirim ke UI."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Secara default, Server Component dirender di server. Komponen ini bisa mengambil data dekat dengan tempat pemakaiannya tanpa mengirim implementasinya ke browser."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Server Component dapat membaca data di server sebelum menyusun UI.",
+            "Kode akses server tidak perlu dikirim sebagai JavaScript browser.",
+            "Jika ada bagian interaktif, kirim data yang diperlukan ke Client Component kecil."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan menganggap semua data server aman dipublikasikan. Pilih field yang benar-benar dibutuhkan pengguna."
+        }
+      ],
+      "hint": "Di mana akses data dijalankan dan bagian mana perlu interaksi browser?",
+      "recap": [
+        "Komponen App Router secara default adalah Server Component.",
+        "Server Component bisa menunggu data langsung dengan await.",
+        "Kodenya tidak otomatis dikirim ke browser.",
+        "Jangan menganggap semua data server aman dipublikasikan."
+      ],
+      "quizExplanation": "Server Component dapat membaca data di server tanpa mengirim implementasi aksesnya ke browser. Pilih data publik yang dibutuhkan UI.",
+      "visualDetails": [
+        "Server Component dapat membaca data di server sebelum menyusun UI.",
+        "Kode akses server tidak perlu dikirim sebagai JavaScript browser.",
+        "Jika ada bagian interaktif, kirim data yang diperlukan ke Client Component kecil."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Run the async server page.",
+        "In your local Next.js project: Replace its synthetic helper with a server read and explain which fields may safely reach the UI."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Server Components render on the server by default. They can fetch data close to the component without shipping their implementation to the browser."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Server Components can read data on the server before composing UI.",
+            "Server access code need not be sent as browser JavaScript.",
+            "For interactive parts, pass necessary data to a small Client Component."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not assume all server data is safe to publish. Select fields users actually need."
+        }
+      ],
+      "hint": "Where does data access run and which part needs browser interaction?",
+      "recap": [
+        "App Router components are server components by default.",
+        "They can await data directly.",
+        "Their code is not automatically sent to the browser.",
+        "Do not assume all server data is safe to publish."
+      ],
+      "quizExplanation": "Server Components can read server data without shipping access implementations to browsers. Select public data needed by UI.",
+      "visualDetails": [
+        "Server Components can read data on the server before composing UI.",
+        "Server access code need not be sent as browser JavaScript.",
+        "For interactive parts, pass necessary data to a small Client Component."
+      ]
+    }
+  },
+  "next-client-components": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pisahkan Menu dan Page ke file berbeda lalu buka/tutup menu.",
+        "Di proyek Next.js lokal: Hapus use client sementara, periksa error, lalu pulihkan batas Menu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Gunakan \"use client\" pada batas yang membutuhkan state browser, effect, atau event handler. Jaga batasnya tetap kecil agar browser hanya menerima kode yang dibutuhkan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "State, event handler, dan API browser memerlukan batas Client Component.",
+            "Letakkan directive use client di awal file yang menjadi batas itu.",
+            "Pisahkan komponen interaktif dari halaman server yang memasok datanya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Client Component bukan berarti selalu dirender pertama kali hanya di browser; Next.js juga dapat menyiapkan HTML awalnya di server."
+        }
+      ],
+      "hint": "Bagian mana memakai event handler atau state yang berubah karena tindakan pengguna?",
+      "recap": [
+        "Client Component memungkinkan penggunaan API browser dan state.",
+        "Directive tersebut membuat batas client.",
+        "Jaga batas client tetap kecil.",
+        "Client Component bukan berarti selalu dirender pertama kali hanya di browser; Next.js juga dapat menyiapkan HTML awalnya di server."
+      ],
+      "quizExplanation": "State dan event handler memerlukan batas Client Component. Directive use client ditempatkan di file batas interaktif itu.",
+      "visualDetails": [
+        "State, event handler, dan API browser memerlukan batas Client Component.",
+        "Letakkan directive use client di awal file yang menjadi batas itu.",
+        "Pisahkan komponen interaktif dari halaman server yang memasok datanya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Split Menu and Page into separate files and toggle the menu.",
+        "In your local Next.js project: Remove use client temporarily, inspect the error, then restore the Menu boundary."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Use \"use client\" at the boundary that needs browser state, effects, or event handlers. Keep that boundary small so the browser receives only what it needs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "State, event handlers, and browser APIs need a Client Component boundary.",
+            "Place the use client directive at the start of that boundary file.",
+            "Separate interactive components from server pages supplying data."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Client Component does not mean its initial rendering always occurs only in the browser; Next.js can prepare initial HTML on the server."
+        }
+      ],
+      "hint": "Which part uses event handlers or user-driven state?",
+      "recap": [
+        "Client Components enable browser APIs and state.",
+        "The directive creates a client boundary.",
+        "Keep client boundaries narrow.",
+        "Client Component does not mean its initial rendering always occurs only in the browser; Next.js can prepare initial HTML on the server."
+      ],
+      "quizExplanation": "State and event handlers need Client Component boundaries. Place use client in that interactive boundary file.",
+      "visualDetails": [
+        "State, event handlers, and browser APIs need a Client Component boundary.",
+        "Place the use client directive at the start of that boundary file.",
+        "Separate interactive components from server pages supplying data."
+      ]
+    }
+  },
+  "next-streaming-suspense": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Jalankan contoh Progress tertunda lalu muat ulang langsung.",
+        "Di proyek Next.js lokal: Pastikan heading muncul sebelum progress; pindahkan batas Suspense dan bandingkan konten yang menunggu."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Suspense memungkinkan route menampilkan UI yang sudah siap saat child yang lebih lambat masih dimuat. Pasang batas di bagian yang bermakna agar tampilan loading sesuai dengan pekerjaan yang berlangsung."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Heading yang sudah siap dapat muncul lebih dahulu.",
+            "Suspense menampilkan fallback selama child yang ditunggu belum siap.",
+            "Setelah selesai, child menggantikan fallback pada area yang sama."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Batas terlalu besar membuat banyak konten ikut menunggu; terlalu banyak batas kecil dapat mengacaukan hierarki loading."
+        }
+      ],
+      "hint": "Konten mana sudah siap dan konten mana masih menunggu data?",
+      "recap": [
+        "Lakukan streaming per bagian route yang bermakna.",
+        "Sediakan tampilan loading yang membantu.",
+        "Jangan sembunyikan seluruh halaman karena satu detail lambat.",
+        "Batas terlalu besar membuat banyak konten ikut menunggu; terlalu banyak batas kecil dapat mengacaukan hierarki loading."
+      ],
+      "quizExplanation": "Suspense menampilkan fallback untuk bagian yang belum siap, sementara bagian siap di luar batas dapat tampil lebih dahulu.",
+      "visualDetails": [
+        "Heading yang sudah siap dapat muncul lebih dahulu.",
+        "Suspense menampilkan fallback selama child yang ditunggu belum siap.",
+        "Setelah selesai, child menggantikan fallback pada area yang sama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Run the delayed Progress example and reload directly.",
+        "In your local Next.js project: Verify the heading appears before progress; move the Suspense boundary and compare what waits."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Suspense lets a route reveal ready UI while a slower child is still loading. Put boundaries around meaningful sections so the fallback matches the work."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Ready headings can appear first.",
+            "Suspense shows a fallback while its awaited child is not ready.",
+            "Once ready, the child replaces that fallback in the same area."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Oversized boundaries make more content wait; too many tiny boundaries can confuse loading hierarchy."
+        }
+      ],
+      "hint": "Which content is ready and which still awaits data?",
+      "recap": [
+        "Stream meaningful route sections.",
+        "Use useful loading fallbacks.",
+        "Do not hide the whole page for one slow detail.",
+        "Oversized boundaries make more content wait; too many tiny boundaries can confuse loading hierarchy."
+      ],
+      "quizExplanation": "Suspense shows fallbacks for unready regions while ready content outside can appear first.",
+      "visualDetails": [
+        "Ready headings can appear first.",
+        "Suspense shows a fallback while its awaited child is not ready.",
+        "Once ready, the child replaces that fallback in the same area."
+      ]
+    }
+  },
+  "next-caching-revalidation": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Gunakan App Router bawaan dengan Cache Components nonaktif.",
+        "Di proyek Next.js lokal: Periksa revalidate: 60, bandingkan cache: no-store, lalu jelaskan pilihan kesegaran data publik."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tentukan seberapa baru data yang dibutuhkan pengguna, lalu pilih strategi cache dan revalidasi yang jelas. Caching adalah keputusan produk sekaligus performa."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Cache menyimpan hasil agar pembacaan berikutnya dapat memakai ulang data.",
+            "Tentukan apakah data publik boleh tertunda atau perlu selalu diperbarui.",
+            "Coba konfigurasi contoh pada proyek lokal dan bandingkan hasil serta permintaan jaringan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Contoh ini memakai App Router dengan Cache Components nonaktif. Pilihan cache bergantung versi dan konfigurasi proyek; jangan menerapkan aturan ini sebagai perilaku semua setup."
+        }
+      ],
+      "hint": "Seberapa lama pengguna dapat menerima data lama pada fitur ini?",
+      "recap": [
+        "Tentukan seberapa baru data yang dibutuhkan.",
+        "Cache key sebaiknya mencerminkan request-nya.",
+        "Lakukan revalidasi setelah perubahan yang relevan.",
+        "Contoh ini memakai App Router dengan Cache Components nonaktif."
+      ],
+      "quizExplanation": "Strategi cache mengikuti kebutuhan kesegaran data dan konfigurasi proyek. Data yang boleh tertunda berbeda kebutuhannya dari data yang harus selalu baru.",
+      "visualDetails": [
+        "Cache menyimpan hasil agar pembacaan berikutnya dapat memakai ulang data.",
+        "Tentukan apakah data publik boleh tertunda atau perlu selalu diperbarui.",
+        "Coba konfigurasi contoh pada proyek lokal dan bandingkan hasil serta permintaan jaringan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Use the default App Router with Cache Components disabled.",
+        "In your local Next.js project: Inspect revalidate: 60, compare cache: no-store, and explain the freshness tradeoff for public data."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Choose freshness based on the data people need, then set a clear cache and revalidation strategy. Caching is a product decision as much as a performance one."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Caches store results for later reuse.",
+            "Decide whether public data may lag or must stay fresh.",
+            "Try the example configuration locally and compare output and network requests."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This example uses App Router with Cache Components disabled. Caching depends on project version and configuration; do not generalize it to every setup."
+        }
+      ],
+      "hint": "How long can users accept stale data in this feature?",
+      "recap": [
+        "Decide data freshness intentionally.",
+        "Cache keys should reflect the request.",
+        "Revalidate after meaningful changes.",
+        "This example uses App Router with Cache Components disabled."
+      ],
+      "quizExplanation": "Caching follows freshness needs and project configuration. Data tolerating delay differs from data requiring freshness.",
+      "visualDetails": [
+        "Caches store results for later reuse.",
+        "Decide whether public data may lag or must stay fresh.",
+        "Try the example configuration locally and compare output and network requests."
+      ]
+    }
+  },
+  "next-server-actions": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat action dan form, simpan tujuan, lalu periksa cookie-nya.",
+        "Di proyek Next.js lokal: Kirim input kosong/terlalu panjang dan jelaskan pemeriksaan izin tambahan untuk write sensitif."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Server Action menangani perubahan data form dekat dengan route pemiliknya. Anggap input-nya belum tepercaya dan kembalikan kondisi berhasil atau error yang jelas."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Form mengirim input ke fungsi server yang ditandai use server.",
+            "Action membaca dan memvalidasi input sebelum mengubah data.",
+            "Kembalikan hasil yang dapat ditampilkan UI, termasuk kegagalan dan keberhasilan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Action tetap perlu pemeriksaan izin untuk perubahan sensitif. Tersembunyi dari UI bukan berarti tidak bisa dipanggil pengguna lain."
+        }
+      ],
+      "hint": "Apa yang perlu diperiksa sebelum input pengguna boleh mengubah data?",
+      "recap": [
+        "Server Action menangani perubahan data di server.",
+        "Validasi setiap input.",
+        "Kembalikan kondisi yang bisa ditampilkan form.",
+        "Action tetap perlu pemeriksaan izin untuk perubahan sensitif."
+      ],
+      "quizExplanation": "Input action tetap berasal dari pemanggil yang belum tepercaya. Validasi serta pemeriksaan izin dilakukan sebelum perubahan sensitif.",
+      "visualDetails": [
+        "Form mengirim input ke fungsi server yang ditandai use server.",
+        "Action membaca dan memvalidasi input sebelum mengubah data.",
+        "Kembalikan hasil yang dapat ditampilkan UI, termasuk kegagalan dan keberhasilan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create the action and form, save a goal, and inspect its cookie.",
+        "In your local Next.js project: Send blank/oversized input and explain the additional permission checks for a sensitive write."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Server Actions handle a form mutation close to the route that owns it. Treat their input as untrusted and return a clear success or error state."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Forms send input to server functions marked use server.",
+            "Actions read and validate input before changing data.",
+            "Return a UI-friendly result for failure and success."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Actions still need authorization for sensitive changes. Being hidden in UI does not prevent other callers."
+        }
+      ],
+      "hint": "What must be checked before user input can change data?",
+      "recap": [
+        "Server Actions own server mutations.",
+        "Validate every input.",
+        "Return a state the form can present.",
+        "Actions still need authorization for sensitive changes."
+      ],
+      "quizExplanation": "Action inputs still come from untrusted callers. Validate and authorize before sensitive changes.",
+      "visualDetails": [
+        "Forms send input to server functions marked use server.",
+        "Actions read and validate input before changing data.",
+        "Return a UI-friendly result for failure and success."
+      ]
+    }
+  },
+  "next-data-fetching": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Kunjungi page biasa, dengan ?",
+        "Di proyek Next.js lokal: demo=empty, dan dengan ?",
+        "Di proyek Next.js lokal: demo=error.",
+        "Di proyek Next.js lokal: Tambahkan loading.tsx/error.tsx dari pelajaran pendamping lalu periksa setiap state."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Ambil data di tempat yang membutuhkannya, lalu rancang kondisi loading, berhasil, kosong, dan error. Data request punya lifecycle, bukan hanya nilai akhir."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Mulai dengan sumber data dan bentuk hasil yang dibutuhkan halaman.",
+            "Pisahkan hasil kosong yang sah dari kegagalan pengambilan.",
+            "Hubungkan konten dengan loading dan error yang memberi pengguna informasi serta pemulihan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Contoh query demo memudahkan mencoba beberapa keadaan tanpa menunggu server sungguhan gagal."
+        }
+      ],
+      "hint": "Jika pengambilan berhasil tetapi daftarnya kosong, tampilan apa yang sesuai?",
+      "recap": [
+        "Ambil data dekat dengan pemakainya.",
+        "Siapkan setiap kondisi request.",
+        "Nyatakan bentuk data dengan jelas.",
+        "Contoh query demo memudahkan mencoba beberapa keadaan tanpa menunggu server sungguhan gagal."
+      ],
+      "quizExplanation": "Pengambilan data memiliki keadaan menunggu, berhasil, kosong, dan gagal. UI perlu membedakan semuanya agar hasil dapat dipahami.",
+      "visualDetails": [
+        "Mulai dengan sumber data dan bentuk hasil yang dibutuhkan halaman.",
+        "Pisahkan hasil kosong yang sah dari kegagalan pengambilan.",
+        "Hubungkan konten dengan loading dan error yang memberi pengguna informasi serta pemulihan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Visit the page normally, with ?",
+        "In your local Next.js project: demo=empty, and with ?",
+        "In your local Next.js project: demo=error.",
+        "In your local Next.js project: Add loading.tsx/error.tsx from the companion lessons and inspect each state."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Fetch data where it is needed, then deliberately design loading, success, empty, and error states. Request data has a lifecycle, not only a final value."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Start with the data source and the shape needed by the page.",
+            "Separate valid empty results from fetch failures.",
+            "Connect content with informative loading and recoverable error views."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Demo queries make several states reproducible without waiting for a real server failure."
+        }
+      ],
+      "hint": "If fetching succeeds with an empty list, what view fits?",
+      "recap": [
+        "Fetch data close to its consumer.",
+        "Plan for each request state.",
+        "Keep data shape explicit.",
+        "Demo queries make several states reproducible without waiting for a real server failure."
+      ],
+      "quizExplanation": "Data fetching has pending, successful, empty, and failed states. UI should distinguish them to explain outcomes.",
+      "visualDetails": [
+        "Start with the data source and the shape needed by the page.",
+        "Separate valid empty results from fetch failures.",
+        "Connect content with informative loading and recoverable error views."
+      ]
+    }
+  },
+  "next-metadata-route-handlers": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat page dan endpoint secara terpisah.",
+        "Di proyek Next.js lokal: Periksa title dokumen; panggil /api/greeting?",
+        "Di proyek Next.js lokal: name=Ada dan URL tanpa name lalu bandingkan status serta JSON."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Metadata menjelaskan route kepada pengguna dan browser. Route Handler membuat endpoint server yang perlu memvalidasi input dan memberikan respons yang jelas."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Metadata memberi nama dan deskripsi untuk halaman.",
+            "Route Handler menerima request HTTP pada endpoint, seperti /api/greeting.",
+            "Validasi parameter lalu kembalikan status dan JSON sesuai hasilnya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Halaman dan endpoint punya tugas berbeda. Metadata bukan tempat memproses input API."
+        }
+      ],
+      "hint": "Bedakan informasi halaman dari fungsi yang menanggapi request HTTP.",
+      "recap": [
+        "Simpan metadata bersama route yang dijelaskannya.",
+        "Route Handler membuat endpoint HTTP.",
+        "Validasi data saat masuk ke server.",
+        "Halaman dan endpoint punya tugas berbeda."
+      ],
+      "quizExplanation": "Metadata menjelaskan halaman; Route Handler memproses request HTTP. Endpoint tetap perlu status dan validasi input yang sesuai.",
+      "visualDetails": [
+        "Metadata memberi nama dan deskripsi untuk halaman.",
+        "Route Handler menerima request HTTP pada endpoint, seperti /api/greeting.",
+        "Validasi parameter lalu kembalikan status dan JSON sesuai hasilnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create the page and endpoint separately.",
+        "In your local Next.js project: Inspect the document title; call /api/greeting?",
+        "In your local Next.js project: name=Ada and the URL without name, comparing status and JSON."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Metadata describes a route for people and browsers. Route Handlers create server endpoints that should validate input and return clear responses."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Metadata names and describes pages.",
+            "Route Handlers receive HTTP requests at endpoints such as /api/greeting.",
+            "Validate parameters and return status and JSON matching the outcome."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Pages and endpoints have different jobs. Metadata does not process API input."
+        }
+      ],
+      "hint": "Distinguish page information from HTTP request handlers.",
+      "recap": [
+        "Metadata belongs with the route it describes.",
+        "Route Handlers create HTTP endpoints.",
+        "Validate data at the server boundary.",
+        "Pages and endpoints have different jobs."
+      ],
+      "quizExplanation": "Metadata describes pages; Route Handlers process HTTP requests. Endpoints still need appropriate status and validation.",
+      "visualDetails": [
+        "Metadata names and describes pages.",
+        "Route Handlers receive HTTP requests at endpoints such as /api/greeting.",
+        "Validate parameters and return status and JSON matching the outcome."
+      ]
+    }
+  },
+  "next-loading-ui": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat /learn dengan loading.tsx dan page tertunda.",
+        "Di proyek Next.js lokal: Navigasikan lalu muat ulang langsung; periksa pesan loading dan pergantiannya menjadi konten siap."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "File loading menyediakan tampilan sementara langsung pada tingkat route. Buat bentuknya menyerupai konten yang akan muncul agar pengguna tahu apa yang sedang disiapkan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "loading.tsx mendefinisikan fallback untuk segmen route.",
+            "Bentuk sementara memberi gambaran konten yang sedang disiapkan.",
+            "Setelah data siap, konten sebenarnya menggantikan fallback."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Skeleton perlu mewakili bagian penting, bukan menggandakan seluruh halaman panjang."
+        }
+      ],
+      "hint": "Apa yang bisa ditampilkan segera ketika konten route masih menunggu?",
+      "recap": [
+        "Loading adalah bagian dari desain route.",
+        "Sesuaikan bentuk layout jika memungkinkan.",
+        "Buat tampilannya cepat muncul dan informatif.",
+        "Skeleton perlu mewakili bagian penting, bukan menggandakan seluruh halaman panjang."
+      ],
+      "quizExplanation": "loading.tsx menyediakan UI sementara saat segmen menunggu. Bentuk yang menyerupai konten membantu menjelaskan apa yang sedang disiapkan.",
+      "visualDetails": [
+        "loading.tsx mendefinisikan fallback untuk segmen route.",
+        "Bentuk sementara memberi gambaran konten yang sedang disiapkan.",
+        "Setelah data siap, konten sebenarnya menggantikan fallback."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create /learn with loading.tsx and the delayed page.",
+        "In your local Next.js project: Navigate and reload directly; inspect the loading message and its replacement by ready content."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A loading file supplies an immediate route-level fallback. Make it resemble the incoming content so people understand what is on its way."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "loading.tsx defines a route-segment fallback.",
+            "Its temporary shape previews the content being prepared.",
+            "Ready content replaces the fallback."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Skeletons should represent key regions rather than duplicate every part of a long page."
+        }
+      ],
+      "hint": "What can appear immediately while route content is waiting?",
+      "recap": [
+        "Loading is part of the route design.",
+        "Match the layout where possible.",
+        "Keep it quick and informative.",
+        "Skeletons should represent key regions rather than duplicate every part of a long page."
+      ],
+      "quizExplanation": "loading.tsx provides temporary UI while a segment waits. Content-like shapes explain what is being prepared.",
+      "visualDetails": [
+        "loading.tsx defines a route-segment fallback.",
+        "Its temporary shape previews the content being prepared.",
+        "Ready content replaces the fallback."
+      ]
+    }
+  },
+  "next-error-ui": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Jalankan demo gagal lalu aktifkan Coba lagi.",
+        "Di proyek Next.js lokal: Periksa pembatasan segmen dan jelaskan mengapa error.tsx tidak menangkap layout pada segmen yang sama."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "File error membatasi kegagalan pada segmen route-nya dan bisa menyediakan tindakan coba lagi. Tulis tampilan pengganti untuk pengguna yang melihatnya, bukan hanya developer yang membaca log."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "error.tsx menyediakan tampilan saat child segmen gagal.",
+            "Pesan menjelaskan keadaan tanpa membocorkan detail internal.",
+            "Tindakan coba lagi memicu pemulihan; tautan keluar memberi pilihan jika gagal berulang."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Boundary error suatu segmen tidak menangkap layout pada segmen yang sama. Tentukan batas pemulihan berdasarkan lokasi kegagalan."
+        }
+      ],
+      "hint": "Area mana berada di dalam boundary dan tindakan apa membantu pengguna pulih?",
+      "recap": [
+        "Batasi dampak error pada segmen route.",
+        "Sediakan coba lagi jika sesuai.",
+        "Pisahkan detail teknis dari pesan utama.",
+        "Boundary error suatu segmen tidak menangkap layout pada segmen yang sama."
+      ],
+      "quizExplanation": "error.tsx memberi fallback dan pemulihan untuk kegagalan dalam batas segmennya. Pesan ditujukan bagi pengguna yang perlu melanjutkan.",
+      "visualDetails": [
+        "error.tsx menyediakan tampilan saat child segmen gagal.",
+        "Pesan menjelaskan keadaan tanpa membocorkan detail internal.",
+        "Tindakan coba lagi memicu pemulihan; tautan keluar memberi pilihan jika gagal berulang."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Run the failing demo and activate Try again.",
+        "In your local Next.js project: Verify segment containment and explain why its error.tsx cannot catch its own segment’s layout."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "An error file contains a failure within its route segment and can offer a retry. Write the fallback for the person seeing it, not only the developer reading logs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "error.tsx provides a view when segment children fail.",
+            "Messages explain the situation without exposing internals.",
+            "Retry initiates recovery; navigation offers an alternative after repeated failure."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A segment error boundary does not catch that segment's own layout. Choose recovery boundaries based on failure location."
+        }
+      ],
+      "hint": "Which area is inside the boundary and what helps users recover?",
+      "recap": [
+        "Contain errors to a route segment.",
+        "Offer retry when appropriate.",
+        "Keep technical details out of the main message.",
+        "A segment error boundary does not catch that segment's own layout."
+      ],
+      "quizExplanation": "error.tsx supplies fallback and recovery within its segment boundary. Messages serve users who need to continue.",
+      "visualDetails": [
+        "error.tsx provides a view when segment children fail.",
+        "Messages explain the situation without exposing internals.",
+        "Retry initiates recovery; navigation offers an alternative after repeated failure."
+      ]
+    }
+  },
+  "next-fonts-images": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Tambahkan study.jpg milikmu dengan ukuran yang disebutkan dan alt yang sesuai.",
+        "Di proyek Next.js lokal: Ubah ukuran page lalu periksa ruang gambar serta layout font."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Muat font dan gambar dengan mempertimbangkan cara tampilnya. Sediakan ruang gambar sejak awal agar konten tidak bergeser saat pengguna sudah mulai membaca."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Dimensi gambar menyiapkan ruang sebelum file selesai dimuat.",
+            "alt menjelaskan makna gambar ketika tidak dapat dilihat.",
+            "Pengaturan font membantu teks tampil konsisten sambil mempertimbangkan pergantian font."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Pilih ukuran dan teks alternatif dari gambar yang benar-benar dipakai, bukan menyalin nilai contoh tanpa memeriksa."
+        }
+      ],
+      "hint": "Apa yang terjadi pada posisi teks jika ruang gambar baru dibuat setelah gambar selesai dimuat?",
+      "recap": [
+        "Sediakan ruang untuk gambar.",
+        "Rencanakan cara font dimuat.",
+        "Jaga tampilan tetap stabil saat dibaca dan digunakan.",
+        "Pilih ukuran dan teks alternatif dari gambar yang benar-benar dipakai, bukan menyalin nilai contoh tanpa memeriksa."
+      ],
+      "quizExplanation": "Dimensi gambar menyiapkan ruang sebelum pemuatan selesai sehingga konten sekitar tidak perlu bergeser. Font juga perlu mempertimbangkan perubahan tampilan saat dimuat.",
+      "visualDetails": [
+        "Dimensi gambar menyiapkan ruang sebelum file selesai dimuat.",
+        "alt menjelaskan makna gambar ketika tidak dapat dilihat.",
+        "Pengaturan font membantu teks tampil konsisten sambil mempertimbangkan pergantian font."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Add your own study.jpg with the stated dimensions and matching alt text.",
+        "In your local Next.js project: Resize the page and verify reserved image space and the font layout."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Load fonts and images with their display behavior in mind. Reserve image space and avoid shifting content after a person has started reading."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Image dimensions reserve space before loading finishes.",
+            "alt conveys meaning when the image cannot be seen.",
+            "Font configuration supports consistent text while accounting for font swapping."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Choose dimensions and alt text for the actual image rather than copying unverified sample values."
+        }
+      ],
+      "hint": "What happens to text position if image space is reserved only after loading?",
+      "recap": [
+        "Reserve image space.",
+        "Load fonts deliberately.",
+        "Protect reading and interaction stability.",
+        "Choose dimensions and alt text for the actual image rather than copying unverified sample values."
+      ],
+      "quizExplanation": "Image dimensions reserve space before loading finishes, avoiding nearby content shifts. Fonts also need loading-related visual consideration.",
+      "visualDetails": [
+        "Image dimensions reserve space before loading finishes.",
+        "alt conveys meaning when the image cannot be seen.",
+        "Font configuration supports consistent text while accounting for font swapping."
+      ]
+    }
+  },
+  "next-forms-validation": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Tampilkan EmailForm dari page server.",
+        "Di proyek Next.js lokal: Periksa nilai valid, kosong, @, dan yang mengandung spasi; lewati petunjuk browser lalu periksa error server dan pesan pending."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Validasi formulir membantu pengguna memperbaiki input. Server tetap menentukan apakah perubahan boleh dilakukan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Client memberi petunjuk langsung agar koreksi mudah.",
+            "Server memeriksa ulang input sebelum melakukan perubahan.",
+            "Pesan per field dan status pending membantu pengguna memahami hasil pengiriman."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Aturan email model ini terbatas, bukan parser standar lengkap. Request dapat melewati validasi browser."
+        }
+      ],
+      "hint": "Jika request dikirim tanpa form browser, pemeriksaan mana yang masih harus berlaku?",
+      "recap": [
+        "Anggap setiap request belum tepercaya.",
+        "Berikan umpan balik field yang membantu.",
+        "Tampilkan kondisi berhasil dan proses yang masih berlangsung.",
+        "Aturan email model ini terbatas, bukan parser standar lengkap."
+      ],
+      "quizExplanation": "Validasi server tetap wajib karena request dapat melewati kontrol browser. Pesan per field membantu pengguna memperbaiki input yang ditolak.",
+      "visualDetails": [
+        "Client memberi petunjuk langsung agar koreksi mudah.",
+        "Server memeriksa ulang input sebelum melakukan perubahan.",
+        "Pesan per field dan status pending membantu pengguna memahami hasil pengiriman."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Render EmailForm from the server page.",
+        "In your local Next.js project: Check valid, blank, @, and whitespace-containing values; bypass browser hints and verify server errors and pending feedback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Form validation helps users correct input. The server still decides whether changes are allowed."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Clients give immediate hints for easy correction.",
+            "Servers recheck input before making changes.",
+            "Field messages and pending status explain submission outcomes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This model uses a limited email rule, not a complete standards parser. Requests can bypass browser validation."
+        }
+      ],
+      "hint": "If a request bypasses the browser form, which checks must still apply?",
+      "recap": [
+        "Treat every request as untrusted.",
+        "Return useful field feedback.",
+        "Keep success and pending states visible.",
+        "This model uses a limited email rule, not a complete standards parser."
+      ],
+      "quizExplanation": "Server validation is still required because requests can bypass browser controls. Field messages help users correct rejected inputs.",
+      "visualDetails": [
+        "Clients give immediate hints for easy correction.",
+        "Servers recheck input before making changes.",
+        "Field messages and pending status explain submission outcomes."
+      ]
+    }
+  },
+  "next-optimistic-ui": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Baca cookie pada page server lalu kirim initialSaved.",
+        "Di proyek Next.js lokal: Ubah bookmark; buat saveBookmark melempar error lalu periksa pesan pending dan rollback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Optimistic UI menampilkan hasil yang diharapkan sebelum server mengonfirmasinya. Gunakan untuk tindakan yang sesuai, lalu selaraskan hasil atau pulihkan UI jika request gagal."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Tampilkan perubahan yang diperkirakan berhasil sebelum konfirmasi server.",
+            "Tandai pending agar pengguna tahu hasilnya belum final.",
+            "Selaraskan dengan hasil server atau pulihkan keadaan lama jika gagal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Optimistic UI memerlukan rencana kegagalan. Tindakan berisiko tinggi bisa lebih cocok menunggu konfirmasi."
+        }
+      ],
+      "hint": "Bagaimana tampilan dipulihkan jika server menolak perubahan?",
+      "recap": [
+        "Tampilkan hasil yang diharapkan dengan cepat.",
+        "Tandai proses yang belum selesai dengan jelas.",
+        "Pulihkan kondisi jika hasil server berbeda.",
+        "Optimistic UI memerlukan rencana kegagalan."
+      ],
+      "quizExplanation": "UI sementara mengasumsikan keberhasilan, sehingga kegagalan server harus dapat dipulihkan melalui rollback atau penyelarasan hasil.",
+      "visualDetails": [
+        "Tampilkan perubahan yang diperkirakan berhasil sebelum konfirmasi server.",
+        "Tandai pending agar pengguna tahu hasilnya belum final.",
+        "Selaraskan dengan hasil server atau pulihkan keadaan lama jika gagal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Read the cookie in the server page and pass initialSaved.",
+        "In your local Next.js project: Toggle the bookmark; make saveBookmark throw and verify pending feedback and rollback."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Optimistic UI shows the expected result before the server confirms it. Use it for actions that feel safe, then reconcile or recover when the request fails."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Show the expected change before server confirmation.",
+            "Mark it pending so users know it is not final.",
+            "Reconcile with the server result or restore prior state on failure."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Optimistic UI needs a failure plan. High-risk actions may be better served by waiting for confirmation."
+        }
+      ],
+      "hint": "How is the view restored if the server rejects the change?",
+      "recap": [
+        "Show the expected state quickly.",
+        "Mark pending work clearly.",
+        "Recover when the server disagrees.",
+        "Optimistic UI needs a failure plan."
+      ],
+      "quizExplanation": "Temporary optimistic UI assumes success, so server failure must be recoverable through rollback or reconciliation.",
+      "visualDetails": [
+        "Show the expected change before server confirmation.",
+        "Mark it pending so users know it is not final.",
+        "Reconcile with the server result or restore prior state on failure."
+      ]
+    }
+  },
+  "next-revalidate-path": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Kunjungi /learn dua kali, invalidasi cache lewat action, lalu kunjungi lagi.",
+        "Di proyek Next.js lokal: Jelaskan mengapa mutasi nyata harus berhasil sebelum invalidasi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Setelah perubahan data berhasil, lakukan revalidasi route atau tag yang bergantung padanya. Dengan begitu, tampilan dalam cache tetap selaras dengan sumber datanya."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Perubahan berhasil memperbarui sumber data.",
+            "Kenali route atau tag cache yang memakai data itu.",
+            "Invalidasi bagian terkait agar pembacaan berikutnya dapat menampilkan data terbaru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Invalidasi cache bukan pengganti perubahan data. Tunggu keberhasilan perubahan sebelum menyatakan hasilnya selesai."
+        }
+      ],
+      "hint": "Data berubah pada sumbernya atau hanya tampilan cache yang diminta diperbarui?",
+      "recap": [
+        "Perubahan data memengaruhi tampilan dalam cache.",
+        "Perbarui bagian relevan yang paling kecil.",
+        "Tempatkan invalidasi dekat dengan operasi penulisan.",
+        "Invalidasi cache bukan pengganti perubahan data."
+      ],
+      "quizExplanation": "Revalidasi dilakukan setelah perubahan berhasil pada data yang dipakai route atau tag cache terkait. Invalidasi bukan pengganti mutasi.",
+      "visualDetails": [
+        "Perubahan berhasil memperbarui sumber data.",
+        "Kenali route atau tag cache yang memakai data itu.",
+        "Invalidasi bagian terkait agar pembacaan berikutnya dapat menampilkan data terbaru."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Visit /learn twice, invalidate its cache with the action, then revisit.",
+        "In your local Next.js project: Explain why a real mutation must complete successfully before invalidation."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "After a successful mutation, revalidate the route or tag that depends on the changed data. This keeps cached views aligned with the source of truth."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Successful mutations update the source data.",
+            "Identify routes or cache tags using it.",
+            "Invalidate related caches so subsequent reads can display fresh data."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Cache invalidation does not replace a mutation. Wait for mutation success before reporting completion."
+        }
+      ],
+      "hint": "Did source data change, or was only the cached view asked to refresh?",
+      "recap": [
+        "Mutations affect cached views.",
+        "Refresh the smallest relevant area.",
+        "Keep invalidation near the write.",
+        "Cache invalidation does not replace a mutation."
+      ],
+      "quizExplanation": "Revalidate after successfully changing data used by related routes or cache tags. Invalidation does not replace mutation.",
+      "visualDetails": [
+        "Successful mutations update the source data.",
+        "Identify routes or cache tags using it.",
+        "Invalidate related caches so subsequent reads can display fresh data."
+      ]
+    }
+  },
+  "next-auth-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Panggil endpoint demo lalu periksa 403.",
+        "Di proyek Next.js lokal: Atur adapter tepercaya menjadi editor, kirim JSON tidak valid, lalu jelaskan mengapa role pada body request tidak memberikan izin."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Authentication mengenali siapa penggunanya; authorization menentukan apakah pengguna itu boleh melakukan tindakan tertentu. Tegakkan keduanya di server untuk setiap perubahan sensitif."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Autentikasi mengenali siapa pemanggilnya.",
+            "Otorisasi memeriksa apakah orang itu boleh melakukan tindakan tertentu.",
+            "Server memeriksa keduanya sebelum perubahan sensitif, tidak hanya ketika halaman dibuka."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Role dari body request bukan bukti izin. Ambil identitas dan izin dari sumber server yang tepercaya."
+        }
+      ],
+      "hint": "Apakah menyembunyikan tombol mencegah pengguna mengirim request sendiri?",
+      "recap": [
+        "Authentication dan authorization punya tugas berbeda.",
+        "Periksa izin untuk setiap tindakan.",
+        "Jangan mengandalkan pemeriksaan yang hanya ada di browser.",
+        "Role dari body request bukan bukti izin."
+      ],
+      "quizExplanation": "Server menegakkan otorisasi untuk tiap tindakan sensitif. Menyembunyikan tombol atau menerima role dari body request tidak membuktikan izin.",
+      "visualDetails": [
+        "Autentikasi mengenali siapa pemanggilnya.",
+        "Otorisasi memeriksa apakah orang itu boleh melakukan tindakan tertentu.",
+        "Server memeriksa keduanya sebelum perubahan sensitif, tidak hanya ketika halaman dibuka."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Call the demo endpoint and inspect 403.",
+        "In your local Next.js project: Set the trusted adapter to editor, send invalid JSON, and explain why request-body roles cannot grant permission."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Authentication identifies a person; authorization decides whether that person may perform this action. Enforce both rules on the server for every sensitive mutation."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Authentication identifies callers.",
+            "Authorization checks whether they may perform an action.",
+            "Servers check both before sensitive mutations, not only when pages open."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A request-body role is not evidence of permission. Use trusted server identity and authorization sources."
+        }
+      ],
+      "hint": "Does hiding a button prevent users from sending their own requests?",
+      "recap": [
+        "Authentication and authorization differ.",
+        "Check permission per action.",
+        "Never trust a browser-only check.",
+        "A request-body role is not evidence of permission."
+      ],
+      "quizExplanation": "Servers enforce authorization for each sensitive action. Hiding buttons or accepting body-supplied roles does not prove permission.",
+      "visualDetails": [
+        "Authentication identifies callers.",
+        "Authorization checks whether they may perform an action.",
+        "Servers check both before sensitive mutations, not only when pages open."
+      ]
+    }
+  },
+  "next-route-handlers": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: POST JSON valid, JSON tidak valid, title hilang, dan title berisi spasi ke /api/lessons.",
+        "Di proyek Next.js lokal: Bandingkan status lalu tentukan tempat write sensitif membutuhkan otorisasi."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Route Handler adalah batas HTTP. Baca input, validasi, periksa izin pemanggil, kerjakan satu tugas yang jelas, lalu kembalikan respons yang tegas."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Baca body atau parameter request dan tangani format rusak.",
+            "Validasi isi serta izin sebelum pekerjaan bisnis.",
+            "Kembalikan status dan respons yang sesuai dengan hasilnya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Request JSON valid belum tentu memiliki title yang sah atau izin menulis. Periksa lapisannya secara terpisah."
+        }
+      ],
+      "hint": "Apa beda format JSON valid dengan input yang memenuhi aturan aplikasi?",
+      "recap": [
+        "Data yang masuk lewat HTTP perlu divalidasi.",
+        "Kembalikan status dan data yang jelas.",
+        "Jaga setiap handler tetap fokus.",
+        "Request JSON valid belum tentu memiliki title yang sah atau izin menulis."
+      ],
+      "quizExplanation": "Format input, aturan data, dan izin diperiksa sebelum tugas bisnis. JSON yang bisa dibaca belum tentu memenuhi kontrak aplikasi.",
+      "visualDetails": [
+        "Baca body atau parameter request dan tangani format rusak.",
+        "Validasi isi serta izin sebelum pekerjaan bisnis.",
+        "Kembalikan status dan respons yang sesuai dengan hasilnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: POST valid JSON, invalid JSON, missing title, and a whitespace-only title to /api/lessons.",
+        "In your local Next.js project: Compare statuses and identify where sensitive writes need authorization."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Route Handler is an HTTP boundary. Parse input, validate it, authorize the caller, do one focused job, and return an explicit response."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Read request bodies or parameters and handle malformed formats.",
+            "Validate content and permissions before business work.",
+            "Return status and responses matching outcomes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Valid JSON need not contain a valid title or write permission. Check those layers separately."
+        }
+      ],
+      "hint": "How does valid JSON differ from input meeting application rules?",
+      "recap": [
+        "HTTP boundaries need validation.",
+        "Return clear status and data.",
+        "Keep each handler focused.",
+        "Valid JSON need not contain a valid title or write permission."
+      ],
+      "quizExplanation": "Check input format, data rules, and permissions before business work. Parseable JSON need not meet application contracts.",
+      "visualDetails": [
+        "Read request bodies or parameters and handle malformed formats.",
+        "Validate content and permissions before business work.",
+        "Return status and responses matching outcomes."
+      ]
+    }
+  },
+  "next-code-splitting": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat EditorPanel dan Editor lalu tampilkan panel dari page server.",
+        "Di proyek Next.js lokal: Buka/tutup catatan sambil memeriksa modul jaringan serta fallback loading.",
+        "Di proyek Next.js lokal: Ukur sebelum mengklaim peningkatan kecepatan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Route secara alami memisahkan kode aplikasi, sementara dynamic import bisa menunda fitur opsional yang berat. Muat JavaScript tambahan saat pengalaman pengguna memang membutuhkannya."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Kenali fitur berat yang tidak dibutuhkan saat halaman pertama dibuka.",
+            "Dynamic import dapat menunda pemuatan kode fitur itu.",
+            "Sediakan fallback lalu ukur permintaan dan waktu interaksi sebelum serta sesudah perubahan."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Memecah file saja tidak membuktikan aplikasi lebih cepat. Perhatikan kapan kode dimuat dan biaya interaksi pertamanya."
+        }
+      ],
+      "hint": "Apakah fitur perlu segera tersedia atau hanya saat pengguna membukanya?",
+      "recap": [
+        "Route secara alami memisahkan kode.",
+        "Tunda fitur berat yang opsional.",
+        "Gunakan bukti saat mengoptimalkan.",
+        "Memecah file saja tidak membuktikan aplikasi lebih cepat."
+      ],
+      "quizExplanation": "Dynamic import berguna untuk menunda fitur berat yang belum diperlukan. Sediakan fallback dan ukur biaya pemuatan serta interaksi pertamanya.",
+      "visualDetails": [
+        "Kenali fitur berat yang tidak dibutuhkan saat halaman pertama dibuka.",
+        "Dynamic import dapat menunda pemuatan kode fitur itu.",
+        "Sediakan fallback lalu ukur permintaan dan waktu interaksi sebelum serta sesudah perubahan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create EditorPanel and Editor and render the panel from a server page.",
+        "In your local Next.js project: Toggle notes while inspecting network modules and the loading fallback.",
+        "In your local Next.js project: Measure before claiming a speed gain."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Routes naturally split application code, and dynamic imports can defer an optional heavy feature. Load more JavaScript only when the experience needs it."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Identify heavy features not needed on initial entry.",
+            "Dynamic imports can defer their code.",
+            "Provide a fallback and measure requests and interaction timing before and after."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Splitting files alone does not prove an app faster. Consider loading timing and first-interaction cost."
+        }
+      ],
+      "hint": "Is the feature needed immediately or only when users open it?",
+      "recap": [
+        "Routes split code naturally.",
+        "Defer optional heavy features.",
+        "Optimize based on evidence.",
+        "Splitting files alone does not prove an app faster."
+      ],
+      "quizExplanation": "Dynamic imports help defer heavy features not yet needed. Provide fallbacks and measure loading and first-interaction costs.",
+      "visualDetails": [
+        "Identify heavy features not needed on initial entry.",
+        "Dynamic imports can defer their code.",
+        "Provide a fallback and measure requests and interaction timing before and after."
+      ]
+    }
+  },
+  "next-client-boundaries": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pisahkan CompletionButton dari page server lalu ubah nilainya.",
+        "Di proyek Next.js lokal: Periksa file yang membutuhkan use client sambil mempertahankan data dan layout sekitar pada server."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pindahkan interaksi ke Client Component dengan tugas yang jelas, lalu pertahankan layout dan pengolahan data di server. Ini mengurangi JavaScript browser sambil menjaga kemudahan penggunaan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Tentukan bagian yang membutuhkan state atau handler.",
+            "Jadikan bagian itu Client Component dengan props secukupnya.",
+            "Pertahankan data server dan struktur sekitar sebagai Server Component."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Directive use client menentukan batas modul. Mengangkatnya terlalu tinggi dapat memperluas kode yang masuk ke browser."
+        }
+      ],
+      "hint": "Bagian interaktif terkecil apa yang dapat dipisahkan dari halaman?",
+      "recap": [
+        "Server adalah pilihan default.",
+        "Pisahkan perilaku yang hanya bisa berjalan di browser.",
+        "Pertahankan data dan layout di luar batas client jika memungkinkan.",
+        "Directive use client menentukan batas modul."
+      ],
+      "quizExplanation": "Letakkan batas client dekat interaksi yang membutuhkannya. Data dan struktur sekeliling dapat tetap dikerjakan di server.",
+      "visualDetails": [
+        "Tentukan bagian yang membutuhkan state atau handler.",
+        "Jadikan bagian itu Client Component dengan props secukupnya.",
+        "Pertahankan data server dan struktur sekitar sebagai Server Component."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Split CompletionButton from the server page and toggle it.",
+        "In your local Next.js project: Inspect which file needs use client while keeping data and surrounding layout on the server."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Move interactivity into a focused Client Component and keep surrounding layout and data work on the server. This reduces browser JavaScript without losing usability."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Identify parts needing state or handlers.",
+            "Make those parts Client Components with necessary props.",
+            "Keep server data and surrounding structure in Server Components."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "The use client directive defines a module boundary. Placing it too high can expand browser code."
+        }
+      ],
+      "hint": "What is the smallest interactive part separable from the page?",
+      "recap": [
+        "Server is the default.",
+        "Isolate browser-only behavior.",
+        "Keep data and layout outside when possible.",
+        "The use client directive defines a module boundary."
+      ],
+      "quizExplanation": "Place client boundaries near required interactions. Data work and surrounding structure can remain server-side.",
+      "visualDetails": [
+        "Identify parts needing state or handlers.",
+        "Make those parts Client Components with necessary props.",
+        "Keep server data and surrounding structure in Server Components."
+      ]
+    }
+  },
+  "next-seo-metadata": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Kunjungi kedua slug yang dikenal dan satu slug tidak dikenal.",
+        "Di proyek Next.js lokal: Periksa title, description, serta field Open Graph; pastikan semuanya menjelaskan pelajaran yang terlihat."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tulis judul dan deskripsi halaman sesuai isi route-nya. Metadata membantu hasil pencarian dan pratinjau berbagi memberi gambaran yang akurat sebelum pengguna berkunjung."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Judul membantu mengenali halaman di tab dan hasil pencarian.",
+            "Deskripsi merangkum isi nyata, bukan janji yang tidak terlihat.",
+            "Metadata per slug harus mengikuti resource yang benar serta menangani slug tidak dikenal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Metadata membantu penemuan dan berbagi, tetapi tidak menjamin posisi pencarian tertentu."
+        }
+      ],
+      "hint": "Apakah judul dan deskripsi cocok dengan isi yang benar-benar tampil?",
+      "recap": [
+        "Metadata disimpan bersama route-nya.",
+        "Tulis judul dan deskripsi yang akurat.",
+        "Pastikan pratinjau berbagi sesuai dengan isi halaman.",
+        "Metadata membantu penemuan dan berbagi, tetapi tidak menjamin posisi pencarian tertentu."
+      ],
+      "quizExplanation": "Metadata sebaiknya menggambarkan konten nyata route agar harapan sebelum kunjungan sesuai dengan hasil yang terlihat.",
+      "visualDetails": [
+        "Judul membantu mengenali halaman di tab dan hasil pencarian.",
+        "Deskripsi merangkum isi nyata, bukan janji yang tidak terlihat.",
+        "Metadata per slug harus mengikuti resource yang benar serta menangani slug tidak dikenal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Visit both known slugs and an unknown slug.",
+        "In your local Next.js project: Inspect title, description, and Open Graph fields; confirm they describe the visible lesson."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Write page titles and descriptions for the route’s actual content. Metadata should help search and sharing previews set accurate expectations before a visit."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Titles identify pages in tabs and search results.",
+            "Descriptions summarize real content rather than invisible promises.",
+            "Per-slug metadata must match the resource and handle unknown slugs."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Metadata supports discovery and sharing but does not guarantee search rankings."
+        }
+      ],
+      "hint": "Do title and description match the content actually displayed?",
+      "recap": [
+        "Metadata belongs with its route.",
+        "Write accurate titles and descriptions.",
+        "Keep sharing previews intentional.",
+        "Metadata supports discovery and sharing but does not guarantee search rankings."
+      ],
+      "quizExplanation": "Metadata should describe actual route content so expectations before visiting match visible results.",
+      "visualDetails": [
+        "Titles identify pages in tabs and search results.",
+        "Descriptions summarize real content rather than invisible promises.",
+        "Per-slug metadata must match the resource and handle unknown slugs."
+      ]
+    }
+  },
+  "next-web-vitals": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pasang Vitals pada root layout lalu periksa laporan browser.",
+        "Di proyek Next.js lokal: Catat baseline, ubah satu bottleneck terukur, lalu bandingkan skenario loading/interaksi yang sama."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Web Vitals menjelaskan pemuatan, kestabilan visual, dan respons interaksi. Gunakan pengukuran untuk menemukan hambatan sebelum mengubah arsitektur route."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Catat pemuatan, kestabilan tampilan, dan respons interaksi sebagai hal berbeda.",
+            "Gunakan skenario serta perangkat yang konsisten untuk baseline.",
+            "Ubah satu hambatan terukur lalu bandingkan kembali."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Hasil lokal adalah petunjuk, bukan gambaran otomatis seluruh pengguna. Catat kondisi pengukurannya."
+        }
+      ],
+      "hint": "Apa bukti hambatan yang ingin diperbaiki, dan metrik apa yang berubah?",
+      "recap": [
+        "Ukur pengalaman nyata pengguna.",
+        "Temukan route atau aset yang menghambat.",
+        "Periksa hasil perbaikan setelah perubahan.",
+        "Hasil lokal adalah petunjuk, bukan gambaran otomatis seluruh pengguna."
+      ],
+      "quizExplanation": "Pengukuran menunjukkan hambatan yang nyata. Bandingkan skenario konsisten sebelum dan sesudah perubahan agar klaim performa punya bukti.",
+      "visualDetails": [
+        "Catat pemuatan, kestabilan tampilan, dan respons interaksi sebagai hal berbeda.",
+        "Gunakan skenario serta perangkat yang konsisten untuk baseline.",
+        "Ubah satu hambatan terukur lalu bandingkan kembali."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Mount Vitals in the root layout and inspect browser reports.",
+        "In your local Next.js project: Record a baseline, change one measured bottleneck, and compare the same loading/interaction scenario."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Web Vitals describe loading, visual stability, and interaction responsiveness. Use measurements to locate a bottleneck before changing route architecture."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Record loading, visual stability, and interaction responsiveness separately.",
+            "Use consistent scenarios and devices for a baseline.",
+            "Change one measured bottleneck and compare again."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Local measurements are clues, not automatic representations of every user. Record their conditions."
+        }
+      ],
+      "hint": "What evidence identifies the bottleneck and which metric changes?",
+      "recap": [
+        "Measure real experience.",
+        "Find the limiting route or asset.",
+        "Verify improvements after a change.",
+        "Local measurements are clues, not automatic representations of every user."
+      ],
+      "quizExplanation": "Measurements reveal actual bottlenecks. Compare consistent scenarios before and after changes to support performance claims.",
+      "visualDetails": [
+        "Record loading, visual stability, and interaction responsiveness separately.",
+        "Use consistent scenarios and devices for a baseline.",
+        "Change one measured bottleneck and compare again."
+      ]
+    }
+  },
+  "next-bundle-analysis": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pasang analyzer lokal lalu jalankan perintah sesuai platform memakai build Webpack.",
+        "Di proyek Next.js lokal: Persempit batas client lalu catat perbedaan ukuran modul client yang nyata."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Tinjauan bundle menunjukkan dependency client yang masuk ke sebuah route. Gunakan untuk menghapus pekerjaan yang tidak diperlukan dan memindahkan logika yang cocok ke server."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Bundle berisi modul yang dikirim untuk menjalankan aplikasi.",
+            "Analyzer membantu melihat dependency client yang besar.",
+            "Persempit batas client atau buang dependency tidak perlu, lalu ukur ukuran baru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Perintah contoh menggunakan analyzer dengan build Webpack. Ikuti konfigurasi yang sesuai dengan alat build proyekmu."
+        }
+      ],
+      "hint": "Modul mana masuk ke browser karena sebuah batas client?",
+      "recap": [
+        "Periksa apa yang dikirim setiap route.",
+        "Pindahkan logika yang sesuai ke server.",
+        "Hapus dependency yang tidak memberi manfaat bagi pengguna.",
+        "Perintah contoh menggunakan analyzer dengan build Webpack."
+      ],
+      "quizExplanation": "Analisis bundle menunjukkan modul client yang dikirim. Itu membantu menemukan dependency berat atau logika yang tidak perlu berada di browser.",
+      "visualDetails": [
+        "Bundle berisi modul yang dikirim untuk menjalankan aplikasi.",
+        "Analyzer membantu melihat dependency client yang besar.",
+        "Persempit batas client atau buang dependency tidak perlu, lalu ukur ukuran baru."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Install the local analyzer and run the platform-specific command using the Webpack build.",
+        "In your local Next.js project: Narrow a client boundary and record the actual client-module size difference."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A bundle review shows which client dependencies reach a route. Use it to remove unused work and move server-safe logic out of browser boundaries."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Bundles contain modules sent to run the app.",
+            "Analyzers reveal large client dependencies.",
+            "Narrow client boundaries or remove unnecessary dependencies, then measure new size."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Sample commands use an analyzer with a Webpack build. Follow configuration matching your project's build tool."
+        }
+      ],
+      "hint": "Which modules reach the browser because of a client boundary?",
+      "recap": [
+        "Inspect what each route sends.",
+        "Move eligible logic to the server.",
+        "Remove dependencies with no user benefit.",
+        "Sample commands use an analyzer with a Webpack build."
+      ],
+      "quizExplanation": "Bundle analysis shows shipped client modules, revealing heavy dependencies or logic unnecessary in browsers.",
+      "visualDetails": [
+        "Bundles contain modules sent to run the app.",
+        "Analyzers reveal large client dependencies.",
+        "Narrow client boundaries or remove unnecessary dependencies, then measure new size."
+      ]
+    }
+  },
+  "next-async-route-inputs": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buka route dengan nilai view yang tidak ada, berulang, dan tidak dikenal.",
+        "Di proyek Next.js lokal: Pastikan nilai penggantinya tetap valid."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pada App Router saat ini, params dan searchParams halaman adalah input async. Tunggu dengan await di Server Component async sebelum membaca propertinya."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Await params dan searchParams sebelum membaca propertinya.",
+            "Query yang sama dapat tidak ada, berupa string, atau memiliki beberapa nilai.",
+            "Normalisasikan bentuknya lalu pilih nilai yang diizinkan aplikasi."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Await menyelesaikan penantian; ia tidak memvalidasi isi query."
+        }
+      ],
+      "hint": "Apa yang perlu dilakukan jika view muncul berulang atau tidak dikenal?",
+      "recap": [
+        "await menyelesaikan input async, sedangkan normalisasi dan validasi menentukan maknanya bagi aplikasi.",
+        "Await menyelesaikan penantian; ia tidak memvalidasi isi query."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Open the route with missing, repeated, and unknown view values.",
+        "In your local Next.js project: Confirm the fallback stays valid."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "In the current App Router, page params and searchParams are asynchronous inputs. Await them in an async Server Component before reading their properties."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Await params and searchParams before reading properties.",
+            "A query may be missing, a string, or multiple values.",
+            "Normalize its shape and select application-allowed values."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Await resolves waiting; it does not validate query contents."
+        }
+      ],
+      "hint": "What should happen when view is repeated or unknown?",
+      "recap": [
+        "Await resolves the input, while normalization and validation establish its application meaning.",
+        "Await resolves waiting; it does not validate query contents."
+      ]
+    }
+  },
+  "next-redirect-control-flow": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Buat halaman tujuan dan buka URL lama secara langsung.",
+        "Di proyek Next.js lokal: Lalu rancang action penyimpanan yang hanya melakukan redirect setelah berhasil."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "redirect mengakhiri rendering segmen route saat ini lewat exception alur kontrol yang ditangani framework. Hasilnya bukan nilai biasa untuk dikembalikan sebagai konten halaman."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "redirect memberi sinyal kepada framework untuk berpindah tujuan.",
+            "Render segmen sekarang berakhir, bukan menghasilkan teks redirect.",
+            "Untuk alur penyimpanan, lakukan redirect hanya setelah perubahan berhasil."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan menangkap sinyal redirect sebagai error biasa dalam catch luas sehingga navigasinya tertelan."
+        }
+      ],
+      "hint": "Siapa yang menangani sinyal perpindahan: catch biasa atau framework?",
+      "recap": [
+        "Next.js menangani sinyal redirect yang dilempar untuk menghasilkan respons navigasi.",
+        "Jangan menangkap sinyal redirect sebagai error biasa dalam catch luas sehingga navigasinya tertelan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Create the destination page and open the old URL directly.",
+        "In your local Next.js project: Then outline a save action that redirects only after success."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Redirect ends rendering of the current route segment by using a framework-handled control-flow exception. It is not a normal value to return as page content."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "redirect signals navigation to the framework.",
+            "Current segment rendering ends rather than returning redirect text.",
+            "For saving flows, redirect only after successful changes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not swallow redirect signals as ordinary errors in broad catch blocks."
+        }
+      ],
+      "hint": "Who handles navigation signals: an ordinary catch or the framework?",
+      "recap": [
+        "Next.js handles the thrown redirect signal to produce the navigation response.",
+        "Do not swallow redirect signals as ordinary errors in broad catch blocks."
+      ]
+    }
+  },
+  "next-parallel-data": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Ganti helper dengan pengambilan data server yang benar-benar independen. Buat salah satunya gagal, lalu periksa error boundary route."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pengambilan data yang independen bisa dimulai sebelum salah satunya ditunggu. Promise.all menghindari urutan tunggu yang tidak perlu jika satu hasil tidak bergantung pada hasil lainnya."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Mulai pengambilan yang tidak membutuhkan hasil satu sama lain.",
+            "Promise.all menunggu semua hasil sambil mempertahankan urutan input.",
+            "Tangani kegagalan salah satu pengambilan pada batas error yang sesuai."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jika input kedua membutuhkan hasil pertama, ketergantungan itu nyata dan tidak boleh dihapus hanya agar paralel."
+        }
+      ],
+      "hint": "Bisakah kedua permintaan dimulai tanpa mengetahui hasil yang lain?",
+      "recap": [
+        "Proses bersamaan menghilangkan antrean tunggu hanya jika ketergantungan itu memang tidak dibutuhkan.",
+        "Jika input kedua membutuhkan hasil pertama, ketergantungan itu nyata dan tidak boleh dihapus hanya agar paralel."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Replace the helpers with real independent server reads, then introduce one rejection and inspect the route error boundary."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Independent data reads can begin before either is awaited. Promise.all avoids an unnecessary sequential dependency when one result does not require the other."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Start reads that do not need each other's results.",
+            "Promise.all waits for all results while preserving input order.",
+            "Handle a failed read at a suitable error boundary."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "If the second input needs the first result, that dependency is real and cannot be removed just to parallelize."
+        }
+      ],
+      "hint": "Can both requests begin without knowing each other's result?",
+      "recap": [
+        "Concurrency removes a waterfall only when the dependency is not required.",
+        "If the second input needs the first result, that dependency is real and cannot be removed just to parallelize."
+      ]
+    }
+  },
+  "next-public-data-shapes": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Pisahkan contoh menjadi dua file, lalu periksa field record mana yang melewati batas client."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Server Component bisa membaca record khusus server dan mengirim bentuk data yang sengaja dipilih serta bisa diserialisasi ke Client Component. Pilih field yang benar-benar dibutuhkan antarmuka."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Baca record lengkap di server.",
+            "Buat objek baru yang hanya berisi field untuk UI.",
+            "Kirim bentuk publik itu ke Client Component, lalu periksa field yang melewati batas."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Menyembunyikan field di tampilan tidak menghapus data yang sudah dikirim ke browser."
+        }
+      ],
+      "hint": "Field apa yang sebenarnya dibutuhkan child dan apa yang harus tetap di server?",
+      "recap": [
+        "Pemilihan field membatasi data yang terbuka ke client; menyembunyikannya di UI tidak cukup.",
+        "Menyembunyikan field di tampilan tidak menghapus data yang sudah dikirim ke browser."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Split the example into its two files and inspect which record fields cross the client boundary."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A Server Component can read server-only records and pass an intentional serializable representation to a Client Component. Select the fields the interface actually needs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Read complete records on the server.",
+            "Create a new object containing only UI fields.",
+            "Pass that public shape to the Client Component and inspect crossing fields."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Hiding a field visually does not remove data already sent to the browser."
+        }
+      ],
+      "hint": "Which fields does the child need and which must stay on the server?",
+      "recap": [
+        "Field selection limits the data exposed to the client; hiding a field in the UI would not.",
+        "Hiding a field visually does not remove data already sent to the browser."
+      ]
+    }
+  },
+  "next-request-cookies": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Coba cookie yang tidak ada dan nilai yang tidak didukung di aplikasi Next.js lokal.",
+        "Di proyek Next.js lokal: Jelaskan kenapa cookie sesi memerlukan verifikasi server."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "cookies dan headers adalah API request async pada App Router saat ini. Baca di server dan validasi nilainya sebelum digunakan."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Tunggu cookies atau headers untuk request saat ini.",
+            "Baca nilai yang dibutuhkan dan tentukan fallback jika tidak tersedia.",
+            "Validasi pilihan yang diizinkan sebelum menggunakannya."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Cookie berasal dari client; nilai sesi memerlukan verifikasi server, bukan sekadar keberadaan string."
+        }
+      ],
+      "hint": "Apakah cookie membawa bukti izin atau hanya nilai dari request?",
+      "recap": [
+        "Cookie request membawa nilai dari client, bukan bukti izin secara otomatis.",
+        "Cookie berasal dari client; nilai sesi memerlukan verifikasi server, bukan sekadar keberadaan string."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Try an absent cookie and an unsupported value in a local Next.js app.",
+        "In your local Next.js project: Explain why a session cookie needs server verification."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Cookies and headers are asynchronous request APIs in the current App Router. Read them on the server and validate values before using them."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Await cookies or headers for the current request.",
+            "Read required values and define missing-value fallbacks.",
+            "Validate allowed values before use."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Cookies come from clients; session values need server verification, not merely a present string."
+        }
+      ],
+      "hint": "Does the cookie prove permission or merely carry a request value?",
+      "recap": [
+        "Request cookies carry client-provided values, not automatic evidence of permission.",
+        "Cookies come from clients; session values need server verification, not merely a present string."
+      ]
+    }
+  },
+  "next-static-route-params": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Build proyek lokal, lalu kunjungi route yang dikenal dan slug yang tidak dikenal.",
+        "Di proyek Next.js lokal: Tambahkan topik dan build ulang."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "generateStaticParams mengembalikan object parameter untuk segmen route dinamis yang sudah diketahui dan bisa disiapkan sebelum request datang. Setiap key harus cocok dengan segmen folder-nya."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Folder [slug] menentukan nama key parameter.",
+            "generateStaticParams mengembalikan daftar objek seperti slug html dan css.",
+            "Build dapat menyiapkan route yang diketahui; halaman tetap menangani resource tidak dikenal."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Fungsi ini mengembalikan parameter, bukan seluruh JSX halaman."
+        }
+      ],
+      "hint": "Key apa yang harus cocok dengan nama segmen dinamis folder?",
+      "recap": [
+        "Object yang dikembalikan menyediakan nilai segmen route, sedangkan halaman merender kontennya.",
+        "Fungsi ini mengembalikan parameter, bukan seluruh JSX halaman."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Build the local project and visit both known routes and an unknown slug.",
+        "In your local Next.js project: Add a topic and rebuild."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "GenerateStaticParams returns parameter objects for known dynamic route segments that can be prepared ahead of requests. Each key must match its folder segment."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "The [slug] folder determines the parameter key.",
+            "generateStaticParams returns objects such as html and css slugs.",
+            "Builds can prepare known routes; pages still handle unknown resources."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "This function returns parameters, not full page JSX."
+        }
+      ],
+      "hint": "Which key must match the dynamic folder segment?",
+      "recap": [
+        "The returned objects provide route-segment values, while the page renders the content.",
+        "This function returns parameters, not full page JSX."
+      ]
+    }
+  },
+  "next-environment-variables": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Gunakan nilai environment sintetis lalu jalankan ulang secara lokal.",
+        "Di proyek Next.js lokal: Periksa /api/config dan HelpLink; jelaskan mengapa URL publik terlihat tetapi token tidak boleh dikembalikan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Environment variable memisahkan konfigurasi deployment dari kode sumber. Hanya nilai yang memang publik boleh masuk ke kode browser; rahasia harus tetap di server."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Konfigurasi deployment ditempatkan di environment.",
+            "Nilai publik dapat dikirim ke browser dengan sengaja.",
+            "Token atau rahasia dipakai di server dan tidak dikembalikan dalam respons publik."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Gunakan nilai sintetis saat belajar. Rahasia yang pernah masuk bundle tidak menjadi aman hanya karena disembunyikan di UI."
+        }
+      ],
+      "hint": "Apakah nilai perlu diketahui browser atau hanya pekerjaan server?",
+      "recap": [
+        "Jauhkan rahasia dari bundle browser.",
+        "Dokumentasikan konfigurasi yang dibutuhkan.",
+        "Gunakan nilai terpisah untuk setiap environment.",
+        "Gunakan nilai sintetis saat belajar."
+      ],
+      "quizExplanation": "Rahasia hanya dipakai di server. Nilai yang masuk bundle atau respons publik dapat dibaca pengguna meskipun tidak terlihat di UI.",
+      "visualDetails": [
+        "Konfigurasi deployment ditempatkan di environment.",
+        "Nilai publik dapat dikirim ke browser dengan sengaja.",
+        "Token atau rahasia dipakai di server dan tidak dikembalikan dalam respons publik."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Use synthetic environment values and restart locally.",
+        "In your local Next.js project: Inspect /api/config and HelpLink; explain why the public URL is visible but the token must not be returned."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Environment variables separate deployment configuration from source code. Only explicitly public values belong in browser code; secrets must remain server-only."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Deployment configuration lives in the environment.",
+            "Public values may intentionally reach browsers.",
+            "Tokens and secrets stay server-side and are not returned in public responses."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Use synthetic values while learning. Secrets in bundles are not safe merely because UI hides them."
+        }
+      ],
+      "hint": "Does the browser need this value or only server-side work?",
+      "recap": [
+        "Keep secrets out of browser bundles.",
+        "Document required configuration.",
+        "Use separate values per environment.",
+        "Use synthetic values while learning."
+      ],
+      "quizExplanation": "Secrets belong on the server. Values in bundles or public responses can be read even when not shown in UI.",
+      "visualDetails": [
+        "Deployment configuration lives in the environment.",
+        "Public values may intentionally reach browsers.",
+        "Tokens and secrets stay server-side and are not returned in public responses."
+      ]
+    }
+  },
+  "next-deployment-checklist": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Build lalu jalankan aplikasi produksi lokal dengan perintah tertera.",
+        "Di proyek Next.js lokal: Periksa route sukses, tidak dikenal, kosong, dan error lalu catat perbedaan konfigurasi dari development."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Rilis produksi membutuhkan build yang berhasil, environment variable yang sesuai, pemeriksaan route, dan pemantauan error. Jadikan deployment alur kerja produk yang bisa diulang."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Jalankan build produksi dengan konfigurasi yang dibutuhkan.",
+            "Coba route langsung, berhasil, kosong, dan gagal.",
+            "Pastikan error dapat diketahui dan pemulihan pengguna berfungsi sebelum rilis."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Aplikasi yang bekerja pada dev server belum tentu siap produksi. Catat perbedaan environment dan hosting."
+        }
+      ],
+      "hint": "Pemeriksaan apa membuktikan aplikasi bekerja di mode produksi?",
+      "recap": [
+        "Build sebelum rilis.",
+        "Periksa route penting.",
+        "Periksa konfigurasi runtime.",
+        "Aplikasi yang bekerja pada dev server belum tentu siap produksi."
+      ],
+      "quizExplanation": "Build produksi, konfigurasi, pemeriksaan route, dan pemantauan error perlu siap sebelum rilis. Keberhasilan dev server saja belum cukup.",
+      "visualDetails": [
+        "Jalankan build produksi dengan konfigurasi yang dibutuhkan.",
+        "Coba route langsung, berhasil, kosong, dan gagal.",
+        "Pastikan error dapat diketahui dan pemulihan pengguna berfungsi sebelum rilis."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Build and start the local production app with the listed commands.",
+        "In your local Next.js project: Check success, unknown, empty, and error routes and record configuration differences from development."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A production release needs a clean build, expected environment values, route checks, and error visibility. Treat deployment as a repeatable product workflow."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Run production builds with required configuration.",
+            "Try direct routes, successful, empty, and failed states.",
+            "Check observable errors and user recovery before release."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "A working dev server does not prove production readiness. Record environment and hosting differences."
+        }
+      ],
+      "hint": "Which checks demonstrate production-mode behavior?",
+      "recap": [
+        "Build before release.",
+        "Check critical routes.",
+        "Verify runtime configuration.",
+        "A working dev server does not prove production readiness."
+      ],
+      "quizExplanation": "Production builds, configuration, route checks, and error monitoring need readiness before release. A working dev server is insufficient.",
+      "visualDetails": [
+        "Run production builds with required configuration.",
+        "Try direct routes, successful, empty, and failed states.",
+        "Check observable errors and user recovery before release."
+      ]
+    }
+  },
+  "next-observability": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Panggil /api/demo lalu cocokkan requestId respons dengan log server.",
+        "Di proyek Next.js lokal: Pastikan log memuat konteks terkontrol tanpa body, cookie, atau kredensial."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Log produksi dan laporan error sebaiknya menjawab apa yang gagal, di mana, dan seberapa sering. Catat konteks dengan aman tanpa memasukkan data pribadi pengguna ke log."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Catat tindakan dan route yang terkait kegagalan.",
+            "requestId membantu mencocokkan respons pengguna dengan log server.",
+            "Simpan konteks terkontrol agar frekuensi dan penyebab masalah dapat ditelusuri."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jangan mencatat body, cookie, atau kredensial secara serampangan. Konteks berguna tidak harus memuat data pribadi."
+        }
+      ],
+      "hint": "Apa yang membantu menemukan operasi gagal tanpa menyalin data sensitif?",
+      "recap": [
+        "Amati kegagalan yang penting.",
+        "Lindungi data pengguna dalam log.",
+        "Gunakan bukti untuk menentukan prioritas perbaikan.",
+        "Jangan mencatat body, cookie, atau kredensial secara serampangan."
+      ],
+      "quizExplanation": "Konteks operasi, route, dan requestId membantu menelusuri kegagalan. Data pribadi dan kredensial tidak perlu disalin ke log untuk memberi konteks.",
+      "visualDetails": [
+        "Catat tindakan dan route yang terkait kegagalan.",
+        "requestId membantu mencocokkan respons pengguna dengan log server.",
+        "Simpan konteks terkontrol agar frekuensi dan penyebab masalah dapat ditelusuri."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Call /api/demo and match the response requestId to the server log.",
+        "In your local Next.js project: Confirm the log has controlled context and no bodies, cookies, or credentials."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Production logs and error reports should answer what failed, where it happened, and how often. Capture context safely without putting private user data into logs."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Record actions and routes related to failure.",
+            "requestId links user responses to server logs.",
+            "Keep controlled context to trace frequency and causes."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Do not indiscriminately log bodies, cookies, or credentials. Useful context need not contain private data."
+        }
+      ],
+      "hint": "What identifies a failed operation without copying sensitive data?",
+      "recap": [
+        "Observe important failures.",
+        "Protect user data in logs.",
+        "Use evidence to prioritize fixes.",
+        "Do not indiscriminately log bodies, cookies, or credentials."
+      ],
+      "quizExplanation": "Operation context, routes, and request IDs help trace failures. Private data and credentials need not be copied into logs.",
+      "visualDetails": [
+        "Record actions and routes related to failure.",
+        "requestId links user responses to server logs.",
+        "Keep controlled context to trace frequency and causes."
+      ]
+    }
+  },
+  "next-security-headers": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Tambahkan header dasar, jalankan ulang secara lokal, lalu periksa header respons jaringan.",
+        "Di proyek Next.js lokal: Jelaskan pilihan framing serta alasan validasi/otorisasi tetap diperlukan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Lindungi setiap batas request: validasi input, gunakan cookie yang aman, atur header yang sesuai, dan hindari membocorkan detail internal server lewat error."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Validasi request dan izin pada batas server.",
+            "Header dapat membatasi perilaku tertentu, misalnya penempatan halaman dalam frame.",
+            "Tampilkan error aman dan periksa konfigurasi yang benar-benar diterima browser."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Header melengkapi keamanan; ia tidak menggantikan validasi input dan otorisasi."
+        }
+      ],
+      "hint": "Pemeriksaan mana tetap wajib meski header sudah dipasang?",
+      "recap": [
+        "Setiap request membawa input yang belum tepercaya.",
+        "Jalankan pekerjaan sensitif di server.",
+        "Kembalikan pesan error yang aman.",
+        "Header melengkapi keamanan; ia tidak menggantikan validasi input dan otorisasi."
+      ],
+      "quizExplanation": "Input request tetap harus divalidasi dan diberi pemeriksaan izin. Header keamanan membantu batas tertentu tetapi tidak menggantikan keduanya.",
+      "visualDetails": [
+        "Validasi request dan izin pada batas server.",
+        "Header dapat membatasi perilaku tertentu, misalnya penempatan halaman dalam frame.",
+        "Tampilkan error aman dan periksa konfigurasi yang benar-benar diterima browser."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Add the baseline headers, restart locally, and inspect network response headers.",
+        "In your local Next.js project: Explain the framing tradeoff and why validation/authorization are still necessary."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Security belongs at every request boundary: validate input, use secure cookies, set suitable headers, and avoid exposing server internals in errors."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Validate requests and permissions at server boundaries.",
+            "Headers can restrict behavior such as framing.",
+            "Show safe errors and inspect configuration actually received by browsers."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Headers complement security; they do not replace validation and authorization."
+        }
+      ],
+      "hint": "Which checks remain necessary after headers are configured?",
+      "recap": [
+        "Every request is untrusted input.",
+        "Keep sensitive work server-side.",
+        "Return safe error messages.",
+        "Headers complement security; they do not replace validation and authorization."
+      ],
+      "quizExplanation": "Requests still need validation and authorization. Security headers support particular boundaries without replacing those checks.",
+      "visualDetails": [
+        "Validate requests and permissions at server boundaries.",
+        "Headers can restrict behavior such as framing.",
+        "Show safe errors and inspect configuration actually received by browsers."
+      ]
+    }
+  },
+  "next-full-route-review": {
+    "id": {
+      "practiceSteps": [
+        "Di proyek Next.js lokal: Gabungkan file route pendamping.",
+        "Di proyek Next.js lokal: Periksa URL langsung/detail, query kosong/error, loading, tautan pemulihan, fokus keyboard, layar sempit, serta metadata."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Route yang lengkap menghubungkan navigasi, data, loading, kondisi kosong, error, keberhasilan, metadata, dan aksesibilitas. Tinjau seluruh alurnya sebelum menganggapnya selesai."
+        },
+        {
+          "kind": "list",
+          "title": "Alur kerjanya",
+          "ordered": true,
+          "items": [
+            "Buka daftar dan detail melalui navigasi maupun URL langsung.",
+            "Coba loading, kosong, error, dan sukses serta pemulihan tiap keadaan.",
+            "Periksa metadata, fokus keyboard, dan tata letak sempit pada alur yang sama."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Selesai berarti seluruh perjalanan dapat dipakai, bukan hanya satu screenshot sukses."
+        }
+      ],
+      "hint": "Keadaan mana belum dicoba selain jalur data yang berhasil?",
+      "recap": [
+        "Tinjau seluruh lifecycle route.",
+        "Periksa loading, kondisi kosong, error, dan keberhasilan.",
+        "Periksa juga keyboard dan pratinjau berbagi.",
+        "Selesai berarti seluruh perjalanan dapat dipakai, bukan hanya satu screenshot sukses."
+      ],
+      "quizExplanation": "Hasil kosong adalah keadaan sah yang sering terlupakan. Tinjau bersama loading, error, sukses, navigasi, dan pemulihan seluruh alur.",
+      "visualDetails": [
+        "Buka daftar dan detail melalui navigasi maupun URL langsung.",
+        "Coba loading, kosong, error, dan sukses serta pemulihan tiap keadaan.",
+        "Periksa metadata, fokus keyboard, dan tata letak sempit pada alur yang sama."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "In your local Next.js project: Assemble the companion route files.",
+        "In your local Next.js project: Check direct/detail URLs, empty/error queries, loading, recovery links, keyboard focus, narrow screens, and metadata."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "A complete route connects navigation, data, loading, empty, error, success, metadata, and accessibility. Review the whole journey before calling it done."
+        },
+        {
+          "kind": "list",
+          "title": "How it works",
+          "ordered": true,
+          "items": [
+            "Open lists and details through navigation and direct URLs.",
+            "Try loading, empty, error, and success states with recovery.",
+            "Check metadata, keyboard focus, and narrow layout in that same flow."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Done means the entire journey is usable, not only one successful screenshot."
+        }
+      ],
+      "hint": "Which states remain untested beyond successful data?",
+      "recap": [
+        "Review the entire route lifecycle.",
+        "Check loading, empty, error, and success.",
+        "Verify keyboard and sharing behavior too.",
+        "Done means the entire journey is usable, not only one successful screenshot."
+      ],
+      "quizExplanation": "Empty results are valid states often overlooked. Review them with loading, errors, success, navigation, and end-to-end recovery.",
+      "visualDetails": [
+        "Open lists and details through navigation and direct URLs.",
+        "Try loading, empty, error, and success states with recovery.",
+        "Check metadata, keyboard focus, and narrow layout in that same flow."
+      ]
+    }
+  }
+}

@@ -5,8 +5,8 @@
   "Turn an idea into a clear brief with focused context and observable outcomes.": "Ubah ide menjadi brief yang jelas, dengan konteks yang relevan dan hasil yang bisa diperiksa.",
   "Give the interface a clear direction": "Beri arah yang jelas pada antarmuka",
   "Connect user needs, visual references, hierarchy, and real interface states.": "Hubungkan kebutuhan pengguna, referensi visual, hierarki, dan berbagai kondisi antarmuka.",
-  "Build one useful slice at a time": "Bangun satu bagian berguna dulu",
-  "Plan changes, reuse the project, debug with evidence, and keep useful checkpoints.": "Rencanakan perubahan, gunakan pola proyek, debug dengan bukti, dan simpan titik kerja yang jelas.",
+  "Build one useful slice at a time": "Bangun satu fitur kecil yang bermanfaat terlebih dahulu",
+  "Plan changes, reuse the project, debug with evidence, and keep useful checkpoints.": "Rencanakan perubahan, gunakan pola proyek, telusuri masalah berdasarkan bukti, dan simpan titik kerja yang jelas.",
   "Check what the agent actually built": "Periksa hasil yang benar-benar dibuat agent",
   "Review the diff, test behavior, and protect the people who will use the app.": "Tinjau diff, uji perilaku aplikasi, dan jaga pengalaman orang yang akan memakainya.",
   "Finish a small app you can explain": "Selesaikan aplikasi kecil yang bisa kamu jelaskan",
@@ -29,7 +29,7 @@
   "Know what your agent can access": "Kenali akses yang dimiliki agent",
   "Match your request to the tools and permissions available in the session.": "Sesuaikan permintaanmu dengan alat dan izin yang tersedia dalam sesi.",
   "Some agents only suggest text. Others can read files, edit code, run commands, or inspect a browser. Those capabilities depend on the tool, session, and permissions. Ask what is available before requesting a task that depends on it.": "Ada agent yang hanya memberi saran teks. Ada juga yang bisa membaca file, mengedit kode, menjalankan perintah, atau melihat browser. Kemampuan itu bergantung pada alat, sesi, dan izinnya. Pastikan aksesnya sebelum meminta tugas yang membutuhkan kemampuan tersebut.",
-  "Reading a repository and publishing it are different actions. Give a clear boundary for the current task, especially around deletion, production data, credentials, and deployment. A local preview is a useful first target for a new project.": "Membaca repository dan memublikasikannya adalah tindakan yang berbeda. Jelaskan batas tugas saat ini, terutama untuk penghapusan, data produksi, kredensial, dan deployment. Preview lokal cocok menjadi target awal proyek baru.",
+  "Reading a repository and publishing it are different actions. Give a clear boundary for the current task, especially around deletion, production data, credentials, and deployment. A local preview is a useful first target for a new project.": "Membaca repository dan memublikasikannya adalah tindakan yang berbeda. Jelaskan batas tugas saat ini, terutama untuk penghapusan, data produksi, kredensial, dan deployment. Untuk proyek baru, mulai dengan melihat hasilnya di pratinjau lokal.",
   "Work in this project folder. Read the existing instructions and relevant files first. You may edit local source and run project checks. Ask before deleting data, changing account settings, or publishing anything. Report any tool you cannot access.": "Kerjakan di folder proyek ini. Baca instruksi dan file yang relevan dulu. Kamu boleh mengedit source lokal dan menjalankan pemeriksaan proyek. Tanya sebelum menghapus data, mengubah pengaturan akun, atau memublikasikan sesuatu. Laporkan alat yang tidak bisa kamu akses.",
   "List the actions your next task needs. Mark which require extra permission in your actual agent session.": "Catat tindakan yang dibutuhkan tugasmu berikutnya. Tandai yang membutuhkan izin tambahan di sesi agent-mu.",
   "A text-only assistant offers to verify your local browser without browser access. What is a reasonable response?": "Asisten yang hanya punya akses teks menawarkan verifikasi browser lokalmu. Bagaimana respons yang masuk akal?",
@@ -372,4 +372,3 @@
   "Three implementation slices": "Tiga bagian implementasi",
   "App and review evidence": "Aplikasi dan bukti tinjauan"
 }
-

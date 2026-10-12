@@ -1,0 +1,940 @@
+{
+  "browser-dom": {
+    "id": {
+      "practiceSteps": [
+        "Ubah pesannya, lalu sengaja gunakan selector yang tidak ada.",
+        "Jelaskan kenapa pemeriksaan if diperlukan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "DOM adalah struktur objek yang dibuat browser dari HTML. JavaScript memakai struktur ini untuk membaca atau memperbarui halaman."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Pilih elemen memakai selector yang sesuai.",
+            "Periksa bahwa elemen ditemukan sebelum menggunakannya.",
+            "Ubah properti seperti textContent lalu bandingkan teks pada pratinjau."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Jika selector tidak cocok, hasilnya dapat null. DOM yang aktif juga bisa berbeda dari teks HTML awal setelah interaksi."
+        }
+      ],
+      "hint": "Elemen mana yang dipilih dan properti mana yang menentukan teksnya?",
+      "recap": [
+        "DOM mewakili dokumen yang sedang tampil.",
+        "Gunakan textContent untuk teks biasa.",
+        "Jika selector tidak cocok, hasilnya dapat null."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change the message, then deliberately use a selector that does not exist.",
+        "Explain why the if check matters."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "The DOM is an object structure the browser builds from HTML. JavaScript uses it to read and update the page."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Select elements with appropriate selectors.",
+            "Check they exist before using them.",
+            "Change properties such as textContent and compare preview text."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Unmatched selectors can return null. The active DOM may also differ from initial HTML after interaction."
+        }
+      ],
+      "hint": "Which element is selected and which property determines its text?",
+      "recap": [
+        "The DOM represents the current document.",
+        "Use textContent for plain text.",
+        "Unmatched selectors can return null."
+      ]
+    }
+  },
+  "browser-events": {
+    "id": {
+      "practiceSteps": [
+        "Klik tiga kali.",
+        "Ubah penambahannya menjadi 2, lalu jalankan ulang.",
+        "Coba aktifkan tombol dengan keyboard juga."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Event memberi tahu kode bahwa suatu tindakan terjadi, seperti klik atau input. Listener mendaftarkan fungsi yang menanggapinya."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Tentukan kontrol dan event yang mewakili tindakannya.",
+            "Pasang listener dengan addEventListener.",
+            "Saat event terjadi, baca input yang relevan lalu perbarui hasil di halaman."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mendaftarkan fungsi bukan memanggilnya saat itu. Handler dijalankan ketika event yang sesuai diterima."
+        }
+      ],
+      "hint": "Event apa yang mewakili tindakan ini tanpa bergantung hanya pada mouse?",
+      "recap": [
+        "Daftarkan callback untuk menangani event.",
+        "Perbarui data, lalu tampilkan hasilnya.",
+        "Mendaftarkan fungsi bukan memanggilnya saat itu."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Click three times.",
+        "Change the increment to 2 and rerun.",
+        "Use the keyboard to activate the button too."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Events notify code of actions such as clicks or input. Listeners register responding functions."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Choose the control and event representing the action.",
+            "Register a listener with addEventListener.",
+            "When it occurs, read relevant input and update page output."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Registering a function is not calling it immediately. Handlers run when matching events occur."
+        }
+      ],
+      "hint": "Which event represents this action without relying only on a mouse?",
+      "recap": [
+        "Register a callback to handle an event.",
+        "Update data, then show the result.",
+        "Registering a function is not calling it immediately."
+      ]
+    }
+  },
+  "browser-forms": {
+    "id": {
+      "practiceSteps": [
+        "Kirim dengan Enter, lalu dengan tombol.",
+        "Coba isi spasi saja dan perhatikan responsnya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Pengiriman formulir adalah satu tindakan, baik lewat klik maupun Enter. Tangani submit agar kedua cara mengikuti aturan yang sama."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Hubungkan label dengan input untuk memberi nama kontrol.",
+            "Baca nilai form saat submit dan periksa syaratnya.",
+            "Jika contoh memperbarui halaman tanpa navigasi, gunakan preventDefault pada submit lalu tampilkan pesan hasil."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Nilai input biasanya berupa teks. Input angka tetap perlu dikonversi dan diperiksa sebelum dihitung."
+        }
+      ],
+      "hint": "Apa beda menekan tombol tertentu dengan mengirim keseluruhan formulir?",
+      "recap": [
+        "Tangani event submit pada form.",
+        "Validasi data dan jelaskan cara memperbaikinya.",
+        "Nilai input biasanya berupa teks."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Submit with Enter, then with the button.",
+        "Try spaces only and inspect the response."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Form submission is one action, whether by click or Enter. Handle submit so both follow the same rules."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Connect labels to inputs to name controls.",
+            "Read form values on submit and check requirements.",
+            "For in-page updates without navigation, preventDefault on submit and display the result."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Input values are usually text. Numeric inputs still need conversion and checks before calculation."
+        }
+      ],
+      "hint": "How does clicking one button differ from submitting the whole form?",
+      "recap": [
+        "Handle the form submit event.",
+        "Validate data and explain how to recover.",
+        "Input values are usually text."
+      ]
+    }
+  },
+  "browser-data-states": {
+    "id": {
+      "practiceSteps": [
+        "Coba array projects kosong dan fail = true secara terpisah.",
+        "Perhatikan perbedaan pesannya."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Data dapat sedang ditunggu, berhasil kosong, berhasil berisi, atau gagal. Pengguna membutuhkan pesan berbeda untuk tiap keadaan."
+        },
+        {
+          "kind": "list",
+          "title": "Bagian yang perlu dibedakan",
+          "ordered": false,
+          "items": [
+            "Tampilkan indikator menunggu saat proses belum selesai.",
+            "Saat berhasil, periksa apakah ada item untuk ditampilkan.",
+            "Saat gagal, jelaskan kegagalan dan sediakan pemulihan yang sesuai."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Kosong bukan otomatis error. Bedakan tidak ada hasil dengan proses yang tidak berhasil."
+        }
+      ],
+      "hint": "Prosesnya berhasil tanpa item atau gagal memperoleh hasil?",
+      "recap": [
+        "Kosong dan gagal adalah dua kondisi yang berbeda.",
+        "Saat terjadi kegagalan, beri pengguna langkah berikutnya yang jelas.",
+        "Kosong bukan otomatis error."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an empty projects array and fail = true separately.",
+        "Observe the different messages."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Data can be pending, successfully empty, populated, or failed. Users need different messages for each state."
+        },
+        {
+          "kind": "list",
+          "title": "Parts to distinguish",
+          "ordered": false,
+          "items": [
+            "Show a waiting indicator while work is unfinished.",
+            "On success, check whether items exist.",
+            "On failure, explain it and offer suitable recovery."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Empty is not automatically an error. Distinguish no results from failed work."
+        }
+      ],
+      "hint": "Did work succeed with no items or fail to obtain results?",
+      "recap": [
+        "Empty and error are different states.",
+        "Give users a useful next action after failure.",
+        "Empty is not automatically an error."
+      ]
+    }
+  },
+  "browser-storage": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan preferensi fontSize dan periksa teks yang disimpan.",
+        "Jelaskan manfaat nilai bawaan saat belum ada data tersimpan."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Penyimpanan browser membantu mempertahankan data setelah halaman dibuka ulang. localStorage menyimpan pasangan nama dan nilai berupa teks pada origin yang sama."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Gunakan nama key yang jelas untuk menyimpan data.",
+            "Untuk objek, gunakan JSON.stringify saat menulis dan JSON.parse saat membaca.",
+            "Periksa hasil pembacaan dan tangani data yang hilang atau rusak."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Penyimpanan dapat tidak tersedia atau gagal. Jangan membuat fitur utama berhenti hanya karena preferensi tidak bisa disimpan."
+        }
+      ],
+      "hint": "Apa yang perlu dilakukan agar teks tersimpan dapat dipakai sebagai data aplikasi lagi?",
+      "recap": [
+        "Penyimpanan browser terikat pada perangkat dan bisa gagal.",
+        "JSON yang diserialisasi bukan berarti terenkripsi.",
+        "Penyimpanan dapat tidak tersedia atau gagal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a fontSize preference and inspect the stored text.",
+        "Explain how a default helps when no saved value exists."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "Browser storage can preserve data across visits. localStorage stores text key-value pairs within one origin."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Use clear keys when storing data.",
+            "For objects, use JSON.stringify to write and JSON.parse to read.",
+            "Check reads and handle missing or malformed data."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Storage can be unavailable or fail. Core features should not stop because a preference cannot be saved."
+        }
+      ],
+      "hint": "What converts stored text back into application data?",
+      "recap": [
+        "Browser storage is device-specific and can fail.",
+        "Serialized JSON is not encryption.",
+        "Storage can be unavailable or fail."
+      ]
+    }
+  },
+  "browser-state": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan pesan kedua di dalam render yang juga bergantung pada done.",
+        "Biarkan event handler fokus mengubah data."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "State adalah data yang menggambarkan keadaan aplikasi saat ini. Tampilan sebaiknya mengikuti state tersebut, bukan menyimpan salinan aturan sendiri."
+        },
+        {
+          "kind": "list",
+          "title": "Baca contohnya bertahap",
+          "ordered": true,
+          "items": [
+            "Tentukan data sumber, seperti daftar tugas dan status selesai.",
+            "Saat interaksi terjadi, ubah data sumber melalui satu alur yang jelas.",
+            "Render teks, jumlah, dan kontrol berdasarkan data terbaru."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Perhatikan",
+          "text": "Mengubah teks DOM saja belum tentu mengubah data sumber. Keduanya perlu tetap selaras."
+        }
+      ],
+      "hint": "Data mana menjadi sumber kebenaran ketika dua bagian UI harus sepakat?",
+      "recap": [
+        "Tentukan satu sumber kebenaran yang jelas.",
+        "Tampilan yang dibentuk dari state lebih mudah dijaga konsistensinya.",
+        "Mengubah teks DOM saja belum tentu mengubah data sumber."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a second message inside render that also depends on done.",
+        "Keep the event handler focused on changing data."
+      ],
+      "blocks": [
+        {
+          "kind": "paragraph",
+          "text": "State describes current application conditions. Views should follow it rather than maintain duplicate rules."
+        },
+        {
+          "kind": "list",
+          "title": "Read the example step by step",
+          "ordered": true,
+          "items": [
+            "Define source data, such as tasks and completion state.",
+            "Update that data through one clear interaction flow.",
+            "Render text, counts, and controls from current data."
+          ]
+        },
+        {
+          "kind": "note",
+          "title": "Keep in mind",
+          "text": "Changing DOM text alone may not update source data. Keep them aligned."
+        }
+      ],
+      "hint": "Which data is the source of truth when two UI regions must agree?",
+      "recap": [
+        "Keep a clear source of truth.",
+        "A view derived from state is easier to keep consistent.",
+        "Changing DOM text alone may not update source data."
+      ]
+    }
+  },
+  "browser-query-all": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan satu item lagi, lalu bandingkan NodeList awal dengan hasil query baru."
+      ],
+      "hint": "Query dijalankan sebelum item baru ditambahkan. Bandingkan daftar tersimpan dengan query ulang.",
+      "recap": [
+        "NodeList statis mencerminkan dokumen saat query dijalankan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add another item and compare the original NodeList with a fresh query."
+      ],
+      "hint": "The query runs before insertion. Compare the stored list with a fresh query.",
+      "recap": [
+        "The static NodeList reflects the document at query time."
+      ]
+    }
+  },
+  "browser-create-elements": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan judul yang mengandung kurung sudut dan pastikan karakter itu tetap tampil sebagai teks."
+      ],
+      "hint": "Bandingkan menulis teks secara harfiah dengan mengurai teks sebagai markup HTML.",
+      "recap": [
+        "textContent mengisi teks tanpa mengurai fragmen HTML."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a title containing an angle bracket and confirm it stays visible as text."
+      ],
+      "hint": "Compare writing literal text with parsing it as HTML markup.",
+      "recap": [
+        "TextContent sets text rather than parsing an HTML fragment."
+      ]
+    }
+  },
+  "browser-document-fragment": {
+    "id": {
+      "practiceSteps": [
+        "Buat kumpulan kedua dan periksa fragment sebelum serta sesudah ditambahkan."
+      ],
+      "hint": "Perhatikan apakah append menyalin anak atau memindahkan anak ke parent baru.",
+      "recap": [
+        "Menambahkan fragment memindahkan anak-anaknya, bukan menyalinnya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Create a second batch and inspect the fragment before and after appending."
+      ],
+      "hint": "Inspect whether append copies children or moves them to a new parent.",
+      "recap": [
+        "Appending a fragment moves its children rather than cloning them."
+      ]
+    }
+  },
+  "browser-classlist": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan label status yang berasal dari variabel done yang sama."
+      ],
+      "hint": "Coba force true dan false; bandingkan dengan toggle yang hanya membalik keadaan.",
+      "recap": [
+        "force membuat class yang ditampilkan sesuai dengan nilai state yang diberikan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a status label derived from the same done variable."
+      ],
+      "hint": "Try force true and false; compare with toggling by inversion only.",
+      "recap": [
+        "Force makes the rendered class agree with an explicit state value."
+      ]
+    }
+  },
+  "browser-attributes-properties": {
+    "id": {
+      "practiceSteps": [
+        "Edit kolom sebelum memeriksanya, lalu jelaskan kenapa kedua nilainya berbeda."
+      ],
+      "hint": "Ketik nilai baru, lalu bandingkan atribut awal dengan properti input saat ini.",
+      "recap": [
+        "Properti terkini mengikuti state kontrol saat ini."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Edit the field before inspecting and explain why the two values differ."
+      ],
+      "hint": "Type a new value and compare the initial attribute with the current input property.",
+      "recap": [
+        "The live property tracks the control’s current state."
+      ]
+    }
+  },
+  "browser-event-delegation": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan tombol ketiga setelah listener didaftarkan dan pastikan tombol itu tetap bekerja."
+      ],
+      "hint": "Klik teks atau ikon di dalam tombol; target awal bisa berbeda dari tombol yang ingin diproses.",
+      "recap": [
+        "closest menelusuri elemen ke arah induknya untuk menemukan elemen interaktif yang dimaksud."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Append a third button after registering the listener and confirm it works."
+      ],
+      "hint": "Click text or icons inside a button; the original target may differ from the intended button.",
+      "recap": [
+        "Closest walks toward ancestors to find the intended interactive element."
+      ]
+    }
+  },
+  "browser-event-propagation": {
+    "id": {
+      "practiceSteps": [
+        "Klik tombol, lalu latar elemen induknya.",
+        "Bandingkan kedua jalur event."
+      ],
+      "hint": "Bedakan elemen asal klik dengan elemen tempat listener yang sedang berjalan dipasang.",
+      "recap": [
+        "currentTarget menunjukkan pemilik listener, yang belum tentu merupakan node asal event."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Click the button and then the parent background.",
+        "Compare both event paths."
+      ],
+      "hint": "Distinguish the click's origin from the element owning the running listener.",
+      "recap": [
+        "CurrentTarget identifies the listener owner, not necessarily the originating node."
+      ]
+    }
+  },
+  "browser-prevent-default": {
+    "id": {
+      "practiceSteps": [
+        "Kirim dengan Enter dari dalam input, lalu bandingkan dengan klik tombol."
+      ],
+      "hint": "Coba mengirim form dengan Enter, bukan hanya klik tombol. Event mana mewakili keduanya?",
+      "recap": [
+        "submit mewakili aksi pengiriman form, apa pun metode input yang memicunya."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Submit using Enter inside the input and compare it with clicking the button."
+      ],
+      "hint": "Submit with Enter rather than only a click. Which event represents both?",
+      "recap": [
+        "Submit represents the form action regardless of the input method that triggered it."
+      ]
+    }
+  },
+  "browser-formdata": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan kolom angka opsional dan tangani nilai yang tidak diisi secara terpisah dari nol yang valid."
+      ],
+      "hint": "Periksa typeof dari nilai yang dibaca FormData meskipun input memakai type number.",
+      "recap": [
+        "Jenis kontrol memengaruhi interaksi dan batasan browser, bukan representasi string dalam FormData."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add an optional numeric field and handle absence separately from a valid zero."
+      ],
+      "hint": "Inspect typeof of FormData values even when the input uses type number.",
+      "recap": [
+        "Control type affects browser interaction and constraints, not FormData’s string representation."
+      ]
+    }
+  },
+  "browser-custom-validity": {
+    "id": {
+      "practiceSteps": [
+        "Coba kode yang tidak valid, perbaiki, lalu pastikan error khususnya hilang."
+      ],
+      "hint": "Setelah koreksi, periksa apakah pesan khusus masih berisi teks.",
+      "recap": [
+        "Pesan apa pun yang tidak kosong membuat kontrol tetap tidak valid."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an invalid code, fix it, and confirm the custom error clears."
+      ],
+      "hint": "After correction, check whether the custom message still contains text.",
+      "recap": [
+        "Any nonempty message keeps the control invalid."
+      ]
+    }
+  },
+  "browser-focus-management": {
+    "id": {
+      "practiceSteps": [
+        "Tambahkan tampilan fokus yang jelas dan aksi kembali yang mengembalikan fokus ke tempat yang bisa diprediksi."
+      ],
+      "hint": "Bedakan dapat difokuskan melalui kode dengan masuk urutan Tab biasa.",
+      "recap": [
+        "tabindex negatif mendukung perpindahan fokus yang disengaja sambil mempertahankan urutan kontrol normal."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Add a visible focus style and a return action with predictable focus restoration."
+      ],
+      "hint": "Distinguish programmatic focusability from membership in the normal Tab sequence.",
+      "recap": [
+        "Negative tabindex supports deliberate focus movement while preserving normal control order."
+      ]
+    }
+  },
+  "browser-keyboard-shortcuts": {
+    "id": {
+      "practiceSteps": [
+        "Pastikan / bisa diketik seperti biasa di dalam kolom, lalu rancang opsi untuk menonaktifkan pintasannya."
+      ],
+      "hint": "Apa yang terjadi jika karakter pintasan diketik saat pengguna mengisi textarea?",
+      "recap": [
+        "Pintasan tidak boleh mengambil karakter yang sedang diketik pengguna."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Confirm / types normally inside the field, then design an option to disable the shortcut."
+      ],
+      "hint": "What happens when the shortcut character is typed in a textarea?",
+      "recap": [
+        "A shortcut must not steal characters from the user’s current text input."
+      ]
+    }
+  },
+  "browser-debounce": {
+    "id": {
+      "practiceSteps": [
+        "Ketik dengan cepat, lalu berhenti sejenak.",
+        "Tambahkan tombol reset yang juga membatalkan timer yang masih menunggu."
+      ],
+      "hint": "Setiap input membatalkan timer sebelumnya. Kapan timer terakhir sempat selesai?",
+      "recap": [
+        "Timer dimulai ulang untuk setiap input, jadi pekerjaan baru berjalan setelah jeda tanpa input."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Type quickly, then pause.",
+        "Add a reset button that cancels the pending timer too."
+      ],
+      "hint": "Each input cancels the previous timer. When can the last timer finish?",
+      "recap": [
+        "The timer restarts for each input, so work runs after the quiet interval."
+      ]
+    }
+  },
+  "browser-throttle": {
+    "id": {
+      "practiceSteps": [
+        "Bandingkan klik cepat dengan contoh debounce dan jelaskan pembaruan akhir yang tidak terjadi."
+      ],
+      "hint": "Bandingkan waktu event baru dengan waktu pembaruan terakhir dan intervalnya.",
+      "recap": [
+        "Pemeriksaan waktu menerima event di awal hanya setelah interval berlalu."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Compare rapid clicks with the debounce example and describe the missing trailing update."
+      ],
+      "hint": "Compare a new event's time with the last update and interval.",
+      "recap": [
+        "The time guard accepts a leading event only after the interval has elapsed."
+      ]
+    }
+  },
+  "browser-fetch-status": {
+    "id": {
+      "practiceSteps": [
+        "Simulasikan respons 404, JSON tidak valid, dan respons berhasil dengan struktur data yang salah di aplikasi lokal."
+      ],
+      "hint": "Bedakan menerima respons HTTP gagal dengan gagal menerima respons akibat jaringan.",
+      "recap": [
+        "Kegagalan HTTP dan kegagalan jaringan adalah hasil yang berbeda dalam API fetch."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Simulate a 404, invalid JSON, and a successful but wrong-shaped response locally."
+      ],
+      "hint": "Distinguish receiving a failed HTTP response from not receiving one due to network failure.",
+      "recap": [
+        "HTTP failure and network failure are different outcomes in the fetch API."
+      ]
+    }
+  },
+  "browser-url-parameters": {
+    "id": {
+      "practiceSteps": [
+        "Coba nilai course yang tidak dikenal dan periksa bagaimana tanda & di dalam query dikodekan."
+      ],
+      "hint": "Ubah query secara manual di address bar; apakah nilai itu pasti tersedia dalam data aplikasi?",
+      "recap": [
+        "URL adalah input dari luar dan bisa diedit tanpa melalui antarmuka."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Try an unknown course value and inspect how an ampersand in the query is encoded."
+      ],
+      "hint": "Edit the query manually; is that value guaranteed to exist in application data?",
+      "recap": [
+        "URLs are external input and can be edited independently of the interface."
+      ]
+    }
+  },
+  "browser-abort-requests": {
+    "id": {
+      "practiceSteps": [
+        "Hubungkan pembatalan dengan pembersihan tampilan di aplikasi lokal yang memiliki endpoint sungguhan."
+      ],
+      "hint": "Membatalkan penantian client berbeda dari membatalkan pekerjaan server yang sudah dilakukan.",
+      "recap": [
+        "Pembatalan menghentikan keterlibatan klien; ini bukan rollback transaksi."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Wire cancellation to a view cleanup in a local app with a real endpoint."
+      ],
+      "hint": "Canceling client waiting differs from undoing completed server work.",
+      "recap": [
+        "Cancellation stops the client’s participation; it is not a transactional rollback."
+      ]
+    }
+  },
+  "browser-request-races": {
+    "id": {
+      "practiceSteps": [
+        "Klik slow lalu fast; hapus pemeriksaan id dan amati hasil lama yang muncul."
+      ],
+      "hint": "Coba request lama lambat dan request terbaru cepat; hasil mana sesuai pilihan pengguna saat ini?",
+      "recap": [
+        "Hasil yang terlihat harus mengikuti pilihan terbaru pengguna, terlepas dari waktu respons tiba."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Click slow then fast; remove the id guard and observe the stale result."
+      ],
+      "hint": "Try a slow old request and fast new one; which result matches the current user choice?",
+      "recap": [
+        "The latest user intent should own the visible result, regardless of response timing."
+      ]
+    }
+  },
+  "browser-storage-validation": {
+    "id": {
+      "practiceSteps": [
+        "Simpan JSON yang rusak dan nilai tema yang tidak dikenal, lalu pastikan keduanya bisa dipulihkan dengan aman."
+      ],
+      "hint": "Coba JSON rusak dan bentuk data tidak dikenal. Bagaimana UI tetap bisa dipakai?",
+      "recap": [
+        "Penyimpanan adalah bagian opsional yang kegagalannya tidak boleh membuat antarmuka tidak bisa dipakai."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Save malformed JSON and an unknown theme value, then confirm both recover safely."
+      ],
+      "hint": "Try malformed JSON and unknown shapes. How can the UI remain usable?",
+      "recap": [
+        "Persistence is an optional boundary that should not make the interface unusable."
+      ]
+    }
+  },
+  "browser-storage-events": {
+    "id": {
+      "practiceSteps": [
+        "Buka localhost di dua tab dan ubah tema di salah satunya.",
+        "Tangani penyimpanan yang tidak tersedia dalam aplikasi yang dipakai pengguna."
+      ],
+      "hint": "Bandingkan tab yang menulis data dengan tab lain yang menerima pemberitahuan perubahan.",
+      "recap": [
+        "Dokumen yang menulis data harus memperbarui UI-nya sendiri, bukan menunggu pemberitahuan antardokumen ini."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Run on localhost in two tabs and change the theme in one tab.",
+        "Handle unavailable storage in production."
+      ],
+      "hint": "Compare the writing tab with another tab receiving change notifications.",
+      "recap": [
+        "The writing document must update its own UI rather than wait for this cross-document notification."
+      ]
+    }
+  },
+  "browser-resize-observer": {
+    "id": {
+      "practiceSteps": [
+        "Ubah ukuran elemen tanpa mengubah ukuran seluruh jendela, lalu hentikan pengamatan."
+      ],
+      "hint": "Persempit elemen tanpa mengubah viewport; perubahan ukuran apa yang perlu diamati?",
+      "recap": [
+        "Observer ini melaporkan perubahan ukuran elemen yang dipantau, bukan hanya event viewport."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Resize the element without resizing the whole window, then stop observing."
+      ],
+      "hint": "Narrow an element without resizing the viewport; which size change matters?",
+      "recap": [
+        "It reports sizing changes for observed elements rather than only viewport events."
+      ]
+    }
+  },
+  "browser-intersection-observer": {
+    "id": {
+      "practiceSteps": [
+        "Scroll perlahan untuk membandingkan bagian yang terlihat sebagian dan sepenuhnya.",
+        "Lalu ubah threshold menjadi [0, 1] dan amati seberapa sering persentasenya diperbarui."
+      ],
+      "hint": "Terlihat di viewport berarti posisi geometris memenuhi syarat, bukan bukti pengguna sudah membaca.",
+      "recap": [
+        "Terlihat secara geometris bukan berarti diperhatikan atau dipahami."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Scroll slowly to compare partial and full visibility.",
+        "Then change thresholds to [0, 1] and observe how often the percentage updates."
+      ],
+      "hint": "Viewport visibility meets a geometric condition, not proof that users read it.",
+      "recap": [
+        "Geometric visibility is not evidence of attention or comprehension."
+      ]
+    }
+  },
+  "browser-animation-frame": {
+    "id": {
+      "practiceSteps": [
+        "Ubah durasi tanpa mengubah jarak total, lalu coba preferensi pengurangan gerakan."
+      ],
+      "hint": "Bandingkan jumlah frame pada perangkat cepat dan lambat selama durasi sama.",
+      "recap": [
+        "Progres berdasarkan waktu menjaga durasi tetap konsisten meskipun jumlah frame yang ditampilkan berbeda."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Change duration without changing the total distance, then test reduced motion."
+      ],
+      "hint": "Compare frame counts on fast and slow devices over the same duration.",
+      "recap": [
+        "Time-based progress keeps duration independent of the number of rendered frames."
+      ]
+    }
+  },
+  "browser-history-navigation": {
+    "id": {
+      "practiceSteps": [
+        "Lakukan navigasi dua kali, gunakan tombol Kembali, lalu muat ulang URL bertingkat dan periksa fallback servermu."
+      ],
+      "hint": "Setelah pushState, periksa apakah isi UI berubah sendiri atau perlu dirender aplikasi.",
+      "recap": [
+        "Perubahan riwayat dan render aplikasi adalah tanggung jawab yang terpisah."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Navigate twice, use Back, then refresh a nested URL and inspect your server fallback."
+      ],
+      "hint": "After pushState, inspect whether content changes itself or requires application rendering.",
+      "recap": [
+        "History changes and application rendering are separate responsibilities."
+      ]
+    }
+  },
+  "browser-listener-cleanup": {
+    "id": {
+      "practiceSteps": [
+        "Lepaskan listener dan pastikan klik berikutnya tidak lagi memperbarui hitungan."
+      ],
+      "hint": "Cocokkan signal saat pendaftaran listener dengan controller yang kemudian dibatalkan.",
+      "recap": [
+        "Masa aktif listener terikat pada signal yang diberikan."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Detach the listener and confirm later clicks no longer update the count."
+      ],
+      "hint": "Match the listener's registration signal with the controller later aborted.",
+      "recap": [
+        "The listener lifetime is tied to the supplied signal."
+      ]
+    }
+  },
+  "browser-feature-detection": {
+    "id": {
+      "practiceSteps": [
+        "Rancang aksi salin ke clipboard dengan teks yang bisa dipilih sebagai pengganti saat akses tidak tersedia atau ditolak."
+      ],
+      "hint": "Apakah API yang dibutuhkan tersedia? Nama browser saja tidak menjawab kemampuan itu.",
+      "recap": [
+        "Pemeriksaan kemampuan yang spesifik lebih sesuai dengan operasi yang dibutuhkan fitur."
+      ]
+    },
+    "en": {
+      "practiceSteps": [
+        "Design a copy-to-clipboard action with selectable text as a fallback for unavailable or denied access."
+      ],
+      "hint": "Is the needed API available? A browser name alone does not answer that.",
+      "recap": [
+        "A concrete capability check is closer to the operation the feature needs."
+      ]
+    }
+  }
+}
