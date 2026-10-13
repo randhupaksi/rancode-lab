@@ -17,7 +17,26 @@
 
 .primary-nav > a:active {
   color: var(--primary);
-  background: var(--interaction-pressed-surface);
+}
+
+.primary-nav > a > span {
+  display: inline-block;
+  transition: transform 180ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.primary-nav > a:active > span {
+  transform: translateY(1px) scale(.96);
+  transition-duration: 80ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-nav > a > span {
+    transition: none;
+  }
+
+  .primary-nav > a:active > span {
+    transform: none;
+  }
 }
 
 body :is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)) {
