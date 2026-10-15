@@ -11,6 +11,7 @@ import { useLearningCopy } from '../../features/journey/useLearningCopy'
 import { routeLoader } from '../../routeLoaders'
 const ContentBoundary = lazy(() => import('../../content/runtime/ContentBoundary'))
 const SearchDialog = lazy(() => import('../../features/search/SearchDialog'))
+const MobileBottomNavigation = lazy(() => import('./MobileBottomNavigation'))
 const navigation = [['nav.home', '/'], ['nav.learn', '/learn'], ['nav.projects', '/projects'], ['nav.explore', '/explore'], ['nav.playground', '/playground'], ['nav.challenges', '/challenges'], ['nav.cheatSheet', '/cheat-sheet']]
 
 function DismissInitialLoader() {
@@ -136,7 +137,9 @@ export default function SiteLayout() {
         <div className="footer-bottom"><small className="brand-attribution">{c('© 2026 Randhu Paksi Membumi. All rights reserved.', '© 2026 Randhu Paksi Membumi. Hak cipta dilindungi.')}</small></div>
       </div>
     </footer>
+    <ErrorBoundary compact><Suspense fallback={null}><MobileBottomNavigation/></Suspense></ErrorBoundary>
     {searchOpen && <Suspense fallback={<Dialog open title={t('layout.search')} onClose={() => setSearchOpen(false)}><p role="status">{t('layout.loading')}</p></Dialog>}><ErrorBoundary><SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)}/></ErrorBoundary></Suspense>}
     <Dialog open={settingsOpen} onClose={() => setSettingsOpen(false)} title={t('settings.title')}><p className="muted">{t('settings.lead')}</p><div className="settings-counts"><div><strong>{progress.completedLessons.length}</strong><span>{t('settings.lessons')}</span></div><div><strong>{progress.completedChallenges.length}</strong><span>{t('settings.challenges')}</span></div></div>{resetDone && <p className="feedback success" role="status"><Check size={16}/>{t('settings.resetDone')}</p>}{confirmReset ? <div className="reset-confirmation"><h3>{t('settings.resetPrompt')}</h3><p>{t('settings.resetLead')}</p><div className="button-row"><button className="button danger" onClick={() => { progress.resetProgress(); setConfirmReset(false); setResetDone(true) }}>{t('settings.reset')}</button><button className="button secondary" onClick={() => setConfirmReset(false)}>{t('settings.keep')}</button></div></div> : <button className="button secondary" onClick={() => setConfirmReset(true)}>{t('settings.resetLocal')}</button>}</Dialog>
   </>
 }
+

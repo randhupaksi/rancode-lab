@@ -1,0 +1,179 @@
+.mobile-bottom-navigation {
+  display: none;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  pointer-events: none;
+  font-family: inherit;
+}
+
+.mobile-bottom-navigation__frame {
+  position: relative;
+  height: 92px;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.mobile-bottom-navigation__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  color: var(--border);
+}
+
+.mobile-bottom-navigation__active-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  width: 20%;
+  height: 100%;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.mobile-bottom-navigation__active-indicator[hidden] {
+  display: none;
+}
+
+.mobile-bottom-navigation__active-ring {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  padding: 4px;
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 0 8px 16px rgb(8 6 16 / 32%);
+}
+
+.mobile-bottom-navigation__active-disc {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border-radius: inherit;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 14%);
+}
+
+.mobile-bottom-navigation__active-icon {
+  animation: mobile-bottom-fade-in 180ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)) both;
+}
+
+.mobile-bottom-navigation__items {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.mobile-bottom-navigation__item {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0 2px 12px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition:
+    color 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
+    opacity 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
+    transform 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1));
+}
+
+.mobile-bottom-navigation__item:hover,
+.mobile-bottom-navigation__item:focus-visible {
+  color: var(--primary);
+}
+
+.mobile-bottom-navigation__item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -3px;
+}
+
+.mobile-bottom-navigation__item:active {
+  transform: scale(.91);
+  opacity: .85;
+  transition-duration: 80ms;
+}
+
+.mobile-bottom-navigation__item.is-active {
+  z-index: 10;
+  color: var(--primary);
+}
+
+.mobile-bottom-navigation__item-icon {
+  flex: none;
+  transition:
+    opacity 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
+    transform 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1));
+  will-change: transform;
+}
+
+.mobile-bottom-navigation__item:active .mobile-bottom-navigation__item-icon {
+  transform: scale(.9);
+}
+
+.mobile-bottom-navigation__item.is-active .mobile-bottom-navigation__item-icon {
+  transform: scale(.75);
+  opacity: 0;
+}
+
+.mobile-bottom-navigation__label {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-bottom-navigation__item.is-active .mobile-bottom-navigation__label {
+  animation: mobile-bottom-fade-in 260ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)) both;
+}
+
+@keyframes mobile-bottom-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 980px) {
+  .mobile-bottom-navigation {
+    display: block;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-bottom-navigation__item,
+  .mobile-bottom-navigation__item-icon,
+  .mobile-bottom-navigation__active-icon,
+  .mobile-bottom-navigation__item.is-active .mobile-bottom-navigation__label {
+    transition: none;
+    animation: none;
+  }
+
+  .mobile-bottom-navigation__item:active,
+  .mobile-bottom-navigation__item:active .mobile-bottom-navigation__item-icon {
+    transform: none;
+  }
+}
+
+
