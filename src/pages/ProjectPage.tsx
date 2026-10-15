@@ -77,7 +77,7 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
     const anchor = document.createElement('a'); anchor.href = url; anchor.download = `rancode-lab-${course.id}-project.txt`; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000)
   }
   return <div className="page-width journey-page project-page">
-    <HistoryBackLink fallbackTo="/learn"/>
+    <HistoryBackLink fallbackTo="/projects"/>
     <header className="journey-heading"><p className="eyebrow">{course.title} / {course.id === 'nextjs' ? c('Final project lab', 'Lab proyek akhir') : c('Interactive project lab', 'Lab proyek interaktif')}</p><h1>{project.title}</h1><p className="page-lead">{project.brief}</p></header>
     <div className="project-layout"><div className="project-main"><section className="project-brief"><h2>{c('Build it in steps', 'Bangun secara bertahap')}</h2><ol>{project.steps.map(step => <li key={step}>{step}</li>)}</ol></section>
       <Suspense fallback={<SectionLoadingSkeleton variant={project.mode === 'web' || project.mode === 'tailwind' || project.mode === 'workspace' || project.mode === 'vibe' || project.mode === 'nextjs' ? 'preview' : 'code'} label={c('Opening the project tools…', 'Menyiapkan alat proyek…')}/> }>
@@ -90,7 +90,7 @@ function ProjectWorkspace({ stage, sourceStage }: { stage: JourneyStage; sourceS
       <button className="button primary" disabled={!ready || !passed || draft.completed} onClick={() => { update({ completed: true }); setSavedNotice(true) }}>{draft.completed ? <><CheckCircle2 size={16}/>{c('Project reviewed', 'Proyek sudah ditinjau')}</> : c('Finish project review', 'Tuntaskan tinjauan proyek')}</button>
       {!ready && <p className="quiet-note">{c('Add your project work and notes, then check every item to finish.', 'Tambahkan hasil proyek dan catatanmu, lalu centang semua poin untuk menyelesaikan tahap ini.')}</p>}
       {savedNotice && <p role="status" className="feedback success">{c('Project review saved. Stage complete.', 'Tinjauan proyek tersimpan. Tahap ini selesai.')}</p>}
-      {draft.completed && <div className="stage-bridge"><p>{stage.bridge}</p>{localizedNext && next ? <TextLink to={`/learn/${next.id}`}>{c('Next', 'Berikutnya')}: {localizedNext.title}<ArrowRight size={14}/></TextLink> : course.path === 'companion' ? <HistoryBackLink fallbackTo="/learn"/> : <TextLink to="/learn">{c('View your completed journey', 'Lihat perjalananmu')}<ArrowRight size={14}/></TextLink>}</div>}
+      {draft.completed && <div className="stage-bridge"><p>{stage.bridge}</p>{localizedNext && next ? <TextLink to={`/learn/${next.id}`}>{c('Next', 'Berikutnya')}: {localizedNext.title}<ArrowRight size={14}/></TextLink> : course.path === 'companion' ? <TextLink to="/projects">{c('View all projects', 'Lihat semua proyek')}<ArrowRight size={14}/></TextLink> : <TextLink to="/learn">{c('View your completed journey', 'Lihat perjalananmu')}<ArrowRight size={14}/></TextLink>}</div>}
     </aside></div>
   </div>
 }
