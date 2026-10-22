@@ -3,7 +3,10 @@ import { flow, node } from './visuals'
 
 export const advancedTypes: Lesson[] = [
   {
-    id: 'literal-types', title: 'Literal Types', moduleId: 'advanced-types', minutes: 6,
+    id: 'literal-types',
+    title: 'Literal Types',
+    moduleId: 'advanced-types',
+    minutes: 6,
     description: 'Replace any string with a small vocabulary of valid states.',
     explanation: [
       'A literal type describes one exact value, such as "draft", 200, or true. Combine literals with a union to express a finite vocabulary: "draft" | "published".',
@@ -12,17 +15,47 @@ export const advancedTypes: Lesson[] = [
     ],
     code: 'type Status = "draft" | "published";\n\nfunction statusLabel(status: Status): string {\n  return status === "published" ? "Ready to read" : "Work in progress";\n}\n\nconst status: Status = "published";\nconst label = statusLabel(status);\nconst settings = { theme: "dark", density: "comfortable" } as const;',
     inspectSymbols: ['status', 'label', 'settings'],
-    visual: flow('A smaller set of strings', 'The contract permits exactly two strings instead of the entire string type.', [
-      node('status', 'Status', 'The union "draft" | "published".', 'type'),
-      node('draft', '"draft"', 'Accepted: this exact value is a member.', 'value'),
-      node('published', '"published"', 'Accepted: this exact value is a member.', 'value'),
-      node('typo', '"publised"', 'Rejected: spelling is part of the type.', 'error'),
-    ], [{ from: 'draft', to: 'status', label: 'valid' }, { from: 'published', to: 'status', label: 'valid' }, { from: 'typo', to: 'status', label: 'invalid' }]),
-    challenge: { id: 'literal-types-check', title: 'Choose a valid state', topic: 'Composition', difficulty: 'Beginner', kind: 'choice', prompt: 'Which value belongs to RequestState?', code: 'type RequestState = "idle" | "loading" | "ready";', options: ['"complete"', '"ready"', 'true'], answer: '"ready"', hint: 'A literal union is an exact list of permitted values.', explanation: 'Only "idle", "loading", and "ready" satisfy the union. Similar meanings or different spellings do not count.' },
-    recap: ['Literal types describe exact values.', 'Unions of literals express a controlled vocabulary.', 'as const preserves literals without runtime freezing.'], relatedConcepts: ['literal-types', 'unions', 'readonly'],
+    visual: flow(
+      'A smaller set of strings',
+      'The contract permits exactly two strings instead of the entire string type.',
+      [
+        node('status', 'Status', 'The union "draft" | "published".', 'type'),
+        node('draft', '"draft"', 'Accepted: this exact value is a member.', 'value'),
+        node('published', '"published"', 'Accepted: this exact value is a member.', 'value'),
+        node('typo', '"publised"', 'Rejected: spelling is part of the type.', 'error'),
+      ],
+      [
+        { from: 'draft', to: 'status', label: 'valid' },
+        { from: 'published', to: 'status', label: 'valid' },
+        { from: 'typo', to: 'status', label: 'invalid' },
+      ],
+    ),
+    challenge: {
+      id: 'literal-types-check',
+      title: 'Choose a valid state',
+      topic: 'Composition',
+      difficulty: 'Beginner',
+      kind: 'choice',
+      prompt: 'Which value belongs to RequestState?',
+      code: 'type RequestState = "idle" | "loading" | "ready";',
+      options: ['"complete"', '"ready"', 'true'],
+      answer: '"ready"',
+      hint: 'A literal union is an exact list of permitted values.',
+      explanation:
+        'Only "idle", "loading", and "ready" satisfy the union. Similar meanings or different spellings do not count.',
+    },
+    recap: [
+      'Literal types describe exact values.',
+      'Unions of literals express a controlled vocabulary.',
+      'as const preserves literals without runtime freezing.',
+    ],
+    relatedConcepts: ['literal-types', 'unions', 'readonly'],
   },
   {
-    id: 'narrowing', title: 'Narrowing', moduleId: 'advanced-types', minutes: 8,
+    id: 'narrowing',
+    title: 'Narrowing',
+    moduleId: 'advanced-types',
+    minutes: 8,
     description: 'Follow evidence as a broad type becomes a specific one.',
     explanation: [
       'Narrowing happens when control flow provides evidence about a value. typeof, equality checks, the in operator, and other guards let the checker rule out impossible members of a union.',
@@ -31,22 +64,83 @@ export const advancedTypes: Lesson[] = [
     ],
     code: 'type Result =\n  | { ok: true; data: string }\n  | { ok: false; error: string };\n\nfunction describe(result: Result): string {\n  if (result.ok) {\n    return result.data.toUpperCase();\n  }\n  return `Could not load: ${result.error}`;\n}\n\nconst message = describe({ ok: true, data: "Lesson ready" });',
     inspectSymbols: ['describe', 'message'],
-    visual: flow('Evidence selects a branch', 'The discriminant links each state to the properties that exist in that state.', [
-      node('result', 'Result', 'Either the successful shape or the failure shape.', 'type'),
-      node('success', 'ok: true → data', 'Only the success member has data.', 'value'),
-      node('failure', 'ok: false → error', 'Only the failure member has error.', 'error'),
-    ], [{ from: 'result', to: 'success', label: 'if result.ok' }, { from: 'result', to: 'failure', label: 'otherwise' }]),
+    visual: flow(
+      'Evidence selects a branch',
+      'The discriminant links each state to the properties that exist in that state.',
+      [
+        node('result', 'Result', 'Either the successful shape or the failure shape.', 'type'),
+        node('success', 'ok: true → data', 'Only the success member has data.', 'value'),
+        node('failure', 'ok: false → error', 'Only the failure member has error.', 'error'),
+      ],
+      [
+        { from: 'result', to: 'success', label: 'if result.ok' },
+        { from: 'result', to: 'failure', label: 'otherwise' },
+      ],
+    ),
     steps: [
-      { line: 12, label: 'Call describe', value: '{ ok: true, data: "Lesson ready" }', explanation: 'The example supplies the success variant to a function accepting the full union.' },
-      { line: 6, label: 'Evaluate the guard', value: 'result.ok === true', explanation: 'The condition is true, so execution enters the success branch.' },
-      { line: 7, label: 'Use the narrowed shape', value: 'result.data: string', explanation: 'Inside this branch the checker knows data exists. The failure member is excluded.' },
-      { line: 7, label: 'Return the text', value: '"LESSON READY"', explanation: 'The string is uppercased and returned. The error branch is never executed for this input.' },
+      {
+        line: 12,
+        label: 'Call describe',
+        value: '{ ok: true, data: "Lesson ready" }',
+        explanation:
+          'The example supplies the success variant to a function accepting the full union.',
+      },
+      {
+        line: 6,
+        label: 'Evaluate the guard',
+        value: 'result.ok === true',
+        explanation: 'The condition is true, so execution enters the success branch.',
+      },
+      {
+        line: 7,
+        label: 'Use the narrowed shape',
+        value: 'result.data: string',
+        explanation:
+          'Inside this branch the checker knows data exists. The failure member is excluded.',
+      },
+      {
+        line: 7,
+        label: 'Return the text',
+        value: '"LESSON READY"',
+        explanation:
+          'The string is uppercased and returned. The error branch is never executed for this input.',
+      },
     ],
-    challenge: { id: 'narrowing-check', title: 'Narrow before reading', topic: 'Composition', difficulty: 'Intermediate', kind: 'fix', prompt: 'Handle both variants before reading data. Return the error text for a failure', code: 'type Result = { ok: true; data: string } | { ok: false; error: string };\nfunction describe(result: Result): string {\n  return result.data;\n}\nconst message = describe({ ok: true, data: "Ready" });', answer: 'guard', runtimeChecks: [{ expression: 'describe({ ok: true, data: "Ready" })', expected: 'Ready' }, { expression: 'describe({ ok: true, data: "" })', expected: '' }, { expression: 'describe({ ok: false, error: "Try again" })', expected: 'Try again' }], expectedTypes: { message: 'string' }, validationCode: "type __RancodeLabResult = __RancodeLabAssert<__RancodeLabEqual<Result, { ok: true; data: string } | { ok: false; error: string }>>;\ntype __RancodeLabDescribe = __RancodeLabAssert<__RancodeLabEqual<typeof describe, (result: Result) => string>>;\ntype __RancodeLabMessage = __RancodeLabAssert<__RancodeLabEqual<typeof message, string>>;", hint: 'Use if (result.ok) to select the member with data, then handle error.', explanation: 'The success branch can read data; the failure branch can read error. Accessing data on the whole union is unsafe because it does not exist in every member.', solution: 'type Result = { ok: true; data: string } | { ok: false; error: string };\nfunction describe(result: Result): string {\n  if (result.ok) return result.data;\n  return result.error;\n}\nconst message = describe({ ok: true, data: "Ready" });' },
-    recap: ['Control flow supplies evidence for narrowing.', 'A discriminant connects a state to its payload.', 'never can reveal an unhandled variant.'], relatedConcepts: ['narrowing', 'discriminated-unions', 'never'],
+    challenge: {
+      id: 'narrowing-check',
+      title: 'Narrow before reading',
+      topic: 'Composition',
+      difficulty: 'Intermediate',
+      kind: 'fix',
+      prompt: 'Handle both variants before reading data. Return the error text for a failure',
+      code: 'type Result = { ok: true; data: string } | { ok: false; error: string };\nfunction describe(result: Result): string {\n  return result.data;\n}\nconst message = describe({ ok: true, data: "Ready" });',
+      answer: 'guard',
+      runtimeChecks: [
+        { expression: 'describe({ ok: true, data: "Ready" })', expected: 'Ready' },
+        { expression: 'describe({ ok: true, data: "" })', expected: '' },
+        { expression: 'describe({ ok: false, error: "Try again" })', expected: 'Try again' },
+      ],
+      expectedTypes: { message: 'string' },
+      validationCode:
+        'type __RancodeLabResult = __RancodeLabAssert<__RancodeLabEqual<Result, { ok: true; data: string } | { ok: false; error: string }>>;\ntype __RancodeLabDescribe = __RancodeLabAssert<__RancodeLabEqual<typeof describe, (result: Result) => string>>;\ntype __RancodeLabMessage = __RancodeLabAssert<__RancodeLabEqual<typeof message, string>>;',
+      hint: 'Use if (result.ok) to select the member with data, then handle error.',
+      explanation:
+        'The success branch can read data; the failure branch can read error. Accessing data on the whole union is unsafe because it does not exist in every member.',
+      solution:
+        'type Result = { ok: true; data: string } | { ok: false; error: string };\nfunction describe(result: Result): string {\n  if (result.ok) return result.data;\n  return result.error;\n}\nconst message = describe({ ok: true, data: "Ready" });',
+    },
+    recap: [
+      'Control flow supplies evidence for narrowing.',
+      'A discriminant connects a state to its payload.',
+      'never can reveal an unhandled variant.',
+    ],
+    relatedConcepts: ['narrowing', 'discriminated-unions', 'never'],
   },
   {
-    id: 'keyof', title: 'keyof', moduleId: 'advanced-types', minutes: 6,
+    id: 'keyof',
+    title: 'keyof',
+    moduleId: 'advanced-types',
+    minutes: 6,
     description: 'Derive a type from the property names of another type.',
     explanation: [
       'keyof turns an object type into a union of its known keys. For Lesson, keyof Lesson is "title" | "minutes". When the shape changes, the key union changes with it.',
@@ -55,16 +149,46 @@ export const advancedTypes: Lesson[] = [
     ],
     code: 'type Lesson = { title: string; minutes: number };\ntype LessonKey = keyof Lesson;\ntype Duration = Lesson["minutes"];\n\nconst key: LessonKey = "title";\nconst duration: Duration = 6;\nconst lesson: Lesson = { title: "keyof", minutes: duration };\nconst value = lesson[key];',
     inspectSymbols: ['key', 'duration', 'lesson', 'value'],
-    visual: flow('A shape becomes a key union', 'keyof derives a vocabulary from the source model instead of duplicating property names.', [
-      node('shape', '{ title; minutes }', 'The source object type has two known properties.', 'type'),
-      node('operator', 'keyof Lesson', 'Select the set of property names.'),
-      node('keys', '"title" | "minutes"', 'Only these keys are accepted by LessonKey.', 'type'),
-    ]),
-    challenge: { id: 'keyof-check', title: 'Derive the keys', topic: 'Composition', difficulty: 'Intermediate', kind: 'fill', prompt: 'Complete the operator that derives the property-name union', code: 'type Profile = { name: string; age: number };\ntype ProfileKey = ___ Profile;', answer: 'keyof', hint: 'The operator asks for the keys of a type.', explanation: 'keyof Profile produces "name" | "age". The union stays synchronized if Profile changes.', solution: 'type Profile = { name: string; age: number };\ntype ProfileKey = keyof Profile;' },
-    recap: ['keyof produces a union of keys.', 'T[K] selects the type stored at a key.', 'Type-level keys and runtime key enumeration are different operations.'], relatedConcepts: ['keyof', 'indexed-access'],
+    visual: flow(
+      'A shape becomes a key union',
+      'keyof derives a vocabulary from the source model instead of duplicating property names.',
+      [
+        node(
+          'shape',
+          '{ title; minutes }',
+          'The source object type has two known properties.',
+          'type',
+        ),
+        node('operator', 'keyof Lesson', 'Select the set of property names.'),
+        node('keys', '"title" | "minutes"', 'Only these keys are accepted by LessonKey.', 'type'),
+      ],
+    ),
+    challenge: {
+      id: 'keyof-check',
+      title: 'Derive the keys',
+      topic: 'Composition',
+      difficulty: 'Intermediate',
+      kind: 'fill',
+      prompt: 'Complete the operator that derives the property-name union',
+      code: 'type Profile = { name: string; age: number };\ntype ProfileKey = ___ Profile;',
+      answer: 'keyof',
+      hint: 'The operator asks for the keys of a type.',
+      explanation:
+        'keyof Profile produces "name" | "age". The union stays synchronized if Profile changes.',
+      solution: 'type Profile = { name: string; age: number };\ntype ProfileKey = keyof Profile;',
+    },
+    recap: [
+      'keyof produces a union of keys.',
+      'T[K] selects the type stored at a key.',
+      'Type-level keys and runtime key enumeration are different operations.',
+    ],
+    relatedConcepts: ['keyof', 'indexed-access'],
   },
   {
-    id: 'typeof', title: 'typeof', moduleId: 'advanced-types', minutes: 6,
+    id: 'typeof',
+    title: 'typeof',
+    moduleId: 'advanced-types',
+    minutes: 6,
     description: 'Reuse the inferred type of an existing value.',
     explanation: [
       'JavaScript typeof is an expression that returns a string at runtime, such as "number" or "object". In a TypeScript type position, typeof instead refers to the static type of an existing value.',
@@ -73,16 +197,59 @@ export const advancedTypes: Lesson[] = [
     ],
     code: 'const defaults = { theme: "dark", fontSize: 14 };\ntype Settings = typeof defaults;\n\nconst custom: Settings = { theme: "light", fontSize: 16 };\nconst runtimeKind = typeof defaults;\n\nconst fixedDefaults = { theme: "dark" } as const;\ntype FixedSettings = typeof fixedDefaults;',
     inspectSymbols: ['defaults', 'custom', 'runtimeKind', 'fixedDefaults'],
-    visual: flow('One word, two contexts', 'The position of typeof determines whether it is a runtime expression or a type-level query.', [
-      node('value', 'defaults', 'An existing object value.', 'value'),
-      node('static', 'type S = typeof defaults', 'Derives { theme: string; fontSize: number }.', 'type'),
-      node('runtime', 'typeof defaults', 'In an expression, JavaScript returns "object".', 'value'),
-    ], [{ from: 'value', to: 'static', label: 'type position' }, { from: 'value', to: 'runtime', label: 'expression position' }]),
-    challenge: { id: 'typeof-check', title: 'Read a type query', topic: 'Composition', difficulty: 'Intermediate', kind: 'choice', prompt: 'What does Config represent?', code: 'const config = { retries: 3, verbose: false };\ntype Config = typeof config;', options: ['The string "object"', '{ retries: number; verbose: boolean }', 'An array of the property names'], answer: '{ retries: number; verbose: boolean }', hint: 'Here typeof appears to the right of a type alias declaration.', explanation: 'In this type position, typeof captures the inferred object shape. In an expression, typeof config would evaluate to the string "object".' },
-    recap: ['Type-position typeof reuses an existing static type.', 'Expression-position typeof returns a runtime string.', 'Inference choices affect the derived shape.'], relatedConcepts: ['typeof', 'inference', 'literal-types'],
+    visual: flow(
+      'One word, two contexts',
+      'The position of typeof determines whether it is a runtime expression or a type-level query.',
+      [
+        node('value', 'defaults', 'An existing object value.', 'value'),
+        node(
+          'static',
+          'type S = typeof defaults',
+          'Derives { theme: string; fontSize: number }.',
+          'type',
+        ),
+        node(
+          'runtime',
+          'typeof defaults',
+          'In an expression, JavaScript returns "object".',
+          'value',
+        ),
+      ],
+      [
+        { from: 'value', to: 'static', label: 'type position' },
+        { from: 'value', to: 'runtime', label: 'expression position' },
+      ],
+    ),
+    challenge: {
+      id: 'typeof-check',
+      title: 'Read a type query',
+      topic: 'Composition',
+      difficulty: 'Intermediate',
+      kind: 'choice',
+      prompt: 'What does Config represent?',
+      code: 'const config = { retries: 3, verbose: false };\ntype Config = typeof config;',
+      options: [
+        'The string "object"',
+        '{ retries: number; verbose: boolean }',
+        'An array of the property names',
+      ],
+      answer: '{ retries: number; verbose: boolean }',
+      hint: 'Here typeof appears to the right of a type alias declaration.',
+      explanation:
+        'In this type position, typeof captures the inferred object shape. In an expression, typeof config would evaluate to the string "object".',
+    },
+    recap: [
+      'Type-position typeof reuses an existing static type.',
+      'Expression-position typeof returns a runtime string.',
+      'Inference choices affect the derived shape.',
+    ],
+    relatedConcepts: ['typeof', 'inference', 'literal-types'],
   },
   {
-    id: 'utility-types', title: 'Utility Types', moduleId: 'advanced-types', minutes: 8,
+    id: 'utility-types',
+    title: 'Utility Types',
+    moduleId: 'advanced-types',
+    minutes: 8,
     description: 'Transform an existing model without repeating its fields.',
     explanation: [
       'Utility types are reusable type transformations. Partial<T> makes every property optional; Required<T> removes optionality; Readonly<T> prevents writes through the typed reference. These operations are shallow.',
@@ -91,12 +258,44 @@ export const advancedTypes: Lesson[] = [
     ],
     code: 'type Lesson = { id: string; title: string; minutes: number };\ntype LessonPreview = Pick<Lesson, "id" | "title">;\ntype LessonPatch = Partial<Omit<Lesson, "id">>;\n\nconst preview: LessonPreview = { id: "types", title: "Types" };\nconst patch: LessonPatch = { minutes: 7 };\nconst completion: Record<"types" | "functions", boolean> = {\n  types: true,\n  functions: false,\n};',
     inspectSymbols: ['preview', 'patch', 'completion'],
-    visual: flow('Transform a single source of truth', 'Derive useful views of a model while keeping the original field definitions connected.', [
-      node('source', 'Lesson', 'id, title, and minutes are required.', 'type'),
-      node('preview', 'Pick<Lesson, …>', 'Select id and title for a compact preview.', 'type'),
-      node('patch', 'Partial<Omit<Lesson, "id">>', 'Allow optional updates to title and minutes.', 'type'),
-    ], [{ from: 'source', to: 'preview', label: 'select fields' }, { from: 'source', to: 'patch', label: 'remove id + make optional' }]),
-    challenge: { id: 'utility-types-check', title: 'Make an update shape', topic: 'Composition', difficulty: 'Intermediate', kind: 'fill', prompt: 'Complete the utility that makes all properties optional', code: 'type Settings = { theme: string; fontSize: number };\ntype SettingsUpdate = ___<Settings>;', answer: 'Partial', hint: 'An update can provide only part of the original model.', explanation: 'Partial<Settings> creates optional theme and fontSize properties. It describes allowed updates but does not apply them at runtime.', solution: 'type Settings = { theme: string; fontSize: number };\ntype SettingsUpdate = Partial<Settings>;' },
-    recap: ['Utility types transform type descriptions.', 'Pick and Omit select fields; Partial makes them optional.', 'A type transformation does not transform runtime data.'], relatedConcepts: ['utility-types', 'record', 'readonly'],
+    visual: flow(
+      'Transform a single source of truth',
+      'Derive useful views of a model while keeping the original field definitions connected.',
+      [
+        node('source', 'Lesson', 'id, title, and minutes are required.', 'type'),
+        node('preview', 'Pick<Lesson, …>', 'Select id and title for a compact preview.', 'type'),
+        node(
+          'patch',
+          'Partial<Omit<Lesson, "id">>',
+          'Allow optional updates to title and minutes.',
+          'type',
+        ),
+      ],
+      [
+        { from: 'source', to: 'preview', label: 'select fields' },
+        { from: 'source', to: 'patch', label: 'remove id + make optional' },
+      ],
+    ),
+    challenge: {
+      id: 'utility-types-check',
+      title: 'Make an update shape',
+      topic: 'Composition',
+      difficulty: 'Intermediate',
+      kind: 'fill',
+      prompt: 'Complete the utility that makes all properties optional',
+      code: 'type Settings = { theme: string; fontSize: number };\ntype SettingsUpdate = ___<Settings>;',
+      answer: 'Partial',
+      hint: 'An update can provide only part of the original model.',
+      explanation:
+        'Partial<Settings> creates optional theme and fontSize properties. It describes allowed updates but does not apply them at runtime.',
+      solution:
+        'type Settings = { theme: string; fontSize: number };\ntype SettingsUpdate = Partial<Settings>;',
+    },
+    recap: [
+      'Utility types transform type descriptions.',
+      'Pick and Omit select fields; Partial makes them optional.',
+      'A type transformation does not transform runtime data.',
+    ],
+    relatedConcepts: ['utility-types', 'record', 'readonly'],
   },
 ]

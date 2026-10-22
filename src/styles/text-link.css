@@ -32,7 +32,7 @@ a.text-link.history-back-link::after {
   content: '';
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform .16s ease;
+  transition: transform 0.16s ease;
 }
 
 a.text-link.history-back-link:hover::after,

@@ -106,10 +106,7 @@
       "expected": "49 masih membayar ongkir; 50 dan 51 mendapat ongkir gratis."
     },
     "en": {
-      "practiceSteps": [
-        "Try totals of 49, 50, and 51.",
-        "Explain why 50 receives free delivery."
-      ],
+      "practiceSteps": ["Try totals of 49, 50, and 51.", "Explain why 50 receives free delivery."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -283,10 +280,7 @@
   },
   "logic-input-output": {
     "id": {
-      "practiceSteps": [
-        "Catat satuan kedua input.",
-        "Coba nilai rate 0 dan 1."
-      ],
+      "practiceSteps": ["Catat satuan kedua input.", "Coba nilai rate 0 dan 1."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -317,10 +311,7 @@
       "expected": "rate 0 memberi harga 80; rate 1 memberi harga 0."
     },
     "en": {
-      "practiceSteps": [
-        "Write down the units for both inputs.",
-        "Try rates of 0 and 1."
-      ],
+      "practiceSteps": ["Write down the units for both inputs.", "Try rates of 0 and 1."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -352,9 +343,7 @@
   },
   "logic-pseudocode": {
     "id": {
-      "practiceSteps": [
-        "Telusuri jumlah -1, 0, 2, dan 6 saat stok bernilai 5."
-      ],
+      "practiceSteps": ["Telusuri jumlah -1, 0, 2, dan 6 saat stok bernilai 5."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -385,9 +374,7 @@
       "expected": "Dengan stok 5, hanya jumlah 2 dari empat input latihan yang memenuhi kedua syarat."
     },
     "en": {
-      "practiceSteps": [
-        "Walk through quantities -1, 0, 2, and 6 when stock is 5."
-      ],
+      "practiceSteps": ["Walk through quantities -1, 0, 2, and 6 when stock is 5."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -419,9 +406,7 @@
   },
   "logic-truth-tables": {
     "id": {
-      "practiceSteps": [
-        "Ganti && menjadi || lalu cari baris mana saja yang berubah."
-      ],
+      "practiceSteps": ["Ganti && menjadi || lalu cari baris mana saja yang berubah."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -452,9 +437,7 @@
       "expected": "AND hanya menerima pasangan true/true. OR menerima semua pasangan kecuali false/false."
     },
     "en": {
-      "practiceSteps": [
-        "Replace && with || and identify exactly which rows change."
-      ],
+      "practiceSteps": ["Replace && with || and identify exactly which rows change."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -624,9 +607,7 @@
   },
   "logic-binary-search": {
     "id": {
-      "practiceSteps": [
-        "Telusuri nilai low, high, dan mid di kertas untuk target 8 dan 7."
-      ],
+      "practiceSteps": ["Telusuri nilai low, high, dan mid di kertas untuk target 8 dan 7."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -657,9 +638,7 @@
       "expected": "Target 8 ditemukan, target 7 tidak. Setiap langkah harus memperkecil rentang kandidat."
     },
     "en": {
-      "practiceSteps": [
-        "Trace low, high, and mid on paper for targets 8 and 7."
-      ],
+      "practiceSteps": ["Trace low, high, and mid on paper for targets 8 and 7."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -724,9 +703,7 @@
       "expected": "Ukuran 4 melakukan 16 pemeriksaan; ukuran 8 melakukan 64."
     },
     "en": {
-      "practiceSteps": [
-        "Double the input and compare the number of checks, not execution time."
-      ],
+      "practiceSteps": ["Double the input and compare the number of checks, not execution time."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -792,10 +769,7 @@
       "expected": "Sesudah >= diubah menjadi >, hanya kasus usia 18 yang berbeda dari harapannya."
     },
     "en": {
-      "practiceSteps": [
-        "Change >= to >.",
-        "Identify the single test that detects the mistake."
-      ],
+      "practiceSteps": ["Change >= to >.", "Identify the single test that detects the mistake."],
       "blocks": [
         {
           "kind": "paragraph",

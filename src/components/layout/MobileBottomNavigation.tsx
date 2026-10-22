@@ -23,9 +23,16 @@ const NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET = 18
 
 function buildNavigationFramePath(activeIndex: number) {
   if (activeIndex < 0) {
-    return 'M 0 ' + NAVIGATION_TOP_EDGE + ' H ' + NAVIGATION_VIEWBOX_WIDTH + ' V ' + NAVIGATION_VIEWBOX_HEIGHT + ' H 0 Z'
+    return (
+      'M 0 ' +
+      NAVIGATION_TOP_EDGE +
+      ' H ' +
+      NAVIGATION_VIEWBOX_WIDTH +
+      ' V ' +
+      NAVIGATION_VIEWBOX_HEIGHT +
+      ' H 0 Z'
+    )
   }
-
 
   const activeCenter = activeIndex * 100 + 50
   const notchStart = activeCenter - NAVIGATION_ACTIVE_NOTCH_HALF_WIDTH
@@ -35,8 +42,30 @@ function buildNavigationFramePath(activeIndex: number) {
   return [
     'M 0 ' + NAVIGATION_TOP_EDGE,
     'H ' + notchStart,
-    'C ' + (notchStart + NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET) + ' ' + NAVIGATION_TOP_EDGE + ' ' + (activeCenter - curveControl) + ' ' + NAVIGATION_ACTIVE_NOTCH_DEPTH + ' ' + activeCenter + ' ' + NAVIGATION_ACTIVE_NOTCH_DEPTH,
-    'C ' + (activeCenter + curveControl) + ' ' + NAVIGATION_ACTIVE_NOTCH_DEPTH + ' ' + (notchEnd - NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET) + ' ' + NAVIGATION_TOP_EDGE + ' ' + notchEnd + ' ' + NAVIGATION_TOP_EDGE,
+    'C ' +
+      (notchStart + NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET) +
+      ' ' +
+      NAVIGATION_TOP_EDGE +
+      ' ' +
+      (activeCenter - curveControl) +
+      ' ' +
+      NAVIGATION_ACTIVE_NOTCH_DEPTH +
+      ' ' +
+      activeCenter +
+      ' ' +
+      NAVIGATION_ACTIVE_NOTCH_DEPTH,
+    'C ' +
+      (activeCenter + curveControl) +
+      ' ' +
+      NAVIGATION_ACTIVE_NOTCH_DEPTH +
+      ' ' +
+      (notchEnd - NAVIGATION_ACTIVE_NOTCH_CONTROL_OFFSET) +
+      ' ' +
+      NAVIGATION_TOP_EDGE +
+      ' ' +
+      notchEnd +
+      ' ' +
+      NAVIGATION_TOP_EDGE,
     'H ' + NAVIGATION_VIEWBOX_WIDTH,
     'V ' + NAVIGATION_VIEWBOX_HEIGHT,
     'H 0 Z',
@@ -54,15 +83,12 @@ function preloadNavigationTarget(pathname: string, locale: 'en' | 'id') {
 }
 
 function getActiveNavigationIndex(pathname: string) {
-  const activePath = pathname === '/start'
-    ? '/learn'
-    : pathname === '/cheat-sheet'
-      ? '/explore'
-      : pathname
+  const activePath =
+    pathname === '/start' ? '/learn' : pathname === '/cheat-sheet' ? '/explore' : pathname
 
-  const index = primaryNavigation.findIndex(({ href }) => (
-    href === '/' ? activePath === '/' : activePath === href || activePath.startsWith(href + '/')
-  ))
+  const index = primaryNavigation.findIndex(({ href }) =>
+    href === '/' ? activePath === '/' : activePath === href || activePath.startsWith(href + '/'),
+  )
 
   return index
 }
@@ -195,10 +221,3 @@ export default function MobileBottomNavigation() {
     </nav>
   )
 }
-
-
-
-
-
-
-

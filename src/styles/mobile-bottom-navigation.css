@@ -66,7 +66,7 @@
 }
 
 .mobile-bottom-navigation__active-icon {
-  animation: mobile-bottom-fade-in 180ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)) both;
+  animation: mobile-bottom-fade-in 180ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
 
 .mobile-bottom-navigation__items {
@@ -94,9 +94,9 @@
   text-decoration: none;
   touch-action: manipulation;
   transition:
-    color 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
-    opacity 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
-    transform 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1));
+    color 300ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    opacity 300ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 300ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
 .mobile-bottom-navigation__item:hover,
@@ -110,8 +110,8 @@
 }
 
 .mobile-bottom-navigation__item:active {
-  transform: scale(.91);
-  opacity: .85;
+  transform: scale(0.91);
+  opacity: 0.85;
   transition-duration: 80ms;
 }
 
@@ -123,17 +123,17 @@
 .mobile-bottom-navigation__item-icon {
   flex: none;
   transition:
-    opacity 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)),
-    transform 300ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1));
+    opacity 300ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 300ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
   will-change: transform;
 }
 
 .mobile-bottom-navigation__item:active .mobile-bottom-navigation__item-icon {
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .mobile-bottom-navigation__item.is-active .mobile-bottom-navigation__item-icon {
-  transform: scale(.75);
+  transform: scale(0.75);
   opacity: 0;
 }
 
@@ -146,19 +146,22 @@
 }
 
 .mobile-bottom-navigation__item.is-active .mobile-bottom-navigation__label {
-  animation: mobile-bottom-fade-in 260ms var(--ease-standard, cubic-bezier(.22, 1, .36, 1)) both;
+  animation: mobile-bottom-fade-in 260ms var(--ease-standard, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
 
 @keyframes mobile-bottom-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 980px) {
   .mobile-bottom-navigation {
     display: block;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -175,5 +178,3 @@
     transform: none;
   }
 }
-
-

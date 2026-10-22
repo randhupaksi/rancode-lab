@@ -64,11 +64,7 @@
       "answer": "Open the app and try the main user flow",
       "reason": "A completion message is a claim. Trying the actual flow gives you evidence of what works.",
       "hint": "Choose the step that checks the product itself.",
-      "flow": [
-        "Describe the goal",
-        "Inspect the change",
-        "Try the result"
-      ],
+      "flow": ["Describe the goal", "Inspect the change", "Try the result"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -92,11 +88,7 @@
       "answer": "Ask it to state the limitation and give checks you can run",
       "reason": "Verification should match actual tool access. A checklist can help you check the browser when the agent cannot.",
       "hint": "Think about the evidence the tool can actually obtain.",
-      "flow": [
-        "Identify tools",
-        "Set boundaries",
-        "Check available evidence"
-      ],
+      "flow": ["Identify tools", "Set boundaries", "Check available evidence"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -120,11 +112,7 @@
       "answer": "A local task list with add, complete, and filter actions",
       "reason": "A small local task list has a bounded flow and observable outcomes, making feedback and debugging easier.",
       "hint": "Choose a scope you can describe and try completely.",
-      "flow": [
-        "One user need",
-        "Three useful actions",
-        "A finishable version"
-      ],
+      "flow": ["One user need", "Three useful actions", "A finishable version"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -148,11 +136,7 @@
       "answer": "JavaScript state and event handling",
       "reason": "The count depends on the data update and rendering flow. JavaScript and browser foundations help you trace it.",
       "hint": "Look for the concept that connects an action with updated data.",
-      "flow": [
-        "Read the structure",
-        "Trace the interaction",
-        "Explain the result"
-      ],
+      "flow": ["Read the structure", "Trace the interaction", "Explain the result"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -176,11 +160,7 @@
       "answer": "Students use it during short breaks to pick one unfinished task",
       "reason": "Audience, moment, and outcome guide the layout and main action better than a vague style adjective.",
       "hint": "Look for a specific person doing a specific job.",
-      "flow": [
-        "Who and when",
-        "What they need",
-        "First useful flow"
-      ],
+      "flow": ["Who and when", "What they need", "First useful flow"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -204,11 +184,7 @@
       "answer": "A concrete task and observable success criteria",
       "reason": "A task and a checkable result give the agent a direction and give you a basis for review.",
       "hint": "Ask what you would actually try in the finished app.",
-      "flow": [
-        "Task and context",
-        "Constraints",
-        "Success criteria"
-      ],
+      "flow": ["Task and context", "Constraints", "Success criteria"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -232,11 +208,7 @@
       "answer": "The relevant file paths and reproduction steps",
       "reason": "Relevant paths and reproduction steps focus the investigation without filling the context with unrelated details.",
       "hint": "Choose information that narrows the problem.",
-      "flow": [
-        "Select evidence",
-        "Inspect relevant files",
-        "Keep useful decisions"
-      ],
+      "flow": ["Select evidence", "Inspect relevant files", "Keep useful decisions"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -260,11 +232,7 @@
       "answer": "Submitting a whitespace-only title shows feedback and adds no task",
       "reason": "The input, action, and expected outcome are explicit, so you can reproduce and verify the behavior.",
       "hint": "Look for a concrete action and result.",
-      "flow": [
-        "Input",
-        "Action",
-        "Expected result"
-      ],
+      "flow": ["Input", "Action", "Expected result"],
       "minutes": 8,
       "difficulty": "Beginner"
     },
@@ -288,11 +256,7 @@
       "answer": "Prioritize choosing and adding tasks in the first screen",
       "reason": "The layout should help the main user job. Showing the relevant tasks and action reduces unnecessary searching.",
       "hint": "Return to the user outcome in the brief.",
-      "flow": [
-        "Entry",
-        "Main action",
-        "Useful feedback"
-      ],
+      "flow": ["Entry", "Main action", "Useful feedback"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -316,11 +280,7 @@
       "answer": "Use existing spacing tokens and a readable task list with one accented main action",
       "reason": "Concrete decisions constrain the design while tying the treatment to a task users need to complete.",
       "hint": "Choose instructions that describe an actual layout and hierarchy.",
-      "flow": [
-        "User job",
-        "Visual decisions",
-        "Consistent tokens"
-      ],
+      "flow": ["User job", "Visual decisions", "Consistent tokens"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -344,11 +304,7 @@
       "answer": "Adapt its compact list spacing to our tasks and existing tokens",
       "reason": "A named trait and a product-specific purpose guide adaptation while keeping the content and identity appropriate.",
       "hint": "Look for a specific trait connected to your own product.",
-      "flow": [
-        "Observe a trait",
-        "Explain its purpose",
-        "Adapt to your product"
-      ],
+      "flow": ["Observe a trait", "Explain its purpose", "Adapt to your product"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -372,11 +328,7 @@
       "answer": "Remove the unsupported claim and use truthful product content",
       "reason": "Unsupported proof misleads users. Useful real content is a better foundation for trust and design review.",
       "hint": "Think about whether the statement can be supported.",
-      "flow": [
-        "Inspect purpose",
-        "Remove invented proof",
-        "Keep useful hierarchy"
-      ],
+      "flow": ["Inspect purpose", "Remove invented proof", "Keep useful hierarchy"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -400,11 +352,7 @@
       "answer": "Add and render one task, then check submission",
       "reason": "A runnable user action exposes real behavior early and gives the next iteration a stable starting point.",
       "hint": "Choose a small end-to-end action.",
-      "flow": [
-        "Map changes",
-        "Resolve assumptions",
-        "Build the first slice"
-      ],
+      "flow": ["Map changes", "Resolve assumptions", "Build the first slice"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -428,11 +376,7 @@
       "answer": "Inspect and reuse the existing Button contract",
       "reason": "Reusing an existing contract supports consistent behavior and styling without unnecessary dependencies.",
       "hint": "Check what the project already provides.",
-      "flow": [
-        "Read conventions",
-        "Reuse contracts",
-        "Make a focused change"
-      ],
+      "flow": ["Read conventions", "Reuse contracts", "Make a focused change"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -456,11 +400,7 @@
       "answer": "At 390px the Add button covers the label; keep the label visible and test submission",
       "reason": "The viewport, location, problem, and expected result make the feedback actionable and checkable.",
       "hint": "Look for details you could repeat in the browser.",
-      "flow": [
-        "Observe",
-        "Describe the mismatch",
-        "Repeat the check"
-      ],
+      "flow": ["Observe", "Describe the mismatch", "Repeat the check"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -484,11 +424,7 @@
       "answer": "Inspect and fix the data mismatch, then repeat the failing flow",
       "reason": "Fixing the data contract addresses the cause. Silencing evidence can leave the broken behavior in place.",
       "hint": "Choose the action that repairs the cause.",
-      "flow": [
-        "Reproduce",
-        "Inspect the cause",
-        "Fix and verify"
-      ],
+      "flow": ["Reproduce", "Inspect the cause", "Fix and verify"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -512,11 +448,7 @@
       "answer": "Why those unrelated changes were made and whether they are justified",
       "reason": "Unrelated changes and weakened checks can create regressions. Review their purpose and impact before accepting them.",
       "hint": "Think about scope and contracts.",
-      "flow": [
-        "Inspect the diff",
-        "Connect to the task",
-        "Review the impact"
-      ],
+      "flow": ["Inspect the diff", "Connect to the task", "Review the impact"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -540,11 +472,7 @@
       "answer": "The build passed while a user behavior still needs fixing",
       "reason": "Compilation and user behavior are different checks. The failing interaction still needs investigation.",
       "hint": "Consider what a build actually verifies.",
-      "flow": [
-        "Define expected behavior",
-        "Run the flow",
-        "Compare outcomes"
-      ],
+      "flow": ["Define expected behavior", "Run the flow", "Compare outcomes"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -568,11 +496,7 @@
       "answer": "Use an appropriate native control and check keyboard activation",
       "reason": "A native control provides semantics and expected keyboard behavior; the interaction still needs to be checked.",
       "hint": "Think about operation beyond the mouse.",
-      "flow": [
-        "Semantic control",
-        "Keyboard interaction",
-        "Visible feedback"
-      ],
+      "flow": ["Semantic control", "Keyboard interaction", "Visible feedback"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -596,11 +520,7 @@
       "answer": "Ask for a relevant before-and-after measurement or observation",
       "reason": "A performance claim needs evidence from a comparable scenario. A color change alone does not establish a speedup.",
       "hint": "Look for evidence of the claimed outcome.",
-      "flow": [
-        "Real content",
-        "Relevant measurements",
-        "Comparable results"
-      ],
+      "flow": ["Real content", "Relevant measurements", "Comparable results"],
       "minutes": 8,
       "difficulty": "Intermediate"
     },
@@ -624,11 +544,7 @@
       "answer": "Keep the secret out of browser-delivered code and review a server boundary",
       "reason": "Client-delivered values are accessible to users. Private credentials require an appropriate server-side boundary.",
       "hint": "Think about what the browser receives.",
-      "flow": [
-        "Use sample data",
-        "Protect credentials",
-        "Authorize sensitive actions"
-      ],
+      "flow": ["Use sample data", "Protect credentials", "Authorize sensitive actions"],
       "minutes": 12,
       "difficulty": "Intermediate"
     },
@@ -652,11 +568,7 @@
       "answer": "Goal, decisions, verified checks, unresolved issue, and next task",
       "reason": "A compact factual handoff preserves the decisions and evidence that the next task depends on.",
       "hint": "Look for facts the next task needs.",
-      "flow": [
-        "Record decisions",
-        "State actual checks",
-        "Name the next task"
-      ],
+      "flow": ["Record decisions", "State actual checks", "Name the next task"],
       "minutes": 12,
       "difficulty": "Intermediate"
     },
@@ -680,11 +592,7 @@
       "answer": "Present the checked result and request authorization to publish",
       "reason": "A ready local artifact supports a release decision, while publishing still requires authorization for the remote action.",
       "hint": "Separate preparation from the remote action.",
-      "flow": [
-        "Prepare a build",
-        "Review evidence",
-        "Authorize publication"
-      ],
+      "flow": ["Prepare a build", "Review evidence", "Authorize publication"],
       "minutes": 12,
       "difficulty": "Intermediate"
     },
@@ -708,14 +616,9 @@
       "answer": "A working small app with the brief, decisions, and observed checks",
       "reason": "The app and review connect the requested outcome to implementation decisions and evidence.",
       "hint": "Choose work that connects intention with a tried result.",
-      "flow": [
-        "Brief and prompts",
-        "Three implementation slices",
-        "App and review evidence"
-      ],
+      "flow": ["Brief and prompts", "Three implementation slices", "App and review evidence"],
       "minutes": 12,
       "difficulty": "Intermediate"
     }
   ]
 }
-

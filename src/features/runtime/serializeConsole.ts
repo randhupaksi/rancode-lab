@@ -8,19 +8,28 @@ export function serializeConsoleValue(value: unknown): string {
   if (value instanceof Error) return `${value.name}: ${value.message}`
   const seen = new WeakSet<object>()
   try {
-    return (JSON.stringify(value, (_key, entry: unknown) => {
-      if (typeof entry === 'bigint') return `${entry}n`
-      if (typeof entry === 'undefined') return '[undefined]'
-      if (typeof entry === 'function') return '[Function]'
-      if (typeof entry === 'symbol') return String(entry)
-      if (entry && typeof entry === 'object') {
-        if (seen.has(entry)) return '[Circular]'
-        seen.add(entry)
-      }
-      return entry
-    }, 2) ?? String(value)).slice(0, 2000)
+    return (
+      JSON.stringify(
+        value,
+        (_key, entry: unknown) => {
+          if (typeof entry === 'bigint') return `${entry}n`
+          if (typeof entry === 'undefined') return '[undefined]'
+          if (typeof entry === 'function') return '[Function]'
+          if (typeof entry === 'symbol') return String(entry)
+          if (entry && typeof entry === 'object') {
+            if (seen.has(entry)) return '[Circular]'
+            seen.add(entry)
+          }
+          return entry
+        },
+        2,
+      ) ?? String(value)
+    ).slice(0, 2000)
   } catch {
-    try { return String(value).slice(0, 2000) }
-    catch { return '[Unprintable value]' }
+    try {
+      return String(value).slice(0, 2000)
+    } catch {
+      return '[Unprintable value]'
+    }
   }
 }

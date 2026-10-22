@@ -1,7 +1,12 @@
 export const previewSandbox = 'allow-scripts allow-forms'
 
 /** Scripts and form feedback stay local; resources and network submission are blocked. */
-export function previewDocument(code: string, locale: 'en' | 'id', channel: string, unstyled = false): string {
+export function previewDocument(
+  code: string,
+  locale: 'en' | 'id',
+  channel: string,
+  unstyled = false,
+): string {
   const bootstrap = `
     addEventListener('error', e => parent.postMessage({ channel: ${JSON.stringify(channel)}, error: e.message }, '*'));
     addEventListener('unhandledrejection', e => parent.postMessage({ channel: ${JSON.stringify(channel)}, error: String(e.reason) }, '*'));

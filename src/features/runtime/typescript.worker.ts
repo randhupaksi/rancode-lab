@@ -3,7 +3,9 @@ import rawLibraries from '../../generated/compiler-libraries'
 import type { AnalysisRequest, AnalysisResponse, AnalysisResult, InferredType } from './types'
 
 // Ship official lib definitions with the worker: inference never needs a CDN or network request.
-const libraries = new Map(Object.entries(rawLibraries).map(([path, text]) => [`/${path.split('/').at(-1)}`, text]))
+const libraries = new Map(
+  Object.entries(rawLibraries).map(([path, text]) => [`/${path.split('/').at(-1)}`, text]),
+)
 const sourceCache = new Map<string, ts.SourceFile>()
 let previousProgram: ts.Program | undefined
 const fileName = '/lesson.ts'
@@ -42,22 +44,28 @@ function analyze(code: string, requested: string[]): AnalysisResult {
     writeFile: () => {},
     getCurrentDirectory: () => '/',
     getDirectories: () => [],
-    fileExists: (name) => name === fileName || libraries.has(name),
-    readFile: (name) => name === fileName ? analysisCode : libraries.get(name),
-    getCanonicalFileName: (name) => name,
+    fileExists: name => name === fileName || libraries.has(name),
+    readFile: name => (name === fileName ? analysisCode : libraries.get(name)),
+    getCanonicalFileName: name => name,
     useCaseSensitiveFileNames: () => true,
     getNewLine: () => '\n',
   }
   const program = ts.createProgram([fileName], options, host, previousProgram)
   previousProgram = program
   const checker = program.getTypeChecker()
-  const diagnostics = [...program.getSyntacticDiagnostics(source), ...program.getSemanticDiagnostics(source)].map((diagnostic) => {
+  const diagnostics = [
+    ...program.getSyntacticDiagnostics(source),
+    ...program.getSemanticDiagnostics(source),
+  ].map(diagnostic => {
     const position = source.getLineAndCharacterOfPosition(diagnostic.start ?? 0)
     return {
       message: ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'),
       line: position.line + 1,
       column: position.character + 1,
-      category: diagnostic.category === ts.DiagnosticCategory.Warning ? 'warning' as const : 'error' as const,
+      category:
+        diagnostic.category === ts.DiagnosticCategory.Warning
+          ? ('warning' as const)
+          : ('error' as const),
       code: diagnostic.code,
     }
   })
@@ -66,34 +74,55 @@ function analyze(code: string, requested: string[]): AnalysisResult {
   function visit(node: ts.Node) {
     let named: ts.Node | undefined
     let kind = 'expression'
-    if (ts.isVariableDeclaration(node) || ts.isParameter(node)) { named = node.name; kind = 'value' }
-    else if (ts.isFunctionDeclaration(node) && node.name) { named = node.name; kind = 'function' }
-    else if (ts.isTypeAliasDeclaration(node) || ts.isInterfaceDeclaration(node)) { named = node.name; kind = 'type' }
-    else if (requestedSet.size && (ts.isIdentifier(node) || ts.isPropertyAccessExpression(node))) named = node
+    if (ts.isVariableDeclaration(node) || ts.isParameter(node)) {
+      named = node.name
+      kind = 'value'
+    } else if (ts.isFunctionDeclaration(node) && node.name) {
+      named = node.name
+      kind = 'function'
+    } else if (ts.isTypeAliasDeclaration(node) || ts.isInterfaceDeclaration(node)) {
+      named = node.name
+      kind = 'type'
+    } else if (requestedSet.size && (ts.isIdentifier(node) || ts.isPropertyAccessExpression(node)))
+      named = node
     if (named) {
       const name = named.getText(source)
       if ((!requestedSet.size || requestedSet.has(name)) && !found.has(name) && found.size < 30) {
-        const type = checker.typeToString(checker.getTypeAtLocation(named), named, ts.TypeFormatFlags.NoTruncation)
+        const type = checker.typeToString(
+          checker.getTypeAtLocation(named),
+          named,
+          ts.TypeFormatFlags.NoTruncation,
+        )
         found.set(name, { name, type, explanation: `TypeScript resolves this ${kind} as ${type}.` })
       }
     }
     ts.forEachChild(node, visit)
   }
   visit(source)
-  const types = requested.length ? requested.flatMap((name) => found.has(name) ? [found.get(name)!] : []) : [...found.values()]
-  const javascript = ts.transpileModule(code, { compilerOptions: {
-    target: ts.ScriptTarget.ES2022,
-    module: ts.ModuleKind.ESNext,
-    // Preserve standalone snippets for the runner's async function wrapper;
-    // the analysis-only module marker must never reach executable output.
-    moduleDetection: ts.ModuleDetectionKind.Legacy,
-  } }).outputText
+  const types = requested.length
+    ? requested.flatMap(name => (found.has(name) ? [found.get(name)!] : []))
+    : [...found.values()]
+  const javascript = ts.transpileModule(code, {
+    compilerOptions: {
+      target: ts.ScriptTarget.ES2022,
+      module: ts.ModuleKind.ESNext,
+      // Preserve standalone snippets for the runner's async function wrapper;
+      // the analysis-only module marker must never reach executable output.
+      moduleDetection: ts.ModuleDetectionKind.Legacy,
+    },
+  }).outputText
   return { diagnostics, types, javascript }
 }
 
 self.onmessage = ({ data }: MessageEvent<AnalysisRequest>) => {
   let response: AnalysisResponse
-  try { response = { id: data.id, result: analyze(data.code, data.symbols) } }
-  catch (error) { response = { id: data.id, error: error instanceof Error ? error.message : 'TypeScript could not analyze this snippet.' } }
+  try {
+    response = { id: data.id, result: analyze(data.code, data.symbols) }
+  } catch (error) {
+    response = {
+      id: data.id,
+      error: error instanceof Error ? error.message : 'TypeScript could not analyze this snippet.',
+    }
+  }
   self.postMessage(response)
 }

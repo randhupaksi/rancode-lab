@@ -338,28 +338,19 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change gap-4 to gap-8, then p-4 to p-8.",
-        "Compare which space changes."
-      ],
-      "recap": [
-        "gap spaces children; padding is inside an element and margin is outside it."
-      ]
+      "practiceSteps": ["Change gap-4 to gap-8, then p-4 to p-8.", "Compare which space changes."],
+      "recap": ["gap spaces children; padding is inside an element and margin is outside it."]
     }
   },
   "tw-sizing": {
     "id": {
-      "practiceSteps": [
-        "Bandingkan preview sempit memakai w-full max-w-xl dengan w-[700px]."
-      ],
+      "practiceSteps": ["Bandingkan preview sempit memakai w-full max-w-xl dengan w-[700px]."],
       "recap": [
         "Lebar fleksibel beserta batas maksimum mengikuti parent tanpa mewajibkan lebar tetap yang besar."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Compare the narrow preview with w-full max-w-xl and with w-[700px]."
-      ],
+      "practiceSteps": ["Compare the narrow preview with w-full max-w-xl and with w-[700px]."],
       "recap": [
         "A flexible width plus a maximum grows with its parent without requiring a fixed large width."
       ]
@@ -411,33 +402,25 @@
         "Bandingkan kelompok dengan border saja dan shadow saja.",
         "Jelaskan tujuannya."
       ],
-      "recap": [
-        "Warna eksplisit menghindari ketergantungan pada default border yang diwarisi."
-      ]
+      "recap": ["Warna eksplisit menghindari ketergantungan pada default border yang diwarisi."]
     },
     "en": {
       "practiceSteps": [
         "Compare a border-only group with a shadow-only group.",
         "Explain each purpose."
       ],
-      "recap": [
-        "An explicit color avoids relying on an inherited border default."
-      ]
+      "recap": ["An explicit color avoids relying on an inherited border default."]
     }
   },
   "tw-display": {
     "id": {
-      "practiceSteps": [
-        "Ganti invisible menjadi hidden lalu bandingkan ruang yang ditempati."
-      ],
+      "practiceSteps": ["Ganti invisible menjadi hidden lalu bandingkan ruang yang ditempati."],
       "recap": [
         "hidden memakai display: none; invisible menjaga ruang dan sr-only punya tujuan aksesibilitas."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change invisible to hidden and compare the occupied space."
-      ],
+      "practiceSteps": ["Change invisible to hidden and compare the occupied space."],
       "recap": [
         "hidden uses display: none; invisible keeps space and sr-only has an accessibility purpose."
       ]
@@ -445,53 +428,33 @@
   },
   "tw-flex": {
     "id": {
-      "practiceSteps": [
-        "Ganti menjadi flex-col lalu jelaskan perubahan sumbunya."
-      ],
-      "recap": [
-        "items-center mengatur align-items; justify-between bekerja pada sumbu utama."
-      ]
+      "practiceSteps": ["Ganti menjadi flex-col lalu jelaskan perubahan sumbunya."],
+      "recap": ["items-center mengatur align-items; justify-between bekerja pada sumbu utama."]
     },
     "en": {
-      "practiceSteps": [
-        "Switch to flex-col and explain how the axes change."
-      ],
-      "recap": [
-        "items-center controls align-items; justify-between works on the main axis."
-      ]
+      "practiceSteps": ["Switch to flex-col and explain how the axes change."],
+      "recap": ["items-center controls align-items; justify-between works on the main axis."]
     }
   },
   "tw-flex-shrink": {
     "id": {
-      "practiceSteps": [
-        "Hapus lalu kembalikan min-w-0 pada preview sempit dengan judul panjang."
-      ],
+      "practiceSteps": ["Hapus lalu kembalikan min-w-0 pada preview sempit dengan judul panjang."],
       "recap": [
         "min-w-0 mengizinkan penyusutan di bawah minimum intrinsik sementara flex-1 membagi ruang."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Remove and restore min-w-0 in the narrow preview with a long title."
-      ],
-      "recap": [
-        "min-w-0 allows shrinking below the intrinsic minimum while flex-1 shares space."
-      ]
+      "practiceSteps": ["Remove and restore min-w-0 in the narrow preview with a long title."],
+      "recap": ["min-w-0 allows shrinking below the intrinsic minimum while flex-1 shares space."]
     }
   },
   "tw-grid": {
     "id": {
-      "practiceSteps": [
-        "Ubah rasio track dan satu span anak lalu bandingkan urutan DOM."
-      ],
-      "recap": [
-        "Container menentukan track; utility anak mengatur penempatan di dalamnya."
-      ]
+      "practiceSteps": ["Ubah rasio track dan satu span anak lalu bandingkan urutan DOM."],
+      "recap": ["Container menentukan track; utility anak mengatur penempatan di dalamnya."]
     },
     "en": {
-      "practiceSteps": [
-        "Change the track ratio and one child span, then compare the DOM order."
-      ],
+      "practiceSteps": ["Change the track ratio and one child span, then compare the DOM order."],
       "recap": [
         "The container defines tracks; child utilities control their placement within them."
       ]
@@ -502,9 +465,7 @@
       "practiceSteps": [
         "Pindahkan label memakai utility inset lalu coba baris panjang pada preview sempit."
       ],
-      "recap": [
-        "Ancestor berposisi yang sesuai menjadi containing block anak absolute."
-      ]
+      "recap": ["Ancestor berposisi yang sesuai menjadi containing block anak absolute."]
     },
     "en": {
       "practiceSteps": [
@@ -535,20 +496,14 @@
   },
   "tw-breakpoint-ranges": {
     "id": {
-      "practiceSteps": [
-        "Coba max-md dan md:max-lg secara lokal pada lebar sekitar batasnya."
-      ],
+      "practiceSteps": ["Coba max-md dan md:max-lg secara lokal pada lebar sekitar batasnya."],
       "recap": [
         "Variant yang digabung menggabungkan kondisinya sehingga menghasilkan rentang lebar terbatas."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Try max-md and md:max-lg locally at widths around their boundaries."
-      ],
-      "recap": [
-        "Stacked variants combine their conditions, producing a bounded width range."
-      ]
+      "practiceSteps": ["Try max-md and md:max-lg locally at widths around their boundaries."],
+      "recap": ["Stacked variants combine their conditions, producing a bounded width range."]
     }
   },
   "tw-container-queries": {
@@ -556,17 +511,13 @@
       "practiceSteps": [
         "Ubah max-width host pertama lalu bandingkan kedua salinan pada viewport yang sama."
       ],
-      "recap": [
-        "Ancestor container memberi konteks inline-size untuk query pada keturunannya."
-      ]
+      "recap": ["Ancestor container memberi konteks inline-size untuk query pada keturunannya."]
     },
     "en": {
       "practiceSteps": [
         "Change the first host max-width and compare both copies in the same viewport."
       ],
-      "recap": [
-        "The container ancestor provides the inline-size context for its descendant query."
-      ]
+      "recap": ["The container ancestor provides the inline-size context for its descendant query."]
     }
   },
   "tw-fluid-layout": {
@@ -574,35 +525,25 @@
       "practiceSteps": [
         "Ubah minimum clamp lalu coba heading panjang dengan zoom browser secara lokal."
       ],
-      "recap": [
-        "clamp membatasi nilai pilihan; konten nyata dan zoom tetap perlu ditinjau."
-      ]
+      "recap": ["clamp membatasi nilai pilihan; konten nyata dan zoom tetap perlu ditinjau."]
     },
     "en": {
       "practiceSteps": [
         "Change the clamp minimum and test a long heading with browser zoom locally."
       ],
-      "recap": [
-        "clamp bounds the preferred value; actual content and zoom still require review."
-      ]
+      "recap": ["clamp bounds the preferred value; actual content and zoom still require review."]
     }
   },
   "tw-media": {
     "id": {
-      "practiceSteps": [
-        "Bandingkan object-cover dengan object-contain lalu ubah aspect ratio."
-      ],
+      "practiceSteps": ["Bandingkan object-cover dengan object-contain lalu ubah aspect ratio."],
       "recap": [
         "object-contain menjaga gambar di dalam kotak tanpa memotongnya untuk memenuhi frame."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Compare object-cover with object-contain and change the aspect ratio."
-      ],
-      "recap": [
-        "object-contain preserves the image within the box instead of cropping to fill it."
-      ]
+      "practiceSteps": ["Compare object-cover with object-contain and change the aspect ratio."],
+      "recap": ["object-contain preserves the image within the box instead of cropping to fill it."]
     }
   },
   "tw-hover-focus": {
@@ -611,18 +552,14 @@
         "Coba hover lalu gunakan Tab ke tombol.",
         "Bandingkan kedua state tanpa menghapus fokus."
       ],
-      "recap": [
-        "Tampilan fokus terlihat membantu pengguna mengenali kontrol keyboard yang aktif."
-      ]
+      "recap": ["Tampilan fokus terlihat membantu pengguna mengenali kontrol keyboard yang aktif."]
     },
     "en": {
       "practiceSteps": [
         "Hover, then Tab to the button.",
         "Compare both feedback states without removing focus."
       ],
-      "recap": [
-        "A visible focus treatment helps users locate the active keyboard control."
-      ]
+      "recap": ["A visible focus treatment helps users locate the active keyboard control."]
     }
   },
   "tw-group-peer": {
@@ -630,17 +567,13 @@
       "practiceSteps": [
         "Centang checkbox lalu pindahkan span sebelum input dan jelaskan mengapa style peer berhenti cocok."
       ],
-      "recap": [
-        "Variant peer mengikuti hubungan saudara sebelumnya. Urutan DOM berpengaruh."
-      ]
+      "recap": ["Variant peer mengikuti hubungan saudara sebelumnya. Urutan DOM berpengaruh."]
     },
     "en": {
       "practiceSteps": [
         "Toggle the checkbox, then move the span before the input and explain why peer styling stops matching."
       ],
-      "recap": [
-        "The peer variant follows a preceding-sibling relationship. DOM order matters."
-      ]
+      "recap": ["The peer variant follows a preceding-sibling relationship. DOM order matters."]
     }
   },
   "tw-forms": {
@@ -649,9 +582,7 @@
         "Ketik email tidak valid lalu yang valid.",
         "Periksa fokus dari label dan tombol disabled."
       ],
-      "recap": [
-        "Atribut mengatur perilaku native. Tampilan saja tidak menegakkan state disabled."
-      ]
+      "recap": ["Atribut mengatur perilaku native. Tampilan saja tidak menegakkan state disabled."]
     },
     "en": {
       "practiceSteps": [
@@ -665,9 +596,7 @@
   },
   "tw-data-aria": {
     "id": {
-      "practiceSteps": [
-        "Ubah nilai data-state lalu buka disclosure native dengan keyboard."
-      ],
+      "practiceSteps": ["Ubah nilai data-state lalu buka disclosure native dengan keyboard."],
       "recap": [
         "ARIA menyampaikan state alih-alih membuat perilaku. Isinya perlu menggambarkan antarmuka nyata."
       ]
@@ -701,17 +630,13 @@
   },
   "tw-theme": {
     "id": {
-      "practiceSteps": [
-        "Ubah --color-brand sekali lalu amati semua utility brand."
-      ],
+      "practiceSteps": ["Ubah --color-brand sekali lalu amati semua utility brand."],
       "recap": [
         "Variabel @theme pada namespace yang dikenali menghubungkan token desain dengan utility yang dihasilkan."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change --color-brand once and observe every brand utility."
-      ],
+      "practiceSteps": ["Change --color-brand once and observe every brand utility."],
       "recap": [
         "@theme variables in recognized namespaces connect design tokens to generated utilities."
       ]
@@ -759,12 +684,8 @@
   },
   "tw-custom-variants": {
     "id": {
-      "practiceSteps": [
-        "Ubah data-study dari ready menjadi waiting lalu amati kondisi variant."
-      ],
-      "recap": [
-        "Variant menjelaskan kondisi selector; aplikasi menyediakan state nyata."
-      ]
+      "practiceSteps": ["Ubah data-study dari ready menjadi waiting lalu amati kondisi variant."],
+      "recap": ["Variant menjelaskan kondisi selector; aplikasi menyediakan state nyata."]
     },
     "en": {
       "practiceSteps": [
@@ -781,18 +702,14 @@
         "Ubah utility khusus lalu bandingkan dengan aturan @apply.",
         "Jelaskan tanggung jawab masing-masing."
       ],
-      "recap": [
-        "@apply menggabungkan deklarasi style; ia tidak membuat struktur atau perilaku."
-      ]
+      "recap": ["@apply menggabungkan deklarasi style; ia tidak membuat struktur atau perilaku."]
     },
     "en": {
       "practiceSteps": [
         "Modify the custom utility and compare it with the @apply rule.",
         "Explain which responsibility each covers."
       ],
-      "recap": [
-        "@apply combines styling declarations; it cannot implement structure or behavior."
-      ]
+      "recap": ["@apply combines styling declarations; it cannot implement structure or behavior."]
     }
   },
   "tw-react-classname": {
@@ -1020,17 +937,13 @@
       "practiceSteps": [
         "Tambahkan satu label tugas yang panjang, centang, dan pastikan teksnya membungkus tanpa mendorong checkbox keluar."
       ],
-      "recap": [
-        "Peer yang punya state berada sebelum sibling yang ditarget utility peer-checked."
-      ]
+      "recap": ["Peer yang punya state berada sebelum sibling yang ditarget utility peer-checked."]
     },
     "en": {
       "practiceSteps": [
         "Add one long task label, check it, and confirm it wraps without pushing the checkbox out of view."
       ],
-      "recap": [
-        "The stateful peer precedes the sibling targeted by peer-checked utilities."
-      ]
+      "recap": ["The stateful peer precedes the sibling targeted by peer-checked utilities."]
     }
   },
   "tw-dashboard-project": {

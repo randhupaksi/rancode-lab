@@ -12,7 +12,7 @@
 .home-learning-tracks-heading h2 {
   font-size: clamp(25px, 3vw, 34px);
   line-height: 1.2;
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
   margin: 12px 0;
 }
 
@@ -55,7 +55,7 @@
 
 .home-learning-track-label {
   font: 9px var(--font-mono);
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--subtle);
 }
@@ -63,8 +63,8 @@
 .home-learning-track-copy strong {
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: -.02em;
-  transition: color .15s;
+  letter-spacing: -0.02em;
+  transition: color 0.15s;
 }
 
 .home-learning-track-description {
@@ -75,7 +75,9 @@
 
 .home-learning-track > svg {
   color: var(--subtle);
-  transition: color .15s, transform .15s;
+  transition:
+    color 0.15s,
+    transform 0.15s;
 }
 
 .home-learning-track:hover .home-learning-track-copy strong,

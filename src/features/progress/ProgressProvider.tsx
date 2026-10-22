@@ -25,7 +25,9 @@ function readProgress(): { data: Progress; available: boolean } {
       try {
         const parsed = schema.safeParse(JSON.parse(value))
         return parsed.success ? parsed.data : null
-      } catch { return null }
+      } catch {
+        return null
+      }
     }
     const current = parse(localStorage.getItem(KEY))
     if (current) return { data: current, available: true }
@@ -43,9 +45,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(progress))
-      try { localStorage.removeItem(LEGACY_KEY) } catch { /* Keep the old copy if cleanup is blocked. */ }
+      try {
+        localStorage.removeItem(LEGACY_KEY)
+      } catch {
+        /* Keep the old copy if cleanup is blocked. */
+      }
       setAvailable(true)
-    } catch { setAvailable(false) }
+    } catch {
+      setAvailable(false)
+    }
   }, [progress])
   useEffect(() => {
     const sync = (event: StorageEvent) => {
@@ -57,17 +65,74 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     window.addEventListener('storage', sync)
     return () => window.removeEventListener('storage', sync)
   }, [])
-  const visitLesson = useCallback((id: string) => setProgress(p => p.lastLesson === id ? p : { ...p, lastLesson: id }), [])
-  const completeLesson = useCallback((id: string) => setProgress(p => p.completedLessons.includes(id) ? p : { ...p, completedLessons: [...p.completedLessons, id] }), [])
-  const completeChallenge = useCallback((id: string) => setProgress(p => p.completedChallenges.includes(id) ? p : { ...p, completedChallenges: [...p.completedChallenges, id] }), [])
+  const visitLesson = useCallback(
+    (id: string) => setProgress(p => (p.lastLesson === id ? p : { ...p, lastLesson: id })),
+    [],
+  )
+  const completeLesson = useCallback(
+    (id: string) =>
+      setProgress(p =>
+        p.completedLessons.includes(id)
+          ? p
+          : { ...p, completedLessons: [...p.completedLessons, id] },
+      ),
+    [],
+  )
+  const completeChallenge = useCallback(
+    (id: string) =>
+      setProgress(p =>
+        p.completedChallenges.includes(id)
+          ? p
+          : { ...p, completedChallenges: [...p.completedChallenges, id] },
+      ),
+    [],
+  )
   const resetProgress = useCallback(() => setProgress({ ...empty }), [])
-  const setLearningProfile = useCallback((experience: string, startCourseId: string) => setProgress(p => ({ ...p, learningProfile: { experience, startCourseId } })), [])
-  const saveCheckpoint = useCallback((courseId: string, score: number, total: number) => setProgress(p => {
-    if (p.checkpoints[courseId]?.passed) return p
-    return { ...p, checkpoints: { ...p.checkpoints, [courseId]: { score, total, passed: score === total } } }
-  }), [])
-  const saveProject = useCallback((courseId: string, draft: ProjectDraft) => setProgress(p => ({ ...p, projects: { ...p.projects, [courseId]: draft } })), [])
-  const value = useMemo(() => ({ ...progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress, setLearningProfile, saveCheckpoint, saveProject }), [progress, storageAvailable, visitLesson, completeLesson, completeChallenge, resetProgress, setLearningProfile, saveCheckpoint, saveProject])
+  const setLearningProfile = useCallback(
+    (experience: string, startCourseId: string) =>
+      setProgress(p => ({ ...p, learningProfile: { experience, startCourseId } })),
+    [],
+  )
+  const saveCheckpoint = useCallback(
+    (courseId: string, score: number, total: number) =>
+      setProgress(p => {
+        if (p.checkpoints[courseId]?.passed) return p
+        return {
+          ...p,
+          checkpoints: { ...p.checkpoints, [courseId]: { score, total, passed: score === total } },
+        }
+      }),
+    [],
+  )
+  const saveProject = useCallback(
+    (courseId: string, draft: ProjectDraft) =>
+      setProgress(p => ({ ...p, projects: { ...p.projects, [courseId]: draft } })),
+    [],
+  )
+  const value = useMemo(
+    () => ({
+      ...progress,
+      storageAvailable,
+      visitLesson,
+      completeLesson,
+      completeChallenge,
+      resetProgress,
+      setLearningProfile,
+      saveCheckpoint,
+      saveProject,
+    }),
+    [
+      progress,
+      storageAvailable,
+      visitLesson,
+      completeLesson,
+      completeChallenge,
+      resetProgress,
+      setLearningProfile,
+      saveCheckpoint,
+      saveProject,
+    ],
+  )
   return <Context.Provider value={value}>{children}</Context.Provider>
 }
 

@@ -1,16 +1,16 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import { Link, type To } from 'react-router-dom'
 
-type SharedProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'children' | 'className'> & {
+type SharedProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  'href' | 'children' | 'className'
+> & {
   children: ReactNode
   className?: string
   tone?: 'primary' | 'muted'
 }
 
-type TextLinkProps = SharedProps & (
-  | { to: To; href?: never }
-  | { href: string; to?: never }
-)
+type TextLinkProps = SharedProps & ({ to: To; href?: never } | { href: string; to?: never })
 
 export default function TextLink(props: TextLinkProps) {
   const { to, href, className, tone = 'primary', children, ...anchorProps } = props
@@ -18,8 +18,16 @@ export default function TextLink(props: TextLinkProps) {
   const dataTone = tone === 'primary' ? undefined : tone
 
   if (to !== undefined) {
-    return <Link to={to} {...anchorProps} className={classes} data-tone={dataTone}>{children}</Link>
+    return (
+      <Link to={to} {...anchorProps} className={classes} data-tone={dataTone}>
+        {children}
+      </Link>
+    )
   }
 
-  return <a href={href} {...anchorProps} className={classes} data-tone={dataTone}>{children}</a>
+  return (
+    <a href={href} {...anchorProps} className={classes} data-tone={dataTone}>
+      {children}
+    </a>
+  )
 }

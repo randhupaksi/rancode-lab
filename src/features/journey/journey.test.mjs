@@ -19,7 +19,9 @@ before(async () => {
   ;({ recommendNext } = await server.ssrLoadModule('/src/features/journey/recommendation.ts'))
   ;({ progressSchema } = await server.ssrLoadModule('/src/features/progress/model.ts'))
 })
-after(async () => { await server?.close() })
+after(async () => {
+  await server?.close()
+})
 
 test('expanded checkpoints preserve original questions and localized answer alignment', () => {
   const originalIds = {
@@ -33,18 +35,39 @@ test('expanded checkpoints preserve original questions and localized answer alig
     typescript: ['ts-runtime', 'ts-narrow', 'ts-generic'],
     nextjs: ['next-page', 'next-client', 'next-recovery'],
   }
-  assert.deepEqual(journey.map(stage => stage.courseId), Object.keys(originalIds))
-  assert.equal(new Set(journey.flatMap(stage => stage.checkpoint.map(question => question.id))).size, 54)
+  assert.deepEqual(
+    journey.map(stage => stage.courseId),
+    Object.keys(originalIds),
+  )
+  assert.equal(
+    new Set(journey.flatMap(stage => stage.checkpoint.map(question => question.id))).size,
+    54,
+  )
   for (const stage of journey) {
     const localized = localizeJourneyStage(stage, 'id')
     assert.equal(localizeJourneyStage(stage, 'en'), stage)
     assert.equal(stage.checkpoint.length, 6, stage.courseId)
     assert.equal(localized.checkpoint.length, 6, stage.courseId)
-    assert.deepEqual(stage.checkpoint.slice(0, 3).map(question => question.id), originalIds[stage.courseId])
-    assert.equal(localized.project.criteria.length, stage.project.criteria.length, `${stage.courseId}: criteria`)
-    assert.equal(localized.project.steps.length, stage.project.steps.length, `${stage.courseId}: steps`)
+    assert.deepEqual(
+      stage.checkpoint.slice(0, 3).map(question => question.id),
+      originalIds[stage.courseId],
+    )
+    assert.equal(
+      localized.project.criteria.length,
+      stage.project.criteria.length,
+      `${stage.courseId}: criteria`,
+    )
+    assert.equal(
+      localized.project.steps.length,
+      stage.project.steps.length,
+      `${stage.courseId}: steps`,
+    )
     const lessons = catalog.getCourseLessons(stage.courseId)
-    const originalDepth = Math.max(...stage.checkpoint.slice(0, 3).map(question => lessons.findIndex(lesson => lesson.id === question.lessonId)))
+    const originalDepth = Math.max(
+      ...stage.checkpoint
+        .slice(0, 3)
+        .map(question => lessons.findIndex(lesson => lesson.id === question.lessonId)),
+    )
     stage.checkpoint.forEach((question, index) => {
       const translated = localized.checkpoint[index]
       assert.equal(translated.id, question.id)
@@ -57,9 +80,21 @@ test('expanded checkpoints preserve original questions and localized answer alig
       assert.ok(answerIndex >= 0, question.id)
       assert.equal(translated.options.indexOf(translated.answer), answerIndex, question.id)
       assert.ok(translated.prompt.trim() && translated.explanation.trim())
-      assert.notEqual(translated.prompt, question.prompt, `${question.id}: missing translated prompt`)
-      assert.notEqual(translated.explanation, question.explanation, `${question.id}: missing translated explanation`)
-      if (index >= 3) assert.ok(lessons.findIndex(lesson => lesson.id === question.lessonId) > originalDepth, `${question.id}: expected deeper review lesson`)
+      assert.notEqual(
+        translated.prompt,
+        question.prompt,
+        `${question.id}: missing translated prompt`,
+      )
+      assert.notEqual(
+        translated.explanation,
+        question.explanation,
+        `${question.id}: missing translated explanation`,
+      )
+      if (index >= 3)
+        assert.ok(
+          lessons.findIndex(lesson => lesson.id === question.lessonId) > originalDepth,
+          `${question.id}: expected deeper review lesson`,
+        )
     })
   }
 })
@@ -67,9 +102,12 @@ test('expanded checkpoints preserve original questions and localized answer alig
 test('JavaScript project simulation supports success, failure, and independent task values', async () => {
   const stage = journey.find(stage => stage.courseId === 'javascript')
   for (const source of [stage, localizeJourneyStage(stage, 'id')]) {
-    const context = createContext({console: {log() {}}})
-    const probe = '\nconst loaded = await loadTasks(false);\nloaded[0].done = false;\nlet message;\ntry { await loadTasks(true); } catch (error) { message = error.message; }\nglobalThis.observed = { count: loaded.length, originalDone: tasks[0].done, message };'
-    await new Script(`(async () => { ${source.project.starter}${probe}\n })()`).runInContext(context)
+    const context = createContext({ console: { log() {} } })
+    const probe =
+      '\nconst loaded = await loadTasks(false);\nloaded[0].done = false;\nlet message;\ntry { await loadTasks(true); } catch (error) { message = error.message; }\nglobalThis.observed = { count: loaded.length, originalDone: tasks[0].done, message };'
+    await new Script(`(async () => { ${source.project.starter}${probe}\n })()`).runInContext(
+      context,
+    )
     assert.equal(context.observed.count, 2)
     assert.equal(context.observed.originalDone, true)
     assert.equal(context.observed.message, 'Simulated load failure')
@@ -81,38 +119,69 @@ test('CSS project fragment links have matching destinations in both locales', ()
   const stage = journey.find(stage => stage.courseId === 'css')
   for (const source of [stage, localizeJourneyStage(stage, 'id')]) {
     const ids = [...source.project.starter.matchAll(/\bid="([^"]+)"/g)].map(match => match[1])
-    const destinations = [...source.project.starter.matchAll(/\bhref="#([^"]+)"/g)].map(match => match[1])
+    const destinations = [...source.project.starter.matchAll(/\bhref="#([^"]+)"/g)].map(
+      match => match[1],
+    )
     assert.deepEqual(destinations, ['profile', 'gallery'])
-    for (const destination of destinations) assert.equal(ids.filter(id => id === destination).length, 1)
+    for (const destination of destinations)
+      assert.equal(ids.filter(id => id === destination).length, 1)
   }
 })
 
 test('learning stages have consistent ordering, valid review links, and executable JavaScript models', () => {
   for (const collection of ['courses', 'modules', 'lessons', 'concepts', 'challenges']) {
-    assert.equal(new Set(catalog[collection].map(item => item.id)).size, catalog[collection].length, `${collection}: duplicate IDs`)
+    assert.equal(
+      new Set(catalog[collection].map(item => item.id)).size,
+      catalog[collection].length,
+      `${collection}: duplicate IDs`,
+    )
   }
-  assert.deepEqual(catalog.courses.filter(course => course.path !== 'companion').map(course => course.id), journey.map(stage => stage.courseId))
+  assert.deepEqual(
+    catalog.courses.filter(course => course.path !== 'companion').map(course => course.id),
+    journey.map(stage => stage.courseId),
+  )
   for (const stage of journey) {
     const lessons = catalog.getCourseLessons(stage.courseId)
     assert.ok(lessons.length, `Empty stage: ${stage.courseId}`)
-    const syllabus = catalog.getCourseModules(stage.courseId).flatMap(module => catalog.getModuleLessons(module.id))
+    const syllabus = catalog
+      .getCourseModules(stage.courseId)
+      .flatMap(module => catalog.getModuleLessons(module.id))
     catalog.getCourseModules(stage.courseId).forEach((module, index) => {
       assert.equal(module.number, String(index + 1).padStart(2, '0'))
       assert.ok(catalog.getModuleLessons(module.id).length, `Empty module: ${module.id}`)
     })
-    assert.deepEqual(lessons.map(lesson => lesson.id), syllabus.map(lesson => lesson.id), `Pagination differs from syllabus: ${stage.courseId}`)
+    assert.deepEqual(
+      lessons.map(lesson => lesson.id),
+      syllabus.map(lesson => lesson.id),
+      `Pagination differs from syllabus: ${stage.courseId}`,
+    )
     for (const question of stage.checkpoint) {
-      assert.equal(catalog.getLesson(question.lessonId)?.courseId, stage.courseId, `Invalid checkpoint review link: ${question.id}`)
-      assert.ok(question.options.includes(question.answer), `Missing correct option: ${question.id}`)
+      assert.equal(
+        catalog.getLesson(question.lessonId)?.courseId,
+        stage.courseId,
+        `Invalid checkpoint review link: ${question.id}`,
+      )
+      assert.ok(
+        question.options.includes(question.answer),
+        `Missing correct option: ${question.id}`,
+      )
     }
     assert.ok(stage.project.starter.trim())
     assert.ok(stage.project.criteria.length)
     for (const lesson of lessons) {
       assert.ok(catalog.getCourse(lesson.courseId))
-      for (const id of lesson.relatedConcepts) assert.ok(catalog.concepts.some(concept => concept.id === id), `Missing related concept: ${id}`)
-      if (lesson.challenge.kind === 'choice') assert.ok(lesson.challenge.options.includes(lesson.challenge.answer))
+      for (const id of lesson.relatedConcepts)
+        assert.ok(
+          catalog.concepts.some(concept => concept.id === id),
+          `Missing related concept: ${id}`,
+        )
+      if (lesson.challenge.kind === 'choice')
+        assert.ok(lesson.challenge.options.includes(lesson.challenge.answer))
       if (lesson.language === 'javascript' && lesson.lab !== 'read') {
-        assert.doesNotThrow(() => new Script(`(async () => { ${lesson.code}\n })`), `Not valid plain JavaScript: ${lesson.id}`)
+        assert.doesNotThrow(
+          () => new Script(`(async () => { ${lesson.code}\n })`),
+          `Not valid plain JavaScript: ${lesson.id}`,
+        )
       }
       if (lesson.lab === 'web') {
         for (const match of lesson.code.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)) {
@@ -121,10 +190,20 @@ test('learning stages have consistent ordering, valid review links, and executab
       }
     }
   }
-  for (const id of ['html', 'css', 'javascript', 'browser', 'react', 'typescript', 'nextjs']) assert.ok(catalog.getCourseLessons(id).length > 30, `Expected a broad curriculum: ${id}`)
-  for (const id of ['logic', 'web']) assert.ok(catalog.getCourseLessons(id).length >= 12, `Expected a focused foundation: ${id}`)
-  for (const [course, finalLesson] of [['react', 'react-feature-architecture'], ['typescript', 'final-challenge'], ['nextjs', 'next-full-route-review']]) {
-    assert.equal(catalog.getCourseLessons(course).at(-1).id, finalLesson, 'Final practice should follow the depth modules')
+  for (const id of ['html', 'css', 'javascript', 'browser', 'react', 'typescript', 'nextjs'])
+    assert.ok(catalog.getCourseLessons(id).length > 30, `Expected a broad curriculum: ${id}`)
+  for (const id of ['logic', 'web'])
+    assert.ok(catalog.getCourseLessons(id).length >= 12, `Expected a focused foundation: ${id}`)
+  for (const [course, finalLesson] of [
+    ['react', 'react-feature-architecture'],
+    ['typescript', 'final-challenge'],
+    ['nextjs', 'next-full-route-review'],
+  ]) {
+    assert.equal(
+      catalog.getCourseLessons(course).at(-1).id,
+      finalLesson,
+      'Final practice should follow the depth modules',
+    )
   }
   for (const lesson of catalog.getCourseLessons('react')) {
     assert.equal(lesson.language, 'javascript')
@@ -133,19 +212,35 @@ test('learning stages have consistent ordering, valid review links, and executab
 })
 
 test('existing lesson progress survives the additive journey fields and project drafts round-trip', () => {
-  const old = { version: 1, completedLessons: ['why-typescript'], completedChallenges: ['why-typescript-check'], lastLesson: 'why-typescript' }
+  const old = {
+    version: 1,
+    completedLessons: ['why-typescript'],
+    completedChallenges: ['why-typescript-check'],
+    lastLesson: 'why-typescript',
+  }
   const restored = progressSchema.parse(old)
   assert.deepEqual(restored.completedLessons, old.completedLessons)
   assert.deepEqual(restored.completedChallenges, old.completedChallenges)
   assert.equal(restored.lastLesson, old.lastLesson)
   assert.equal(restored.learningProfile, null)
   assert.deepEqual(restored.projects, {})
-  restored.projects.html = { code: '<h1>Practice</h1>', notes: 'Checked the heading.', criteria: [], completed: false, updatedAt: '2026-10-03T00:00:00.000Z' }
+  restored.projects.html = {
+    code: '<h1>Practice</h1>',
+    notes: 'Checked the heading.',
+    criteria: [],
+    completed: false,
+    updatedAt: '2026-10-03T00:00:00.000Z',
+  }
   assert.deepEqual(progressSchema.parse(JSON.parse(JSON.stringify(restored))), restored)
 })
 
 test('recommendations move through lesson, checkpoint, project, and next stage without awarding skipped work', () => {
-  const progress = progressSchema.parse({ version: 1, completedLessons: [], completedChallenges: [], lastLesson: null })
+  const progress = progressSchema.parse({
+    version: 1,
+    completedLessons: [],
+    completedChallenges: [],
+    lastLesson: null,
+  })
   assert.equal(recommendNext(progress).courseId, 'logic')
   assert.equal(recommendNext(progress).kind, 'lesson')
   progress.completedLessons = catalog.getCourseLessons('logic').map(lesson => lesson.id)
@@ -154,16 +249,32 @@ test('recommendations move through lesson, checkpoint, project, and next stage w
   assert.equal(recommendNext(progress).kind, 'checkpoint')
   progress.checkpoints.logic = { score: 3, total: 3, passed: true }
   assert.equal(recommendNext(progress).kind, 'project')
-  progress.projects.logic = { code: 'example', notes: 'checked', criteria: [], completed: true, updatedAt: '' }
+  progress.projects.logic = {
+    code: 'example',
+    notes: 'checked',
+    criteria: [],
+    completed: true,
+    updatedAt: '',
+  }
   assert.equal(recommendNext(progress).courseId, 'web')
   progress.learningProfile = { experience: 'react', startCourseId: 'typescript' }
   assert.equal(recommendNext(progress).courseId, 'typescript')
   assert.equal(progress.completedLessons.includes('react-components'), false)
   progress.checkpoints.typescript = { score: 3, total: 3, passed: true }
-  assert.equal(recommendNext(progress).kind, 'project', 'Checkpoint proficiency permits skipping lesson review')
+  assert.equal(
+    recommendNext(progress).kind,
+    'project',
+    'Checkpoint proficiency permits skipping lesson review',
+  )
   for (const id of ['typescript', 'nextjs']) {
     progress.checkpoints[id] = { score: 3, total: 3, passed: true }
-    progress.projects[id] = { code: 'example', notes: 'checked', criteria: [], completed: true, updatedAt: '' }
+    progress.projects[id] = {
+      code: 'example',
+      notes: 'checked',
+      criteria: [],
+      completed: true,
+      updatedAt: '',
+    }
   }
   assert.equal(recommendNext(progress).kind, 'finished')
 })

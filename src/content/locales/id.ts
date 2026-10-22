@@ -1,5 +1,8 @@
 /** Editorial translations are keyed by exact source copy, never applied to code. */
-const files = import.meta.glob<Record<string, string>>('./id/*.json', { eager: true, import: 'default' })
+const files = import.meta.glob<Record<string, string>>('./id/*.json', {
+  eager: true,
+  import: 'default',
+})
 const dictionaries: Record<string, Record<string, string>> = Object.create(null)
 const shared: Record<string, string> = Object.create(null)
 for (const [path, copy] of Object.entries(files)) {
@@ -16,7 +19,8 @@ function templateParts(source: string): { kind: 'hint' | 'answer'; parts: string
 }
 
 export function hasIndonesianLessonCopy(source: string, course: string): boolean {
-  if (Object.hasOwn(dictionaries[course] ?? {}, source) || Object.hasOwn(shared, source)) return true
+  if (Object.hasOwn(dictionaries[course] ?? {}, source) || Object.hasOwn(shared, source))
+    return true
   const template = templateParts(source)
   return Boolean(template?.parts.every(part => hasIndonesianLessonCopy(part, course)))
 }

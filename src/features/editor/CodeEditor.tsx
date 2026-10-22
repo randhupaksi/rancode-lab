@@ -26,14 +26,19 @@ const lineHighlights = StateField.define({
     let next = value.map(transaction.changes)
     for (const effect of transaction.effects) {
       if (effect.is(highlightEffect)) {
-        next = effect.value > 0 && effect.value <= transaction.state.doc.lines
-          ? Decoration.set([Decoration.line({ class: 'cm-concept-highlight' }).range(transaction.state.doc.line(effect.value).from)])
-          : Decoration.none
+        next =
+          effect.value > 0 && effect.value <= transaction.state.doc.lines
+            ? Decoration.set([
+                Decoration.line({ class: 'cm-concept-highlight' }).range(
+                  transaction.state.doc.line(effect.value).from,
+                ),
+              ])
+            : Decoration.none
       }
     }
     return next
   },
-  provide: (field) => EditorView.decorations.from(field),
+  provide: field => EditorView.decorations.from(field),
 })
 
 const syntax = HighlightStyle.define([
@@ -46,7 +51,14 @@ const syntax = HighlightStyle.define([
   { tag: tags.invalid, color: 'var(--error)' },
 ])
 
-export default function CodeEditor({ value, onChange, label, readOnly = false, minHeight = 200, highlightLine = 0 }: CodeEditorProps) {
+export default function CodeEditor({
+  value,
+  onChange,
+  label,
+  readOnly = false,
+  minHeight = 200,
+  highlightLine = 0,
+}: CodeEditorProps) {
   const { t } = useLocale()
   const editorLabel = label ?? t('code.editor')
   const container = useRef<HTMLDivElement>(null)
@@ -71,35 +83,80 @@ export default function CodeEditor({ value, onChange, label, readOnly = false, m
           keymap.of([indentWithTab]),
           lineHighlights,
           EditorView.lineWrapping,
-          readOnlyConfig.current.of([EditorState.readOnly.of(readOnly), EditorView.editable.of(!readOnly)]),
-          accessibilityConfig.current.of(EditorView.contentAttributes.of({ 'aria-label': editorLabel, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })),
-          EditorView.updateListener.of((update) => {
-            if (update.docChanged && !update.transactions.some((transaction) => transaction.annotation(externalUpdate))) callback.current(update.state.doc.toString())
+          readOnlyConfig.current.of([
+            EditorState.readOnly.of(readOnly),
+            EditorView.editable.of(!readOnly),
+          ]),
+          accessibilityConfig.current.of(
+            EditorView.contentAttributes.of({
+              'aria-label': editorLabel,
+              'aria-describedby': descriptionId,
+              'aria-multiline': 'true',
+              spellcheck: 'false',
+            }),
+          ),
+          EditorView.updateListener.of(update => {
+            if (
+              update.docChanged &&
+              !update.transactions.some(transaction => transaction.annotation(externalUpdate))
+            )
+              callback.current(update.state.doc.toString())
           }),
         ],
       }),
     })
     editor.current = view
-    return () => { editor.current = null; view.destroy() }
+    return () => {
+      editor.current = null
+      view.destroy()
+    }
   }, [])
 
   useEffect(() => {
     const view = editor.current
-    if (view && view.state.doc.toString() !== value) view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: value }, annotations: externalUpdate.of(true) })
+    if (view && view.state.doc.toString() !== value)
+      view.dispatch({
+        changes: { from: 0, to: view.state.doc.length, insert: value },
+        annotations: externalUpdate.of(true),
+      })
   }, [value])
 
   useEffect(() => {
-    editor.current?.dispatch({ effects: readOnlyConfig.current.reconfigure([EditorState.readOnly.of(readOnly), EditorView.editable.of(!readOnly)]) })
+    editor.current?.dispatch({
+      effects: readOnlyConfig.current.reconfigure([
+        EditorState.readOnly.of(readOnly),
+        EditorView.editable.of(!readOnly),
+      ]),
+    })
   }, [readOnly])
 
   useEffect(() => {
-    editor.current?.dispatch({ effects: accessibilityConfig.current.reconfigure(EditorView.contentAttributes.of({ 'aria-label': editorLabel, 'aria-describedby': descriptionId, 'aria-multiline': 'true', spellcheck: 'false' })) })
+    editor.current?.dispatch({
+      effects: accessibilityConfig.current.reconfigure(
+        EditorView.contentAttributes.of({
+          'aria-label': editorLabel,
+          'aria-describedby': descriptionId,
+          'aria-multiline': 'true',
+          spellcheck: 'false',
+        }),
+      ),
+    })
   }, [editorLabel, descriptionId])
 
-  useEffect(() => { editor.current?.dispatch({ effects: highlightEffect.of(highlightLine) }) }, [highlightLine, value])
+  useEffect(() => {
+    editor.current?.dispatch({ effects: highlightEffect.of(highlightLine) })
+  }, [highlightLine, value])
 
-  return <div className="code-editor" translate="no" style={{ '--editor-min-height': `${minHeight}px` } as React.CSSProperties}>
-    <div ref={container} />
-    <span className="code-editor-hint" id={descriptionId}>{readOnly ? t('code.readOnlyHint') : t('code.editHint')}</span>
-  </div>
+  return (
+    <div
+      className="code-editor"
+      translate="no"
+      style={{ '--editor-min-height': `${minHeight}px` } as React.CSSProperties}
+    >
+      <div ref={container} />
+      <span className="code-editor-hint" id={descriptionId}>
+        {readOnly ? t('code.readOnlyHint') : t('code.editHint')}
+      </span>
+    </div>
+  )
 }

@@ -17,7 +17,10 @@ export function runtimeDataPlugin() {
       let closed = false
       async function generate() {
         if (closed) return
-        if (running) { queued = true; return }
+        if (running) {
+          queued = true
+          return
+        }
         running = true
         try {
           await run(process.execPath, [generator], { windowsHide: true })
@@ -27,7 +30,10 @@ export function runtimeDataPlugin() {
           server.config.logger.error(`Runtime data generation failed: ${error.message}`)
         } finally {
           running = false
-          if (queued && !closed) { queued = false; void generate() }
+          if (queued && !closed) {
+            queued = false
+            void generate()
+          }
         }
       }
       function onChange(file) {

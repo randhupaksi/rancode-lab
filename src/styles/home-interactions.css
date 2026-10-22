@@ -21,11 +21,11 @@
 
 .primary-nav > a > span {
   display: inline-block;
-  transition: transform 180ms cubic-bezier(.2, .8, .2, 1);
+  transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .primary-nav > a:active > span {
-  transform: translateY(1px) scale(.96);
+  transform: translateY(1px) scale(0.96);
   transition-duration: 80ms;
 }
 
@@ -45,10 +45,17 @@ body :is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link
 }
 
 :is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)) {
-  transition: background-color .15s, border-color .15s, color .15s, filter .12s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    filter 0.12s;
 }
 
-:is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)):is(:hover, :focus-visible) {
+:is(.resume-strip, .home-learning-track, .course-preview > a:not(.text-link)):is(
+  :hover,
+  :focus-visible
+) {
   background-color: var(--interaction-hover-surface);
 }
 

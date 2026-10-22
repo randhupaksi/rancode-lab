@@ -51,7 +51,10 @@ export interface Challenge {
   /** Type-only assertions appended during grading; never executed or displayed as learner code. */
   validationCode?: string
   /** Authored input/output cases run in the existing isolated, timed code runner. */
-  runtimeChecks?: { expression: string; expected: string | number | boolean | null | Record<string, number> }[]
+  runtimeChecks?: {
+    expression: string
+    expected: string | number | boolean | null | Record<string, number>
+  }[]
 }
 
 export type LessonReadingBlock =

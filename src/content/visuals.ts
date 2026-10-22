@@ -15,6 +15,11 @@ export function flow(
   }
 }
 
-export function node(id: string, label: string, detail: string, tone: CanvasNode['tone'] = 'neutral'): CanvasNode {
+export function node(
+  id: string,
+  label: string,
+  detail: string,
+  tone: CanvasNode['tone'] = 'neutral',
+): CanvasNode {
   return { id, label, detail, tone }
 }

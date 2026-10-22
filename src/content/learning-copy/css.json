@@ -413,42 +413,26 @@
   },
   "css-relative-units": {
     "id": {
-      "practiceSteps": [
-        "Ubah ukuran font akar, lalu bandingkan padding 1em dengan 1rem."
-      ],
+      "practiceSteps": ["Ubah ukuran font akar, lalu bandingkan padding 1em dengan 1rem."],
       "hint": "Bandingkan ukuran font elemen saat ini dengan ukuran font akar dokumen.",
-      "recap": [
-        "Rem tetap mengacu pada akar meski dipakai di dalam komponen bersarang."
-      ]
+      "recap": ["Rem tetap mengacu pada akar meski dipakai di dalam komponen bersarang."]
     },
     "en": {
-      "practiceSteps": [
-        "Change the root font size and compare 1em padding with 1rem padding."
-      ],
+      "practiceSteps": ["Change the root font size and compare 1em padding with 1rem padding."],
       "hint": "Compare the element's font size with the document root font size.",
-      "recap": [
-        "Rem stays tied to the root even inside nested components."
-      ]
+      "recap": ["Rem stays tied to the root even inside nested components."]
     }
   },
   "css-line-height": {
     "id": {
-      "practiceSteps": [
-        "Bandingkan line-height 1 dan 1.65, lalu ubah ukuran fontnya."
-      ],
+      "practiceSteps": ["Bandingkan line-height 1 dan 1.65, lalu ubah ukuran fontnya."],
       "hint": "Ubah font-size child lalu bandingkan angka pengali dengan tinggi baris bersatuan tetap.",
-      "recap": [
-        "Pengali yang diwarisi menyesuaikan diri dengan ukuran teks yang berbeda."
-      ]
+      "recap": ["Pengali yang diwarisi menyesuaikan diri dengan ukuran teks yang berbeda."]
     },
     "en": {
-      "practiceSteps": [
-        "Compare line-height 1 and 1.65, then change the font size."
-      ],
+      "practiceSteps": ["Compare line-height 1 and 1.65, then change the font size."],
       "hint": "Change child font-size and compare a multiplier with a fixed-unit line height.",
-      "recap": [
-        "The inherited multiplier adapts to different text sizes."
-      ]
+      "recap": ["The inherited multiplier adapts to different text sizes."]
     }
   },
   "css-font-stacks": {
@@ -466,9 +450,7 @@
         "Replace the preferred font with serif and inspect line breaks and button sizing."
       ],
       "hint": "What does the browser do if every named custom font is unavailable?",
-      "recap": [
-        "A generic family lets the browser choose an available matching category."
-      ]
+      "recap": ["A generic family lets the browser choose an available matching category."]
     }
   },
   "css-custom-properties": {
@@ -486,9 +468,7 @@
         "Add a shared border radius and override spacing on only the alternate card."
       ],
       "hint": "Trace --accent from the root to the card branch. Is any value overridden?",
-      "recap": [
-        "The locally inherited custom property overrides the root value in that subtree."
-      ]
+      "recap": ["The locally inherited custom property overrides the root value in that subtree."]
     }
   },
   "css-fluid-values": {
@@ -497,9 +477,7 @@
         "Ubah nilai yang diinginkan, lalu bandingkan kedua batas pada ukuran sempit dan lebar."
       ],
       "hint": "Bandingkan nilai pilihan dengan minimum dan maksimum pada clamp.",
-      "recap": [
-        "Clamp membatasi nilai yang diinginkan di antara batas minimum dan maksimum."
-      ],
+      "recap": ["Clamp membatasi nilai yang diinginkan di antara batas minimum dan maksimum."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -527,9 +505,7 @@
         "Change the preferred value and compare the two bounds at narrow and wide sizes."
       ],
       "hint": "Compare the preferred value with clamp's minimum and maximum.",
-      "recap": [
-        "Clamp bounds the preferred value between its endpoints."
-      ],
+      "recap": ["Clamp bounds the preferred value between its endpoints."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -559,18 +535,14 @@
         "Lihat label tanpa warnanya, lalu pastikan kedua status masih bisa dipahami."
       ],
       "hint": "Bayangkan screenshot tanpa warna. Apakah pesan statusnya masih bisa dibedakan?",
-      "recap": [
-        "Teks menyampaikan status tanpa bergantung pada kemampuan membedakan warna."
-      ]
+      "recap": ["Teks menyampaikan status tanpa bergantung pada kemampuan membedakan warna."]
     },
     "en": {
       "practiceSteps": [
         "View the labels without their colors and confirm both states still make sense."
       ],
       "hint": "Imagine a colorless screenshot. Can statuses still be distinguished?",
-      "recap": [
-        "Text carries the state independently of color perception."
-      ]
+      "recap": ["Text carries the state independently of color perception."]
     }
   },
   "css-normal-flow": {
@@ -584,13 +556,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change visibility:hidden to display:none and compare the occupied space."
-      ],
+      "practiceSteps": ["Change visibility:hidden to display:none and compare the occupied space."],
       "hint": "Compare remaining space after display:none and visibility:hidden.",
-      "recap": [
-        "Visibility can hide painting while retaining the box in flow."
-      ]
+      "recap": ["Visibility can hide painting while retaining the box in flow."]
     }
   },
   "css-flex-sizing": {
@@ -601,9 +569,7 @@
         "Kembalikan deklarasinya dan bandingkan."
       ],
       "hint": "Tentukan ukuran awal item, lalu hitung ruang yang masih tersisa untuk dibagi.",
-      "recap": [
-        "Grow membagi ruang tersisa setelah ukuran awal diperhitungkan."
-      ]
+      "recap": ["Grow membagi ruang tersisa setelah ukuran awal diperhitungkan."]
     },
     "en": {
       "practiceSteps": [
@@ -612,29 +578,19 @@
         "Restore the declaration and compare."
       ],
       "hint": "Determine initial item sizes, then calculate remaining space to distribute.",
-      "recap": [
-        "Grow allocates remaining room after initial sizes are considered."
-      ]
+      "recap": ["Grow allocates remaining room after initial sizes are considered."]
     }
   },
   "css-flex-axes": {
     "id": {
-      "practiceSteps": [
-        "Ubah menjadi row, lalu tebak posisi item sebelum menjalankannya."
-      ],
+      "practiceSteps": ["Ubah menjadi row, lalu tebak posisi item sebelum menjalankannya."],
       "hint": "Baca flex-direction sebelum menentukan sumbu utama.",
-      "recap": [
-        "Kontainer flex column memiliki sumbu utama vertikal pada mode penulisan ini."
-      ]
+      "recap": ["Kontainer flex column memiliki sumbu utama vertikal pada mode penulisan ini."]
     },
     "en": {
-      "practiceSteps": [
-        "Switch to row and predict the alignment before running it."
-      ],
+      "practiceSteps": ["Switch to row and predict the alignment before running it."],
       "hint": "Read flex-direction before identifying the main axis.",
-      "recap": [
-        "A column flex container has a vertical main axis in this writing mode."
-      ]
+      "recap": ["A column flex container has a vertical main axis in this writing mode."]
     }
   },
   "css-grid-areas": {
@@ -652,29 +608,19 @@
         "Add a footer area spanning both columns without changing the reading order."
       ],
       "hint": "Draw cells sharing an area name. Does their shape contain gaps or cut corners?",
-      "recap": [
-        "A nonrectangular named region invalidates the area definition."
-      ]
+      "recap": ["A nonrectangular named region invalidates the area definition."]
     }
   },
   "css-grid-autofit": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan kartu keempat, lalu amati jumlah kolom pada beberapa lebar."
-      ],
+      "practiceSteps": ["Tambahkan kartu keempat, lalu amati jumlah kolom pada beberapa lebar."],
       "hint": "Perhatikan minimum lebar track dan ruang container, bukan jumlah kartu saja.",
-      "recap": [
-        "Browser menentukan jumlah track dari ukuran kontainer dan ukuran minimum track."
-      ]
+      "recap": ["Browser menentukan jumlah track dari ukuran kontainer dan ukuran minimum track."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a fourth card and observe the column count at several widths."
-      ],
+      "practiceSteps": ["Add a fourth card and observe the column count at several widths."],
       "hint": "Inspect minimum track width and container space rather than only card count.",
-      "recap": [
-        "The browser derives the track count from the container and minimum track size."
-      ]
+      "recap": ["The browser derives the track count from the container and minimum track size."]
     }
   },
   "css-overflow-minimums": {
@@ -685,9 +631,7 @@
         "Kembalikan minmax(0,1fr) agar scroll tetap berada di panel kode."
       ],
       "hint": "Jika kode tidak bisa dipotong, elemen mana yang sebaiknya memiliki scrollbar sendiri?",
-      "recap": [
-        "Overflow lokal menjaga kode tetap utuh dan tata letak sekitarnya tetap rapi."
-      ]
+      "recap": ["Overflow lokal menjaga kode tetap utuh dan tata letak sekitarnya tetap rapi."]
     },
     "en": {
       "practiceSteps": [
@@ -696,9 +640,7 @@
         "Restore minmax(0,1fr) to keep scrolling inside the code panel."
       ],
       "hint": "If code cannot be broken, which element should own the scrollbar?",
-      "recap": [
-        "Local overflow preserves both the code and the surrounding layout."
-      ]
+      "recap": ["Local overflow preserves both the code and the surrounding layout."]
     }
   },
   "css-combinators": {
@@ -707,18 +649,12 @@
         "Bungkus paragraf pertama dengan div, lalu tebak aturan mana yang tidak lagi cocok."
       ],
       "hint": "Bedakan anak langsung dengan keturunan yang berada beberapa tingkat lebih dalam.",
-      "recap": [
-        "Child combinator membatasi hubungan ke satu tingkat DOM."
-      ]
+      "recap": ["Child combinator membatasi hubungan ke satu tingkat DOM."]
     },
     "en": {
-      "practiceSteps": [
-        "Wrap the first paragraph in a div and predict which rules stop matching."
-      ],
+      "practiceSteps": ["Wrap the first paragraph in a div and predict which rules stop matching."],
       "hint": "Distinguish direct children from descendants several levels deeper.",
-      "recap": [
-        "The child combinator restricts the relationship to one DOM level."
-      ]
+      "recap": ["The child combinator restricts the relationship to one DOM level."]
     }
   },
   "css-interaction-pseudos": {
@@ -732,13 +668,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Reach the button using Tab and compare its focus state with hover."
-      ],
+      "practiceSteps": ["Reach the button using Tab and compare its focus state with hover."],
       "hint": "Try Tab without a mouse and inspect the state indicating keyboard focus.",
-      "recap": [
-        "Focus-visible allows a visible focus treatment based on browser heuristics."
-      ]
+      "recap": ["Focus-visible allows a visible focus treatment based on browser heuristics."]
     }
   },
   "css-pseudo-elements": {
@@ -756,9 +688,7 @@
         "Add a decorative stripe after the note without moving its actual message into CSS."
       ],
       "hint": "If CSS does not load, does the user still receive that important instruction?",
-      "recap": [
-        "Generated decoration should not carry the sole copy of important information."
-      ]
+      "recap": ["Generated decoration should not carry the sole copy of important information."]
     }
   },
   "css-has-relations": {
@@ -767,38 +697,26 @@
         "Tambahkan opsi kedua, lalu pastikan setiap induk hanya merespons checkbox miliknya sendiri."
       ],
       "hint": "Cari elemen di luar tanda kurung dan kondisi hubungan yang diuji di dalamnya.",
-      "recap": [
-        "Has memeriksa hubungan dan memilih elemen luarnya."
-      ]
+      "recap": ["Has memeriksa hubungan dan memilih elemen luarnya."]
     },
     "en": {
       "practiceSteps": [
         "Add a second option and confirm each parent responds only to its own checkbox."
       ],
       "hint": "Find the element outside parentheses and the relationship tested inside.",
-      "recap": [
-        "Has evaluates the relationship and matches the outer element."
-      ]
+      "recap": ["Has evaluates the relationship and matches the outer element."]
     }
   },
   "css-cascade-layers": {
     "id": {
-      "practiceSteps": [
-        "Balik urutan layer yang dideklarasikan, lalu tebak warna teks hasilnya."
-      ],
+      "practiceSteps": ["Balik urutan layer yang dideklarasikan, lalu tebak warna teks hasilnya."],
       "hint": "Periksa urutan layer sebelum membandingkan specificity selector pada deklarasi biasa.",
-      "recap": [
-        "Deklarasi biasa pada layer yang lebih akhir mendapat prioritas antarlayer."
-      ]
+      "recap": ["Deklarasi biasa pada layer yang lebih akhir mendapat prioritas antarlayer."]
     },
     "en": {
-      "practiceSteps": [
-        "Reverse the declared layer order and predict the resulting text color."
-      ],
+      "practiceSteps": ["Reverse the declared layer order and predict the resulting text color."],
       "hint": "Inspect layer order before comparing specificity of normal declarations.",
-      "recap": [
-        "Normal declarations in the later layer take precedence across layers."
-      ]
+      "recap": ["Normal declarations in the later layer take precedence across layers."]
     }
   },
   "css-where-specificity": {
@@ -807,18 +725,12 @@
         "Ganti :where(.article) dengan .article, lalu bandingkan aturan mana yang menang."
       ],
       "hint": "Bandingkan bobot selector biasa dengan bobot isi yang dibungkus :where.",
-      "recap": [
-        "Where sengaja mempertahankan specificity selector yang dibungkusnya pada nol."
-      ]
+      "recap": ["Where sengaja mempertahankan specificity selector yang dibungkusnya pada nol."]
     },
     "en": {
-      "practiceSteps": [
-        "Replace :where(.article) with .article and compare which rule wins."
-      ],
+      "practiceSteps": ["Replace :where(.article) with .article and compare which rule wins."],
       "hint": "Compare ordinary selector weight with content wrapped in :where.",
-      "recap": [
-        "Where deliberately keeps the wrapped selector’s specificity at zero."
-      ]
+      "recap": ["Where deliberately keeps the wrapped selector’s specificity at zero."]
     }
   },
   "css-media-features": {
@@ -827,18 +739,14 @@
         "Coba tata letak sempit, lalu jelaskan mengapa tindakan tetap terlihat tanpa hover."
       ],
       "hint": "Bagaimana pengguna sentuh atau keyboard menemukan tindakan jika mereka tidak melakukan hover?",
-      "recap": [
-        "Pengguna sentuh dan keyboard juga perlu menemukan tindakan yang tersedia."
-      ]
+      "recap": ["Pengguna sentuh dan keyboard juga perlu menemukan tindakan yang tersedia."]
     },
     "en": {
       "practiceSteps": [
         "Test a narrow layout and explain why the action remains visible without hover."
       ],
       "hint": "How do touch and keyboard users find an action without hovering?",
-      "recap": [
-        "Touch and keyboard users also need to discover the action."
-      ]
+      "recap": ["Touch and keyboard users also need to discover the action."]
     }
   },
   "css-container-queries": {
@@ -847,38 +755,26 @@
         "Letakkan pembungkus kedua dengan lebar sempit tetap, lalu bandingkan kedua kartu pada viewport yang sama."
       ],
       "hint": "Komponen dapat berada di sidebar sempit pada layar lebar. Lebar mana yang perlu diperiksa?",
-      "recap": [
-        "Container query membuat komponen responsif terhadap tempatnya berada."
-      ]
+      "recap": ["Container query membuat komponen responsif terhadap tempatnya berada."]
     },
     "en": {
       "practiceSteps": [
         "Place a second host at a fixed narrow width and compare both cards in the same viewport."
       ],
       "hint": "A component may sit in a narrow sidebar on a wide screen. Which width matters?",
-      "recap": [
-        "Container queries make the component responsive to its placement."
-      ]
+      "recap": ["Container queries make the component responsive to its placement."]
     }
   },
   "css-logical-properties": {
     "id": {
-      "practiceSteps": [
-        "Ubah dir antara ltr dan rtl, lalu periksa aksen dan padding."
-      ],
+      "practiceSteps": ["Ubah dir antara ltr dan rtl, lalu periksa aksen dan padding."],
       "hint": "Ubah arah tulisan menjadi RTL lalu lihat sisi mana yang dianggap awal.",
-      "recap": [
-        "Inline-start mengikuti sisi fisik yang sesuai dengan mode penulisan."
-      ]
+      "recap": ["Inline-start mengikuti sisi fisik yang sesuai dengan mode penulisan."]
     },
     "en": {
-      "practiceSteps": [
-        "Toggle dir between ltr and rtl and inspect the accent and padding."
-      ],
+      "practiceSteps": ["Toggle dir between ltr and rtl and inspect the accent and padding."],
       "hint": "Switch writing direction to RTL and inspect the start side.",
-      "recap": [
-        "Inline-start maps to the appropriate physical side for the writing mode."
-      ]
+      "recap": ["Inline-start maps to the appropriate physical side for the writing mode."]
     }
   },
   "css-intrinsic-layout": {
@@ -892,13 +788,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Replace each label with a longer translation and narrow the preview."
-      ],
+      "practiceSteps": ["Replace each label with a longer translation and narrow the preview."],
       "hint": "Narrow the space until controls cannot fit one row. How does wrapping keep them visible?",
-      "recap": [
-        "Wrapping keeps controls usable when they no longer fit on one line."
-      ]
+      "recap": ["Wrapping keeps controls usable when they no longer fit on one line."]
     }
   },
   "css-aspect-object-fit": {
@@ -909,9 +801,7 @@
         "Bandingkan potret yang terpotong dengan gambar utuh dan ruang kosong di sekelilingnya."
       ],
       "hint": "Bandingkan seluruh gambar terlihat dengan kotak terisi penuh tetapi sebagian gambar terpotong.",
-      "recap": [
-        "Contain mempertahankan rasio sumber dan menjaga seluruh isinya terlihat."
-      ]
+      "recap": ["Contain mempertahankan rasio sumber dan menjaga seluruh isinya terlihat."]
     },
     "en": {
       "practiceSteps": [
@@ -920,9 +810,7 @@
         "Compare the cropped portrait with the whole image and the empty space around it."
       ],
       "hint": "Compare the whole image being visible with a filled box cropping some content.",
-      "recap": [
-        "Contain preserves the resource’s ratio and keeps its full content visible."
-      ]
+      "recap": ["Contain preserves the resource’s ratio and keeps its full content visible."]
     }
   },
   "css-positioning": {
@@ -931,38 +819,24 @@
         "Hapus position:relative, lalu jelaskan mengapa acuan posisi badge berubah."
       ],
       "hint": "Telusuri leluhur badge dan cari posisi yang menjadi acuan koordinatnya.",
-      "recap": [
-        "Leluhur yang diberi posisi menyediakan containing block bagi anak absolute."
-      ]
+      "recap": ["Leluhur yang diberi posisi menyediakan containing block bagi anak absolute."]
     },
     "en": {
-      "practiceSteps": [
-        "Remove position:relative and explain why the badge’s reference changes."
-      ],
+      "practiceSteps": ["Remove position:relative and explain why the badge’s reference changes."],
       "hint": "Trace badge ancestors and find the positioning reference.",
-      "recap": [
-        "The positioned ancestor provides the containing block for the absolute child."
-      ]
+      "recap": ["The positioned ancestor provides the containing block for the absolute child."]
     }
   },
   "css-stacking-contexts": {
     "id": {
-      "practiceSteps": [
-        "Ubah z-index A, lalu bandingkan dengan mengubah nilai anaknya saja."
-      ],
+      "practiceSteps": ["Ubah z-index A, lalu bandingkan dengan mengubah nilai anaknya saja."],
       "hint": "Bandingkan konteks induk dahulu; z-index anak tidak langsung bersaing dengan seluruh halaman.",
-      "recap": [
-        "Stacking context diurutkan sebagai satu kesatuan di dalam konteks induknya."
-      ]
+      "recap": ["Stacking context diurutkan sebagai satu kesatuan di dalam konteks induknya."]
     },
     "en": {
-      "practiceSteps": [
-        "Change A’s z-index and compare it with changing only the child’s value."
-      ],
+      "practiceSteps": ["Change A’s z-index and compare it with changing only the child’s value."],
       "hint": "Compare parent contexts first; child z-index does not compete directly with the entire page.",
-      "recap": [
-        "Stacking contexts are ordered as units within their parent context."
-      ]
+      "recap": ["Stacking contexts are ordered as units within their parent context."]
     }
   },
   "css-transitions": {
@@ -971,18 +845,14 @@
         "Tambahkan keadaan fokus, lalu pastikan respons tetap bekerja saat reduced motion aktif."
       ],
       "hint": "Properti mana yang memang perlu bergerak? Apa risiko mengikutsertakan semua properti?",
-      "recap": [
-        "Daftar properti yang jelas menjaga cakupan animasi tetap mudah diprediksi."
-      ]
+      "recap": ["Daftar properti yang jelas menjaga cakupan animasi tetap mudah diprediksi."]
     },
     "en": {
       "practiceSteps": [
         "Add a focus state and confirm feedback still works with reduced motion enabled."
       ],
       "hint": "Which properties should animate? What happens if every property is included?",
-      "recap": [
-        "Explicit property lists keep motion scope predictable."
-      ]
+      "recap": ["Explicit property lists keep motion scope predictable."]
     }
   },
   "css-keyframes-motion": {
@@ -1000,9 +870,7 @@
         "Make the animation finite and compare the experience with motion disabled."
       ],
       "hint": "Enable reduced motion. Is status still understandable without animation?",
-      "recap": [
-        "Motion can reinforce feedback, but the meaning must survive without it."
-      ]
+      "recap": ["Motion can reinforce feedback, but the meaning must survive without it."]
     }
   },
   "css-transform-layout": {
@@ -1020,29 +888,21 @@
         "Replace translateX with margin-left and compare layout and available width."
       ],
       "hint": "Inspect the box's visual position and space still reserved by siblings in normal flow.",
-      "recap": [
-        "A transform affects visual rendering while the original layout space remains."
-      ]
+      "recap": ["A transform affects visual rendering while the original layout space remains."]
     }
   },
   "css-focus-states": {
     "id": {
-      "practiceSteps": [
-        "Jelajahi kontrol dengan Tab dan coba skip link tanpa mouse."
-      ],
+      "practiceSteps": ["Jelajahi kontrol dengan Tab dan coba skip link tanpa mouse."],
       "hint": "Gunakan Tab setelah outline dihapus. Bagaimana pengguna mengetahui kontrol yang aktif?",
       "recap": [
         "Pengguna keyboard membutuhkan penanda posisi yang terlihat tanpa bergantung pada hover pointer."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Tab through the controls and test the skip link without a mouse."
-      ],
+      "practiceSteps": ["Tab through the controls and test the skip link without a mouse."],
       "hint": "Use Tab after removing the outline. How can users locate the focused control?",
-      "recap": [
-        "Keyboard users need a visible location indicator independent of pointer hover."
-      ]
+      "recap": ["Keyboard users need a visible location indicator independent of pointer hover."]
     }
   },
   "css-print-layout": {

@@ -85,11 +85,7 @@
       "answer": "Generate the corresponding CSS utility",
       "reason": "Tailwind produces CSS utilities. It does not add interaction logic or change HTML semantics.",
       "hint": "Think about the layer that controls appearance.",
-      "flow": [
-        "Source class",
-        "Generated rule",
-        "Styled element"
-      ],
+      "flow": ["Source class", "Generated rule", "Styled element"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -115,11 +111,7 @@
       "answer": "The Vite plugin plus the imported Tailwind stylesheet",
       "reason": "The plugin compiles Tailwind and the stylesheet import brings its output into the page.",
       "hint": "Both compilation and CSS loading matter.",
-      "flow": [
-        "Install packages",
-        "Connect plugin and CSS",
-        "Start the app"
-      ],
+      "flow": ["Install packages", "Connect plugin and CSS", "Start the app"],
       "lab": "read",
       "language": "text",
       "minutes": 8,
@@ -137,19 +129,11 @@
       "code": "mkdir study-desk\ncd study-desk\nnpm init -y\nnpm install tailwindcss @tailwindcss/cli\n\n/* src/input.css */\n@import \"tailwindcss\";\n\n// Watch in your terminal\nnpx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch\n\n<!-- src/index.html -->\n<link rel=\"stylesheet\" href=\"./output.css\">\n<h1 class=\"text-3xl font-semibold\">Study desk</h1>\n\n// One production CSS build\nnpx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
       "practice": "Build the output locally, link it in HTML, then try watch mode while changing a utility.",
       "question": "Which file should the HTML link to in this CLI setup?",
-      "options": [
-        "package.json",
-        "The npm cache",
-        "The generated output.css"
-      ],
+      "options": ["package.json", "The npm cache", "The generated output.css"],
       "answer": "The generated output.css",
       "reason": "The browser needs the compiled stylesheet. The input contains Tailwind directives that require compilation.",
       "hint": "Choose the file containing the generated CSS.",
-      "flow": [
-        "Input stylesheet",
-        "CLI compilation",
-        "Linked output"
-      ],
+      "flow": ["Input stylesheet", "CLI compilation", "Linked output"],
       "lab": "read",
       "language": "text",
       "minutes": 8,
@@ -167,19 +151,11 @@
       "code": "npx create-next-app@latest study-desk\ncd study-desk\n# If Tailwind is not already configured:\nnpm install tailwindcss @tailwindcss/postcss postcss\n\n// postcss.config.mjs\nexport default { plugins: { \"@tailwindcss/postcss\": {} } };\n\n/* app/globals.css */\n@import \"tailwindcss\";\n\n// app/layout.tsx\nimport \"./globals.css\";\nexport default function RootLayout({ children }: { children: React.ReactNode }) {\n  return <html lang=\"en\"><body>{children}</body></html>;\n}\n\n// app/page.tsx\nexport default function Page() {\n  return <h1 className=\"text-3xl font-semibold\">Study desk</h1>;\n}\n\nnpm run dev",
       "practice": "Inspect a local Next.js project for its PostCSS config, CSS import, and root layout. Record which parts already exist.",
       "question": "Which plugin is used for a manual Tailwind v4 PostCSS setup?",
-      "options": [
-        "@tailwindcss/postcss",
-        "@tailwindcss/vite",
-        "No plugin and no stylesheet"
-      ],
+      "options": ["@tailwindcss/postcss", "@tailwindcss/vite", "No plugin and no stylesheet"],
       "answer": "@tailwindcss/postcss",
       "reason": "@tailwindcss/postcss integrates the compiler with PostCSS; the Vite plugin belongs to the Vite route.",
       "hint": "Match the integration to the build tool.",
-      "flow": [
-        "Inspect existing setup",
-        "Configure PostCSS",
-        "Load globals.css"
-      ],
+      "flow": ["Inspect existing setup", "Configure PostCSS", "Load globals.css"],
       "lab": "read",
       "language": "text",
       "minutes": 8,
@@ -205,11 +181,7 @@
       "answer": "Preflight resets default visual heading styles",
       "reason": "Preflight affects appearance, while h1 retains heading semantics. Apply the intended type hierarchy explicitly.",
       "hint": "Separate semantics from browser styling.",
-      "flow": [
-        "Browser defaults",
-        "Preflight reset",
-        "Explicit hierarchy"
-      ],
+      "flow": ["Browser defaults", "Preflight reset", "Explicit hierarchy"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -227,19 +199,11 @@
       "code": "<main class=\"p-6\"><div class=\"flex gap-4 border border-slate-300 p-4\"><p class=\"bg-emerald-100 px-4 py-2\">First</p><p class=\"bg-emerald-100 px-4 py-2\">Second</p></div><p class=\"mt-6\">Outside the group</p></main>",
       "practice": "Change gap-4 to gap-8, then p-4 to p-8. Compare which space changes.",
       "question": "Which utility spaces the flex children?",
-      "options": [
-        "gap-4",
-        "p-4",
-        "mt-4"
-      ],
+      "options": ["gap-4", "p-4", "mt-4"],
       "answer": "gap-4",
       "reason": "gap spaces children; padding is inside an element and margin is outside it.",
       "hint": "Locate the space between items.",
-      "flow": [
-        "p-4",
-        "gap-4",
-        "mt-6"
-      ],
+      "flow": ["p-4", "gap-4", "mt-6"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -257,19 +221,11 @@
       "code": "<main class=\"p-6\"><article class=\"mx-auto w-full max-w-xl border border-slate-300 p-6\"><h1 class=\"text-xl font-semibold\">A readable width</h1><p class=\"mt-3\">This panel fills a small space and stops growing in a large one.</p></article></main>",
       "practice": "Compare the narrow preview with w-full max-w-xl and with w-[700px].",
       "question": "Which pair fills small spaces while limiting the maximum width?",
-      "options": [
-        "w-[700px] only",
-        "w-full max-w-xl",
-        "h-screen only"
-      ],
+      "options": ["w-[700px] only", "w-full max-w-xl", "h-screen only"],
       "answer": "w-full max-w-xl",
       "reason": "A flexible width plus a maximum grows with its parent without requiring a fixed large width.",
       "hint": "Look for a width and a maximum.",
-      "flow": [
-        "w-full",
-        "max-w-xl",
-        "mx-auto"
-      ],
+      "flow": ["w-full", "max-w-xl", "mx-auto"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -287,19 +243,11 @@
       "code": "<main class=\"mx-auto max-w-2xl p-6\"><p class=\"text-sm font-medium text-emerald-800\">Learning notes</p><h1 class=\"mt-2 text-3xl font-semibold tracking-tight\">One clear idea</h1><p class=\"mt-4 text-base leading-relaxed text-slate-700\">A short explanation deserves enough room to read. Size and spacing show how the parts belong together.</p></main>",
       "practice": "Change heading weight and paragraph line height separately. Compare readability.",
       "question": "Which utility changes font weight?",
-      "options": [
-        "leading-relaxed",
-        "text-3xl",
-        "font-semibold"
-      ],
+      "options": ["leading-relaxed", "text-3xl", "font-semibold"],
       "answer": "font-semibold",
       "reason": "font-semibold changes weight; text utilities set size and leading utilities set line height.",
       "hint": "Separate weight from size.",
-      "flow": [
-        "text-3xl",
-        "font-semibold",
-        "leading-relaxed"
-      ],
+      "flow": ["text-3xl", "font-semibold", "leading-relaxed"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -317,19 +265,11 @@
       "code": "<main class=\"space-y-4 p-6\"><p class=\"bg-emerald-700 p-4 text-white\">Ready to study</p><p class=\"bg-emerald-700/10 p-4 text-emerald-950\">Background alpha only</p><p class=\"bg-emerald-700 p-4 text-white opacity-50\">Whole element opacity</p></main>",
       "practice": "Compare background alpha and whole-element opacity. Keep both examples readable.",
       "question": "Which utility changes only background alpha?",
-      "options": [
-        "bg-emerald-700/10",
-        "opacity-10",
-        "text-sm"
-      ],
+      "options": ["bg-emerald-700/10", "opacity-10", "text-sm"],
       "answer": "bg-emerald-700/10",
       "reason": "The slash modifier changes the color utility alpha; opacity affects the composited element.",
       "hint": "Find the color-specific modifier.",
-      "flow": [
-        "Background",
-        "Text contrast",
-        "Meaningful status"
-      ],
+      "flow": ["Background", "Text contrast", "Meaningful status"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -347,19 +287,11 @@
       "code": "<main class=\"space-y-4 p-6\"><section class=\"rounded-lg border border-slate-300 p-4\"><h1 class=\"font-semibold\">A grouped note</h1></section><section class=\"rounded-lg bg-white p-4 shadow-sm\"><h2 class=\"font-semibold\">A lightly raised panel</h2></section></main>",
       "practice": "Compare a border-only group with a shadow-only group. Explain each purpose.",
       "question": "What accompanies border when its intended color matters?",
-      "options": [
-        "A random animation",
-        "An explicit border color utility",
-        "A JavaScript timer"
-      ],
+      "options": ["A random animation", "An explicit border color utility", "A JavaScript timer"],
       "answer": "An explicit border color utility",
       "reason": "An explicit color avoids relying on an inherited border default.",
       "hint": "Width and color are separate choices.",
-      "flow": [
-        "border",
-        "border-slate-300",
-        "Clear grouping"
-      ],
+      "flow": ["border", "border-slate-300", "Clear grouping"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -377,19 +309,11 @@
       "code": "<main class=\"p-6\"><div class=\"flex gap-4\"><span class=\"bg-slate-100 p-3\">Visible</span><span class=\"invisible bg-slate-100 p-3\">Space remains</span><span class=\"bg-slate-100 p-3\">Third</span></div><p class=\"sr-only\">An accessible description</p></main>",
       "practice": "Change invisible to hidden and compare the occupied space.",
       "question": "Which utility removes the item and its layout space?",
-      "options": [
-        "invisible",
-        "sr-only",
-        "hidden"
-      ],
+      "options": ["invisible", "sr-only", "hidden"],
       "answer": "hidden",
       "reason": "hidden uses display: none; invisible keeps space and sr-only has an accessibility purpose.",
       "hint": "Think about display rather than visibility.",
-      "flow": [
-        "Container display",
-        "Child participation",
-        "Visible layout"
-      ],
+      "flow": ["Container display", "Child participation", "Visible layout"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -407,19 +331,11 @@
       "code": "<main class=\"p-6\"><div class=\"flex items-center justify-between gap-4 border border-slate-300 p-4\"><div><h1 class=\"text-xl font-semibold\">Today</h1><p class=\"text-sm text-slate-600\">Two tasks remaining</p></div><button class=\"rounded bg-emerald-700 px-4 py-2 text-white\">Add task</button></div></main>",
       "practice": "Switch to flex-col and explain how the axes change.",
       "question": "In a default flex row, which utility aligns the cross axis?",
-      "options": [
-        "items-center",
-        "justify-between",
-        "text-center"
-      ],
+      "options": ["items-center", "justify-between", "text-center"],
       "answer": "items-center",
       "reason": "items-center controls align-items; justify-between works on the main axis.",
       "hint": "Identify the axis first.",
-      "flow": [
-        "flex",
-        "Main and cross axes",
-        "Aligned content"
-      ],
+      "flow": ["flex", "Main and cross axes", "Aligned content"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -437,19 +353,11 @@
       "code": "<main class=\"p-6\"><div class=\"flex items-start gap-4\"><p class=\"min-w-0 flex-1 wrap-break-word\">A_long_study_task_title_that_needs_to_fit_in_the_available_space</p><button class=\"shrink-0 rounded border border-slate-300 px-3 py-2\">Edit</button></div><div class=\"mt-6 flex flex-wrap gap-2\"><span class=\"bg-slate-100 px-3 py-2\">HTML</span><span class=\"bg-slate-100 px-3 py-2\">CSS foundations</span><span class=\"bg-slate-100 px-3 py-2\">Browser interactions</span></div></main>",
       "practice": "Remove and restore min-w-0 in the narrow preview with a long title.",
       "question": "Which utility removes the minimum-width obstacle for the flexible child?",
-      "options": [
-        "shrink-0",
-        "min-w-0",
-        "font-bold"
-      ],
+      "options": ["shrink-0", "min-w-0", "font-bold"],
       "answer": "min-w-0",
       "reason": "min-w-0 allows shrinking below the intrinsic minimum while flex-1 shares space.",
       "hint": "Inspect the minimum width.",
-      "flow": [
-        "flex-1",
-        "min-w-0",
-        "Usable long content"
-      ],
+      "flow": ["flex-1", "min-w-0", "Usable long content"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -467,19 +375,11 @@
       "code": "<main class=\"grid grid-cols-2 gap-4 p-6\"><h1 class=\"col-span-2 text-2xl font-semibold\">Study topics</h1><article class=\"bg-emerald-100 p-4\">HTML</article><article class=\"bg-slate-100 p-4\">CSS</article><article class=\"col-span-2 bg-slate-100 p-4\">Both columns</article></main>",
       "practice": "Change the track ratio and one child span, then compare the DOM order.",
       "question": "Where should grid-cols-2 be applied?",
-      "options": [
-        "On every text node",
-        "Only on the final child",
-        "On the grid container"
-      ],
+      "options": ["On every text node", "Only on the final child", "On the grid container"],
       "answer": "On the grid container",
       "reason": "The container defines tracks; child utilities control their placement within them.",
       "hint": "Find the element establishing the grid.",
-      "flow": [
-        "Grid container",
-        "Tracks and gap",
-        "Child spans"
-      ],
+      "flow": ["Grid container", "Tracks and gap", "Child spans"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -505,11 +405,7 @@
       "answer": "relative on the article",
       "reason": "The appropriate positioned ancestor supplies the absolute child’s containing block.",
       "hint": "Inspect the parent positioning rule.",
-      "flow": [
-        "relative parent",
-        "absolute child",
-        "Anchored label"
-      ],
+      "flow": ["relative parent", "absolute child", "Anchored label"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -535,11 +431,7 @@
       "answer": "Two columns at 48rem and above",
       "reason": "The md variant is a minimum-width condition; the unprefixed layout remains below it.",
       "hint": "Read the breakpoint as a minimum.",
-      "flow": [
-        "Base layout",
-        "md condition",
-        "Wider layout"
-      ],
+      "flow": ["Base layout", "md condition", "Wider layout"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -557,19 +449,11 @@
       "code": "<main class=\"p-6\"><p class=\"bg-slate-100 p-4 md:max-lg:bg-emerald-100\">A different background between md and lg</p><p class=\"mt-4 text-sm max-md:font-semibold\">Emphasized below md</p></main>",
       "practice": "Try max-md and md:max-lg locally at widths around their boundaries.",
       "question": "Which condition does md:max-lg represent?",
-      "options": [
-        "All widths above lg",
-        "Only widths below md",
-        "At least md and below lg"
-      ],
+      "options": ["All widths above lg", "Only widths below md", "At least md and below lg"],
       "answer": "At least md and below lg",
       "reason": "Stacked variants combine their conditions, producing a bounded width range.",
       "hint": "Both conditions must hold.",
-      "flow": [
-        "Minimum",
-        "Maximum",
-        "Limited range"
-      ],
+      "flow": ["Minimum", "Maximum", "Limited range"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -595,11 +479,7 @@
       "answer": "An ancestor marked @container",
       "reason": "The container ancestor provides the inline-size context for its descendant query.",
       "hint": "Find the query container ancestor.",
-      "flow": [
-        "@container",
-        "@sm condition",
-        "Component layout"
-      ],
+      "flow": ["@container", "@sm condition", "Component layout"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -625,11 +505,7 @@
       "answer": "A preferred fluid size bounded by a minimum and maximum",
       "reason": "clamp bounds the preferred value; actual content and zoom still require review.",
       "hint": "Read the three size arguments.",
-      "flow": [
-        "Minimum",
-        "Preferred size",
-        "Maximum"
-      ],
+      "flow": ["Minimum", "Preferred size", "Maximum"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -647,19 +523,11 @@
       "code": "<main class=\"max-w-xl p-6\"><img class=\"aspect-video w-full rounded-lg bg-slate-100 object-cover\" width=\"240\" height=\"160\" alt=\"Three colored study blocks\" src=\"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27240%27 height=%27160%27%3E%3Crect width=%27240%27 height=%27160%27 fill=%27%23d1fae5%27/%3E%3Crect x=%2730%27 y=%2730%27 width=%2780%27 height=%27100%27 fill=%27%23065f46%27/%3E%3Crect x=%27130%27 y=%2730%27 width=%2780%27 height=%27100%27 fill=%27%23475569%27/%3E%3C/svg%3E\"></main>",
       "practice": "Compare object-cover with object-contain and change the aspect ratio.",
       "question": "Which utility keeps the full image visible inside its frame?",
-      "options": [
-        "object-cover",
-        "overflow-hidden",
-        "object-contain"
-      ],
+      "options": ["object-cover", "overflow-hidden", "object-contain"],
       "answer": "object-contain",
       "reason": "object-contain preserves the image within the box instead of cropping to fill it.",
       "hint": "Choose fit rather than crop.",
-      "flow": [
-        "Stable ratio",
-        "Fit choice",
-        "Useful alternative"
-      ],
+      "flow": ["Stable ratio", "Fit choice", "Useful alternative"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -685,11 +553,7 @@
       "answer": "Keyboard focus on the control",
       "reason": "A visible focus treatment helps users locate the active keyboard control.",
       "hint": "Consider navigation without a mouse.",
-      "flow": [
-        "Native button",
-        "Focus variant",
-        "Visible location"
-      ],
+      "flow": ["Native button", "Focus variant", "Visible location"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -715,11 +579,7 @@
       "answer": "Before the styled sibling",
       "reason": "The peer variant follows a preceding-sibling relationship. DOM order matters.",
       "hint": "Inspect the sibling order.",
-      "flow": [
-        "peer input",
-        "Checked state",
-        "Styled sibling"
-      ],
+      "flow": ["peer input", "Checked state", "Styled sibling"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -737,19 +597,11 @@
       "code": "<main class=\"p-6\"><form class=\"space-y-3\"><label for=\"email\" class=\"block font-medium\">Email for your notes</label><input id=\"email\" type=\"email\" class=\"peer w-full rounded border border-slate-400 px-3 py-2 invalid:border-red-700 focus-visible:outline-2 focus-visible:outline-emerald-700\" aria-describedby=\"email-help\"><p id=\"email-help\" class=\"hidden text-sm text-red-800 peer-invalid:block\">Enter an email such as name@example.com.</p><button disabled class=\"rounded bg-emerald-700 px-4 py-2 text-white disabled:cursor-not-allowed disabled:opacity-50\">Save unavailable</button></form></main>",
       "practice": "Type an invalid email, then a valid one. Check label focus and the disabled button.",
       "question": "What actually disables the button interaction?",
-      "options": [
-        "opacity-50 alone",
-        "The background color",
-        "The disabled attribute"
-      ],
+      "options": ["opacity-50 alone", "The background color", "The disabled attribute"],
       "answer": "The disabled attribute",
       "reason": "The attribute controls native behavior. Appearance alone cannot enforce a disabled state.",
       "hint": "Separate a style from a behavioral attribute.",
-      "flow": [
-        "Native constraint",
-        "Invalid variant",
-        "Helpful feedback"
-      ],
+      "flow": ["Native constraint", "Invalid variant", "Helpful feedback"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -775,11 +627,7 @@
       "answer": "No; the actual behavior must match the attribute",
       "reason": "ARIA communicates state rather than implementing behavior. It must describe the real interface.",
       "hint": "Think about semantics and events separately.",
-      "flow": [
-        "Actual state",
-        "Attribute hook",
-        "Matching appearance"
-      ],
+      "flow": ["Actual state", "Attribute hook", "Matching appearance"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -797,19 +645,11 @@
       "code": "<main class=\"p-6\"><button class=\"rounded bg-emerald-700 px-4 py-2 text-white transition-colors duration-150 hover:bg-emerald-900 focus-visible:outline-2 focus-visible:outline-offset-4 motion-reduce:transition-none\">Start a study session</button></main>",
       "practice": "Compare the hover transition with reduced motion enabled in your local system or browser tools.",
       "question": "Which variant targets a reduced-motion preference?",
-      "options": [
-        "hover:",
-        "motion-reduce:",
-        "md:"
-      ],
+      "options": ["hover:", "motion-reduce:", "md:"],
       "answer": "motion-reduce:",
       "reason": "motion-reduce applies when the user prefers less motion, so essential state feedback should still work.",
       "hint": "Find the preference-related variant.",
-      "flow": [
-        "State change",
-        "Relevant transition",
-        "Reduced-motion option"
-      ],
+      "flow": ["State change", "Relevant transition", "Reduced-motion option"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -827,19 +667,11 @@
       "code": "<style type=\"text/tailwindcss\">@theme { --color-brand: #166534; --radius-panel: 0.75rem; }</style><main class=\"p-6\"><article class=\"rounded-panel border border-brand p-6\"><h1 class=\"text-xl font-semibold text-brand\">A shared identity</h1><button class=\"mt-4 rounded bg-brand px-4 py-2 text-white\">Continue</button></article></main>",
       "practice": "Change --color-brand once and observe every brand utility.",
       "question": "Which directive defines a token that creates color utilities?",
-      "options": [
-        "@media",
-        "@keyframes",
-        "@theme"
-      ],
+      "options": ["@media", "@keyframes", "@theme"],
       "answer": "@theme",
       "reason": "@theme variables in recognized namespaces connect design tokens to generated utilities.",
       "hint": "Look for the theme configuration directive.",
-      "flow": [
-        "--color-brand",
-        "bg-brand and text-brand",
-        "Shared decision"
-      ],
+      "flow": ["--color-brand", "bg-brand and text-brand", "Shared decision"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -865,11 +697,7 @@
       "answer": "When the value represents a repeated design decision",
       "reason": "A named token centralizes a repeated decision and lets you change it consistently.",
       "hint": "Look for repeated meaning.",
-      "flow": [
-        "Specific constraint",
-        "Arbitrary value",
-        "Reusable token if repeated"
-      ],
+      "flow": ["Specific constraint", "Arbitrary value", "Reusable token if repeated"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -895,11 +723,7 @@
       "answer": "The prefers-color-scheme media feature",
       "reason": "The default dark variant uses system color-scheme preference; a selector override changes its activation.",
       "hint": "Distinguish the default from a manual selector.",
-      "flow": [
-        "Activation choice",
-        "dark utilities",
-        "Readable paired colors"
-      ],
+      "flow": ["Activation choice", "dark utilities", "Readable paired colors"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -925,11 +749,7 @@
       "answer": "No, it only defines a styling condition",
       "reason": "The variant describes a selector condition; the application supplies the actual state.",
       "hint": "Separate styling from state updates.",
-      "flow": [
-        "Real state attribute",
-        "Named selector",
-        "Reusable variant"
-      ],
+      "flow": ["Real state attribute", "Named selector", "Reusable variant"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -955,11 +775,7 @@
       "answer": "Inline existing utility declarations into a CSS rule",
       "reason": "@apply combines styling declarations; it cannot implement structure or behavior.",
       "hint": "Think in CSS declarations.",
-      "flow": [
-        "Existing utility",
-        "Shared CSS rule",
-        "Focused styling reuse"
-      ],
+      "flow": ["Existing utility", "Shared CSS rule", "Focused styling reuse"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 8,
@@ -977,19 +793,11 @@
       "code": "// vite.config.ts\nimport { defineConfig } from 'vite'\nimport react from '@vitejs/plugin-react'\nimport tailwindcss from '@tailwindcss/vite'\nexport default defineConfig({ plugins: [react(), tailwindcss()] })\n\n// src/index.css\n@import \"tailwindcss\";\n\n// src/main.tsx — add this import; keep the existing React render code\nimport './index.css'\n\n// src/StudyCard.tsx\nexport function StudyCard() {\n  return <article className=\"rounded-xl border border-slate-200 p-6\">\n    <h2 className=\"text-xl font-semibold\">Your next lesson</h2>\n    <p className=\"mt-2 text-slate-600\">Build a layout you can explain.</p>\n  </article>\n}",
       "practice": "Move the card into a local React project and confirm its CSS import reaches main.tsx.",
       "question": "Which JSX attribute holds Tailwind utilities?",
-      "options": [
-        "className",
-        "tailwind",
-        "styleName"
-      ],
+      "options": ["className", "tailwind", "styleName"],
       "answer": "className",
       "reason": "React uses className for HTML classes; Tailwind handles the resulting class strings during the build.",
       "hint": "Think of the standard React attribute for a CSS class.",
-      "flow": [
-        "CSS entry",
-        "React component",
-        "Rendered classes"
-      ],
+      "flow": ["CSS entry", "React component", "Rendered classes"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1015,11 +823,7 @@
       "answer": "A map with complete class strings",
       "reason": "Detection needs complete utilities such as bg-emerald-700, not a template that only produces them at runtime.",
       "hint": "The build reads the file before your component runs.",
-      "flow": [
-        "Variant prop",
-        "Class map",
-        "Static utilities"
-      ],
+      "flow": ["Variant prop", "Class map", "Static utilities"],
       "lab": "read",
       "language": "javascript",
       "minutes": 10,
@@ -1045,11 +849,7 @@
       "answer": "Repeated structure with the same responsibility",
       "reason": "A reusable boundary follows repeated responsibility, rather than an arbitrary class-count limit.",
       "hint": "Look for something that changes together across views.",
-      "flow": [
-        "Repeated structure",
-        "Shared component",
-        "Purposeful props"
-      ],
+      "flow": ["Repeated structure", "Shared component", "Purposeful props"],
       "lab": "read",
       "language": "javascript",
       "minutes": 10,
@@ -1075,11 +875,7 @@
       "answer": "The CSS cascade and generated rule order",
       "reason": "Class attribute order does not control CSS rule order. Choose a single intended value per state.",
       "hint": "Compare CSS rule order with HTML class order.",
-      "flow": [
-        "Find the conflict",
-        "Choose the intended value",
-        "Keep deliberate variants"
-      ],
+      "flow": ["Find the conflict", "Choose the intended value", "Keep deliberate variants"],
       "lab": "read",
       "language": "javascript",
       "minutes": 10,
@@ -1105,11 +901,7 @@
       "answer": "No, styling alone does not need it",
       "reason": "The client boundary follows interactive JavaScript needs, rather than CSS utility usage.",
       "hint": "Ask whether the component needs state or browser events.",
-      "flow": [
-        "Global stylesheet",
-        "Server-rendered markup",
-        "Client boundary when needed"
-      ],
+      "flow": ["Global stylesheet", "Server-rendered markup", "Client boundary when needed"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1135,11 +927,7 @@
       "answer": "Whether the stylesheet is loaded",
       "reason": "If the stylesheet never reaches the page, source registration cannot fix the missing styles.",
       "hint": "Start at the connection between CSS and the page.",
-      "flow": [
-        "CSS connection",
-        "Complete utility",
-        "Scanned source"
-      ],
+      "flow": ["CSS connection", "Complete utility", "Scanned source"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1165,11 +953,7 @@
       "answer": "An explicit set of utility candidates",
       "reason": "It tells Tailwind to generate the specified candidates during compilation, even if source files do not contain them.",
       "hint": "Distinguish class detection from stylesheet loading.",
-      "flow": [
-        "Identify the source",
-        "Register narrowly",
-        "Generate intended utilities"
-      ],
+      "flow": ["Identify the source", "Register narrowly", "Generate intended utilities"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1195,11 +979,7 @@
       "answer": "No, it shares compilation context without emitting that copy",
       "reason": "Reference provides theme and utility context for compilation. The global stylesheet still needs its normal import in the app.",
       "hint": "The name describes a reference, rather than a second stylesheet output.",
-      "flow": [
-        "Shared theme",
-        "Reference context",
-        "Local component CSS"
-      ],
+      "flow": ["Shared theme", "Reference context", "Local component CSS"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1225,11 +1005,7 @@
       "answer": "@import \"tailwindcss\";",
       "reason": "The v4 integration starts from the CSS import and the correct build package. Migration is a separate task.",
       "hint": "Look at the installation lessons rather than commands from an older tutorial.",
-      "flow": [
-        "Identify the version",
-        "Choose its integration",
-        "Review migration changes"
-      ],
+      "flow": ["Identify the version", "Choose its integration", "Review migration changes"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1255,11 +1031,7 @@
       "answer": "Generated CSS from its build pipeline",
       "reason": "Generating CSS during the build keeps the deployment aligned with the selected framework integration.",
       "hint": "Separate the lab experience from the files a real app deploys.",
-      "flow": [
-        "Compile at build time",
-        "Serve generated assets",
-        "Review deployed output"
-      ],
+      "flow": ["Compile at build time", "Serve generated assets", "Review deployed output"],
       "lab": "read",
       "language": "text",
       "minutes": 10,
@@ -1285,11 +1057,7 @@
       "answer": "They point to sections that exist",
       "reason": "Navigation needs a real destination and usable labels, not only attractive utility classes.",
       "hint": "Follow a link and find the matching id.",
-      "flow": [
-        "Real destinations",
-        "Wrapping layout",
-        "Visible focus"
-      ],
+      "flow": ["Real destinations", "Wrapping layout", "Visible focus"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 10,
@@ -1315,11 +1083,7 @@
       "answer": "Presentation and visual states",
       "reason": "Form styling is separate from validation logic, network requests, and persistent storage.",
       "hint": "Read the demo message and look for a storage implementation.",
-      "flow": [
-        "Labeled input",
-        "Clear visual states",
-        "Honest local feedback"
-      ],
+      "flow": ["Labeled input", "Clear visual states", "Honest local feedback"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 10,
@@ -1345,11 +1109,7 @@
       "answer": "The checkbox whose checked state drives the sibling style",
       "reason": "The stateful peer precedes the sibling targeted by peer-checked utilities.",
       "hint": "Follow the relationship from the input to the next span.",
-      "flow": [
-        "Native control",
-        "Peer state",
-        "Readable task label"
-      ],
+      "flow": ["Native control", "Peer state", "Readable task label"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 10,
@@ -1375,11 +1135,7 @@
       "answer": "It lets the flexible column shrink below its content minimum",
       "reason": "A zero minimum helps the flexible column fit available space. Content still needs appropriate wrapping and overflow handling.",
       "hint": "Compare a flexible column with a fixed content minimum.",
-      "flow": [
-        "Useful content",
-        "Responsive structure",
-        "Readable details"
-      ],
+      "flow": ["Useful content", "Responsive structure", "Readable details"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 10,
@@ -1405,11 +1161,7 @@
       "answer": "Review narrow screens, keyboard access, and the real project build",
       "reason": "A visual preview helps with layout, but a complete review also covers interaction, content, and the app build.",
       "hint": "Think beyond one screen size and one way of interacting.",
-      "flow": [
-        "Build the page",
-        "Review real usage",
-        "Move into a local app"
-      ],
+      "flow": ["Build the page", "Review real usage", "Move into a local app"],
       "lab": "tailwind",
       "language": "html",
       "minutes": 10,

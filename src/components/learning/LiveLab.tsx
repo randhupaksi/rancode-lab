@@ -6,7 +6,21 @@ import { runCode } from '../../features/runtime/runner'
 import { useLocale } from '../../features/locale/LocaleProvider'
 import { useLearningCopy } from '../../features/journey/useLearningCopy'
 
-export default function LiveLab({ initialCode, value, onChange, symbols = [], title, runnable = true }: { initialCode: string; value?: string; onChange?: (code: string) => void; symbols?: string[]; title?: string; runnable?: boolean }) {
+export default function LiveLab({
+  initialCode,
+  value,
+  onChange,
+  symbols = [],
+  title,
+  runnable = true,
+}: {
+  initialCode: string
+  value?: string
+  onChange?: (code: string) => void
+  symbols?: string[]
+  title?: string
+  runnable?: boolean
+}) {
   const { locale, t } = useLocale()
   const c = useLearningCopy()
   const [localCode, setCode] = useState(initialCode)
@@ -29,7 +43,10 @@ export default function LiveLab({ initialCode, value, onChange, symbols = [], ti
     setOutput(null)
     setRuntimeError('')
     setRunning(false)
-    return () => { activeRun.current?.abort(); activeRun.current = null }
+    return () => {
+      activeRun.current?.abort()
+      activeRun.current = null
+    }
   }, [initialCode, value])
 
   const changeCode = (nextCode: string) => {
@@ -46,34 +63,143 @@ export default function LiveLab({ initialCode, value, onChange, symbols = [], ti
     activeRun.current?.abort()
     const controller = new AbortController()
     activeRun.current = controller
-    setRunning(true); setOutput(null); setRuntimeError('')
+    setRunning(true)
+    setOutput(null)
+    setRuntimeError('')
     try {
       const result = await runCode(code, { signal: controller.signal })
       if (activeRun.current !== controller || controller.signal.aborted) return
       setOutput(result.output)
       setRuntimeError(result.error ?? '')
     } catch (error) {
-      if (activeRun.current === controller && !controller.signal.aborted) setRuntimeError(error instanceof Error ? error.message : t('lab.unavailable'))
+      if (activeRun.current === controller && !controller.signal.aborted)
+        setRuntimeError(error instanceof Error ? error.message : t('lab.unavailable'))
     } finally {
-      if (activeRun.current === controller) { activeRun.current = null; setRunning(false) }
+      if (activeRun.current === controller) {
+        activeRun.current = null
+        setRunning(false)
+      }
     }
   }
   useEffect(() => {
     if (!autoRun || !runnable || analysis.status !== 'ready' || hasAnalysisErrors) return
-    const timer = window.setTimeout(() => { void run() }, 500)
+    const timer = window.setTimeout(() => {
+      void run()
+    }, 500)
     return () => window.clearTimeout(timer)
   }, [autoRun, code, runnable, analysis.status, hasAnalysisErrors])
-  return <div className="live-lab">
-    <div className="lab-toolbar"><span><span className="file-dot" /> {title ?? t('lab.tryTitle')}</span><div className="toolbar-actions"><button className="button ghost small" onClick={() => { changeCode(initialCode); setSelected(0) }}><RotateCcw size={14}/> {t('lab.reset')}</button>{runnable && <button className="button ghost small lab-auto-run" aria-pressed={autoRun} aria-label={c('Toggle automatic code execution', 'Aktifkan atau matikan jalankan kode otomatis')} title={c('Toggle automatic code execution', 'Aktifkan atau matikan jalankan kode otomatis')} onClick={() => setAutoRun(value => !value)}>{c('Auto-run', 'Otomatis')}</button>}{runnable && <button className="button secondary small" onClick={run} disabled={running || analysis.status !== 'ready' || hasAnalysisErrors}><Play size={13}/>{running ? t('lab.running') : t('lab.run')}</button>}</div></div>
-    <CodeEditor value={code} onChange={changeCode} label={t('lab.editor')} minHeight={230} />
-    <div className="lab-inspector">
-      <div className="inspector-title"><span className="eyebrow">{t('lab.inspector')}</span><span className="analysis-status" role="status">{analysis.status === 'loading' ? t('lab.reading') : analysis.status === 'error' ? t('lab.unavailable') : analysis.diagnostics.length ? t('lab.diagnostics', { count: analysis.diagnostics.length, plural: locale === 'en' && analysis.diagnostics.length > 1 ? 's' : '' }) : <><Check size={12}/> {t('lab.valid')}</>}</span></div>
-      {analysis.types.length > 0 && <div className="inspector-symbols" aria-label={t('lab.symbols')}>{analysis.types.map((type, index) => <button key={type.name} className={index === selected ? 'symbol selected' : 'symbol'} onClick={() => setSelected(index)} aria-pressed={index === selected}><code>{type.name}</code><span>→</span><code className="type-text">{type.type}</code></button>)}</div>}
-      {inspection && <p className="inspector-explanation">{inspection.explanation}</p>}
-      {analysis.status === 'ready' && !analysis.types.length && <p className="muted">{t('lab.empty')}</p>}
-      {analysis.error && <p className="feedback error">{analysis.error} {t('lab.errorSuffix')}</p>}
-      {analysis.diagnostics.length > 0 && <ul className="diagnostic-list">{analysis.diagnostics.slice(0, 6).map((diagnostic, index) => <li key={index}><AlertCircle size={15}/><span><strong>{t('lab.line', { line: diagnostic.line })}</strong> · {diagnostic.message}</span></li>)}</ul>}
+  return (
+    <div className="live-lab">
+      <div className="lab-toolbar">
+        <span>
+          <span className="file-dot" /> {title ?? t('lab.tryTitle')}
+        </span>
+        <div className="toolbar-actions">
+          <button
+            className="button ghost small"
+            onClick={() => {
+              changeCode(initialCode)
+              setSelected(0)
+            }}
+          >
+            <RotateCcw size={14} /> {t('lab.reset')}
+          </button>
+          {runnable && (
+            <button
+              className="button ghost small lab-auto-run"
+              aria-pressed={autoRun}
+              aria-label={c(
+                'Toggle automatic code execution',
+                'Aktifkan atau matikan jalankan kode otomatis',
+              )}
+              title={c(
+                'Toggle automatic code execution',
+                'Aktifkan atau matikan jalankan kode otomatis',
+              )}
+              onClick={() => setAutoRun(value => !value)}
+            >
+              {c('Auto-run', 'Otomatis')}
+            </button>
+          )}
+          {runnable && (
+            <button
+              className="button secondary small"
+              onClick={run}
+              disabled={running || analysis.status !== 'ready' || hasAnalysisErrors}
+            >
+              <Play size={13} />
+              {running ? t('lab.running') : t('lab.run')}
+            </button>
+          )}
+        </div>
+      </div>
+      <CodeEditor value={code} onChange={changeCode} label={t('lab.editor')} minHeight={230} />
+      <div className="lab-inspector">
+        <div className="inspector-title">
+          <span className="eyebrow">{t('lab.inspector')}</span>
+          <span className="analysis-status" role="status">
+            {analysis.status === 'loading' ? (
+              t('lab.reading')
+            ) : analysis.status === 'error' ? (
+              t('lab.unavailable')
+            ) : analysis.diagnostics.length ? (
+              t('lab.diagnostics', {
+                count: analysis.diagnostics.length,
+                plural: locale === 'en' && analysis.diagnostics.length > 1 ? 's' : '',
+              })
+            ) : (
+              <>
+                <Check size={12} /> {t('lab.valid')}
+              </>
+            )}
+          </span>
+        </div>
+        {analysis.types.length > 0 && (
+          <div className="inspector-symbols" aria-label={t('lab.symbols')}>
+            {analysis.types.map((type, index) => (
+              <button
+                key={type.name}
+                className={index === selected ? 'symbol selected' : 'symbol'}
+                onClick={() => setSelected(index)}
+                aria-pressed={index === selected}
+              >
+                <code>{type.name}</code>
+                <span>→</span>
+                <code className="type-text">{type.type}</code>
+              </button>
+            ))}
+          </div>
+        )}
+        {inspection && <p className="inspector-explanation">{inspection.explanation}</p>}
+        {analysis.status === 'ready' && !analysis.types.length && (
+          <p className="muted">{t('lab.empty')}</p>
+        )}
+        {analysis.error && (
+          <p className="feedback error">
+            {analysis.error} {t('lab.errorSuffix')}
+          </p>
+        )}
+        {analysis.diagnostics.length > 0 && (
+          <ul className="diagnostic-list">
+            {analysis.diagnostics.slice(0, 6).map((diagnostic, index) => (
+              <li key={index}>
+                <AlertCircle size={15} />
+                <span>
+                  <strong>{t('lab.line', { line: diagnostic.line })}</strong> · {diagnostic.message}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      {(output !== null || runtimeError) && (
+        <div className="lab-output" role="status">
+          <span className="eyebrow">{t('lab.output')}</span>
+          {output && output.length > 0 && <pre>{output.join('\n')}</pre>}
+          {runtimeError && <p className="feedback error">{runtimeError}</p>}
+          {output?.length === 0 && !runtimeError && <pre>{t('lab.finished')}</pre>}
+        </div>
+      )}
     </div>
-    {(output !== null || runtimeError) && <div className="lab-output" role="status"><span className="eyebrow">{t('lab.output')}</span>{output && output.length > 0 && <pre>{output.join('\n')}</pre>}{runtimeError && <p className="feedback error">{runtimeError}</p>}{output?.length === 0 && !runtimeError && <pre>{t('lab.finished')}</pre>}</div>}
-  </div>
+  )
 }

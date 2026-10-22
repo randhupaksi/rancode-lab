@@ -1,26 +1,43 @@
 export const journeyMessages: Record<'en' | 'id', Record<string, string>> = {
   en: {
     'nav.projects': 'Projects',
-    'home.lead': 'Learn by trying things out. Start with logic and your first web page, then work your way up to React and Next.js.',
-    'home.stack': 'From first steps to your own app', 'home.fromTypes': 'From your first page,', 'home.toApps': 'to a complete app.',
-    'home.stackLead': 'Start with logic and web basics. Learn HTML, CSS, and JavaScript, then put them to work with React, TypeScript, and Next.js.',
-    'home.connectedPaths': 'learning stages', 'home.everyPath': 'See the full learning path',
-    'explore.lead': 'Explore one concept at a time, from problem solving and web basics to React, TypeScript, and Next.js.',
-    'sheet.lead': 'Look up an HTML, TypeScript, React, or Next.js example, then get back to building.',
+    'home.lead':
+      'Learn by trying things out. Start with logic and your first web page, then work your way up to React and Next.js.',
+    'home.stack': 'From first steps to your own app',
+    'home.fromTypes': 'From your first page,',
+    'home.toApps': 'to a complete app.',
+    'home.stackLead':
+      'Start with logic and web basics. Learn HTML, CSS, and JavaScript, then put them to work with React, TypeScript, and Next.js.',
+    'home.connectedPaths': 'learning stages',
+    'home.everyPath': 'See the full learning path',
+    'explore.lead':
+      'Explore one concept at a time, from problem solving and web basics to React, TypeScript, and Next.js.',
+    'sheet.lead':
+      'Look up an HTML, TypeScript, React, or Next.js example, then get back to building.',
     'play.lead': 'Pick an example, change the code, and see what happens.',
-    'settings.resetLead': 'This clears your lessons, challenges, starting point, knowledge-check results, and project drafts in this browser. Download any project copy you want to keep.',
-    'course.finished': 'You’ve finished the lessons. Try the knowledge check and project to put what you learned into practice.',
+    'settings.resetLead':
+      'This clears your lessons, challenges, starting point, knowledge-check results, and project drafts in this browser. Download any project copy you want to keep.',
+    'course.finished':
+      'You’ve finished the lessons. Try the knowledge check and project to put what you learned into practice.',
   },
   id: {
     'nav.projects': 'Proyek',
-    'home.lead': 'Belajar coding sambil langsung mencoba. Mulai dari logika dan halaman web pertamamu, lalu lanjut ke React dan Next.js.',
-    'home.stack': 'Dari langkah pertama sampai aplikasi buatanmu', 'home.fromTypes': 'Dari halaman pertamamu,', 'home.toApps': 'ke aplikasi utuh.',
-    'home.stackLead': 'Mulai dari logika dan dasar web. Pelajari HTML, CSS, dan JavaScript, lalu gunakan semuanya untuk membangun dengan React, TypeScript, dan Next.js.',
-    'home.connectedPaths': 'tahap belajar', 'home.everyPath': 'Lihat seluruh jalur belajar',
-    'explore.lead': 'Jelajahi satu konsep setiap kali, mulai dari logika dan dasar web sampai React, TypeScript, dan Next.js.',
+    'home.lead':
+      'Belajar coding sambil langsung mencoba. Mulai dari logika dan halaman web pertamamu, lalu lanjut ke React dan Next.js.',
+    'home.stack': 'Dari langkah pertama sampai aplikasi buatanmu',
+    'home.fromTypes': 'Dari halaman pertamamu,',
+    'home.toApps': 'ke aplikasi utuh.',
+    'home.stackLead':
+      'Mulai dari logika dan dasar web. Pelajari HTML, CSS, dan JavaScript, lalu gunakan semuanya untuk membangun dengan React, TypeScript, dan Next.js.',
+    'home.connectedPaths': 'tahap belajar',
+    'home.everyPath': 'Lihat seluruh jalur belajar',
+    'explore.lead':
+      'Jelajahi satu konsep setiap kali, mulai dari logika dan dasar web sampai React, TypeScript, dan Next.js.',
     'sheet.lead': 'Cari contoh HTML, TypeScript, React, atau Next.js, lalu lanjutkan proyekmu.',
     'play.lead': 'Pilih contoh, ubah kodenya, lalu lihat hasilnya.',
-    'settings.resetLead': 'Ini akan menghapus progres pelajaran, tantangan, pilihan titik awal, hasil cek pemahaman, dan draf proyek di browser ini. Unduh salinan proyek yang ingin kamu simpan.',
-    'course.finished': 'Semua pelajaran sudah selesai. Coba cek pemahaman dan proyek tahap ini untuk mempraktikkan yang sudah kamu pelajari.',
+    'settings.resetLead':
+      'Ini akan menghapus progres pelajaran, tantangan, pilihan titik awal, hasil cek pemahaman, dan draf proyek di browser ini. Unduh salinan proyek yang ingin kamu simpan.',
+    'course.finished':
+      'Semua pelajaran sudah selesai. Coba cek pemahaman dan proyek tahap ini untuk mempraktikkan yang sudah kamu pelajari.',
   },
 }

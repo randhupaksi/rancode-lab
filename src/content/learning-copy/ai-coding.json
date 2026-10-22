@@ -262,9 +262,7 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Write three checks for your main action, including one invalid input."
-      ],
+      "practiceSteps": ["Write three checks for your main action, including one invalid input."],
       "blocks": [
         {
           "kind": "paragraph",

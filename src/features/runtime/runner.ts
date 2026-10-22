@@ -1,16 +1,28 @@
 import { analyzeCode } from './client'
 import { serializeConsoleValue } from './serializeConsole'
 
-export interface RunResult { output: string[]; error?: string }
+export interface RunResult {
+  output: string[]
+  error?: string
+}
 
-export async function runCode(code: string, options: { signal?: AbortSignal } = {}): Promise<RunResult> {
+export async function runCode(
+  code: string,
+  options: { signal?: AbortSignal } = {},
+): Promise<RunResult> {
   const { signal } = options
   if (signal?.aborted) return { output: [], error: 'Execution cancelled.' }
   let javascript: string
-  try { javascript = (await analyzeCode(code, [], signal)).javascript }
-  catch (error) { return { output: [], error: error instanceof Error ? error.message : 'The compiler is unavailable.' } }
+  try {
+    javascript = (await analyzeCode(code, [], signal)).javascript
+  } catch (error) {
+    return {
+      output: [],
+      error: error instanceof Error ? error.message : 'The compiler is unavailable.',
+    }
+  }
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const iframe = document.createElement('iframe')
     iframe.hidden = true
     iframe.title = 'Isolated code runner'
@@ -30,7 +42,9 @@ export async function runCode(code: string, options: { signal?: AbortSignal } = 
       resolve(result)
     }
 
-    function abort() { finish({ output: [], error: 'Execution cancelled.' }) }
+    function abort() {
+      finish({ output: [], error: 'Execution cancelled.' })
+    }
 
     function receive(event: MessageEvent) {
       if (event.source !== iframe.contentWindow || event.data?.channel !== nonce) return
@@ -38,8 +52,14 @@ export async function runCode(code: string, options: { signal?: AbortSignal } = 
         iframe.contentWindow?.postMessage({ channel: nonce, code: javascript }, '*')
       } else if (event.data.kind === 'result') {
         const output = Array.isArray(event.data.output)
-          ? event.data.output.slice(0, 200).map((line: unknown) => String(line).slice(0, 2000)) : []
-        finish({ output, ...(typeof event.data.error === 'string' ? { error: event.data.error.slice(0, 2000) } : {}) })
+          ? event.data.output.slice(0, 200).map((line: unknown) => String(line).slice(0, 2000))
+          : []
+        finish({
+          output,
+          ...(typeof event.data.error === 'string'
+            ? { error: event.data.error.slice(0, 2000) }
+            : {}),
+        })
       }
     }
 
@@ -127,10 +147,18 @@ export async function runCode(code: string, options: { signal?: AbortSignal } = 
     iframe.srcdoc = `<!doctype html><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${nonce}' blob:; worker-src blob:; connect-src 'none'; img-src 'none'; style-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'"><script nonce="${nonce}">${bootstrap}</script>`
     window.addEventListener('message', receive)
     signal?.addEventListener('abort', abort, { once: true })
-    timeout = setTimeout(() => finish({ output: [], error: 'The isolated runner timed out. Your browser may block sandboxed workers.' }), 5000)
-    if (signal?.aborted) { abort(); return }
+    timeout = setTimeout(
+      () =>
+        finish({
+          output: [],
+          error: 'The isolated runner timed out. Your browser may block sandboxed workers.',
+        }),
+      5000,
+    )
+    if (signal?.aborted) {
+      abort()
+      return
+    }
     document.body.append(iframe)
   })
-
-
 }

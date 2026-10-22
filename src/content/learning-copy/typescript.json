@@ -714,9 +714,7 @@
         "Add a misspelled course key and inspect the diagnostic; then restore the valid configuration."
       ],
       "hint": "Compare authoring-time checks with checks on data arriving during execution.",
-      "recap": [
-        "The check is part of TypeScript analysis and disappears from emitted JavaScript."
-      ]
+      "recap": ["The check is part of TypeScript analysis and disappears from emitted JavaScript."]
     }
   },
   "ts-indexed-access": {
@@ -734,9 +732,7 @@
         "Add a required level property to the nested model and observe the dependent Lesson contract."
       ],
       "hint": "Read Course[\"lessons\"] first, then determine the number index's meaning for that array.",
-      "recap": [
-        "Number indexes an array type to describe the type of its possible elements."
-      ]
+      "recap": ["Number indexes an array type to describe the type of its possible elements."]
     }
   },
   "ts-mapped-types": {
@@ -745,18 +741,12 @@
         "Tambahkan satu preferensi dan lihat flag pelacakan mana yang menjadi wajib."
       ],
       "hint": "Tulis semua key asal sebelum memetakan tipe baru untuk masing-masing key.",
-      "recap": [
-        "keyof menghasilkan union key asal, lalu pemetaan memberi setiap key tipe boolean."
-      ]
+      "recap": ["keyof menghasilkan union key asal, lalu pemetaan memberi setiap key tipe boolean."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a preference and observe which tracking flag becomes required."
-      ],
+      "practiceSteps": ["Add a preference and observe which tracking flag becomes required."],
       "hint": "Write all original keys before mapping a new type to each.",
-      "recap": [
-        "Keyof produces the source key union and the mapping assigns a boolean to each."
-      ]
+      "recap": ["Keyof produces the source key union and the mapping assigns a boolean to each."]
     }
   },
   "ts-conditional-infer": {
@@ -765,18 +755,14 @@
         "Terapkan ElementOf pada array objek pelajaran serta union string[] dan number[]."
       ],
       "hint": "Apakah input cocok pola array? Pilih cabang conditional berdasarkan kecocokan itu.",
-      "recap": [
-        "Input tidak cocok dengan pola array, jadi cabang false yang dipilih."
-      ]
+      "recap": ["Input tidak cocok dengan pola array, jadi cabang false yang dipilih."]
     },
     "en": {
       "practiceSteps": [
         "Apply ElementOf to an array of lesson objects and to a union of string[] and number[]."
       ],
       "hint": "Does the input match an array pattern? Choose the conditional branch from that match.",
-      "recap": [
-        "The input does not match the array pattern, so the false branch is selected."
-      ]
+      "recap": ["The input does not match the array pattern, so the false branch is selected."]
     }
   },
   "ts-exhaustive-never": {
@@ -794,9 +780,7 @@
         "Add an empty variant and use the diagnostic to identify the missing branch."
       ],
       "hint": "Add a variant with no case. Which type remains after the switch?",
-      "recap": [
-        "The remaining variant is not assignable to never, exposing the incomplete switch."
-      ]
+      "recap": ["The remaining variant is not assignable to never, exposing the incomplete switch."]
     }
   },
   "ts-unknown-guards": {
@@ -806,9 +790,7 @@
         "Jelaskan mengapa assertion as Lesson tidak melakukan pemeriksaan ini."
       ],
       "hint": "Anotasi tidak membuktikan isi JSON. Pemeriksaan nyata apa yang memberi bukti bentuknya?",
-      "recap": [
-        "Pemeriksaan runtime memberi bukti untuk kontrak statisnya."
-      ]
+      "recap": ["Pemeriksaan runtime memberi bukti untuk kontrak statisnya."]
     },
     "en": {
       "practiceSteps": [
@@ -816,9 +798,7 @@
         "Explain why an as Lesson assertion would not perform these checks."
       ],
       "hint": "Annotations do not prove JSON contents. Which actual checks establish its shape?",
-      "recap": [
-        "The runtime checks establish evidence for the static contract."
-      ]
+      "recap": ["The runtime checks establish evidence for the static contract."]
     }
   },
   "typing-api-responses": {

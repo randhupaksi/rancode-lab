@@ -412,9 +412,7 @@
         "Tandai kedua bahasanya, lalu periksa elemen akar dokumen di DevTools."
       ],
       "hint": "Mengubah lang tidak mengganti kata dalam body. Siapa yang memakai informasi bahasa itu?",
-      "recap": [
-        "Metadata bahasa membantu alat memahami teks yang ada; kata-katanya tidak berubah."
-      ]
+      "recap": ["Metadata bahasa membantu alat memahami teks yang ada; kata-katanya tidak berubah."]
     },
     "en": {
       "practiceSteps": [
@@ -434,9 +432,7 @@
         "Periksa tab keduanya di browser lokal."
       ],
       "hint": "Bedakan informasi di head dari heading yang terlihat di body.",
-      "recap": [
-        "Judul dokumen berbeda dari heading utama yang terlihat di halaman."
-      ]
+      "recap": ["Judul dokumen berbeda dari heading utama yang terlihat di halaman."]
     },
     "en": {
       "practiceSteps": [
@@ -444,29 +440,19 @@
         "Inspect their browser tabs locally."
       ],
       "hint": "Distinguish head information from a visible body heading.",
-      "recap": [
-        "The document title is separate from the visible main heading."
-      ]
+      "recap": ["The document title is separate from the visible main heading."]
     }
   },
   "html-heading-outline": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan subbagian media tanpa melompati tingkat heading."
-      ],
+      "practiceSteps": ["Tambahkan subbagian media tanpa melompati tingkat heading."],
       "hint": "Baca hubungan induk dan subbagian, bukan ukuran font yang diinginkan.",
-      "recap": [
-        "Tingkat heading menunjukkan struktur bersarang; CSS mengatur ukurannya."
-      ]
+      "recap": ["Tingkat heading menunjukkan struktur bersarang; CSS mengatur ukurannya."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a media subsection without skipping a heading level."
-      ],
+      "practiceSteps": ["Add a media subsection without skipping a heading level."],
       "hint": "Read parent and subsection relationships rather than desired font size.",
-      "recap": [
-        "Heading levels describe nesting; CSS controls size."
-      ]
+      "recap": ["Heading levels describe nesting; CSS controls size."]
     }
   },
   "html-text-emphasis": {
@@ -475,18 +461,14 @@
         "Tulis satu kalimat yang maknanya berubah saat kata yang diberi penekanan diganti."
       ],
       "hint": "Bedakan penekanan makna penting dari pembungkus yang tidak memberi makna khusus.",
-      "recap": [
-        "Strong menyatakan pentingnya informasi; span hanyalah pembungkus netral."
-      ]
+      "recap": ["Strong menyatakan pentingnya informasi; span hanyalah pembungkus netral."]
     },
     "en": {
       "practiceSteps": [
         "Write one sentence where changing the emphasized word changes the intended meaning."
       ],
       "hint": "Distinguish semantic importance from a wrapper with no special meaning.",
-      "recap": [
-        "Strong carries importance; a span is a neutral wrapper."
-      ]
+      "recap": ["Strong carries importance; a span is a neutral wrapper."]
     }
   },
   "html-code-whitespace": {
@@ -495,18 +477,12 @@
         "Tampilkan elemen tautan sebagai teks kode, bukan sebagai tautan yang bisa dibuka."
       ],
       "hint": "Jika tanda < ditulis langsung, browser bisa menganggapnya awal tag. Cari cara menuliskannya sebagai karakter teks.",
-      "recap": [
-        "Referensi karakter ini menghasilkan teks, bukan memulai tag HTML."
-      ]
+      "recap": ["Referensi karakter ini menghasilkan teks, bukan memulai tag HTML."]
     },
     "en": {
-      "practiceSteps": [
-        "Display a link element as source text rather than creating a live link."
-      ],
+      "practiceSteps": ["Display a link element as source text rather than creating a live link."],
       "hint": "A literal < may start a tag. Find how to write it as a text character.",
-      "recap": [
-        "The character reference produces text instead of beginning an HTML tag."
-      ]
+      "recap": ["The character reference produces text instead of beginning an HTML tag."]
     }
   },
   "html-quotes-citations": {
@@ -515,18 +491,12 @@
         "Tambahkan tautan sumber yang terlihat di samping keterangan asal kutipan."
       ],
       "hint": "Periksa apakah atribut metadata juga menghasilkan elemen tautan yang bisa diklik.",
-      "recap": [
-        "Atribut bisa menyimpan metadata tanpa menampilkan navigasi bagi pembaca."
-      ]
+      "recap": ["Atribut bisa menyimpan metadata tanpa menampilkan navigasi bagi pembaca."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a visible source link next to a quotation attribution."
-      ],
+      "practiceSteps": ["Add a visible source link next to a quotation attribution."],
       "hint": "Check whether a metadata attribute also creates a clickable link.",
-      "recap": [
-        "Attributes can carry metadata without rendering navigation for the reader."
-      ]
+      "recap": ["Attributes can carry metadata without rendering navigation for the reader."]
     }
   },
   "html-section-article": {
@@ -544,9 +514,7 @@
         "Identify one wrapper that needs a section heading and one that should remain a div."
       ],
       "hint": "Is the region meaningful on its own or only needed for visual layout?",
-      "recap": [
-        "A neutral container is useful when no additional document meaning is intended."
-      ]
+      "recap": ["A neutral container is useful when no additional document meaning is intended."]
     }
   },
   "html-form-names": {
@@ -585,9 +553,7 @@
         "Remove name and submit again, then restore it and compare readonly with disabled."
       ],
       "hint": "Inspect FormData keys and match them to input attributes rather than label text.",
-      "recap": [
-        "The name participates in submission; id associates a label or DOM lookup."
-      ],
+      "recap": ["The name participates in submission; id associates a label or DOM lookup."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -643,13 +609,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Add an intensive pace while keeping a stable machine-readable value."
-      ],
+      "practiceSteps": ["Add an intensive pace while keeping a stable machine-readable value."],
       "hint": "Compare the visible label with the selected option's value.",
-      "recap": [
-        "The option value defines the submitted value; its text is the human label."
-      ],
+      "recap": ["The option value defines the submitted value; its text is the human label."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -679,9 +641,7 @@
         "Tambahkan satu opsi, lalu pastikan memilihnya membatalkan pilihan sebelumnya."
       ],
       "hint": "Bandingkan atribut yang sama pada radio dalam satu grup dengan ID yang harus unik.",
-      "recap": [
-        "Name yang sama menentukan grup; id yang diberikan harus tetap unik."
-      ],
+      "recap": ["Name yang sama menentukan grup; id yang diberikan harus tetap unik."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -705,13 +665,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Add an option and confirm selecting it clears the previous selection."
-      ],
+      "practiceSteps": ["Add an option and confirm selecting it clears the previous selection."],
       "hint": "Compare the shared radio-group attribute with IDs that must be unique.",
-      "recap": [
-        "The shared name defines the group; ids must remain unique when provided."
-      ],
+      "recap": ["The shared name defines the group; ids must remain unique when provided."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -744,9 +700,7 @@
         "Biarkan script yang disediakan apa adanya."
       ],
       "hint": "Coba memilih dua checkbox dengan name sama. Apakah pembacaan satu nilai mempertahankan keduanya?",
-      "recap": [
-        "getAll mempertahankan beberapa entri terpilih yang memiliki nama field sama."
-      ],
+      "recap": ["getAll mempertahankan beberapa entri terpilih yang memiliki nama field sama."],
       "expected": "get membaca nilai pertama atau null; getAll mempertahankan semua pilihan sebagai array, termasuk array kosong.",
       "blocks": [
         {
@@ -778,9 +732,7 @@
         "Keep the supplied script unchanged."
       ],
       "hint": "Select two checkboxes with the same name. Does a single-value read preserve both?",
-      "recap": [
-        "getAll preserves multiple selected entries for the same field name."
-      ],
+      "recap": ["getAll preserves multiple selected entries for the same field name."],
       "expected": "get reads the first value or null; getAll keeps all selections as an array, including an empty array.",
       "blocks": [
         {
@@ -811,18 +763,14 @@
         "Tambahkan petunjuk kedua, lalu hubungkan id kedua petunjuk itu dengan kontrol."
       ],
       "hint": "Bandingkan isi antara tag textarea dengan atribut value pada input satu baris.",
-      "recap": [
-        "Textarea memakai isi teks di dalam elemennya sebagai nilai awal."
-      ]
+      "recap": ["Textarea memakai isi teks di dalam elemennya sebagai nilai awal."]
     },
     "en": {
       "practiceSteps": [
         "Add a second instruction and connect both instruction ids to the control."
       ],
       "hint": "Compare content between textarea tags with a single-line input's value attribute.",
-      "recap": [
-        "Textarea uses its text content as the initial value."
-      ]
+      "recap": ["Textarea uses its text content as the initial value."]
     }
   },
   "html-native-validation": {
@@ -863,9 +811,7 @@
         "Explain which checks the server must repeat."
       ],
       "hint": "Imagine data sent through a direct request without passing browser form controls.",
-      "recap": [
-        "Browser controls are a user experience feature, not a trusted boundary."
-      ],
+      "recap": ["Browser controls are a user experience feature, not a trusted boundary."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -891,22 +837,14 @@
   },
   "html-fieldset-legend": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan grup terpisah untuk memilih hari belajar."
-      ],
+      "practiceSteps": ["Tambahkan grup terpisah untuk memilih hari belajar."],
       "hint": "Cari elemen yang memberi konteks untuk keseluruhan grup, bukan satu input saja.",
-      "recap": [
-        "Legend memberi label grup yang menjelaskan konteksnya."
-      ]
+      "recap": ["Legend memberi label grup yang menjelaskan konteksnya."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a separate group for preferred learning days."
-      ],
+      "practiceSteps": ["Add a separate group for preferred learning days."],
       "hint": "Find the element labeling the whole group rather than one input.",
-      "recap": [
-        "The legend supplies the contextual group label."
-      ]
+      "recap": ["The legend supplies the contextual group label."]
     }
   },
   "html-alt-decisions": {
@@ -944,9 +882,7 @@
         "Use a local image with known dimensions and inspect layout while network loading is slowed."
       ],
       "hint": "What must be known before the image arrives to keep text below from shifting?",
-      "recap": [
-        "The browser can reserve proportional space before image pixels arrive."
-      ]
+      "recap": ["The browser can reserve proportional space before image pixels arrive."]
     }
   },
   "html-responsive-images": {
@@ -955,18 +891,14 @@
         "Buat potongan gambar sempit dan lebar, lalu periksa sumber yang dipilih pada setiap breakpoint."
       ],
       "hint": "Cari elemen gambar yang tetap menjadi fallback ketika source tidak dipilih.",
-      "recap": [
-        "Elemen img mewakili gambar yang ditampilkan dan menyediakan teks alternatifnya."
-      ]
+      "recap": ["Elemen img mewakili gambar yang ditampilkan dan menyediakan teks alternatifnya."]
     },
     "en": {
       "practiceSteps": [
         "Create narrow and wide crops and inspect which source is chosen at each breakpoint."
       ],
       "hint": "Find the image element remaining as fallback when no source is selected.",
-      "recap": [
-        "The img element represents the rendered image and provides its alternative."
-      ]
+      "recap": ["The img element represents the rendered image and provides its alternative."]
     }
   },
   "html-figure-caption": {
@@ -975,18 +907,12 @@
         "Ubah potongan kode menjadi figure dengan caption yang menjelaskan tujuannya."
       ],
       "hint": "Bedakan konten dalam figure dengan teks yang menjelaskan konteksnya.",
-      "recap": [
-        "Caption pada figure memberi konteks untuk konten yang dikelompokkan."
-      ]
+      "recap": ["Caption pada figure memberi konteks untuk konten yang dikelompokkan."]
     },
     "en": {
-      "practiceSteps": [
-        "Turn a code listing into a figure with a caption explaining its purpose."
-      ],
+      "practiceSteps": ["Turn a code listing into a figure with a caption explaining its purpose."],
       "hint": "Distinguish figure content from text explaining its context.",
-      "recap": [
-        "A figure caption contextualizes the grouped content."
-      ]
+      "recap": ["A figure caption contextualizes the grouped content."]
     }
   },
   "html-audio-video": {
@@ -1004,9 +930,7 @@
         "Create a short WebVTT caption file and confirm it can be enabled in a local video player."
       ],
       "hint": "Separate playable media files from text displayed at specific times.",
-      "recap": [
-        "Track links timed text; source links the actual media resource."
-      ]
+      "recap": ["Track links timed text; source links the actual media resource."]
     }
   },
   "html-iframe-boundaries": {
@@ -1037,18 +961,14 @@
         "Tambahkan kolom menit dan satu jalur belajar lagi sambil menjaga hubungan antarheader."
       ],
       "hint": "Header ini menjelaskan satu baris atau satu kolom? Cocokkan scope dengan arah hubungannya.",
-      "recap": [
-        "Header dengan scope baris menjelaskan sel-sel pada baris tersebut."
-      ]
+      "recap": ["Header dengan scope baris menjelaskan sel-sel pada baris tersebut."]
     },
     "en": {
       "practiceSteps": [
         "Add a minutes column and another course while preserving header relationships."
       ],
       "hint": "Does this header describe a row or a column? Match scope to that relationship.",
-      "recap": [
-        "A row-scoped header describes the cells across its row."
-      ]
+      "recap": ["A row-scoped header describes the cells across its row."]
     }
   },
   "html-table-groups": {
@@ -1057,9 +977,7 @@
         "Tambahkan baris CSS dengan id header baris yang unik dan referensi headers yang tepat."
       ],
       "hint": "Cocokkan setiap token headers dengan id pada sel header yang relevan.",
-      "recap": [
-        "Id yang eksplisit menghubungkan sel data dengan header yang menjelaskannya."
-      ],
+      "recap": ["Id yang eksplisit menghubungkan sel data dengan header yang menjelaskannya."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -1083,13 +1001,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Add a CSS row with unique row-header ids and correct headers references."
-      ],
+      "practiceSteps": ["Add a CSS row with unique row-header ids and correct headers references."],
       "hint": "Match each headers token to the relevant header cell's id.",
-      "recap": [
-        "Explicit ids connect a data cell to the headers that describe it."
-      ],
+      "recap": ["Explicit ids connect a data cell to the headers that describe it."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -1119,18 +1033,14 @@
         "Buka dan tutup kedua bagian hanya dengan keyboard, lalu pilih bagian mana yang sebaiknya terbuka sejak awal."
       ],
       "hint": "Periksa apakah keadaan awal ditentukan atribut boolean atau isi teks summary.",
-      "recap": [
-        "Open adalah atribut boolean bawaan yang menandai bagian sedang terbuka."
-      ]
+      "recap": ["Open adalah atribut boolean bawaan yang menandai bagian sedang terbuka."]
     },
     "en": {
       "practiceSteps": [
         "Operate both disclosures using only the keyboard and choose which should start open."
       ],
       "hint": "Check whether initial state comes from a boolean attribute or summary text.",
-      "recap": [
-        "Open is the native boolean attribute for an expanded disclosure."
-      ]
+      "recap": ["Open is the native boolean attribute for an expanded disclosure."]
     }
   },
   "html-dialog": {
@@ -1140,9 +1050,7 @@
         "Buka sekali lagi dan coba Escape."
       ],
       "hint": "Bedakan dialog biasa dengan dialog modal yang membatasi interaksi di luar dirinya.",
-      "recap": [
-        "ShowModal menerapkan perilaku modal dan menempatkan dialog di top layer."
-      ]
+      "recap": ["ShowModal menerapkan perilaku modal dan menempatkan dialog di top layer."]
     },
     "en": {
       "practiceSteps": [
@@ -1150,9 +1058,7 @@
         "Open it again and try Escape."
       ],
       "hint": "Distinguish a regular dialog from a modal restricting outside interaction.",
-      "recap": [
-        "ShowModal applies modal behavior and top-layer placement."
-      ]
+      "recap": ["ShowModal applies modal behavior and top-layer placement."]
     }
   },
   "html-data-attributes": {

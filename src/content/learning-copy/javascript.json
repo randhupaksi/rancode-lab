@@ -1,10 +1,7 @@
 {
   "js-values": {
     "id": {
-      "practiceSteps": [
-        "Ubah angka awalnya.",
-        "Tebak hasilnya sebelum menjalankan kode."
-      ],
+      "practiceSteps": ["Ubah angka awalnya.", "Tebak hasilnya sebelum menjalankan kode."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -34,10 +31,7 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change the starting number.",
-        "Predict the result before running."
-      ],
+      "practiceSteps": ["Change the starting number.", "Predict the result before running."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -102,10 +96,7 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Change age and hasTicket separately.",
-        "Explain both printed values."
-      ],
+      "practiceSteps": ["Change age and hasTicket separately.", "Explain both printed values."],
       "blocks": [
         {
           "kind": "paragraph",
@@ -549,18 +540,14 @@
         "Bandingkan teks kosong, spasi, dan string bukan angka sebelum merancang pengurai masukan angka."
       ],
       "hint": "Periksa tipe operand sebelum +; tanda kutip memengaruhi arti operasinya.",
-      "recap": [
-        "Adanya operand string membuat operasi tambah ini menggabungkan teks."
-      ]
+      "recap": ["Adanya operand string membuat operasi tambah ini menggabungkan teks."]
     },
     "en": {
       "practiceSteps": [
         "Compare empty text, whitespace, and a nonnumeric string before designing a numeric input parser."
       ],
       "hint": "Check operand types before +; quotes affect the operation's meaning.",
-      "recap": [
-        "A string operand causes this addition expression to concatenate."
-      ]
+      "recap": ["A string operand causes this addition expression to concatenate."]
     }
   },
   "js-truthiness": {
@@ -569,18 +556,14 @@
         "Tulis kondisi untuk membedakan daftar kursus kosong dari daftar yang berisi item."
       ],
       "hint": "Bedakan keberadaan objek array dengan jumlah elemen di dalamnya.",
-      "recap": [
-        "Array adalah objek, dan objek bersifat truthy apa pun isinya."
-      ]
+      "recap": ["Array adalah objek, dan objek bersifat truthy apa pun isinya."]
     },
     "en": {
       "practiceSteps": [
         "Write a condition that distinguishes an empty course list from a nonempty one."
       ],
       "hint": "Distinguish the array object's existence from its item count.",
-      "recap": [
-        "Arrays are objects, and objects are truthy regardless of their contents."
-      ]
+      "recap": ["Arrays are objects, and objects are truthy regardless of their contents."]
     }
   },
   "js-nullish-defaults": {
@@ -589,18 +572,14 @@
         "Tentukan nilai bawaan untuk skor nol dan nama panggilan opsional. Jelaskan apakah teks kosong diperbolehkan."
       ],
       "hint": "Bandingkan null dan undefined dengan angka 0 serta string kosong. Mana yang berarti nilai tidak tersedia?",
-      "recap": [
-        "Nullish coalescing menganggap nol sebagai nilai yang tersedia."
-      ]
+      "recap": ["Nullish coalescing menganggap nol sebagai nilai yang tersedia."]
     },
     "en": {
       "practiceSteps": [
         "Design defaults for a zero score and an optional nickname, explaining whether empty text is allowed."
       ],
       "hint": "Compare null and undefined with 0 and empty strings. Which indicate missing values?",
-      "recap": [
-        "Nullish coalescing treats zero as a present value."
-      ]
+      "recap": ["Nullish coalescing treats zero as a present value."]
     }
   },
   "js-optional-chaining": {
@@ -609,18 +588,14 @@
         "Coba array lessons yang kosong dan properti lessons yang tidak ada, lalu tambahkan label pengganti."
       ],
       "hint": "Telusuri titik pertama ketika objek perantara tidak tersedia. Apakah akses berikutnya masih diteruskan?",
-      "recap": [
-        "Akses opsional berhenti saat nilai dasarnya nullish."
-      ]
+      "recap": ["Akses opsional berhenti saat nilai dasarnya nullish."]
     },
     "en": {
       "practiceSteps": [
         "Try an empty lessons array and a missing lessons property, then add a fallback label."
       ],
       "hint": "Trace the first missing intermediate object. Does the next access continue?",
-      "recap": [
-        "The optional access short-circuits at the nullish base."
-      ]
+      "recap": ["The optional access short-circuits at the nullish base."]
     }
   },
   "js-lexical-scope": {
@@ -649,18 +624,14 @@
         "Ganti deklarasi fungsi dengan arrow function dalam const setelah pemanggilannya, lalu tebak error yang muncul."
       ],
       "hint": "Baca urutan eksekusi. Apakah deklarasi let sudah diinisialisasi saat nilai pertama dibaca?",
-      "recap": [
-        "Binding belum diinisialisasi saat pernyataan sebelumnya mencoba membacanya."
-      ]
+      "recap": ["Binding belum diinisialisasi saat pernyataan sebelumnya mencoba membacanya."]
     },
     "en": {
       "practiceSteps": [
         "Replace the function declaration with a const arrow function after its call and predict the error."
       ],
       "hint": "Read execution order. Has the let declaration initialized before the first read?",
-      "recap": [
-        "The binding is not initialized when the earlier statement attempts to read it."
-      ]
+      "recap": ["The binding is not initialized when the earlier statement attempts to read it."]
     }
   },
   "js-template-strings": {
@@ -678,9 +649,7 @@
         "Add a remaining-lessons sentence without duplicating the total calculation."
       ],
       "hint": "Inserting text into a string differs from making it safe for HTML.",
-      "recap": [
-        "String construction and context-specific escaping are separate responsibilities."
-      ]
+      "recap": ["String construction and context-specific escaping are separate responsibilities."]
     }
   },
   "js-string-methods": {
@@ -698,9 +667,7 @@
         "Implement a case-insensitive match while returning the original lesson title."
       ],
       "hint": "Compare original after trim with trim's returned value.",
-      "recap": [
-        "Strings are immutable; the new result must be stored or used explicitly."
-      ]
+      "recap": ["Strings are immutable; the new result must be stored or used explicitly."]
     }
   },
   "js-destructuring-defaults": {
@@ -709,18 +676,12 @@
         "Coba minutes:0 dan note:undefined, lalu tebak bagaimana kedua nilai bawaannya diterapkan."
       ],
       "hint": "Coba properti hilang, undefined, dan null secara terpisah.",
-      "recap": [
-        "Nilai bawaan destructuring hanya menggantikan undefined, bukan null."
-      ]
+      "recap": ["Nilai bawaan destructuring hanya menggantikan undefined, bukan null."]
     },
     "en": {
-      "practiceSteps": [
-        "Try minutes:0 and note:undefined and predict both defaults."
-      ],
+      "practiceSteps": ["Try minutes:0 and note:undefined and predict both defaults."],
       "hint": "Try a missing property, undefined, and null separately.",
-      "recap": [
-        "Destructuring defaults only replace undefined, not null."
-      ]
+      "recap": ["Destructuring defaults only replace undefined, not null."]
     }
   },
   "js-rest-spread": {
@@ -729,18 +690,14 @@
         "Salin settings juga, lalu tunjukkan bahwa mengubah salinan tidak lagi mengubah objek asli."
       ],
       "hint": "Salinan tingkat luar tidak selalu menyalin objek bersarang. Bandingkan referensi settings.",
-      "recap": [
-        "Salinan dangkal tetap menyimpan referensi ke objek di dalamnya."
-      ]
+      "recap": ["Salinan dangkal tetap menyimpan referensi ke objek di dalamnya."]
     },
     "en": {
       "practiceSteps": [
         "Copy settings as well and show that changing the copy no longer changes the original."
       ],
       "hint": "A top-level copy need not copy nested objects. Compare settings references.",
-      "recap": [
-        "A shallow copy retains references to nested objects."
-      ]
+      "recap": ["A shallow copy retains references to nested objects."]
     }
   },
   "js-reference-equality": {
@@ -749,34 +706,26 @@
         "Buat helper containsLesson yang membandingkan id, bukan seluruh referensi objek."
       ],
       "hint": "Dua objek berisi sama bisa berbeda identitas. Telusuri variabel yang menunjuk objek yang sama.",
-      "recap": [
-        "Alias menyimpan referensi objek yang sama dengan first."
-      ]
+      "recap": ["Alias menyimpan referensi objek yang sama dengan first."]
     },
     "en": {
       "practiceSteps": [
         "Write a containsLesson helper that compares ids instead of whole object references."
       ],
       "hint": "Equal-content objects can differ in identity. Trace variables pointing to one object.",
-      "recap": [
-        "Alias holds the same object reference as first."
-      ]
+      "recap": ["Alias holds the same object reference as first."]
     }
   },
   "js-array-queries": {
     "id": {
-      "practiceSteps": [
-        "Buat pemeriksaan semua-selesai yang menolak daftar kosong."
-      ],
+      "practiceSteps": ["Buat pemeriksaan semua-selesai yang menolak daftar kosong."],
       "hint": "Untuk every, carilah item yang melanggar syarat. Bagaimana jika tidak ada item sama sekali?",
       "recap": [
         "Tidak ada elemen yang melanggar kondisi dalam koleksi kosong; syarat tidak kosong perlu diperiksa terpisah."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Write an all-complete check that rejects an empty list."
-      ],
+      "practiceSteps": ["Write an all-complete check that rejects an empty list."],
       "hint": "For every, look for a violating item. What if there are no items at all?",
       "recap": [
         "There is no counterexample in an empty collection; nonemptiness is a separate rule."
@@ -789,18 +738,14 @@
         "Kelompokkan menit sesi per kursus menggunakan akumulator objek, lalu bandingkan dengan perulangan."
       ],
       "hint": "Mulai penelusuran sebelum item pertama. Nilai apa yang menjadi total ketika daftar kosong?",
-      "recap": [
-        "Akumulator awal membuat daftar kosong menghasilkan total nol yang valid."
-      ]
+      "recap": ["Akumulator awal membuat daftar kosong menghasilkan total nol yang valid."]
     },
     "en": {
       "practiceSteps": [
         "Group session minutes by course using an object accumulator, then compare with a loop."
       ],
       "hint": "Start tracing before the first item. What becomes the total for an empty list?",
-      "recap": [
-        "The initial accumulator makes an empty list produce a valid zero total."
-      ]
+      "recap": ["The initial accumulator makes an empty list produce a valid zero total."]
     }
   },
   "js-immutable-sort": {
@@ -809,18 +754,14 @@
         "Urutkan objek pelajaran berdasarkan menit, lalu gunakan judul sebagai pembanding tambahan saat durasinya sama."
       ],
       "hint": "Cetak array asli dan hasil pengurutan, lalu bandingkan urutannya.",
-      "recap": [
-        "toSorted membuat array baru dan mempertahankan urutan array asli."
-      ]
+      "recap": ["toSorted membuat array baru dan mempertahankan urutan array asli."]
     },
     "en": {
       "practiceSteps": [
         "Sort lesson objects by minutes and add a title tie-breaker for equal durations."
       ],
       "hint": "Print the original and sorted arrays, then compare their ordering.",
-      "recap": [
-        "ToSorted creates a new array and leaves source ordering intact."
-      ]
+      "recap": ["ToSorted creates a new array and leaves source ordering intact."]
     }
   },
   "js-map-set": {
@@ -829,18 +770,14 @@
         "Hilangkan duplikat id pelajaran dan buat tabel pencarian durasi tanpa memakai indeks array sebagai identitas."
       ],
       "hint": "Tuliskan nilai unik setelah duplikat diabaikan.",
-      "recap": [
-        "String primitif yang berulang hanya disimpan sekali dalam Set."
-      ]
+      "recap": ["String primitif yang berulang hanya disimpan sekali dalam Set."]
     },
     "en": {
       "practiceSteps": [
         "Deduplicate lesson ids and build a duration lookup without using array index as identity."
       ],
       "hint": "Write the unique values after ignoring duplicates.",
-      "recap": [
-        "The repeated primitive string is stored once in a Set."
-      ]
+      "recap": ["The repeated primitive string is stored once in a Set."]
     }
   },
   "js-json-boundary": {
@@ -849,38 +786,28 @@
         "Coba JSON yang sintaksnya rusak dan objek dengan format benar tetapi tipe properti yang salah."
       ],
       "hint": "JSON valid bisa berisi bentuk yang salah untuk aplikasi. Pemeriksaan apa masih diperlukan setelah parsing?",
-      "recap": [
-        "Penguraian dan validasi kebutuhan aplikasi melindungi dua batas yang berbeda."
-      ]
+      "recap": ["Penguraian dan validasi kebutuhan aplikasi melindungi dua batas yang berbeda."]
     },
     "en": {
       "practiceSteps": [
         "Try malformed JSON and a correctly formatted object with the wrong field type."
       ],
       "hint": "Valid JSON may have the wrong application shape. What is still needed after parsing?",
-      "recap": [
-        "Parsing and domain validation protect different boundaries."
-      ]
+      "recap": ["Parsing and domain validation protect different boundaries."]
     }
   },
   "js-closures": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan metode reset sambil menjaga setiap penghitung tetap mandiri."
-      ],
+      "practiceSteps": ["Tambahkan metode reset sambil menjaga setiap penghitung tetap mandiri."],
       "hint": "Tandai count yang dibuat pada setiap pemanggilan pembuat counter; apakah keduanya berbagi variabel?",
       "recap": [
         "Second menangkap binding count terpisah yang dibuat oleh pemanggilan fungsi pembuat yang berbeda."
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Add a reset method while keeping each counter independent."
-      ],
+      "practiceSteps": ["Add a reset method while keeping each counter independent."],
       "hint": "Mark count created by each counter factory call; do both share one variable?",
-      "recap": [
-        "Second captures a separate count binding created by a separate factory call."
-      ]
+      "recap": ["Second captures a separate count binding created by a separate factory call."]
     }
   },
   "js-callback-contracts": {
@@ -889,18 +816,14 @@
         "Buat callback pemformat yang menerima data pelajaran dan mengembalikan label tampilannya."
       ],
       "hint": "Baca kontrak API yang memanggil callback: dijalankan sekarang atau dijadwalkan nanti?",
-      "recap": [
-        "Penjadwalan bergantung pada API yang dipanggil, bukan sintaks fungsinya."
-      ]
+      "recap": ["Penjadwalan bergantung pada API yang dipanggil, bukan sintaks fungsinya."]
     },
     "en": {
       "practiceSteps": [
         "Write a formatter callback that accepts a lesson record and returns its display label."
       ],
       "hint": "Read the calling API's contract: does the callback run now or get scheduled later?",
-      "recap": [
-        "Scheduling depends on the called API, not on function syntax."
-      ]
+      "recap": ["Scheduling depends on the called API, not on function syntax."]
     }
   },
   "js-pure-functions": {
@@ -909,38 +832,26 @@
         "Tambahkan pembatasan rentang untuk jumlah yang tidak valid, lalu pertimbangkan apakah menolak masukan tersebut akan lebih jelas."
       ],
       "hint": "Apakah hasil hanya bergantung pada input yang eksplisit atau membaca data luar yang berubah?",
-      "recap": [
-        "Masukan yang eksplisit memperjelas hubungan antara pemanggilan dan hasilnya."
-      ]
+      "recap": ["Masukan yang eksplisit memperjelas hubungan antara pemanggilan dan hasilnya."]
     },
     "en": {
       "practiceSteps": [
         "Add clamping for invalid counts and decide whether rejecting invalid inputs would be clearer."
       ],
       "hint": "Does the result depend only on explicit input or on changing external data?",
-      "recap": [
-        "Explicit inputs make the relationship between call and result visible."
-      ]
+      "recap": ["Explicit inputs make the relationship between call and result visible."]
     }
   },
   "js-mutation-boundaries": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan properti completedAt tanpa mengubah objek bersarang aslinya."
-      ],
+      "practiceSteps": ["Tambahkan properti completedAt tanpa mengubah objek bersarang aslinya."],
       "hint": "Telusuri objek pada setiap tingkat yang disalin sebelum perubahan dilakukan.",
-      "recap": [
-        "Menyalin objek progress di dalamnya memisahkan jalur yang diubah."
-      ]
+      "recap": ["Menyalin objek progress di dalamnya memisahkan jalur yang diubah."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a completedAt field without changing the original nested object."
-      ],
+      "practiceSteps": ["Add a completedAt field without changing the original nested object."],
       "hint": "Trace objects copied at each level before changing them.",
-      "recap": [
-        "Copying the nested progress object isolates the changed path."
-      ]
+      "recap": ["Copying the nested progress object isolates the changed path."]
     }
   },
   "js-default-parameters": {
@@ -949,18 +860,12 @@
         "Tambahkan opsi bahasa, lalu panggil fungsi dengan hanya memberikan opsi itu."
       ],
       "hint": "Coba input tidak diberikan, undefined, dan 0; jangan menyamakan ketiganya.",
-      "recap": [
-        "Nol adalah nilai yang diberikan; hanya undefined yang memicu nilai bawaan ini."
-      ]
+      "recap": ["Nol adalah nilai yang diberikan; hanya undefined yang memicu nilai bawaan ini."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a language option and call the function with only that option."
-      ],
+      "practiceSteps": ["Add a language option and call the function with only that option."],
       "hint": "Try omitted input, undefined, and 0; do not treat them as identical.",
-      "recap": [
-        "Zero is a supplied value; only undefined triggers this default."
-      ]
+      "recap": ["Zero is a supplied value; only undefined triggers this default."]
     }
   },
   "js-recursion": {
@@ -969,18 +874,14 @@
         "Tulis ulang menjadi perulangan, lalu bandingkan ruang call stack yang dibutuhkan."
       ],
       "hint": "Apa yang menjadi lebih kecil pada setiap panggilan dan kapan kasus dasar tercapai?",
-      "recap": [
-        "Bagian sisanya semakin kecil pada setiap pemanggilan."
-      ]
+      "recap": ["Bagian sisanya semakin kecil pada setiap pemanggilan."]
     },
     "en": {
       "practiceSteps": [
         "Rewrite this as a loop and compare the amount of call-stack space needed."
       ],
       "hint": "What shrinks on each call and when is the base case reached?",
-      "recap": [
-        "The remaining suffix becomes smaller on every call."
-      ]
+      "recap": ["The remaining suffix becomes smaller on every call."]
     }
   },
   "js-this-arrow": {
@@ -989,58 +890,38 @@
         "Berikan metode yang sudah di-bind ke helper pemformat, lalu bandingkan dengan metode yang dilepas dari objeknya."
       ],
       "hint": "Bandingkan metode yang dipanggil melalui objek dengan metode yang dilepas; lihat penerima yang ditetapkan bind.",
-      "recap": [
-        "bind membuat fungsi dengan objek penerima tetap untuk pemanggilan biasa."
-      ]
+      "recap": ["bind membuat fungsi dengan objek penerima tetap untuk pemanggilan biasa."]
     },
     "en": {
       "practiceSteps": [
         "Pass a bound method into a formatting helper and compare it with a detached method."
       ],
       "hint": "Compare calling a method through its object with detaching it; inspect bind's receiver.",
-      "recap": [
-        "Bind creates a function with a fixed receiver for ordinary calls."
-      ]
+      "recap": ["Bind creates a function with a fixed receiver for ordinary calls."]
     }
   },
   "js-classes-prototypes": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan properti instance untuk id kursus dan metode yang membacanya."
-      ],
+      "practiceSteps": ["Tambahkan properti instance untuk id kursus dan metode yang membacanya."],
       "hint": "Periksa apakah metode dibuat pada setiap instance atau ditemukan melalui prototype.",
-      "recap": [
-        "Metode class biasa berada di prototype dan dipakai bersama oleh para instance."
-      ]
+      "recap": ["Metode class biasa berada di prototype dan dipakai bersama oleh para instance."]
     },
     "en": {
-      "practiceSteps": [
-        "Add an instance field for the course id and a method that reads it."
-      ],
+      "practiceSteps": ["Add an instance field for the course id and a method that reads it."],
       "hint": "Check whether methods are created per instance or found through the prototype.",
-      "recap": [
-        "Ordinary class methods live on the prototype and are shared by instances."
-      ]
+      "recap": ["Ordinary class methods live on the prototype and are shared by instances."]
     }
   },
   "js-microtasks": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan callback then kedua, lalu tebak seluruh urutan keluarannya."
-      ],
+      "practiceSteps": ["Tambahkan callback then kedua, lalu tebak seluruh urutan keluarannya."],
       "hint": "Selesaikan baris sinkron dahulu sebelum memproses callback Promise yang mengantre.",
-      "recap": [
-        "Stack sinkron mencetak A dan C sebelum reaksi Promise berjalan."
-      ]
+      "recap": ["Stack sinkron mencetak A dan C sebelum reaksi Promise berjalan."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a second then callback and predict the complete output order."
-      ],
+      "practiceSteps": ["Add a second then callback and predict the complete output order."],
       "hint": "Finish synchronous lines before processing queued Promise callbacks.",
-      "recap": [
-        "The synchronous stack logs A and C before the promise reaction runs."
-      ]
+      "recap": ["The synchronous stack logs A and C before the promise reaction runs."]
     }
   },
   "js-promise-chains": {
@@ -1058,9 +939,7 @@
         "Replace the first arrow expression with a block and preserve the explicit return."
       ],
       "hint": "A then return value becomes the next step's input. Trace each change.",
-      "recap": [
-        "Each successful callback passes its returned value into the next step."
-      ]
+      "recap": ["Each successful callback passes its returned value into the next step."]
     }
   },
   "js-promise-all": {
@@ -1069,18 +948,14 @@
         "Buat satu operasi ditolak, tangani kegagalan gabungannya, lalu jelaskan apa yang terjadi pada operasi lain."
       ],
       "hint": "Bedakan urutan promise selesai dengan posisi hasil dalam array input.",
-      "recap": [
-        "Promise.all mempertahankan posisi hasil sesuai posisi masukannya."
-      ]
+      "recap": ["Promise.all mempertahankan posisi hasil sesuai posisi masukannya."]
     },
     "en": {
       "practiceSteps": [
         "Make one operation reject, catch the combined failure, and explain what happens to the other operation."
       ],
       "hint": "Distinguish completion order from positions in the input array.",
-      "recap": [
-        "Promise.all preserves positional correspondence with its inputs."
-      ]
+      "recap": ["Promise.all preserves positional correspondence with its inputs."]
     }
   },
   "js-promise-allsettled": {
@@ -1089,18 +964,12 @@
         "Hitung pemuatan yang berhasil dan siapkan daftar percobaan ulang untuk yang gagal."
       ],
       "hint": "Baca status terlebih dahulu sebelum memilih properti hasil atau alasan gagal.",
-      "recap": [
-        "Status menentukan properti hasil mana yang tersedia."
-      ]
+      "recap": ["Status menentukan properti hasil mana yang tersedia."]
     },
     "en": {
-      "practiceSteps": [
-        "Count successful loads and prepare a retry list for failures."
-      ],
+      "practiceSteps": ["Count successful loads and prepare a retry list for failures."],
       "hint": "Read status before selecting the result or rejection property.",
-      "recap": [
-        "The status determines which outcome field is available."
-      ]
+      "recap": ["The status determines which outcome field is available."]
     }
   },
   "js-finally-cleanup": {
@@ -1109,18 +978,12 @@
         "Ganti kegagalan dengan keberhasilan dan pastikan busy kembali seperti semula di kedua jalur."
       ],
       "hint": "Telusuri jalur berhasil dan gagal; bagian mana menjadi jalur pembersihan bersama?",
-      "recap": [
-        "finally menyediakan jalur keluar bersama untuk pembersihan."
-      ]
+      "recap": ["finally menyediakan jalur keluar bersama untuk pembersihan."]
     },
     "en": {
-      "practiceSteps": [
-        "Replace the failure with success and confirm busy resets in both paths."
-      ],
+      "practiceSteps": ["Replace the failure with success and confirm busy resets in both paths."],
       "hint": "Trace success and failure paths; which is their shared cleanup path?",
-      "recap": [
-        "Finally provides a shared exit path for cleanup."
-      ]
+      "recap": ["Finally provides a shared exit path for cleanup."]
     }
   },
   "js-error-context": {
@@ -1129,9 +992,7 @@
         "Tambahkan error validasi bentuk data dan bedakan dari error sintaks JSON."
       ],
       "hint": "Pesan tingkat atas menjelaskan operasi, tetapi apa yang menyimpan penyebab awalnya?",
-      "recap": [
-        "Konteks dan penyebab awal membantu kamu menelusuri lapisan operasi yang berbeda."
-      ]
+      "recap": ["Konteks dan penyebab awal membantu kamu menelusuri lapisan operasi yang berbeda."]
     },
     "en": {
       "practiceSteps": [
@@ -1149,18 +1010,14 @@
         "Format nilai yang sama untuk dua locale sambil mempertahankannya sebagai angka dalam model data."
       ],
       "hint": "Bandingkan 0.375 sebagai pecahan dengan 37.5 sebagai angka yang sudah berbentuk persen.",
-      "recap": [
-        "Gaya percent mengalikan nilai pecahan agar tampil sebagai persentase."
-      ]
+      "recap": ["Gaya percent mengalikan nilai pecahan agar tampil sebagai persentase."]
     },
     "en": {
       "practiceSteps": [
         "Format the same value for two locales while preserving it as a number in the data model."
       ],
       "hint": "Compare 0.375 as a fraction with 37.5 as a number already expressed in percent.",
-      "recap": [
-        "Percent style scales a fractional numeric value for display."
-      ]
+      "recap": ["Percent style scales a fractional numeric value for display."]
     }
   },
   "js-regex-boundaries": {
@@ -1180,9 +1037,7 @@
         "Check \"HTML\", \"html-forms\", \"-CSS\", and \"React--State\"."
       ],
       "hint": "Add invalid characters before and after the matching part. Is the entire input checked?",
-      "recap": [
-        "Anchors prevent accepting only a valid substring of a larger invalid input."
-      ]
+      "recap": ["Anchors prevent accepting only a valid substring of a larger invalid input."]
     }
   }
 }

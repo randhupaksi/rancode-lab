@@ -6,17 +6,17 @@ Rancode Lab is a welcoming place to learn programming, one small step at a time.
 
 The recommended path contains **272 lessons, 9 checkpoints, and 9 stage projects**:
 
-| Stage | Lessons | Project |
-| --- | ---: | --- |
-| Logic & Problem Solving | 12 | Basket calculator |
-| Web & Developer Tools | 12 | First web workspace |
-| HTML | 32 | Semantic personal profile |
-| CSS | 36 | Responsive project gallery |
-| JavaScript | 40 | Study-task data model |
-| JavaScript in the Browser | 32 | Interactive study list |
-| React | 36 | Study list with components and state |
-| TypeScript | 36 | Typed study model and data states |
-| Next.js | 36 | Learning dashboard capstone |
+| Stage                     | Lessons | Project                              |
+| ------------------------- | ------: | ------------------------------------ |
+| Logic & Problem Solving   |      12 | Basket calculator                    |
+| Web & Developer Tools     |      12 | First web workspace                  |
+| HTML                      |      32 | Semantic personal profile            |
+| CSS                       |      36 | Responsive project gallery           |
+| JavaScript                |      40 | Study-task data model                |
+| JavaScript in the Browser |      32 | Interactive study list               |
+| React                     |      36 | Study list with components and state |
+| TypeScript                |      36 | Typed study model and data states    |
+| Next.js                   |      36 | Learning dashboard capstone          |
 
 Introductory modules lead into themed depth modules. The shorter logic and developer-tool stages stay focused instead of being padded to match the larger language courses. Each added lesson includes an explanation, an example, a practice prompt, a concept flow, and a knowledge check. Existing lesson ids remain stable so saved progress and links continue to work.
 
@@ -32,10 +32,10 @@ Checkpoints require every answer to be correct and provide explanations and link
 
 Companion paths are optional branches and keep their own lesson, checkpoint, and project progress. They do not add mandatory stages to the nine-stage frontend journey.
 
-| Path | Lessons | Modules | Suggested starting point | Project |
-| --- | ---: | ---: | --- | --- |
-| Tailwind CSS | 45 | 9 | HTML and CSS; framework foundations for React/Next.js examples | Responsive study space |
-| Vibe Coding | 24 | 6 | HTML, CSS, JavaScript, and browser basics for build exercises | Build and review Study Sprint |
+| Path         | Lessons | Modules | Suggested starting point                                       | Project                       |
+| ------------ | ------: | ------: | -------------------------------------------------------------- | ----------------------------- |
+| Tailwind CSS |      45 |       9 | HTML and CSS; framework foundations for React/Next.js examples | Responsive study space        |
+| Vibe Coding  |      24 |       6 | HTML, CSS, JavaScript, and browser basics for build exercises  | Build and review Study Sprint |
 
 The full catalog contains **341 lessons**. Tailwind appears on the home page, learning hub, CSS course, and framework courses, with its own route at `/learn/tailwind`. Its concepts, challenges, and examples also appear in search, Explore, the code reference, and the playground.
 
@@ -86,3 +86,7 @@ Use `npm run build` to type-check and create a production build, `npm run lint` 
 - Examples requiring network requests, persistent same-origin storage, external media, or Next.js server APIs use reading mode with local practice instructions. They do not claim to execute those capabilities inside the isolated preview.
 - `/projects` lists saved work. `/projects/:courseId` provides a project-specific interactive lab, notes, downloadable artifact, and self-review criteria. The first web workspace includes a three-file editor, live preview, DOM inspector, and clearly labeled Network and Git simulations. React has a sandboxed component preview; Tailwind compiles utilities in its lab; Vibe Coding combines a prompt builder with a runnable app; and the Next.js capstone simulates routes and data states.
 - Static hosts need an SPA history fallback for direct lesson URLs such as `/learn/react/react-state-events`.
+
+## Code formatting
+
+**npm run format** to format the repository with Prettier. **npm run format:check** checks formatting without changing files and runs as part of the local quality check and CI where configured.

@@ -1,17 +1,78 @@
-.lesson-reading { min-width: 0; }
-.lesson-reading p { margin: 0; }
-.lesson-reading h3 { margin: 0 0 .6rem; color: var(--foreground); font-size: .95rem; line-height: 1.5; }
-.lesson-reading ol, .lesson-reading ul { margin: 0; padding-inline-start: 1.65rem; }
-.lesson-reading ol { list-style: decimal outside; }
-.lesson-reading ul { list-style: disc outside; }
-.lesson-reading li { padding-inline-start: .35rem; }
-.lesson-reading li + li { margin-top: .65rem; }
-.lesson-reading li::marker { color: var(--primary); font-variant-numeric: tabular-nums; }
-.learning-inline-code { font-family: var(--font-mono, monospace); font-size: .9em; color: var(--foreground); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: .08em .3em; overflow-wrap: anywhere; }
-.learning-reading-note { border-inline-start: 2px solid var(--border); padding-inline-start: 1rem; }
-.lesson-practice-guide { display: grid; gap: 1rem; margin: 0 0 1.5rem; color: var(--muted); font-size: .9rem; line-height: 1.85; }
-.learning-expected strong { color: var(--foreground); font-weight: 500; }
-.learning-lab-note { font-size: .8rem; line-height: 1.8; }
-@media (max-width: 600px) { .lesson-reading ol, .lesson-reading ul { padding-inline-start: 1.35rem; } .lesson-reading li { padding-inline-start: .2rem; } }
+.lesson-reading {
+  min-width: 0;
+}
+.lesson-reading p {
+  margin: 0;
+}
+.lesson-reading h3 {
+  margin: 0 0 0.6rem;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.lesson-reading ol,
+.lesson-reading ul {
+  margin: 0;
+  padding-inline-start: 1.65rem;
+}
+.lesson-reading ol {
+  list-style: decimal outside;
+}
+.lesson-reading ul {
+  list-style: disc outside;
+}
+.lesson-reading li {
+  padding-inline-start: 0.35rem;
+}
+.lesson-reading li + li {
+  margin-top: 0.65rem;
+}
+.lesson-reading li::marker {
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.learning-inline-code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9em;
+  color: var(--foreground);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.08em 0.3em;
+  overflow-wrap: anywhere;
+}
+.learning-reading-note {
+  border-inline-start: 2px solid var(--border);
+  padding-inline-start: 1rem;
+}
+.lesson-practice-guide {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.85;
+}
+.learning-expected strong {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.learning-lab-note {
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .lesson-reading ol,
+  .lesson-reading ul {
+    padding-inline-start: 1.35rem;
+  }
+  .lesson-reading li {
+    padding-inline-start: 0.2rem;
+  }
+}
 
-.challenge-option > span:last-child { min-width: 0; color: var(--foreground); overflow-wrap: anywhere; }
+.challenge-option > span:last-child {
+  min-width: 0;
+  color: var(--foreground);
+  overflow-wrap: anywhere;
+}

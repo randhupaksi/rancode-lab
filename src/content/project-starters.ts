@@ -102,10 +102,13 @@ form?.addEventListener("submit", event => {
 render();
 </script>`
 
-export const studySprintProjectStarterId = studySprintProjectStarter.replaceAll(
-  'STUDY SPRINT · A SMALL PLAN FOR TODAY', 'STUDY SPRINT · RENCANA KECIL HARI INI',
-).replaceAll('Choose one thing to finish', 'Pilih satu hal untuk diselesaikan')
-  .replaceAll('Add a task, make progress, and keep the next step clear.', 'Tambahkan tugas, buat progres, dan jaga langkah berikutnya tetap jelas.')
+export const studySprintProjectStarterId = studySprintProjectStarter
+  .replaceAll('STUDY SPRINT · A SMALL PLAN FOR TODAY', 'STUDY SPRINT · RENCANA KECIL HARI INI')
+  .replaceAll('Choose one thing to finish', 'Pilih satu hal untuk diselesaikan')
+  .replaceAll(
+    'Add a task, make progress, and keep the next step clear.',
+    'Tambahkan tugas, buat progres, dan jaga langkah berikutnya tetap jelas.',
+  )
   .replaceAll('New study task', 'Tugas belajar baru')
   .replaceAll('For example, build a profile card', 'Contoh: buat kartu profil')
   .replaceAll('Add task', 'Tambah tugas')
@@ -209,7 +212,10 @@ export const nextProjectStarter = JSON.stringify({
   route: 'dashboard',
   dataState: 'success',
   slug: 'study-sprint',
-  tasks: [{ id: 1, title: 'Review one lesson', done: false }, { id: 2, title: 'Build a small feature', done: true }],
+  tasks: [
+    { id: 1, title: 'Review one lesson', done: false },
+    { id: 2, title: 'Build a small feature', done: true },
+  ],
 } satisfies NextProjectState)
 
 export const nextProjectStarterId = JSON.stringify({
@@ -217,5 +223,8 @@ export const nextProjectStarterId = JSON.stringify({
   route: 'dashboard',
   dataState: 'success',
   slug: 'study-sprint',
-  tasks: [{ id: 1, title: 'Tinjau satu pelajaran', done: false }, { id: 2, title: 'Buat fitur kecil', done: true }],
+  tasks: [
+    { id: 1, title: 'Tinjau satu pelajaran', done: false },
+    { id: 2, title: 'Buat fitur kecil', done: true },
+  ],
 } satisfies NextProjectState)

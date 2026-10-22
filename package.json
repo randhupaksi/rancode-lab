@@ -14,7 +14,9 @@
     "pretest": "npm run content:generate",
     "test": "node --test",
     "preview": "vite preview",
-    "check": "npm run lint && npm run build"
+    "check": "npm run lint && npm run format:check && npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@mdx-js/rollup": "^3.1.1",
@@ -24,6 +26,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.86.0",
+    "prettier": "3.9.10",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.2"

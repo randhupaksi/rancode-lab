@@ -415,18 +415,12 @@
         "Tambahkan satu item lagi, lalu bandingkan NodeList awal dengan hasil query baru."
       ],
       "hint": "Query dijalankan sebelum item baru ditambahkan. Bandingkan daftar tersimpan dengan query ulang.",
-      "recap": [
-        "NodeList statis mencerminkan dokumen saat query dijalankan."
-      ]
+      "recap": ["NodeList statis mencerminkan dokumen saat query dijalankan."]
     },
     "en": {
-      "practiceSteps": [
-        "Add another item and compare the original NodeList with a fresh query."
-      ],
+      "practiceSteps": ["Add another item and compare the original NodeList with a fresh query."],
       "hint": "The query runs before insertion. Compare the stored list with a fresh query.",
-      "recap": [
-        "The static NodeList reflects the document at query time."
-      ]
+      "recap": ["The static NodeList reflects the document at query time."]
     }
   },
   "browser-create-elements": {
@@ -435,18 +429,14 @@
         "Tambahkan judul yang mengandung kurung sudut dan pastikan karakter itu tetap tampil sebagai teks."
       ],
       "hint": "Bandingkan menulis teks secara harfiah dengan mengurai teks sebagai markup HTML.",
-      "recap": [
-        "textContent mengisi teks tanpa mengurai fragmen HTML."
-      ]
+      "recap": ["textContent mengisi teks tanpa mengurai fragmen HTML."]
     },
     "en": {
       "practiceSteps": [
         "Add a title containing an angle bracket and confirm it stays visible as text."
       ],
       "hint": "Compare writing literal text with parsing it as HTML markup.",
-      "recap": [
-        "TextContent sets text rather than parsing an HTML fragment."
-      ]
+      "recap": ["TextContent sets text rather than parsing an HTML fragment."]
     }
   },
   "browser-document-fragment": {
@@ -455,38 +445,26 @@
         "Buat kumpulan kedua dan periksa fragment sebelum serta sesudah ditambahkan."
       ],
       "hint": "Perhatikan apakah append menyalin anak atau memindahkan anak ke parent baru.",
-      "recap": [
-        "Menambahkan fragment memindahkan anak-anaknya, bukan menyalinnya."
-      ]
+      "recap": ["Menambahkan fragment memindahkan anak-anaknya, bukan menyalinnya."]
     },
     "en": {
       "practiceSteps": [
         "Create a second batch and inspect the fragment before and after appending."
       ],
       "hint": "Inspect whether append copies children or moves them to a new parent.",
-      "recap": [
-        "Appending a fragment moves its children rather than cloning them."
-      ]
+      "recap": ["Appending a fragment moves its children rather than cloning them."]
     }
   },
   "browser-classlist": {
     "id": {
-      "practiceSteps": [
-        "Tambahkan label status yang berasal dari variabel done yang sama."
-      ],
+      "practiceSteps": ["Tambahkan label status yang berasal dari variabel done yang sama."],
       "hint": "Coba force true dan false; bandingkan dengan toggle yang hanya membalik keadaan.",
-      "recap": [
-        "force membuat class yang ditampilkan sesuai dengan nilai state yang diberikan."
-      ]
+      "recap": ["force membuat class yang ditampilkan sesuai dengan nilai state yang diberikan."]
     },
     "en": {
-      "practiceSteps": [
-        "Add a status label derived from the same done variable."
-      ],
+      "practiceSteps": ["Add a status label derived from the same done variable."],
       "hint": "Try force true and false; compare with toggling by inversion only.",
-      "recap": [
-        "Force makes the rendered class agree with an explicit state value."
-      ]
+      "recap": ["Force makes the rendered class agree with an explicit state value."]
     }
   },
   "browser-attributes-properties": {
@@ -495,18 +473,12 @@
         "Edit kolom sebelum memeriksanya, lalu jelaskan kenapa kedua nilainya berbeda."
       ],
       "hint": "Ketik nilai baru, lalu bandingkan atribut awal dengan properti input saat ini.",
-      "recap": [
-        "Properti terkini mengikuti state kontrol saat ini."
-      ]
+      "recap": ["Properti terkini mengikuti state kontrol saat ini."]
     },
     "en": {
-      "practiceSteps": [
-        "Edit the field before inspecting and explain why the two values differ."
-      ],
+      "practiceSteps": ["Edit the field before inspecting and explain why the two values differ."],
       "hint": "Type a new value and compare the initial attribute with the current input property.",
-      "recap": [
-        "The live property tracks the control’s current state."
-      ]
+      "recap": ["The live property tracks the control’s current state."]
     }
   },
   "browser-event-delegation": {
@@ -524,9 +496,7 @@
         "Append a third button after registering the listener and confirm it works."
       ],
       "hint": "Click text or icons inside a button; the original target may differ from the intended button.",
-      "recap": [
-        "Closest walks toward ancestors to find the intended interactive element."
-      ]
+      "recap": ["Closest walks toward ancestors to find the intended interactive element."]
     }
   },
   "browser-event-propagation": {
@@ -553,13 +523,9 @@
   },
   "browser-prevent-default": {
     "id": {
-      "practiceSteps": [
-        "Kirim dengan Enter dari dalam input, lalu bandingkan dengan klik tombol."
-      ],
+      "practiceSteps": ["Kirim dengan Enter dari dalam input, lalu bandingkan dengan klik tombol."],
       "hint": "Coba mengirim form dengan Enter, bukan hanya klik tombol. Event mana mewakili keduanya?",
-      "recap": [
-        "submit mewakili aksi pengiriman form, apa pun metode input yang memicunya."
-      ]
+      "recap": ["submit mewakili aksi pengiriman form, apa pun metode input yang memicunya."]
     },
     "en": {
       "practiceSteps": [
@@ -597,18 +563,12 @@
         "Coba kode yang tidak valid, perbaiki, lalu pastikan error khususnya hilang."
       ],
       "hint": "Setelah koreksi, periksa apakah pesan khusus masih berisi teks.",
-      "recap": [
-        "Pesan apa pun yang tidak kosong membuat kontrol tetap tidak valid."
-      ]
+      "recap": ["Pesan apa pun yang tidak kosong membuat kontrol tetap tidak valid."]
     },
     "en": {
-      "practiceSteps": [
-        "Try an invalid code, fix it, and confirm the custom error clears."
-      ],
+      "practiceSteps": ["Try an invalid code, fix it, and confirm the custom error clears."],
       "hint": "After correction, check whether the custom message still contains text.",
-      "recap": [
-        "Any nonempty message keeps the control invalid."
-      ]
+      "recap": ["Any nonempty message keeps the control invalid."]
     }
   },
   "browser-focus-management": {
@@ -637,18 +597,14 @@
         "Pastikan / bisa diketik seperti biasa di dalam kolom, lalu rancang opsi untuk menonaktifkan pintasannya."
       ],
       "hint": "Apa yang terjadi jika karakter pintasan diketik saat pengguna mengisi textarea?",
-      "recap": [
-        "Pintasan tidak boleh mengambil karakter yang sedang diketik pengguna."
-      ]
+      "recap": ["Pintasan tidak boleh mengambil karakter yang sedang diketik pengguna."]
     },
     "en": {
       "practiceSteps": [
         "Confirm / types normally inside the field, then design an option to disable the shortcut."
       ],
       "hint": "What happens when the shortcut character is typed in a textarea?",
-      "recap": [
-        "A shortcut must not steal characters from the user’s current text input."
-      ]
+      "recap": ["A shortcut must not steal characters from the user’s current text input."]
     }
   },
   "browser-debounce": {
@@ -668,9 +624,7 @@
         "Add a reset button that cancels the pending timer too."
       ],
       "hint": "Each input cancels the previous timer. When can the last timer finish?",
-      "recap": [
-        "The timer restarts for each input, so work runs after the quiet interval."
-      ]
+      "recap": ["The timer restarts for each input, so work runs after the quiet interval."]
     }
   },
   "browser-throttle": {
@@ -679,18 +633,14 @@
         "Bandingkan klik cepat dengan contoh debounce dan jelaskan pembaruan akhir yang tidak terjadi."
       ],
       "hint": "Bandingkan waktu event baru dengan waktu pembaruan terakhir dan intervalnya.",
-      "recap": [
-        "Pemeriksaan waktu menerima event di awal hanya setelah interval berlalu."
-      ]
+      "recap": ["Pemeriksaan waktu menerima event di awal hanya setelah interval berlalu."]
     },
     "en": {
       "practiceSteps": [
         "Compare rapid clicks with the debounce example and describe the missing trailing update."
       ],
       "hint": "Compare a new event's time with the last update and interval.",
-      "recap": [
-        "The time guard accepts a leading event only after the interval has elapsed."
-      ]
+      "recap": ["The time guard accepts a leading event only after the interval has elapsed."]
     }
   },
   "browser-fetch-status": {
@@ -699,18 +649,14 @@
         "Simulasikan respons 404, JSON tidak valid, dan respons berhasil dengan struktur data yang salah di aplikasi lokal."
       ],
       "hint": "Bedakan menerima respons HTTP gagal dengan gagal menerima respons akibat jaringan.",
-      "recap": [
-        "Kegagalan HTTP dan kegagalan jaringan adalah hasil yang berbeda dalam API fetch."
-      ]
+      "recap": ["Kegagalan HTTP dan kegagalan jaringan adalah hasil yang berbeda dalam API fetch."]
     },
     "en": {
       "practiceSteps": [
         "Simulate a 404, invalid JSON, and a successful but wrong-shaped response locally."
       ],
       "hint": "Distinguish receiving a failed HTTP response from not receiving one due to network failure.",
-      "recap": [
-        "HTTP failure and network failure are different outcomes in the fetch API."
-      ]
+      "recap": ["HTTP failure and network failure are different outcomes in the fetch API."]
     }
   },
   "browser-url-parameters": {
@@ -719,18 +665,14 @@
         "Coba nilai course yang tidak dikenal dan periksa bagaimana tanda & di dalam query dikodekan."
       ],
       "hint": "Ubah query secara manual di address bar; apakah nilai itu pasti tersedia dalam data aplikasi?",
-      "recap": [
-        "URL adalah input dari luar dan bisa diedit tanpa melalui antarmuka."
-      ]
+      "recap": ["URL adalah input dari luar dan bisa diedit tanpa melalui antarmuka."]
     },
     "en": {
       "practiceSteps": [
         "Try an unknown course value and inspect how an ampersand in the query is encoded."
       ],
       "hint": "Edit the query manually; is that value guaranteed to exist in application data?",
-      "recap": [
-        "URLs are external input and can be edited independently of the interface."
-      ]
+      "recap": ["URLs are external input and can be edited independently of the interface."]
     }
   },
   "browser-abort-requests": {
@@ -739,14 +681,10 @@
         "Hubungkan pembatalan dengan pembersihan tampilan di aplikasi lokal yang memiliki endpoint sungguhan."
       ],
       "hint": "Membatalkan penantian client berbeda dari membatalkan pekerjaan server yang sudah dilakukan.",
-      "recap": [
-        "Pembatalan menghentikan keterlibatan klien; ini bukan rollback transaksi."
-      ]
+      "recap": ["Pembatalan menghentikan keterlibatan klien; ini bukan rollback transaksi."]
     },
     "en": {
-      "practiceSteps": [
-        "Wire cancellation to a view cleanup in a local app with a real endpoint."
-      ],
+      "practiceSteps": ["Wire cancellation to a view cleanup in a local app with a real endpoint."],
       "hint": "Canceling client waiting differs from undoing completed server work.",
       "recap": [
         "Cancellation stops the client’s participation; it is not a transactional rollback."
@@ -764,9 +702,7 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Click slow then fast; remove the id guard and observe the stale result."
-      ],
+      "practiceSteps": ["Click slow then fast; remove the id guard and observe the stale result."],
       "hint": "Try a slow old request and fast new one; which result matches the current user choice?",
       "recap": [
         "The latest user intent should own the visible result, regardless of response timing."
@@ -788,9 +724,7 @@
         "Save malformed JSON and an unknown theme value, then confirm both recover safely."
       ],
       "hint": "Try malformed JSON and unknown shapes. How can the UI remain usable?",
-      "recap": [
-        "Persistence is an optional boundary that should not make the interface unusable."
-      ]
+      "recap": ["Persistence is an optional boundary that should not make the interface unusable."]
     }
   },
   "browser-storage-events": {
@@ -830,9 +764,7 @@
         "Resize the element without resizing the whole window, then stop observing."
       ],
       "hint": "Narrow an element without resizing the viewport; which size change matters?",
-      "recap": [
-        "It reports sizing changes for observed elements rather than only viewport events."
-      ]
+      "recap": ["It reports sizing changes for observed elements rather than only viewport events."]
     }
   },
   "browser-intersection-observer": {
@@ -842,9 +774,7 @@
         "Lalu ubah threshold menjadi [0, 1] dan amati seberapa sering persentasenya diperbarui."
       ],
       "hint": "Terlihat di viewport berarti posisi geometris memenuhi syarat, bukan bukti pengguna sudah membaca.",
-      "recap": [
-        "Terlihat secara geometris bukan berarti diperhatikan atau dipahami."
-      ]
+      "recap": ["Terlihat secara geometris bukan berarti diperhatikan atau dipahami."]
     },
     "en": {
       "practiceSteps": [
@@ -852,9 +782,7 @@
         "Then change thresholds to [0, 1] and observe how often the percentage updates."
       ],
       "hint": "Viewport visibility meets a geometric condition, not proof that users read it.",
-      "recap": [
-        "Geometric visibility is not evidence of attention or comprehension."
-      ]
+      "recap": ["Geometric visibility is not evidence of attention or comprehension."]
     }
   },
   "browser-animation-frame": {
@@ -872,9 +800,7 @@
         "Change duration without changing the total distance, then test reduced motion."
       ],
       "hint": "Compare frame counts on fast and slow devices over the same duration.",
-      "recap": [
-        "Time-based progress keeps duration independent of the number of rendered frames."
-      ]
+      "recap": ["Time-based progress keeps duration independent of the number of rendered frames."]
     }
   },
   "browser-history-navigation": {
@@ -883,18 +809,14 @@
         "Lakukan navigasi dua kali, gunakan tombol Kembali, lalu muat ulang URL bertingkat dan periksa fallback servermu."
       ],
       "hint": "Setelah pushState, periksa apakah isi UI berubah sendiri atau perlu dirender aplikasi.",
-      "recap": [
-        "Perubahan riwayat dan render aplikasi adalah tanggung jawab yang terpisah."
-      ]
+      "recap": ["Perubahan riwayat dan render aplikasi adalah tanggung jawab yang terpisah."]
     },
     "en": {
       "practiceSteps": [
         "Navigate twice, use Back, then refresh a nested URL and inspect your server fallback."
       ],
       "hint": "After pushState, inspect whether content changes itself or requires application rendering.",
-      "recap": [
-        "History changes and application rendering are separate responsibilities."
-      ]
+      "recap": ["History changes and application rendering are separate responsibilities."]
     }
   },
   "browser-listener-cleanup": {
@@ -903,18 +825,12 @@
         "Lepaskan listener dan pastikan klik berikutnya tidak lagi memperbarui hitungan."
       ],
       "hint": "Cocokkan signal saat pendaftaran listener dengan controller yang kemudian dibatalkan.",
-      "recap": [
-        "Masa aktif listener terikat pada signal yang diberikan."
-      ]
+      "recap": ["Masa aktif listener terikat pada signal yang diberikan."]
     },
     "en": {
-      "practiceSteps": [
-        "Detach the listener and confirm later clicks no longer update the count."
-      ],
+      "practiceSteps": ["Detach the listener and confirm later clicks no longer update the count."],
       "hint": "Match the listener's registration signal with the controller later aborted.",
-      "recap": [
-        "The listener lifetime is tied to the supplied signal."
-      ]
+      "recap": ["The listener lifetime is tied to the supplied signal."]
     }
   },
   "browser-feature-detection": {
@@ -932,9 +848,7 @@
         "Design a copy-to-clipboard action with selectable text as a fallback for unavailable or denied access."
       ],
       "hint": "Is the needed API available? A browser name alone does not answer that.",
-      "recap": [
-        "A concrete capability check is closer to the operation the feature needs."
-      ]
+      "recap": ["A concrete capability check is closer to the operation the feature needs."]
     }
   }
 }

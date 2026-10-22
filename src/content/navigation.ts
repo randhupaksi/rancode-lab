@@ -10,6 +10,12 @@ for (const lesson of lessons) {
   group.push(lesson)
   lessonsByCourse.set(lesson.courseId, group)
 }
-export function getLesson(id: string | undefined) { return id ? lessonById.get(id) : undefined }
-export function getCourseLessons(id: string) { return lessonsByCourse.get(id) ?? [] }
-export function lessonPath(lesson: LessonSummary) { return `/learn/${lesson.courseId}/${lesson.id}` }
+export function getLesson(id: string | undefined) {
+  return id ? lessonById.get(id) : undefined
+}
+export function getCourseLessons(id: string) {
+  return lessonsByCourse.get(id) ?? []
+}
+export function lessonPath(lesson: LessonSummary) {
+  return `/learn/${lesson.courseId}/${lesson.id}`
+}

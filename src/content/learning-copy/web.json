@@ -271,22 +271,14 @@
   },
   "web-url-parts": {
     "id": {
-      "practiceSteps": [
-        "Ubah satu bagian setiap kali mencoba, lalu tebak nilai tiap propertinya."
-      ],
+      "practiceSteps": ["Ubah satu bagian setiap kali mencoba, lalu tebak nilai tiap propertinya."],
       "hint": "Pisahkan alamat sebelum dan sesudah #. Bagian mana yang dipakai untuk memilih lokasi di dalam halaman?",
-      "recap": [
-        "Fragment dibaca oleh client setelah alamat resource ditentukan."
-      ]
+      "recap": ["Fragment dibaca oleh client setelah alamat resource ditentukan."]
     },
     "en": {
-      "practiceSteps": [
-        "Change one part at a time and predict each property."
-      ],
+      "practiceSteps": ["Change one part at a time and predict each property."],
       "hint": "Separate the address before and after #. Which part selects a location within the page?",
-      "recap": [
-        "Fragments are interpreted by the client after the resource is addressed."
-      ]
+      "recap": ["Fragments are interpreted by the client after the resource is addressed."]
     }
   },
   "web-http-status": {
@@ -295,18 +287,12 @@
         "Buat pesan yang sesuai untuk pengguna saat menerima 404 dan saat terjadi error 500 sementara."
       ],
       "hint": "Periksa status respons, lalu isi datanya. Keduanya memberi informasi berbeda.",
-      "recap": [
-        "Respons error juga bisa berisi JSON terstruktur."
-      ]
+      "recap": ["Respons error juga bisa berisi JSON terstruktur."]
     },
     "en": {
-      "practiceSteps": [
-        "Describe an appropriate user message for 404 and for a temporary 500."
-      ],
+      "practiceSteps": ["Describe an appropriate user message for 404 and for a temporary 500."],
       "hint": "Check response status and then its body. They provide different information.",
-      "recap": [
-        "Error responses can also contain structured JSON."
-      ]
+      "recap": ["Error responses can also contain structured JSON."]
     }
   },
   "web-client-server": {
@@ -336,9 +322,7 @@
         "Jelaskan apa yang terjadi jika prosesnya berhenti."
       ],
       "hint": "Bandingkan membuka localhost di komputermu dengan membukanya di komputer teman.",
-      "recap": [
-        "Alamat loopback menjangkau layanan di komputer yang sedang kamu gunakan."
-      ]
+      "recap": ["Alamat loopback menjangkau layanan di komputer yang sedang kamu gunakan."]
     },
     "en": {
       "practiceSteps": [
@@ -346,31 +330,19 @@
         "Explain what happens if the process stops."
       ],
       "hint": "Compare opening localhost on your computer with opening it on a friend's computer.",
-      "recap": [
-        "The loopback address reaches services on the current computer."
-      ]
+      "recap": ["The loopback address reaches services on the current computer."]
     }
   },
   "web-packages": {
     "id": {
-      "practiceSteps": [
-        "Temukan script dev dan build di sebuah proyek.",
-        "Jelaskan perbedaannya."
-      ],
+      "practiceSteps": ["Temukan script dev dan build di sebuah proyek.", "Jelaskan perbedaannya."],
       "hint": "Temukan nama dev pada bagian scripts di package.json, lalu baca perintah yang dipetakan.",
-      "recap": [
-        "npm mencari nama script yang diminta di manifest proyek."
-      ]
+      "recap": ["npm mencari nama script yang diminta di manifest proyek."]
     },
     "en": {
-      "practiceSteps": [
-        "Find the dev and build scripts in a project.",
-        "Explain how they differ."
-      ],
+      "practiceSteps": ["Find the dev and build scripts in a project.", "Explain how they differ."],
       "hint": "Find dev in package.json scripts and read the command mapped to it.",
-      "recap": [
-        "npm resolves the requested script name using the project manifest."
-      ]
+      "recap": ["npm resolves the requested script name using the project manifest."]
     }
   },
   "web-breakpoints": {
@@ -380,9 +352,7 @@
         "Ubah input yang dimaksud menjadi angka, lalu bandingkan hasilnya."
       ],
       "hint": "Periksa typeof untuk kedua operand sebelum operasi +. Apakah keduanya angka?",
-      "recap": [
-        "Input string mengubah arti + dari penjumlahan menjadi penggabungan teks."
-      ]
+      "recap": ["Input string mengubah arti + dari penjumlahan menjadi penggabungan teks."]
     },
     "en": {
       "practiceSteps": [
@@ -390,9 +360,7 @@
         "Convert the intended numeric input and compare the result."
       ],
       "hint": "Inspect typeof for both operands before +. Are both numbers?",
-      "recap": [
-        "The string input changes the meaning of + from addition to concatenation."
-      ]
+      "recap": ["The string input changes the meaning of + from addition to concatenation."]
     }
   },
   "web-read-docs": {
@@ -406,13 +374,9 @@
       ]
     },
     "en": {
-      "practiceSteps": [
-        "Use the official reference to explain the result when nothing matches."
-      ],
+      "practiceSteps": ["Use the official reference to explain the result when nothing matches."],
       "hint": "Try matching and missing data. Distinguish item values from item positions.",
-      "recap": [
-        "find returns a matching value or undefined; findIndex returns a position or -1."
-      ]
+      "recap": ["find returns a matching value or undefined; findIndex returns a position or -1."]
     }
   },
   "web-publishing": {

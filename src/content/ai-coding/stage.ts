@@ -4,12 +4,15 @@ import { studySprintProjectStarter, studySprintProjectStarterId } from '../proje
 
 export const aiCodingStage: JourneyStage = {
   courseId: 'ai-coding',
-  outcome: 'Write a clear brief, guide an agent through a small build, and review the working result.',
-  bridge: 'Use this workflow in a frontend project you understand. Revisit the relevant framework foundations before expanding the app.',
+  outcome:
+    'Write a clear brief, guide an agent through a small build, and review the working result.',
+  bridge:
+    'Use this workflow in a frontend project you understand. Revisit the relevant framework foundations before expanding the app.',
   project: {
     title: 'Build and review Study Sprint',
     mode: 'vibe',
-    brief: 'Shape a focused brief for Study Sprint, take it to an AI coding agent you choose, then build and review the working app in Rancode. The prompt is not sent automatically.',
+    brief:
+      'Shape a focused brief for Study Sprint, take it to an AI coding agent you choose, then build and review the working app in Rancode. The prompt is not sent automatically.',
     starter: studySprintProjectStarter,
     steps: [
       'Describe the user, moment, outcome, first-version scope, visual direction, and checks in the prompt brief.',
@@ -28,18 +31,35 @@ export const aiCodingStage: JourneyStage = {
       'My notes describe what I actually reviewed and one next improvement.',
     ],
   },
-  checkpoint: ['ai-agent-role', 'ai-context-budget', 'ai-avoid-slop', 'ai-debugging', 'ai-behavior-checks', 'ai-capstone'].map(id => {
+  checkpoint: [
+    'ai-agent-role',
+    'ai-context-budget',
+    'ai-avoid-slop',
+    'ai-debugging',
+    'ai-behavior-checks',
+    'ai-capstone',
+  ].map(id => {
     const lesson = aiCodingLessons.find(item => item.id === id)!
-    return { id: id + '-checkpoint', lessonId: id, prompt: lesson.challenge.prompt, options: lesson.challenge.options!, answer: lesson.challenge.answer, explanation: lesson.challenge.explanation }
+    return {
+      id: id + '-checkpoint',
+      lessonId: id,
+      prompt: lesson.challenge.prompt,
+      options: lesson.challenge.options!,
+      answer: lesson.challenge.answer,
+      explanation: lesson.challenge.explanation,
+    }
   }),
 }
 
 export const aiCodingStageCopyId = {
-  outcome: 'Tulis brief yang jelas, arahkan agent saat membangun aplikasi kecil, dan tinjau hasil yang benar-benar bekerja.',
-  bridge: 'Pakai alur ini di proyek frontend yang kamu pahami. Pelajari fondasi framework yang relevan sebelum memperluas aplikasinya.',
+  outcome:
+    'Tulis brief yang jelas, arahkan agent saat membangun aplikasi kecil, dan tinjau hasil yang benar-benar bekerja.',
+  bridge:
+    'Pakai alur ini di proyek frontend yang kamu pahami. Pelajari fondasi framework yang relevan sebelum memperluas aplikasinya.',
   project: {
     title: 'Bangun dan tinjau Study Sprint',
-    brief: 'Susun brief yang terarah untuk Study Sprint, bawa ke AI coding agent pilihanmu, lalu bangun dan tinjau aplikasi yang berfungsi di Rancode. Prompt tidak dikirim otomatis.',
+    brief:
+      'Susun brief yang terarah untuk Study Sprint, bawa ke AI coding agent pilihanmu, lalu bangun dan tinjau aplikasi yang berfungsi di Rancode. Prompt tidak dikirim otomatis.',
     starter: studySprintProjectStarterId,
     steps: [
       'Jelaskan pengguna, momen, tujuan, cakupan awal, arah visual, dan pemeriksaan di brief prompt.',
@@ -58,4 +78,6 @@ export const aiCodingStageCopyId = {
       'Catatanku menjelaskan hal yang benar-benar ditinjau dan satu perbaikan berikutnya.',
     ],
   },
-} satisfies Pick<JourneyStage, 'outcome' | 'bridge'> & { project: Omit<JourneyStage['project'], 'mode'> }
+} satisfies Pick<JourneyStage, 'outcome' | 'bridge'> & {
+  project: Omit<JourneyStage['project'], 'mode'>
+}

@@ -4,9 +4,11 @@ import test from 'node:test'
 import ts from 'typescript-browser'
 import { readCompilerLibraries } from '../../../scripts/compiler-libraries.mjs'
 
-async function loadSource(relativePath, transform = (value) => value) {
+async function loadSource(relativePath, transform = value => value) {
   const source = transform(await readFile(new URL(relativePath, import.meta.url), 'utf8'))
-  const { outputText } = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } })
+  const { outputText } = ts.transpileModule(source, {
+    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+  })
   return import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`)
 }
 
@@ -14,10 +16,22 @@ test('compiler provides real literals, standard library inference, generics, and
   globalThis.__rancodeLabTestCompiler = ts
   globalThis.__rancodeLabTestLibraries = Object.fromEntries(await readCompilerLibraries())
   let response
-  globalThis.self = { postMessage: (message) => { response = message } }
-  await loadSource('./typescript.worker.ts', (source) => source
-    .replace("import ts from 'typescript-browser'", 'const ts = globalThis.__rancodeLabTestCompiler')
-    .replace("import rawLibraries from '../../generated/compiler-libraries'", 'const rawLibraries = globalThis.__rancodeLabTestLibraries'))
+  globalThis.self = {
+    postMessage: message => {
+      response = message
+    },
+  }
+  await loadSource('./typescript.worker.ts', source =>
+    source
+      .replace(
+        "import ts from 'typescript-browser'",
+        'const ts = globalThis.__rancodeLabTestCompiler',
+      )
+      .replace(
+        "import rawLibraries from '../../generated/compiler-libraries'",
+        'const rawLibraries = globalThis.__rancodeLabTestLibraries',
+      ),
+  )
 
   function analyze(code, symbols = []) {
     self.onmessage({ data: { id: 1, code, symbols } })
@@ -25,13 +39,24 @@ test('compiler provides real literals, standard library inference, generics, and
     return response.result
   }
 
-  const inferred = analyze('const greeting = "hello"; let count = 3; const names = ["Ada"]; const upper = names.map(name => name.toUpperCase());', ['greeting', 'count', 'upper'])
+  const inferred = analyze(
+    'const greeting = "hello"; let count = 3; const names = ["Ada"]; const upper = names.map(name => name.toUpperCase());',
+    ['greeting', 'count', 'upper'],
+  )
   assert.deepEqual(inferred.diagnostics, [])
-  assert.deepEqual(inferred.types.map(({ name, type }) => ({ name, type })), [
-    { name: 'greeting', type: '"hello"' }, { name: 'count', type: 'number' }, { name: 'upper', type: 'string[]' },
-  ])
+  assert.deepEqual(
+    inferred.types.map(({ name, type }) => ({ name, type })),
+    [
+      { name: 'greeting', type: '"hello"' },
+      { name: 'count', type: 'number' },
+      { name: 'upper', type: 'string[]' },
+    ],
+  )
 
-  const generic = analyze('function first<T>(items: T[]): T | undefined { return items[0]; } const item = first([1, 2]);', ['item'])
+  const generic = analyze(
+    'function first<T>(items: T[]): T | undefined { return items[0]; } const item = first([1, 2]);',
+    ['item'],
+  )
   assert.equal(generic.types[0].type, 'number | undefined')
   assert.deepEqual(generic.diagnostics, [])
 
@@ -41,9 +66,16 @@ test('compiler provides real literals, standard library inference, generics, and
   assert.equal(invalid.diagnostics[0].category, 'error')
   assert.match(invalid.diagnostics[0].message, /not assignable/)
 
-  assert.ok(analyze('const item: number = null;').diagnostics.some(({ code }) => code === 2322), 'strict null checking must be enabled')
+  assert.ok(
+    analyze('const item: number = null;').diagnostics.some(({ code }) => code === 2322),
+    'strict null checking must be enabled',
+  )
   assert.ok(analyze('const = ;').diagnostics.length, 'malformed syntax must not silently pass')
-  assert.equal(analyze('const value: number = 2;').javascript.includes(': number'), false, 'emitted code must erase annotations')
+  assert.equal(
+    analyze('const value: number = 2;').javascript.includes(': number'),
+    false,
+    'emitted code must erase annotations',
+  )
   delete globalThis.self
   delete globalThis.__rancodeLabTestCompiler
   delete globalThis.__rancodeLabTestLibraries
@@ -61,7 +93,17 @@ test('console formatter handles circular values, bigints, errors, and output lim
   assert.match(format(circular), /2n/)
   assert.equal(format('a'.repeat(5000)).length, 2000)
   assert.equal(format(Object.create(null)), '{}')
-  assert.equal(format({ toJSON() { throw new Error('broken') }, toString() { throw new Error('also broken') } }), '[Unprintable value]')
+  assert.equal(
+    format({
+      toJSON() {
+        throw new Error('broken')
+      },
+      toString() {
+        throw new Error('also broken')
+      },
+    }),
+    '[Unprintable value]',
+  )
 })
 
 test('analysis client maps out-of-order responses to the correct request and rejects oversized input', async () => {
@@ -69,24 +111,42 @@ test('analysis client maps out-of-order responses to the correct request and rej
   let instance
   class TestWorker {
     messages = []
-    constructor() { instance = this }
-    postMessage(message) { this.messages.push(message) }
+    constructor() {
+      instance = this
+    }
+    postMessage(message) {
+      this.messages.push(message)
+    }
     terminate() {}
   }
   globalThis.Worker = TestWorker
   try {
-    const { analyzeCode } = await loadSource('./client.ts', (source) => source.replace("new URL('./typescript.worker.ts', import.meta.url)", "'test-worker'"))
+    const { analyzeCode } = await loadSource('./client.ts', source =>
+      source.replace("new URL('./typescript.worker.ts', import.meta.url)", "'test-worker'"),
+    )
     const first = analyzeCode('const first = 1')
     const second = analyzeCode('const second = 2')
     const firstId = instance.messages[0].id
     const secondId = instance.messages[1].id
-    instance.onmessage({ data: { id: 999, result: { diagnostics: [], types: [], javascript: '' } } })
-    const secondResult = { diagnostics: [], types: [{ name: 'second', type: '2', explanation: '' }], javascript: 'const second = 2;' }
+    instance.onmessage({
+      data: { id: 999, result: { diagnostics: [], types: [], javascript: '' } },
+    })
+    const secondResult = {
+      diagnostics: [],
+      types: [{ name: 'second', type: '2', explanation: '' }],
+      javascript: 'const second = 2;',
+    }
     instance.onmessage({ data: { id: secondId, result: secondResult } })
     assert.deepEqual(await second, secondResult)
-    const firstResult = { diagnostics: [], types: [{ name: 'first', type: '1', explanation: '' }], javascript: 'const first = 1;' }
+    const firstResult = {
+      diagnostics: [],
+      types: [{ name: 'first', type: '1', explanation: '' }],
+      javascript: 'const first = 1;',
+    }
     instance.onmessage({ data: { id: firstId, result: firstResult } })
     assert.deepEqual(await first, firstResult)
     await assert.rejects(analyzeCode('a'.repeat(50_001)), /50,000/)
-  } finally { globalThis.Worker = originalWorker }
+  } finally {
+    globalThis.Worker = originalWorker
+  }
 })

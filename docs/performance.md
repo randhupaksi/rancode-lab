@@ -2,13 +2,13 @@
 
 Measured with the same local production build and dependency installation on 2026-10-03. Decimal kB/MB are used below. These are artifact sizes, not measured browser latency or Core Web Vitals.
 
-| Metric | Before | After | Change |
-| --- | ---: | ---: | ---: |
-| Home JavaScript, complete static graph, gzip | 254.7 kB | 132.7 kB | −47.9% |
-| Home JavaScript, uncompressed | 802.4 kB | 435.4 kB | −45.7% |
-| TypeScript worker, uncompressed | 7.29 MB | 6.31 MB | −13.4% |
-| Emitted font assets | 146.9 kB / 11 files | 52.5 kB / 2 files | −64.2% |
-| Initially rendered reference examples | 281 | 24 | −91.5% |
+| Metric                                       |              Before |             After | Change |
+| -------------------------------------------- | ------------------: | ----------------: | -----: |
+| Home JavaScript, complete static graph, gzip |            254.7 kB |          132.7 kB | −47.9% |
+| Home JavaScript, uncompressed                |            802.4 kB |          435.4 kB | −45.7% |
+| TypeScript worker, uncompressed              |             7.29 MB |           6.31 MB | −13.4% |
+| Emitted font assets                          | 146.9 kB / 11 files | 52.5 kB / 2 files | −64.2% |
+| Initially rendered reference examples        |                 281 |                24 | −91.5% |
 
 Font totals describe emitted assets; the browser previously selected subsets using Unicode ranges, so the reduction is not equivalent to every visitor's font transfer savings. Reference counts describe bounded rendering, not a measured frame-time improvement.
 
@@ -48,15 +48,15 @@ The previous remaining full-curriculum boundary has now been replaced for browse
 
 Measured from production artifacts and the full manifest dependency graph. KB below means 1,000 bytes; these are payload sizes, not browser timing measurements.
 
-| Loading cost | Before this pass | After this pass |
-| --- | ---: | ---: |
-| Home static JavaScript, gzip | 140,143 bytes | 121,138 bytes |
-| Home static JavaScript, raw | 451,942 bytes | 384,260 bytes |
-| Home initial CSS, gzip | approximately 16.4 KB | 6,964 bytes |
-| Home initial CSS, raw | approximately 81.1 KB | 28,747 bytes |
-| Home static JavaScript files | 8 | 4 |
-| Curriculum data needed for roadmap/course overview, gzip | shared 386.9 KB curriculum/localization bundle | 36.7 KB EN / 52.5 KB ID metadata |
-| Curriculum data needed for TypeScript reading, gzip | shared 386.9 KB curriculum/localization bundle | 74.4 KB EN / 91.1 KB ID metadata + selected course |
+| Loading cost                                             |                               Before this pass |                                    After this pass |
+| -------------------------------------------------------- | ---------------------------------------------: | -------------------------------------------------: |
+| Home static JavaScript, gzip                             |                                  140,143 bytes |                                      121,138 bytes |
+| Home static JavaScript, raw                              |                                  451,942 bytes |                                      384,260 bytes |
+| Home initial CSS, gzip                                   |                          approximately 16.4 KB |                                        6,964 bytes |
+| Home initial CSS, raw                                    |                          approximately 81.1 KB |                                       28,747 bytes |
+| Home static JavaScript files                             |                                              8 |                                                  4 |
+| Curriculum data needed for roadmap/course overview, gzip | shared 386.9 KB curriculum/localization bundle |                   36.7 KB EN / 52.5 KB ID metadata |
+| Curriculum data needed for TypeScript reading, gzip      | shared 386.9 KB curriculum/localization bundle | 74.4 KB EN / 91.1 KB ID metadata + selected course |
 
 Curriculum rows compare data requirements, excluding the common UI, optional editors, and compiler. The old journey-localization chunk is also excluded from the baseline, so this is a conservative comparison of the heavy curriculum boundary. Gzip measurements are computed locally; the deployment may negotiate Brotli instead.
 

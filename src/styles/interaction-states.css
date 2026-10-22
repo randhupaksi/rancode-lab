@@ -18,14 +18,17 @@ button.text-link:enabled:not([aria-disabled='true']):focus-visible {
   color: var(--primary);
 }
 
-:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:hover,
-:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:focus-visible {
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3)
+  a[href]:hover,
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3)
+  a[href]:focus-visible {
   color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3) a[href]:active {
+:is(.site-footer, .lesson-breadcrumb, .path-sequence-item, .cheatsheet-entry h3, .journey-stage h3)
+  a[href]:active {
   color: var(--foreground);
 }
 
@@ -35,7 +38,7 @@ button.text-link:enabled:not([aria-disabled='true']):focus-visible {
 }
 
 .brand:active .brand-mark {
-  scale: .96;
+  scale: 0.96;
 }
 
 .primary-nav > a:hover,
@@ -53,13 +56,14 @@ button.text-link:enabled:not([aria-disabled='true']):focus-visible {
 
 /* Clickable rows and cards: background feedback without moving surrounding content. */
 /* Keep row content inset from the hover surface so text and arrows do not hug its edge. */
-body :is(
-  .resume-strip,
-  .home-learning-track,
-  .project-index-row,
-  .course-preview > a:not(.text-link),
-  .module-lessons a
-) {
+body
+  :is(
+    .resume-strip,
+    .home-learning-track,
+    .project-index-row,
+    .course-preview > a:not(.text-link),
+    .module-lessons a
+  ) {
   padding-inline: clamp(12px, 1.4vw, 18px);
   border-radius: var(--radius);
 }
@@ -82,7 +86,11 @@ body .lesson-pagination > div > a {
   .related-concepts a,
   .lesson-pagination > div > a:not(.text-link)
 ) {
-  transition: background-color .15s, border-color .15s, color .15s, filter .12s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    filter 0.12s;
 }
 
 :is(
@@ -120,32 +128,34 @@ body .lesson-pagination > div > a {
 
 /* Tabs, symbol inspectors, and segmented controls keep their current selection. */
 :is(
-  .project-file-tabs,
-  .project-tool-tabs,
-  .segmented-control,
-  .next-task-filters,
-  .demo-tabs,
-  .value-options,
-  .inspector-symbols,
-  .inspector-tree,
-  .mobile-graph-transitions
-) button:enabled:not([aria-disabled='true']):is(:hover, :focus-visible) {
+    .project-file-tabs,
+    .project-tool-tabs,
+    .segmented-control,
+    .next-task-filters,
+    .demo-tabs,
+    .value-options,
+    .inspector-symbols,
+    .inspector-tree,
+    .mobile-graph-transitions
+  )
+  button:enabled:not([aria-disabled='true']):is(:hover, :focus-visible) {
   background-color: var(--interaction-hover-surface);
   border-color: var(--interaction-hover-border);
   color: var(--foreground);
 }
 
 :is(
-  .project-file-tabs,
-  .project-tool-tabs,
-  .segmented-control,
-  .next-task-filters,
-  .demo-tabs,
-  .value-options,
-  .inspector-symbols,
-  .inspector-tree,
-  .mobile-graph-transitions
-) button:enabled:not([aria-disabled='true']):active {
+    .project-file-tabs,
+    .project-tool-tabs,
+    .segmented-control,
+    .next-task-filters,
+    .demo-tabs,
+    .value-options,
+    .inspector-symbols,
+    .inspector-tree,
+    .mobile-graph-transitions
+  )
+  button:enabled:not([aria-disabled='true']):active {
   background-color: var(--interaction-pressed-surface);
   border-color: var(--interaction-pressed-border);
   color: var(--primary);
@@ -197,7 +207,7 @@ a.button:not([aria-disabled='true']):active,
 }
 
 .select-item[data-disabled] {
-  opacity: .45;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
@@ -274,12 +284,24 @@ summary:active {
 }
 
 /* Radio and checkbox labels: the whole option is clickable, so highlight the whole option. */
-:is(.challenge-option, .checkpoint-option, .project-criteria label, .challenge-hide-completed, .next-task-list label):has(input:enabled):is(:hover, :focus-within) {
+:is(
+    .challenge-option,
+    .checkpoint-option,
+    .project-criteria label,
+    .challenge-hide-completed,
+    .next-task-list label
+  ):has(input:enabled):is(:hover, :focus-within) {
   background-color: var(--interaction-hover-surface);
   border-color: var(--interaction-hover-border);
 }
 
-:is(.challenge-option, .checkpoint-option, .project-criteria label, .challenge-hide-completed, .next-task-list label):has(input:enabled):active {
+:is(
+    .challenge-option,
+    .checkpoint-option,
+    .project-criteria label,
+    .challenge-hide-completed,
+    .next-task-list label
+  ):has(input:enabled):active {
   background-color: var(--interaction-pressed-surface);
   border-color: var(--interaction-pressed-border);
 }
@@ -297,7 +319,7 @@ input:is([type='checkbox'], [type='radio'], [type='range']):enabled {
 }
 
 input:is([type='checkbox'], [type='radio'], [type='range']):enabled:active {
-  filter: brightness(.85);
+  filter: brightness(0.85);
 }
 
 /* SVG graph controls must keep their geometry while responding to a press. */

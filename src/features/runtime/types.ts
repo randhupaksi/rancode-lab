@@ -24,4 +24,5 @@ export interface AnalysisRequest {
   symbols: string[]
 }
 
-export type AnalysisResponse = { id: number; result: AnalysisResult } | { id: number; error: string }
+export type AnalysisResponse =
+  { id: number; result: AnalysisResult } | { id: number; error: string }
