@@ -78,6 +78,7 @@ Use `npm run build` to type-check and create a production build, `npm run lint` 
 ## Architecture notes
 
 - Course data lives in `src/content/`. `index.ts` is the public catalog and owns course-aware lookup helpers.
+- React and Next.js course seeds, expansion lessons, practice copy, and answer distractors live in `src/content/framework/`; `framework-courses.ts` assembles their existing public catalog.
 - `src/content/foundations/` owns introductory lessons. `src/content/journey.ts` defines stage outcomes, project briefs, and checkpoint questions. `src/features/journey/` owns onboarding, recommendations, and milestone UI.
 - `src/content/expansion/` owns the additional themed modules, with separate course files and a shared data adapter. The public catalog numbers modules within each course and includes expanded material in lessons, challenges, reference, and search.
 - Each lesson follows Explain → Visualize → Play → Challenge → Recap.
