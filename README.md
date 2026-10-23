@@ -2,6 +2,10 @@
 
 Rancode Lab is a welcoming place to learn programming, one small step at a time. Start with the fundamentals, build your first web pages, then grow into React and Next.js through clear learning paths, hands-on coding, and practical challenges. Explore at your own pace and build confidence with every project.
 
+## Documentation
+
+The contributor and system documentation is mapped in [docs/INDEX.md](docs/INDEX.md). It explains architecture, generated curriculum data, localization and progress contracts, lab safety boundaries, and operational checks.
+
 ## Learning journey
 
 The recommended path contains **272 lessons, 9 checkpoints, and 9 stage projects**:
